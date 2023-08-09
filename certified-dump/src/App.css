@@ -6,9 +6,7 @@
 --green-500: #264b20;
 --green-100: #e3efe1;
 }
-.App{
-  text-align: center;
-}
+
 *{
   margin: 0;
   padding: 0;
@@ -16,9 +14,13 @@
   font-family:'JOST';
 }
 
+.App{
+  text-align: center;
+}
+
 /* first-nav */
 .first-nav {
-  background-color: black;
+  background-color:var(--black);
   color: rgba(255, 255, 255, 0.623);
 }
 
@@ -34,7 +36,7 @@
   margin-left: 1rem;
 }
 .border-left {
-  border-right: 2px solid white;
+  border-right: 2px solid var(--white);
   height: 3vh;
   margin-top: 6px;
 }

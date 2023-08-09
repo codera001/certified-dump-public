@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import NavigationBar from "./NavigationBar";
-import amazon from "../component/static/amazon.png";
+import NavigationBar from "../NavigationBar";
+import amazon from "../static/amazon.png";
 import microsoft from "../component/static/microsoft.png";
 import juniper from "../component/static/juniper.png";
 import vmare from "../component/static/vmare.png";
