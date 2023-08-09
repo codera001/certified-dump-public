@@ -8,7 +8,7 @@ import isaca from "../component/static/isaca.png";
 import salesforce from "../component/static/salesforce.png";
 import cisco from "../component/static/cisco.png";
 import google from "../component/static/google.png";
-import schoolGirl from "../component/static/schoolGirl.jpg";
+import study from "../component/static/study.png";
 
 function Main() {
   return (  
@@ -142,7 +142,7 @@ function Main() {
       <section className="section-three">
         <div className="d-flex " style={{height:"50vh"}} >
           <div className="image w-50" style={{height:"50vh"}}>
-          <img width= "100%" src={schoolGirl}  style={{height:"inherit"}} />
+          <img width= "100%" src={study}  style={{height:"inherit"}} />
           </div>
 
           <div className="text w-50">
