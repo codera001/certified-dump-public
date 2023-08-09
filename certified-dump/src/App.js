@@ -1,13 +1,13 @@
 import { Routes, Route, Router } from "react-router-dom";
-import './App.css';
+import "./App.css";
 import Main from "./component/Main";
 
 function App() {
   return (
     <div className="App">
-<main>
-  <Main/>
-</main>
+      <main>
+        <Main />
+      </main>
     </div>
   );
 }

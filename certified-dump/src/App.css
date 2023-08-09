@@ -6,7 +6,9 @@
 --green-500: #264b20;
 --green-100: #e3efe1;
 }
-
+.App{
+  text-align: center;
+}
 *{
   margin: 0;
   padding: 0;
