@@ -1,6 +1,7 @@
 .user-nav {
   position: fixed;
 background: var(--primary-color);
+/* background-color: black; */
 z-index: 10;
 width: 100%;
 }
