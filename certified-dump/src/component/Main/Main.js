@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import NavigationBar from "../NavigationBar";
 import amazon from "../static/amazon.png";
-import microsoft from "../component/static/microsoft.png";
-import juniper from "../component/static/juniper.png";
-import vmare from "../component/static/vmare.png";
-import isaca from "../component/static/isaca.png";
-import salesforce from "../component/static/salesforce.png";
-import cisco from "../component/static/cisco.png";
-import google from "../component/static/google.png";
-import study from "../component/static/study.png";
+import microsoft from "../static/microsoft.png";
+import juniper from "../static/juniper.png";
+import vmare from "../static/vmare.png";
+import isaca from "../static/isaca.png";
+import salesforce from "../static/salesforce.png";
+import cisco from "../static/cisco.png";
+import google from "../static/google.png";
+import study from "../static/study.png";
 import { FaAngleDown } from "react-icons/fa";
-
+import './Main.css'
 function Main() {
   return (
     <>
