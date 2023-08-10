@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavigationBar from "../NavigationBar";
 import amazon from "../static/amazon.png";
 import microsoft from "../static/microsoft.png";
@@ -60,18 +60,18 @@ function Main() {
           </p>
         </div>
 
-        <div class="row mb-5 align-items-center " style={{margin:"auto", width:"80%"}}>
-          <div class="col-sm-2 col-sm-offset-1 mx-4" >
-            <div class="card card-block text-xs-center align-items-center" style={{width:"200px", height:"170px"}}>
+        <div className="row mb-5 align-items-center " style={{margin:"auto", width:"80%"}}>
+          <div className="col-sm-2 col-sm-offset-1 mx-4" >
+            <div className="card card-block text-xs-center align-items-center" style={{width:"200px", height:"170px"}}>
               <img width="190px" height="140px" src={microsoft}   style={{ borderBottom:"2px solid #ff5607"}}/>
            
-              <a href="#" class="card-text">
+              <a href="#" className="card-text">
                 View more
               </a>
             </div>
           </div>
-          <div class=" col-sm-2 mx-4">
-            <div class="card card-block text-xs-center align-items-center" style={{width:"200px", height:"170px"}}>
+          <div className=" col-sm-2 mx-4">
+            <div className="card card-block text-xs-center align-items-center" style={{width:"200px", height:"170px"}}>
               <img
                 width="190px"
                 height="140px"
@@ -79,13 +79,13 @@ function Main() {
                 style={{ borderBottom:"2px solid #ff5607"}}
               />
               
-              <a href="#" class="card-text">
+              <a href="#" className="card-text">
                 View more
               </a>
             </div>
           </div>
-          <div class=" col-sm-2 mx-4">
-            <div class="card card-block text-xs-center align-items-center" style={{width:"200px", height:"170px"}}>
+          <div className=" col-sm-2 mx-4">
+            <div className="card card-block text-xs-center align-items-center" style={{width:"200px", height:"170px"}}>
               <img
                 width="190px"
                 height="140px"
@@ -93,55 +93,55 @@ function Main() {
                 style={{ borderBottom:"2px solid #ff5607"}}
               />
            
-              <a href="#" class="card-text">
+              <a href="#" className="card-text">
                 View more
               </a>
             </div>
           </div>
-          <div class=" col-sm-2 mx-4">
-            <div class="card card-block text-xs-center align-items-center" style={{width:"200px", height:"170px"}}>
+          <div className=" col-sm-2 mx-4">
+            <div className="card card-block text-xs-center align-items-center" style={{width:"200px", height:"170px"}}>
               <img width="190px" height="140px" src={juniper} style={{ borderBottom:"2px solid #ff5607"}} />
           
-              <a href="#" class="card-text">
+              <a href="#" className="card-text">
                 View more
               </a>
             </div>
           </div>
         </div>
 
-        <div class="row"  style={{margin:"auto", width:"80%"}}>
-          <div class=" col-sm-2 col-sm-offset-1 mx-4">
-            <div class="card card-block text-xs-center align-items-center" style={{width:"200px", height:"170px"}}>
+        <div className="row"  style={{margin:"auto", width:"80%"}}>
+          <div className=" col-sm-2 col-sm-offset-1 mx-4">
+            <div className="card card-block text-xs-center align-items-center" style={{width:"200px", height:"170px"}}>
               <img width="200px" height="200px" src={vmare} style={{ borderBottom:"2px solid #ff5607"}} />
      
-              <a href="#" class="card-text">
+              <a href="#" className="card-text">
                 View more
               </a>
             </div>
           </div>
-          <div class=" col-sm-2 mx-4">
-            <div class="card card-block text-xs-center align-items-center " style={{width:"200px", height:"170px"}}>
+          <div className=" col-sm-2 mx-4">
+            <div className="card card-block text-xs-center align-items-center " style={{width:"200px", height:"170px"}}>
               <img width="200px" height="200px" src={cisco} style={{ borderBottom:"2px solid #ff5607"}} />
              
-              <a href="#" class="card-text">
+              <a href="#" className="card-text">
                 View more
               </a>
             </div>
           </div>
-          <div class=" col-sm-2 mx-4">
-            <div class="card card-block text-xs-center align-items-center" style={{width:"200px", height:"170px"}}>
+          <div className=" col-sm-2 mx-4">
+            <div className="card card-block text-xs-center align-items-center" style={{width:"200px", height:"170px"}}>
               <img width="200px" height="200px" src={salesforce} style={{ borderBottom:"2px solid #ff5607"}}/>
              
-              <a href="#" class="card-text">
+              <a href="#" className="card-text">
                 View more
               </a>
             </div>
           </div>
-          <div class=" col-sm-2 mx-4">
-            <div class="card card-block text-xs-center align-items-center" style={{width:"200px", height:"170px"}}>
+          <div className=" col-sm-2 mx-4">
+            <div className="card card-block text-xs-center align-items-center" style={{width:"200px", height:"170px"}}>
               <img width="200px" height="200px" src={isaca} style={{ borderBottom:"2px solid #ff5607"}} />
              
-              <a href="#" class="card-text">
+              <a href="#" className="card-text">
                 View more
               </a>
             </div>
