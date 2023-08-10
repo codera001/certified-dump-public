@@ -5,11 +5,11 @@ export const sideMenu = [
   {
     title: 'Overview',
     icon: <GrOverview />,
-    path: "/dashboard/overview",
+    path: "/dashboard",
   },
   {
     title: 'Profile',
     icon: <BiUserCircle />,
-    path: "/dashboard/profile",
+    path: "/profile",
   },
 ]
