@@ -1,0 +1,5 @@
+.user-nav {
+  position: fixed;
+background: var(--primary-color);
+z-index: 10;
+}

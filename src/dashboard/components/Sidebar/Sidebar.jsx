@@ -1,8 +1,9 @@
 import React from 'react'
+import "./Sidebar.css"
 
 const Sidebar = () => {
   return (
-    <div>I am the side kick</div>
+    <div className='sidebar'>I am the side kick</div>
   )
 }
 

@@ -1,0 +1,10 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  flex: 0 0 30rem;
+  max-width: 40rem;
+  height: 100vh;
+  z-index: 100;
+  background: var(--green-100);
+  
+}
