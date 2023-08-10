@@ -2,6 +2,44 @@
   position: fixed;
 background: var(--primary-color);
 /* background-color: black; */
-z-index: 10;
+z-index: 100;
 width: 100%;
 }
+
+.user-nav-items, .nav-cta, .nav-balance{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-nav-items {
+padding: 10px 20px;
+}
+
+.nav-logo {
+  width: 20%;
+}
+
+.nav-cta{
+  background-color: var(--white);
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid var(--black);
+  width: 100%;
+  max-width: 24%;
+}
+
+.windows-img {
+  width: 15%;
+}
+
+.nav-balance {
+  width: 100%;
+  max-width: 20%;
+  margin-left: auto;
+}
+
+.nav-balance > div{
+  width: 50%;
+}
+

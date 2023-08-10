@@ -1,0 +1,11 @@
+.secondary-btn {
+  all: unset;
+  background-color: var(--secondary-color);
+  width: 100%;
+  text-align: center;
+}
+
+.secondary-btn:hover {
+  background-color: var(--hover-color);
+  color: white;
+}

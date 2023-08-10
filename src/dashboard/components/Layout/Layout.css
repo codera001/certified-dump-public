@@ -8,6 +8,11 @@
   /* height: 100vh; */
 }
 
+p{
+margin: 0;
+padding: 0;
+}
+
 .inner {
   display: flex;
   justify-content: between;
