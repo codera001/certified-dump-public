@@ -4,7 +4,7 @@ import "./Profile.css";
 const Profile = () => {
   return (
     <Layout>
-      <div>This is the profile page</div>
+      <div className="profile-wrapper">This is the profile page</div>
     </Layout>
   );
 };
