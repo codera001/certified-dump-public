@@ -10,8 +10,10 @@ const Layout = ({ children }) => {
     <>
       <div className="layout">
         <Nav />
-        <Sidebar />
-        <main className="children">{children}</main>
+        <div className="inner">
+          <Sidebar />
+          <main className="children user-scroll">{children}</main>
+        </div>
       </div>
       <Footer />
     </>

@@ -1,5 +1,4 @@
 .overview {
-  overflow: auto;
-  background: var(--secondary-color);
+  /* background: var(--secondary-color); */
   width: 360px;
 }

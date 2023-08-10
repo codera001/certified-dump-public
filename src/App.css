@@ -18,6 +18,17 @@
   text-align: center;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.user-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.user-scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 /* first-nav */
 .first-nav {
   background-color:var(--black);
