@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap');
+
 :root {
 --primary-color:  #aec7aa;
 --secondary-color: #fea800;
 --hover-color: #fec700;
+--light-text-color: #777a76;
 --white: #ffffff;
 --black: #000000;
 --green-100: #e3efe1;
@@ -12,7 +15,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:'JOST';
+  font-family: 'Jost', sans-serif;
 }
 
 .App{

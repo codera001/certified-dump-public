@@ -3,6 +3,8 @@
   background-color: var(--secondary-color);
   width: 100%;
   text-align: center;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .secondary-btn:hover {

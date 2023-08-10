@@ -1,45 +1,75 @@
 .user-nav {
   position: fixed;
-background: var(--primary-color);
-/* background-color: black; */
-z-index: 100;
-width: 100%;
+  background: var(--primary-color);
+  /* background-color: black; */
+  z-index: 100;
+  width: 100%;
 }
 
-.user-nav-items, .nav-cta, .nav-balance{
+.user-nav-items,
+.nav-balance {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .user-nav-items {
-padding: 10px 20px;
+  padding: 5px 20px;
 }
 
 .nav-logo {
-  width: 20%;
+  width: 18%;
 }
 
-.nav-cta{
+.nav-cta {
   background-color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 20px;
   padding: 10px;
   border-radius: 15px;
   border: 1px solid var(--black);
   width: 100%;
-  max-width: 24%;
+  max-width: 30%;
 }
 
 .windows-img {
   width: 15%;
 }
 
-.nav-balance {
-  width: 100%;
-  max-width: 20%;
-  margin-left: auto;
+.nav-cta p:nth-child(2) {
+  color: var(--light-text-color);
 }
 
-.nav-balance > div{
+.nav-balance {
+  width: 100%;
+  max-width: 15%;
+  margin-left: auto;
+  background-color: var(--white);
+  padding: 10px;
+  border: 1px solid var(--black);
+  border-radius: 15px;
+}
+
+.nav-balance > div {
   width: 50%;
 }
 
+.nav-balance Button {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.nav-balance .price p:nth-child(2) {
+  font-weight: 700;
+}
+
+.nav-balance .price p:nth-child(1) {
+  color: var(--light-text-color);
+}
+.user-dropdown {
+  color: var(--green-100);
+}

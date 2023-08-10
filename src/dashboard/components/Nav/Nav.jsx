@@ -3,6 +3,9 @@ import "./Nav.css";
 import logo from "../../images/logo.png";
 import windows from "../../images/windows.png";
 import { Button } from "../Button/Button";
+import { BiUserCircle } from "react-icons/bi";
+import { PiCaretDownLight } from "react-icons/pi";
+import { MdOutlinePayment } from "react-icons/md";
 
 const Nav = () => {
   return (
@@ -21,17 +24,18 @@ const Nav = () => {
           </div>
         </div>
         <div className="nav-balance">
-          <div>
+          <div className="price">
             <p>Balance:</p>
             <p>6.14$</p>
           </div>
           <Button>
-            <span>texts</span>
-            <span></span>
+            <span><MdOutlinePayment /></span>
+            <span>Top up</span>
           </Button>
         </div>
-        <div>
-          
+        <div className="user-dropdown">
+          <BiUserCircle style={{ fontSize: "50px" }} />
+          <PiCaretDownLight style={{ fontSize: "20px" }} />
         </div>
       </div>
     </nav>
