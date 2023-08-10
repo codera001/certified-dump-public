@@ -3,7 +3,7 @@ import "./Nav.css";
 import logo from "../../images/logo.png";
 import windows from "../../images/windows.png";
 import { Button } from "../Button/Button";
-import { BiLogOutCircle, BiUser, BiUserCheck, BiUserCircle } from "react-icons/bi";
+import { BiLogOutCircle, BiUserCheck, BiUserCircle } from "react-icons/bi";
 import { PiCaretDownLight } from "react-icons/pi";
 import { MdOutlinePayment } from "react-icons/md";
 import { Outlet, Link } from "react-router-dom";

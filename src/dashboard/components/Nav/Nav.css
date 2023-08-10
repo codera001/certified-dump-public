@@ -93,7 +93,7 @@
   gap: 10px;
   width: 200px;
   z-index: 100;
-  transition: all 0.8s ease-in-out;
+  transition: var(--transition-all);
   box-shadow: var(--box-shadow);
 }
 
@@ -116,7 +116,7 @@
   gap: 10px;
   width: 100%;
   padding: 10px 0;
-  transition: background 0.5s ease-in-out;
+  transition: var(--transition-bg);
   align-items: center; 
 }
 

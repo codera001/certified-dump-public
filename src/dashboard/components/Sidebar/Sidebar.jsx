@@ -1,20 +1,32 @@
-import React from 'react'
-import "./Sidebar.css"
+import React from "react";
+import "./Sidebar.css";
+import logo from "../../images/logo.png";
+import { sideMenu } from "./SideMenu";
+import { Outlet, Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className='sidebar'>I am the side kick
-      <p>It is i</p>
-      <p>It is i</p>
-      <p>It is i</p>
-      <p>It is i</p>
-      <p>It is i</p>
-      <p>It is i</p>
-      <p>It is i</p>
-      <p>It is i</p>
-      <p>It is i</p>
-    </div>
-  )
-}
+    <>
+      <aside className="user-sidebar">
+        <div className="sidebar-inner">
+          <div>
+            <img src={logo} alt="logo" />
+          </div>
+          <div className="sidebar-menu">
+            {sideMenu.map((menu, index) => {
+              return (
+                <Link to={menu.path} key={index}>
+                  <span>{menu.icon}</span>
+                  <span>{menu.title}</span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </aside>
+      <Outlet />
+    </>
+  );
+};
 
-export default Sidebar
+export default Sidebar;

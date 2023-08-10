@@ -1,10 +1,7 @@
-.sidebar {
-  /* position: fixed; */
-  /* left: 0; */
+.user-sidebar {
   flex: 0 0 20rem;
-  /* max-width: 18rem; */
   height: 100vh;
-  /* z-index: 100; */
   width: 100%;
-  background: var(--green-100);
+  /* background: var(--green-100); */
+  background: var(--primary-color);
 }

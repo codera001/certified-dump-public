@@ -12,6 +12,8 @@
 --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 --link-text: 1.2rem;
 --ptext2: 1.5rem;
+--transition-all: all 0.8s ease-in-out;
+--transition-bg: background 0.5s ease-in-out;
 }
 
 *{
@@ -30,6 +32,7 @@ img {
 }
 
 a {
+  all: unset;
   text-decoration: none;
 }
 
