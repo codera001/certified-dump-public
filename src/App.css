@@ -1,12 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap');
+
 :root {
 --primary-color:  #aec7aa;
 --secondary-color: #fea800;
---tertiary-color:#ffaa33;
+  --hover-color: #fec700;
+--light-text-color: #777a76;
+  --tertiary-color:#ffaa33;
 --post-tertiary-color:#ff5607;
---white: #ffffff;
---black: #000000;
---green-500: #4b5320;
 --green-100: #e3efe1;
+  --white: #ffffff;
+--black: #000000;
+  --green-500: #4b5320;
+--green-600: #264b20;
+--box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+--link-text: 1.2rem;
+--ptext2: 1.5rem;
+--transition-all: all 0.8s ease-in-out;
+--transition-bg: background 0.5s ease-in-out;
 }
 
 
@@ -14,13 +24,78 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:'JOST';
+  font-family: 'Jost', sans-serif;
 }
 
 .App{
   text-align: center;
 }
 
+
+img {
+  width: 100%;
+}
+
+a {
+  all: unset;
+  text-decoration: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.user-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.user-scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* first-nav */
+.first-nav {
+  background-color:var(--black);
+  color: rgba(255, 255, 255, 0.623);
+}
+
+.brand {
+  font-size: 16px;
+}
+
+.nav-list {
+  font-size: 14px;
+}
+.icon {
+  margin-top: 8px;
+  margin-left: 1rem;
+}
+.border-left {
+  border-right: 2px solid var(--white);
+  height: 3vh;
+  margin-top: 6px;
+}
+.button-one {
+ border: 1px solid #ffaa33; 
+ border-radius:10px ;
+ padding: 0 0.4rem;
+ font-weight: bolder;
+ background-color: rgba(255, 255, 255, 0.801);
+ font-size: 18px;
+}
+.button-two {
+  background-color: #ffaa33;
+  padding: 0rem 1.5rem;
+  border-radius: 10px;
+  margin-left: 2rem;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: bolder;
+}
+/* section-one */
+/* .section-one{
+background: url('/certified-dunp/public/main\ 2.png');
+} */
 
 
 
