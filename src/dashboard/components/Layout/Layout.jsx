@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="layout">
-        <Nav />
+        {/* <Nav /> */}
         <div className="inner">
           <Sidebar />
           <main className="children user-scroll">{children}</main>

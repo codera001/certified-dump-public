@@ -8,7 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Overview from "./dashboard/overview/Overview";
-import Profile from "./dashboard/components/Profile/Profile";
+import Profile from "./dashboard/profile/Profile";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

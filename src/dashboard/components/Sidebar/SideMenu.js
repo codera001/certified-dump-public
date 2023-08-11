@@ -1,6 +1,8 @@
 import { GrOverview } from "react-icons/gr"
 import { BiUserCircle } from "react-icons/bi";
 
+// MdOutlineSettingsPower
+
 export const sideMenu = [
   {
     title: 'Overview',
