@@ -125,3 +125,9 @@
   color: var(--white);
   border-radius: 10px;
 }
+
+@media screen and (max-width: 320px){
+  .nav-logo, .nav-cta{
+   display: none;
+  }
+}
