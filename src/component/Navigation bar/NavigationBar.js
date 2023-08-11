@@ -1,12 +1,12 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+// import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { AiFillHome } from "react-icons/ai";
 import { RiFacebookFill, RiMailSendLine } from "react-icons/ri";
 import { TbBrandTwitterFilled } from "react-icons/tb";
-import { FaInstagramSquare } from "react-icons/fa";
+// import { FaInstagramSquare } from "react-icons/fa";
 // import {BiMailSend  } from "react-icons/bi";
 import './NavigationBar.css';
 import logo from "../static/logo.png";
@@ -49,6 +49,7 @@ function NavigationBar() {
               <RiFacebookFill color="blue" className="icon" />
               <TbBrandTwitterFilled color="blue" className="icon" />
               <img
+                alt=""
                 width="20px"
                 height="20px"
                 src={instagram}
@@ -62,6 +63,7 @@ function NavigationBar() {
       <div className="container d-flex justify-content-between align-items-center mt-5">
         <div>
           <img
+            alt=""
             width="190px"
             height="140px"
             src={logo}
