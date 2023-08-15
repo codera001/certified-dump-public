@@ -132,7 +132,7 @@ function NavigationBar() {
                 BLOG AREA
               </Nav.Link>
               <Nav.Link
-                href="#pricing"
+                href="providers"
                 className="nav-links "
               >
                 CONTACT US
