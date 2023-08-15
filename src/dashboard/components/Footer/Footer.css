@@ -1,5 +1,6 @@
 .footer {
   background: var(--green-100);
   width: 100%;
+  padding: 10px;
   /* z-index: 100; */
 }

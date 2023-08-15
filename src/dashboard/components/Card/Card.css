@@ -21,6 +21,7 @@
 
 .card-img {
   overflow: hidden;
+  border-radius: 0;
 }
 
 .card-img img {

@@ -1,4 +1,4 @@
-.cards {
+.lib-cards {
   display: grid;
   grid-template-columns: repeat(1, 200px);
   grid-gap: 5px;
@@ -8,13 +8,13 @@
 }
 
 @media screen and (min-width: 500px) {
-  .cards {
+  .lib-cards {
     grid-template-columns: repeat(3, 200px);
   }
 }
 
 @media screen and (min-width: 850px) {
-  .cards {
+  .lib-cards {
     grid-template-columns: repeat(4, 150px);
   }
 }

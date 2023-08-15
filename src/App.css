@@ -46,7 +46,7 @@ a {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .user-scroll {
-  -ms-overflow-style: none; /* IE and Edge */
+  -ms-overflow-style: none; /*IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
 
@@ -67,11 +67,13 @@ a {
   margin-top: 8px;
   margin-left: 1rem;
 }
+
 .border-left {
   border-right: 2px solid var(--white);
   height: 3vh;
   margin-top: 6px;
 }
+
 .button-one {
   border: 1px solid #ffaa33;
   border-radius: 10px;
@@ -80,6 +82,7 @@ a {
   background-color: rgba(255, 255, 255, 0.801);
   font-size: 18px;
 }
+
 .button-two {
   background-color: #ffaa33;
   padding: 0rem 1.5rem;
@@ -90,7 +93,3 @@ a {
   font-size: 18px;
   font-weight: bolder;
 }
-/* section-one */
-/* .section-one{
-background: url('/certified-dunp/public/main\ 2.png');
-} */

@@ -1,5 +1,5 @@
 import React from "react";
-// import Nav from "../Nav/Nav";
+import Nav from "../Nav/Nav";
 import Sidebar from "../Sidebar/Sidebar";
 import Footer from "../Footer/Footer";
 import "./Layout.css";
@@ -9,7 +9,8 @@ const Layout = ({ children }) => {
     <>
       <div className="layout">
         {/* <Nav /> */}
-        <div className="inner">
+        {/* some texts */}
+        <div className="inner-layout">
           <Sidebar />
           <main className="children user-scroll">{children}</main>
         </div>

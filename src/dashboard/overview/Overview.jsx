@@ -10,7 +10,7 @@ const Overview = () => {
       <div className="overview">
         <h2>Your Books</h2>
         <div className="overview-wrapper">
-          <div className="cards">
+          <div className="overview-cards">
             {books.map((book, index) => (
               <Card
                 key={index}
