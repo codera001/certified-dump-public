@@ -10,6 +10,7 @@
   --green-100: #e3efe1;
   --white: #ffffff;
   --black: #000000;
+  --green-400:#52682d;
   --green-500: #4b5320;
   --green-600: #264b20;
   --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -24,6 +25,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Jost", sans-serif;
+}
+
+a:hover{
+  color: blue;
 }
 
 .App {
@@ -49,48 +54,13 @@ a {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-
-/* first-nav */
-.first-nav {
-  background-color: var(--black);
-  color: rgba(255, 255, 255, 0.623);
-}
-
-.brand {
-  font-size: 16px;
-}
-
-.nav-list {
-  font-size: 14px;
-}
-.icon {
-  margin-top: 8px;
-  margin-left: 1rem;
-}
-.border-left {
-  border-right: 2px solid var(--white);
-  height: 3vh;
-  margin-top: 6px;
-}
-.button-one {
-  border: 1px solid #ffaa33;
-  border-radius: 10px;
-  padding: 0 0.4rem;
-  font-weight: bolder;
-  background-color: rgba(255, 255, 255, 0.801);
-  font-size: 18px;
-}
-.button-two {
-  background-color: #ffaa33;
-  padding: 0rem 1.5rem;
-  border-radius: 10px;
-  margin-left: 2rem;
+.button {
   color: white;
-  border: none;
-  font-size: 18px;
-  font-weight: bolder;
 }
-/* section-one */
-/* .section-one{
-background: url('/certified-dunp/public/main\ 2.png');
-} */
+.button:hover{
+  color: blue;
+  }
+
+
+
+

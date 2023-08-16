@@ -7,12 +7,11 @@ import { HiOutlineArrowCircleRight, HiOutlineInformationCircle } from "react-ico
 import { BiSolidMessageRoundedDetail, BiUserPin } from "react-icons/bi";
 import {TbEditCircle } from "react-icons/tb";
 
-
 function Footer() {
   return (
     <>
       <div className="footeer">
-        <div className="footer container ">
+        <div className="pu-footer container bg-none">
         <div className="text">
           <img
             src={logo}

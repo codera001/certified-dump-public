@@ -1,19 +1,37 @@
+.a{
+  color: white;
+}
+
+.a:hover {
+  color: blue;
+  /* background-color: aqua; */
+}
+
 /* first-nav */
+
 .first-nav {
     background-color:var(--black);
     color: rgba(255, 255, 255, 0.623);
+  }
+  .nav {
+    align-items: center;
   }
   
   .brand {
     font-size: 16px;
   }
   
-  .nav-list {
+  .nav-lists {
     font-size: 14px;
   }
   .icon {
-    margin-top: 8px;
+    /* margin-top: 8px; */
     margin-left: 1rem;
+  }
+
+  .icon.image {
+    width: 23px;
+    height: 23px;
   }
   .border-left {
     border-right: 2px solid var(--white);
@@ -23,10 +41,11 @@
   .button-one {
    border: 1px solid var(--tertiary-color); 
    border-radius:10px ;
-   padding: 0 0.4rem;
+   padding: 0 0.5rem;
    font-weight: bolder;
    background-color: rgba(255, 255, 255, 0.801);
    font-size: 18px;
+   color: black;
   }
   .button-two {
     background-color: var(--tertiary-color);
@@ -38,16 +57,65 @@
     font-size: 18px;
     font-weight: bolder;
   }
+
+
+  .second-nav  .nav-links{
+      font-weight: bolder;
+      font-size: 18px;
+      color: black;
+      margin-right: 2rem;
+
+  }
+  .second-nav  .nav-links:hover{
+    color: blue;
+  }
   
 
   @media screen and (max-width:767px) {
+
+    .icon {
+      /* margin-top: 8px; */
+      margin-left: 0.5rem;
+    }
+
+  
     .nav-toogle{
-       top:-140px;
-       right: 10px; 
-       background-color: none;
-       position: absolute; 
-       z-index:1; 
-       border: none;
+       /* top:-140px;
+       right: 10px;  */
+       background-color: rgba(0, 0, 0, 0.815);
+       width: 100%;
+       border: none; 
+       margin:  0;
+       padding: 0;
+       align-items: left;
+       padding: 1rem;
+    }
+
+    .toggle {
+      border: 1px solid var(--white);
+      color: var(--white);
+      background-color: white;
+      margin-left: 1rem;
+    }
+
+ .second-nav .nav-items{
+  background-color:none;
+  align-items: start;
+  margin-left: 1rem;
+    }
+
+    .second-nav  .nav-links{
+      color:var(--white);
+      background-color: none;
+    }
+
+    .second-nav  .nav-links:hover{
+      color: blue;
+    }
+
+
+    .button-two{
+      margin-left: 0;  
     }
   }
  

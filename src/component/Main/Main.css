@@ -1,3 +1,5 @@
+
+
 /* section-one */
 
 .section-one{
@@ -11,7 +13,6 @@
   }
   .section-one::before {
     content: "";
-   
     background-size: cover;
     position: absolute;
     top: 0px;
@@ -55,7 +56,10 @@ font-size: 38px;
   .section-two .card {
     width:200px;
      height:170px;
-    box-shadow:9px;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box; 
+     box-sizing: border-box; 
+     box-shadow: 0 4px 10px rgba(0,0,0,0.16), 0 4px 10px rgba(0,0,0,0.23);
   border: 5px solid whitesmoke;
   }
   .section-two .card img{
@@ -83,6 +87,7 @@ align-items: start;
     background-color:var(--green-100);
     margin-top: 4rem;
     opacity: 5;
+    position: relative;
   }
   
   hr.section-three-line {
