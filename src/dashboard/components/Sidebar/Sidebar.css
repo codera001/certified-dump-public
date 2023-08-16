@@ -86,8 +86,9 @@
     position: absolute;
     z-index: 200;
   }
+}
 
-  .user-sidebar-mobile {
+  /* .user-sidebar-mobile  */
 @media screen and (max-width: 768px) {
   .user-sidebar {
     flex: 0 0 3rem;

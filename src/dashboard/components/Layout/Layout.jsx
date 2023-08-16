@@ -12,15 +12,16 @@ const Layout = ({ children }) => {
         {/* some texts */}
         <div className="inner-layout">
           <Sidebar />
-        <Nav />
-        <div className="inner">
-          {/* <Sidebar /> */}
-          <main className="children user-scroll">{children}</main>
+          <Nav />
+          <div className="inner">
+            {/* <Sidebar /> */}
+            <main className="children user-scroll">{children}</main>
+          </div>
         </div>
-      </div>
-      <Footer />
-    </>
+        <Footer />
+        </div>
+   </>
   );
 };
 
-export default Layout;
+      export default Layout;
