@@ -1,0 +1,39 @@
+.card {
+  background-image: linear-gradient(
+    to right top,
+    #01ff34,
+    #12d900,
+    #189a1a,
+    #2a5a3d,
+    #23352c
+  );
+  position: relative;
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+.card:hover {
+  opacity: 0.6;
+}
+
+.card-img {
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.card-img img {
+  aspect-ratio: 0.7;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.card-details {
+  text-align: center;
+  padding: 10px 0;
+}

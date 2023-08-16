@@ -8,6 +8,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="layout">
+        {/* <Nav /> */}
+        {/* some texts */}
+        <div className="inner-layout">
+          <Sidebar />
         <Nav />
         <div className="inner">
           {/* <Sidebar /> */}

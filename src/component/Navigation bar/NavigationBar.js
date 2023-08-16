@@ -1,6 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Offcanvas from 'react-bootstrap/Offcanvas';
 import { AiFillHome } from "react-icons/ai";
 import { RiFacebookFill, RiMailSendLine } from "react-icons/ri";
 import { TbBrandTwitterFilled } from "react-icons/tb";
@@ -65,6 +66,7 @@ function NavigationBar() {
       <div className="container d-flex justify-content-between align-items-center mt-5">
         <div>
           <img
+            alt=""
             width="190px"
             height="140px"
             src={logo}

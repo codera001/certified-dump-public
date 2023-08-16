@@ -67,21 +67,21 @@ function Main() {
           <div className=" row mb-5 " >
             <div className="col-sm-2 col-sm-offset-1 card-wrap" >
               <div className="card card-block text-xs-center align-items-center" style={{}}>
-                <img src={microsoft} style={{ borderBottom: "2px solid #ff5607" }} />
+                <img src={microsoft} alt="" style={{ borderBottom: "2px solid #ff5607" }} />
 
-                <a href="#" className="card-text">
+                <a href="/" className="card-text">
                   View more
                 </a>
               </div>
             </div>
             <div className=" col-sm-2 card-wrap">
               <div className="card card-block text-xs-center align-items-center" style={{}}>
-                <img
+                <img alt=""
                   src={google}
                   style={{ borderBottom: "2px solid #ff5607" }}
                 />
 
-                <a href="#" className="card-text">
+                <a href="/" className="card-text">
                   View more
                 </a>
               </div>
@@ -89,20 +89,21 @@ function Main() {
             <div className=" col-sm-2 card-wrap">
               <div className="card card-block text-xs-center align-items-center" style={{}}>
                 <img
+                  alt=""
                   src={amazon}
                   style={{ borderBottom: "2px solid #ff5607" }}
                 />
 
-                <a href="#" className="card-text">
+                <a href="/" className="card-text">
                   View more
                 </a>
               </div>
             </div>
             <div className=" col-sm-2 card-wrap">
               <div className="card card-block text-xs-center align-items-center" style={{}}>
-                <img src={juniper} style={{ borderBottom: "2px solid #ff5607" }} />
+                <img alt="" src={juniper} style={{ borderBottom: "2px solid #ff5607" }} />
 
-                <a href="#" className="card-text">
+                <a href="/" className="card-text">
                   View more
                 </a>
               </div>
@@ -112,36 +113,36 @@ function Main() {
           <div className=" row"  >
             <div className=" col-2 col-sm-offset-1 card-wrap">
               <div className="card card-block text-xs-center align-items-center" style={{}}>
-                <img src={vmare} style={{ borderBottom: "2px solid #ff5607" }} />
+                <img alt="" src={vmare} style={{ borderBottom: "2px solid #ff5607" }} />
 
-                <a href="#" className="card-text">
+                <a href="/" className="card-text">
                   View more
                 </a>
               </div>
             </div>
             <div className=" col-2 card-wrap">
               <div className="card card-block text-xs-center align-items-center " style={{}}>
-                <img src={cisco} style={{ borderBottom: "2px solid #ff5607" }} />
+                <img alt="" src={cisco} style={{ borderBottom: "2px solid #ff5607" }} />
 
-                <a href="#" className="card-text">
+                <a href="/" className="card-text">
                   View more
                 </a>
               </div>
             </div>
             <div className=" col-2 card-wrap">
               <div className="card card-block text-xs-center align-items-center" style={{}}>
-                <img src={salesforce} style={{ borderBottom: "2px solid #ff5607" }} />
+                <img alt="" src={salesforce} style={{ borderBottom: "2px solid #ff5607" }} />
 
-                <a href="#" className="card-text">
+                <a href="/" className="card-text">
                   View more
                 </a>
               </div>
             </div>
             <div className=" col-2 card-wrap">
               <div className="card card-block text-xs-center align-items-center" style={{}}>
-                <img src={isaca} style={{ borderBottom: "2px solid #ff5607" }} />
+                <img alt="" src={isaca} style={{ borderBottom: "2px solid #ff5607" }} />
 
-                <a href="#" className="card-text">
+                <a href="/" className="card-text">
                   View more
                 </a>
               </div>
@@ -157,7 +158,7 @@ function Main() {
       <section className="section-three">
         <div className="d-md-flex " style={{ height: "50vh" }}>
           <div className="image " style={{ height: "50vh" }}>
-            <img width="100%" src={study} style={{ height: "inherit" }} />
+            <img alt="" width="100%" src={study} style={{ height: "inherit" }} />
           </div>
 
           <div className="text ">

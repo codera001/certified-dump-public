@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../components/Layout/Layout";
 import "./Overview.css";
 import { books } from "../components/variables.js";
+import Card from "../components/Card/Card";
 
 const Overview = () => {
   return (
@@ -9,17 +10,14 @@ const Overview = () => {
       <div className="overview">
         <h2>Your Books</h2>
         <div className="overview-wrapper">
-          <div className="cards">
+          <div className="overview-cards">
             {books.map((book, index) => (
-              <div className="card" key={index}>
-                <div className="card-img">
-                  <img src={book.image} alt={book.title} />
-                </div>
-                <div className="card-details">
-                  <p>{book.title}</p>
-                  <p>{book.provider}</p>
-                </div>
-              </div>
+              <Card
+                key={index}
+                image={book.image}
+                title={book.title}
+                provider={book.provider}
+              />
             ))}
           </div>
         </div>

@@ -9,7 +9,7 @@ const Footer = () => {
       <p>You don losss???</p>
       <p>You don losss???</p>
       <p>You don losss???</p>
-      <p>You don losss???</p>
+      {/* <p>You don losss???</p> */}
     </div>
   );
 };
