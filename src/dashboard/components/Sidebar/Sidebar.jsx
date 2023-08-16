@@ -34,15 +34,13 @@ const Sidebar = () => {
           </span>
           <div className="sidebar-menu">
             {sideMenu.map((menu, index) => {
-              // const isActive = menu.path
-
               return (
                 <NavLink
                   to={menu.path}
                   key={index}
                   className={({ isActive }) => (isActive ? "bg-change" : "")}
                 >
-                  <span>{menu.icon}</span>
+                  <span>{menu.icon}</span> 
                   <p className={open ? "" : "sidebar-menu-open"}>
                     {menu.title}
                   </p>
