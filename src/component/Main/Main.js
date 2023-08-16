@@ -18,7 +18,7 @@ function Main() {
       <section className="w-full ">
         <NavigationBar/>
         {/* <DashboardPage></DashboardPage> */}
-        <section className="section-one">
+        <section className="section-one mt-o pt-0">
           <div className="text my-auto" style={{}}>
             <h1
               style={{
@@ -42,8 +42,8 @@ function Main() {
 
 
             <div className=" container d-md-flex justify-content-around  w-50  text-align-center">
-              <button className="py-1 px-3 mt-1 text-white" style={{ backgroundColor: "var(--green-500)", borderRadius: "10px", border: "none" }}>UNLIMITED ACCESS</button>
-              <button className="py-1 px-1 mt-1 text-white" style={{ backgroundColor: "#ff5607", borderRadius: "10px", border: "none" }}>FIND YOUR EXAM NOW</button>
+              <button className="py-1 px-3 mt-1  button" style={{ backgroundColor: "var(--green-500)", borderRadius: "10px", border: "none" }}>UNLIMITED ACCESS</button>
+              <button className="py-1 px-3 mt-1  button" style={{ backgroundColor: "#ff5607", borderRadius: "10px", border: "none" }}>FIND YOUR EXAM NOW</button>
             </div>
 
           </div>
@@ -181,7 +181,7 @@ function Main() {
           </div>
         </div>
 
-        <div className="search">
+        <div className="search pb-0">
           <h2 style={{ fontWeight: "bolder", color: "black" }}>
             FIND EXAMS NOW
           </h2>
@@ -213,7 +213,7 @@ function Main() {
               Exam Code or Keyword
             </button>
             <button
-              className="px-2 py-3 text-white mx-md-3 mb-5"
+              className="px-2 py-3 mx-md-3 mb-5 button"
               style={{
                 fontSize: "16px",
                 backgroundColor: "var(--green-500)",
@@ -228,6 +228,13 @@ function Main() {
       </section>
 
       <Footer />
+
+
+
+
+      
+
+
     </>
   );
 }

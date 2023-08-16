@@ -7,6 +7,7 @@ import { BiLogOutCircle, BiUserCheck, BiUserCircle } from "react-icons/bi";
 import { PiCaretDownLight } from "react-icons/pi";
 import { MdOutlinePayment } from "react-icons/md";
 import { Outlet, Link } from "react-router-dom";
+import { GiAutogun } from "react-icons/gi";
 
 const Nav = () => {
   return (
@@ -33,6 +34,7 @@ const Nav = () => {
             <Button>
               <span>
                 <MdOutlinePayment />
+                <GiAutogun />
               </span>
               <span>Top up</span>
             </Button>
@@ -48,7 +50,7 @@ const Nav = () => {
                   <span>Profile</span>
                 </Link>
                 <Link to="/">
-                  <BiLogOutCircle /> <span>Logout</span>
+                  <BiLogOutCircle /> <span>Logut</span>
                 </Link>
               </div>
             </div>

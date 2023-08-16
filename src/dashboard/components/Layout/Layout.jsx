@@ -12,6 +12,9 @@ const Layout = ({ children }) => {
         {/* some texts */}
         <div className="inner-layout">
           <Sidebar />
+        <Nav />
+        <div className="inner">
+          {/* <Sidebar /> */}
           <main className="children user-scroll">{children}</main>
         </div>
       </div>

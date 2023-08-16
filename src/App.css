@@ -10,6 +10,7 @@
   --tertiary-color: #ffaa33;
   --post-tertiary-color: #ff5607;
   --green-100: #e3efe1;
+  --green-400:#52682d;
   --green-500: #4b5320;
   --green-600: #264b20;
   --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -24,6 +25,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Jost", sans-serif;
+}
+
+a:hover{
+  color: blue;
 }
 
 .App {
@@ -49,17 +54,13 @@ a {
   -ms-overflow-style: none; /*IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-
-/* first-nav */
-.first-nav {
-  background-color: var(--black);
-  color: rgba(255, 255, 255, 0.623);
+.button {
+  color: white;
 }
 
-.brand {
-  font-size: 16px;
-}
-
+.button:hover{
+  color: blue;
+  }
 .nav-list {
   font-size: 14px;
 }
