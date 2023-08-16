@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Overview from "./dashboard/overview/Overview";
 import Profile from "./dashboard/profile/Profile";
+import Check from "./dashboard/check";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,6 +17,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<App />}></Route>
       <Route path="dashboard" element={<Overview />} />
       <Route path="profile" element={<Profile />} />
+      <Route path="check" element={<Check />} />
     </>
   )
 );

@@ -27,7 +27,7 @@
   background-color: aqua;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 768px) {
   .user-sidebar {
     flex: 0 0 3rem;
     z-index: 120;
