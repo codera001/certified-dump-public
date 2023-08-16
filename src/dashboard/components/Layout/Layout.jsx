@@ -8,20 +8,19 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="layout">
-        {/* <Nav /> */}
         {/* some texts */}
         <div className="inner-layout">
-          <Sidebar />
           <Nav />
-          <div className="inner">
-            {/* <Sidebar /> */}
-            <main className="children user-scroll">{children}</main>
-          </div>
+          <Sidebar />
+          {/* <div className="inner"> */}
+          {/* <Sidebar /> */}
+          <main className="children user-scroll">{children}</main>
+          {/* </div> */}
         </div>
         <Footer />
-        </div>
-   </>
+      </div>
+    </>
   );
 };
 
-      export default Layout;
+export default Layout;

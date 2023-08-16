@@ -1,9 +1,9 @@
-.layout {
+/* .layout {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-}
+} */
 
 p {
   margin: 0;
@@ -12,7 +12,7 @@ p {
 
 .inner-layout {
   display: flex;
-  justify-content:space-between;
+  /* justify-content:space-between; */
   align-items: center;
 }
 
