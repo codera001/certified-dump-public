@@ -6,12 +6,6 @@
   top: 0;
 }
 
-.nav-balance {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .user-nav-items {
   display: flex;
   /* justify-content: space-between; */
@@ -20,7 +14,8 @@
 }
 
 .nav-logo {
-  width: 4rem;
+  /* display: block; */
+  width: 18rem;
   text-align: center;
   /* display: block; */
   /* overflow: hidden;+ */
@@ -35,13 +30,13 @@
   padding: 5px 10px;
   border-radius: 10px;
   border: 1px solid var(--black);
-  width: 20rem;
-  max-width: 30%;
+  width: 22rem;
+  margin-left: 20px;
   max-height: 4rem;
 }
 
 .windows-img {
-  width: 15%;
+  width: 3rem;
 }
 
 .nav-cta p:nth-child(2) {
@@ -49,37 +44,35 @@
 }
 
 .nav-balance {
-  /* max-width: 15%; */
+  display: flex;
+  align-items: center;
+  width: 12rem;
   margin-left: auto;
   background-color: var(--white);
   padding: 10px;
   border: 1px solid var(--black);
   border-radius: 15px;
-}
 
-/* .nav-balance > div {
-  width: 50%;
-} */
-.nav-balance .price {
-  width: 100%;
-  max-width: 5rem;
-}
-.nav-balance .price p:nth-child(2) {
-  font-weight: 700;
-}
+  & .price {
+    width: 50%;
 
-.nav-balance .price p:nth-child(1) {
-  color: var(--light-text-color);
-}
+    & p:nth-child(1) {
+      color: var(--light-text-color);
+    }
 
-.nav-balance Button {
-  min-width: auto;
-  min-height: auto;
-  font-size: 1rem;
-  /* display: flex; */
-  /* align-items: center; */
-  /* gap: 10px; */
-  /* justify-content: center; */
+    & p:nth-child(2) {
+      font-weight: 700;
+    }
+  }
+
+  & Button {
+    width: 50%;
+    font-size: 1rem;
+
+    & .text {
+      margin-left: 2px;
+    }
+  }
 }
 
 .user-dropdown {
@@ -92,7 +85,6 @@
   align-items: center;
   width: 6rem;
   align-self: flex-end;
-  /* max-width: 10%; */
   cursor: pointer;
 }
 
@@ -158,27 +150,14 @@
 
   .nav-balance {
     padding: 5px;
-  }
 
-  .nav-balance .price .bal,
-  .nav-balance Button .text {
+    & .price .bal, Button .text{
     display: none;
+    }
   }
-
-  .nav-balance Button {
-  min-width: auto;
-  min-height: auto;
-  font-size: 1rem;
-  border-radius: 4px;
 }
 
-/* .user-dropdown {
- align-self: flex-start;
-} */
-
-}
-
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .nav-cta {
     display: none;
   }

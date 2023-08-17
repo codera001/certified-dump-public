@@ -17,7 +17,7 @@ const Sidebar = () => {
     <>
       <aside
         className={`${"user-sidebar"} ${
-          open ? "user-sidebar-test" : "user-sidebar-mobile"
+          open ? "user-sidebar-test" : ".user-sidebar-mobile"
         } `}
       >
         <div className="sidebar-inner">
@@ -40,7 +40,7 @@ const Sidebar = () => {
                   key={index}
                   className={({ isActive }) => (isActive ? "bg-change" : "")}
                 >
-                  <span>{menu.icon}</span> 
+                  <span>{menu.icon}</span>
                   <p className={open ? "" : "sidebar-menu-open"}>
                     {menu.title}
                   </p>

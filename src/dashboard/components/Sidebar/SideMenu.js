@@ -1,5 +1,5 @@
 import { GrOverview } from "react-icons/gr"
-import { BiUserCircle } from "react-icons/bi";
+import { BiSupport, BiUserCircle } from "react-icons/bi";
 import { ImLibrary } from "react-icons/im";
 import { AiOutlineWallet } from "react-icons/ai";
 import { MdOutlineSettingsPower } from "react-icons/md";
@@ -26,6 +26,11 @@ export const sideMenu = [
     title: "Wallet",
     icon: <AiOutlineWallet />,
     path: "/wallet",
+  },
+  {
+    title: "Support & Help",
+    icon: <BiSupport />,
+    path: "/support",
   },
   {
     title: "Log out",
