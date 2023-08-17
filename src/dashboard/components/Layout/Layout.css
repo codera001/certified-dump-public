@@ -19,6 +19,7 @@ p {
 .children {
   width: 100%;
   height: 100vh;
+  padding: 100px 0 30px;
   background-color: var(--green-100);
   overflow-y: scroll;
 }

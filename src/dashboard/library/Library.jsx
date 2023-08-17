@@ -7,6 +7,7 @@ import { books } from "../components/variables.js";
 const Library = () => {
   return (
     <Layout>
+      <h2 className="lib-h2">All your books</h2>
       <div className="lib-cards">
         {books.map((book, index) => (
           <Card

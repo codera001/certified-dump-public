@@ -89,7 +89,7 @@
 }
 
   /* .user-sidebar-mobile  */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1023px) {
   .user-sidebar {
     flex: 0 0 3rem;
   }

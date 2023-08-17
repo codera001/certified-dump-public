@@ -1,20 +1,50 @@
-.lib-cards {
-  display: grid;
-  grid-template-columns: repeat(1, 200px);
-  grid-gap: 5px;
-  justify-content: space-between;
-  max-width: 70%;
-  margin: 0 auto;
+.lib-h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
-@media screen and (min-width: 500px) {
+.lib-cards {
+  display: grid;
+  grid-template-columns: repeat(1, 180px);
+  grid-gap: 15px;
+  justify-content: center;
+}
+
+@media screen and (min-width: 375px) {
   .lib-cards {
-    grid-template-columns: repeat(3, 200px);
+    grid-template-columns: repeat(2, 120px);
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .lib-cards {
+    grid-template-columns: repeat(2, 140px);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .lib-cards {
+    grid-template-columns: repeat(3, 180px);
   }
 }
 
 @media screen and (min-width: 850px) {
+  .lib-h2 {
+    font-size: 2rem;
+    text-align: left;
+    padding: 0 0 0 2rem;
+    margin: 0 0 2rem;
+  }
+
   .lib-cards {
-    grid-template-columns: repeat(4, 150px);
+    grid-template-columns: repeat(3, 180px);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .lib-cards {
+    grid-template-columns: repeat(4, 180px);
   }
 }
