@@ -28,15 +28,14 @@ const Nav = () => {
           </div>
           <div className="nav-balance">
             <div className="price">
-              <p>Balance:</p>
-              <p>6.14$</p>
+              <p className="bal">Balance:</p>
+              <p className="value">6.14$</p>
             </div>
             <Button>
-              <span>
+              <span className="icon">
                 <MdOutlinePayment />
-                <GiAutogun />
               </span>
-              <span>Top up</span>
+              <span className="text">Top up</span>
             </Button>
           </div>
           <div className="user-dropdown">

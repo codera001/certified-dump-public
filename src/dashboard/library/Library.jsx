@@ -7,17 +7,20 @@ import { books } from "../components/variables.js";
 const Library = () => {
   return (
     <Layout>
-      <div className="lib-cards">
-        {books.map((book, index) => (
-          <Card
-            key={index}
-            image={book.image}
-            title={book.title}
-            cost={book.cost}
-            date={book.date}
-            provider={book.provider}
-          />
-        ))}
+      <h2 className="lib-h2">All your books</h2>
+      <div className="lib-books">
+        <div className="lib-cards">
+          {books.map((book, index) => (
+            <Card
+              key={index}
+              image={book.image}
+              title={book.title}
+              cost={book.cost}
+              date={book.date}
+              provider={book.provider}
+            />
+          ))}
+        </div>
       </div>
     </Layout>
   );

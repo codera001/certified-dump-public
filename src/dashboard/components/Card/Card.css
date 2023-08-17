@@ -1,31 +1,22 @@
 .card {
-  background-image: linear-gradient(
-    to right top,
-    #01ff34,
-    #12d900,
-    #189a1a,
-    #2a5a3d,
-    #23352c
-  );
   position: relative;
   box-shadow: var(--box-shadow);
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
   padding-top: 10px;
-}
-
-.card:hover {
-  opacity: 0.6;
+  text-align: center;
 }
 
 .card-img {
+  width: 90%;
   overflow: hidden;
-  border-radius: 0;
+  border-radius: 5px;
+  margin: 0 auto;
+  border: 1px solid var(--primary-color);
 }
 
 .card-img img {
-  aspect-ratio: 0.7;
   transition: transform 0.5s ease-in-out;
 }
 
@@ -35,5 +26,10 @@
 
 .card-details {
   text-align: center;
-  padding: 10px 0;
+  padding: 10px 5px;
+
+  & .title, .cost {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
 }

@@ -15,6 +15,7 @@ import Check from "./dashboard/check";
 import Login  from "./component/Login/Login"
 import Signup from "./component/Signup/Signup";
 import Providers from "./component/Providers/Providers";
+import Support from "./dashboard/support/Support";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
       <Route path="wallet" element={<Wallet />} />
       <Route path="check" element={<Check />} />
       <Route path="providers" element={<Providers />} />
+      <Route path="support" element={<Support />} />
     </>
   )
 );

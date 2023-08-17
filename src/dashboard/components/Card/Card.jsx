@@ -7,8 +7,8 @@ const Card = ({image, title, provider, cost, date}) => {
         <img src={image} alt={title} />
       </div>
       <div className="card-details">
-        <p>{title}</p>
-        <p>{ cost }</p>
+        <p className="title">{title}</p>
+        <p className="cost">{ cost }</p>
         <p>{ date }</p>
         <p>{provider}</p>
       </div>
