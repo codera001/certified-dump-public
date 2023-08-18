@@ -54,7 +54,6 @@
 }
 
 .sidebar-menu a {
-  all: unset;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -80,7 +79,6 @@
   .user-sidebar-test {
     width: 100%;
     flex: 0 0 17rem;
-    /* position: absolute; */
     z-index: 200;
   }
 
