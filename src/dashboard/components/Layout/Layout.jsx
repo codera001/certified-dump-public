@@ -7,14 +7,14 @@ import "./Layout.css";
 const Layout = ({ children }) => {
   return (
     <>
-      <div className="layout">
+      <div className="d-layout">
         {/* some texts */}
-        <div className="inner-layout">
+        <div className="d-inner-layout">
           <Nav />
           <Sidebar />
           {/* <div className="inner"> */}
           {/* <Sidebar /> */}
-          <main className="children user-scroll">{children}</main>
+          <main className="d-children user-scroll">{children}</main>
           {/* </div> */}
         </div>
         <Footer />

@@ -16,32 +16,32 @@ const Sidebar = () => {
   return (
     <>
       <aside
-        className={`${"user-sidebar"} ${
-          open ? "user-sidebar-test" : ".user-sidebar-mobile"
+        className={`${"d-user-sidebar"} ${
+          open ? "d-user-sidebar-test" : ".d-user-sidebar-mobile"
         } `}
       >
-        <div className="sidebar-inner">
-          <div className="sidebar-logo">
+        <div className="d-sidebar-inner">
+          <div className="d-sidebar-logo">
             <img src={logo} alt="logo" />
           </div>
           <span
-            className={`${"side-handle"} ${
-              open ? "close-side-handle" : "open-side-handle"
+            className={`${"d-side-handle"} ${
+              open ? "d-close-side-handle" : "d-open-side-handle"
             }`}
             onClick={handleClick}
           >
             <AiOutlineDoubleLeft />
           </span>
-          <div className="sidebar-menu">
+          <div className="d-sidebar-menu">
             {sideMenu.map((menu, index) => {
               return (
                 <NavLink
                   to={menu.path}
                   key={index}
-                  className={({ isActive }) => (isActive ? "bg-change" : "")}
+                  className={({ isActive }) => (isActive ? "d-bg-change" : "")}
                 >
                   <span>{menu.icon}</span>
-                  <p className={open ? "" : "sidebar-menu-open"}>
+                  <p className={open ? "" : "d-sidebar-menu-open"}>
                     {menu.title}
                   </p>
                 </NavLink>

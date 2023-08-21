@@ -7,9 +7,9 @@ import { books } from "../components/variables.js";
 const Library = () => {
   return (
     <Layout>
-      <h2 className="lib-h2">All your books</h2>
-      <div className="lib-books">
-        <div className="lib-cards">
+      <h2 className="d-lib-h2">All your books</h2>
+      <div className="d-lib-books">
+        <div className="d-lib-cards">
           {books.map((book, index) => (
             <Card
               key={index}

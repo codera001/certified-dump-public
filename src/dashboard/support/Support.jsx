@@ -16,8 +16,8 @@ const Support = () => {
 
   return (
     <Layout>
-      <section className="support">
-        <div className="support-wrapper">
+      <section className="d-support">
+        <div className="d-support-wrapper">
           <div>
             <h1>Support Ticket</h1>
           </div>

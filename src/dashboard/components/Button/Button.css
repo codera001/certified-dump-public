@@ -1,4 +1,4 @@
-.secondary-btn {
+.d-secondary-btn {
   all: unset;
   background-color: var(--secondary-color);
   width: 100%;
@@ -7,7 +7,7 @@
   padding: 5px;
 }
 
-.secondary-btn:hover {
+.d-secondary-btn:hover {
   background-color: var(--hover-color);
   color: white;
 }

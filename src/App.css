@@ -27,40 +27,22 @@
   font-family: "Jost", sans-serif;
 }
 
-a:hover{
+/* a:hover{
   color: blue;
-}
+} */
 
 .App {
   text-align: center;
 }
 
-img {
-  width: 100%;
-}
-
-a {
-  all: unset;
-  text-decoration: none;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.user-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.user-scroll {
-  -ms-overflow-style: none; /*IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-.button {
+/* .button {
   color: white;
-}
+} */
 
-.button:hover{
+/* .button:hover{
   color: blue;
-  }
+  } */
+
 .nav-list {
   font-size: 14px;
 }
