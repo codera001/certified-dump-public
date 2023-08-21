@@ -1,8 +1,8 @@
-.overview h2 {
+.d-overview h2 {
   text-align: center;
   margin: 20px 0;
 }
-.overview-wrapper {
+.d-overview-wrapper {
   background-color: var(--white);
   padding: 20px 10px;
   width: 100%;
@@ -12,7 +12,7 @@
   border-radius: 20px;
 }
 
-.overview-cards {
+.d-overview-cards {
   display: grid;
   grid-template-columns: repeat(1, 180px);
   grid-gap: 15px;
@@ -20,32 +20,32 @@
 }
 
 @media screen and (min-width: 375px) {
-  .overview-cards {
+  .d-overview-cards {
     grid-template-columns: repeat(2, 120px);
   }
 }
 
 @media screen and (min-width: 425px) {
-  .overview-cards {
+  .d-overview-cards {
     grid-template-columns: repeat(2, 140px);
   }
 }
 
 @media screen and (min-width: 768px) {
-  .overview-cards {
+  .d-overview-cards {
     grid-template-columns: repeat(3, 180px);
   }
 }
 
 @media screen and (min-width: 850px) {
-  .overview-cards {
+  .d-overview-cards {
     grid-template-columns: repeat(3, 180px);
   }
 }
 
 
 @media screen and (min-width: 1280px) {
-  .overview-cards {
+  .d-overview-cards {
     grid-template-columns: repeat(4, 180px);
   }
 }

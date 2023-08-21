@@ -7,10 +7,10 @@ import Card from "../components/Card/Card";
 const Overview = () => {
   return (
     <Layout>
-      <div className="overview">
+      <div className="d-overview">
         <h2>Your Books</h2>
-        <div className="overview-wrapper">
-          <div className="overview-cards">
+        <div className="d-overview-wrapper">
+          <div className="d-overview-cards">
             {books.map((book, index) => (
               <Card
                 key={index}
@@ -22,7 +22,7 @@ const Overview = () => {
           </div>
         </div>
         <h2>Admin Message</h2>
-        <div className="overview-wrapper">
+        <div className="d-overview-wrapper">
           <h3>Admin Message Title</h3>
           <div>Welcome to your library fam</div>
         </div>

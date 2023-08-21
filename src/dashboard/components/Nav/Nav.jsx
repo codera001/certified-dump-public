@@ -12,13 +12,13 @@ import { GiAutogun } from "react-icons/gi";
 const Nav = () => {
   return (
     <>
-      <nav className="user-nav">
-        <div className="user-nav-items">
-          <div className="nav-logo">
+      <nav className="d-user-nav">
+        <div className="d-user-nav-items">
+          <div className="d-nav-logo">
             <img src={logo} alt="logo" className="" />
           </div>
-          <div className="nav-cta">
-            <div className="windows-img">
+          <div className="d-nav-cta">
+            <div className="d-windows-img">
               <img src={windows} alt="windows" />
             </div>
             <div>
@@ -26,22 +26,22 @@ const Nav = () => {
               <p>Get your e-books at your finger tips</p>
             </div>
           </div>
-          <div className="nav-balance">
-            <div className="price">
-              <p className="bal">Balance:</p>
-              <p className="value">6.14$</p>
+          <div className="d-nav-balance">
+            <div className="d-price">
+              <p className="d-bal">Balance:</p>
+              <p className="d-value">6.14$</p>
             </div>
             <Button>
-              <span className="icon">
+              <span className="d-icon">
                 <MdOutlinePayment />
               </span>
-              <span className="text">Top up</span>
+              <span className="d-text">Top up</span>
             </Button>
           </div>
-          <div className="user-dropdown">
+          <div className="d-user-dropdown">
             <BiUserCircle style={{ fontSize: "50px" }} />
             <PiCaretDownLight style={{ fontSize: "20px" }} />
-            <div className="dropdown-inner">
+            <div className="d-dropdown-inner">
               <div>
                 <p>email address</p>
                 <Link to="/">
@@ -49,7 +49,7 @@ const Nav = () => {
                   <span>Profile</span>
                 </Link>
                 <Link to="/">
-                  <BiLogOutCircle /> <span>Logut</span>
+                  <BiLogOutCircle /> <span>Logout</span>
                 </Link>
               </div>
             </div>

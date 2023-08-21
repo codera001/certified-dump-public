@@ -38,6 +38,9 @@ const Tickets = () => {
   //       </div>
   //     );
   // }
+
+
+  // stop showing the tickets if there is no ticket
   
   return (
     <div className="">
