@@ -1,9 +1,8 @@
 import React from "react";
 import Layout from "../components/Layout/Layout";
 import { useRef, useState } from "react";
+import "./Support.css";
 import Tickets from "../components/TicketList/Tickets";
-
-// import Layout from "../components/Layout"
 
 const Support = () => {
   const [modal, setModal] = useState(false);
@@ -17,22 +16,20 @@ const Support = () => {
   return (
     <Layout>
       <section className="d-support">
+        <div>
+          <h1>Support Ticket</h1>
+        </div>
+        <div>
+          <button onClick={() => setModal(!modal)}>Add a support ticket</button>
+        </div>
         <div className="d-support-wrapper">
-          <div>
-            <h1>Support Ticket</h1>
-          </div>
-          <div>
-            <button onClick={() => setModal(!modal)}>
-              Add a support ticket
-            </button>
-          </div>
           {modal && (
-            <div onClick={closeModal}>
-              <div ref={modalRef}>
+            <div onClick={closeModal} className="d-modal-wrapper">
+              <div ref={modalRef} className="d-modal-inner">
                 <button onClick={() => setModal(false)}>X</button>
                 <form>
                   <input type="text" required placeholder="Enter a subject" />
-                  <div className="">
+                  <div className="d-message-area">
                     <textarea
                       type="text"
                       required

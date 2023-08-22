@@ -1,0 +1,44 @@
+.d-ticket-wrapper {
+  margin: 0 10px;
+}
+
+.d-ticket-wrapper h3 {
+  text-align: center;
+}
+
+.d-ticket-list {
+  width: 100%;
+  margin-top: 20px;
+
+  & .d-tickets {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    & span {
+      font-weight: bold;
+    }
+
+    & button {
+      padding: 6px;
+      font-size: 11px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .d-ticket-wrapper h3 {
+    text-align: left;
+
+    & .d-ticket-list {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+  }
+
+  .d-ticket-list button {
+      padding: 8px;
+      font-size: 16px;
+    }
+}

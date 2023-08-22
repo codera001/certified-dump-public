@@ -43,17 +43,16 @@ const Tickets = () => {
   // stop showing the tickets if there is no ticket
   
   return (
-    <div className="">
-      <h3 className="">Support Ticket Lists</h3>
-      <div className="">
+    <div className="d-ticket-wrapper">
+      <h3>Support Ticket Lists</h3>
+      <div className="d-ticket-list">
         {ticketData.map((ticket, id) => (
-          <div key={id} className="">
-            <span className="">{ticket.subject}</span>
+          <div key={id} className="d-tickets">
+            <span>{ticket.subject}</span>
             <Link
               to="/support"
-              className=""
             >
-              <span className="">View more</span>
+              <button>View more</button>
             </Link>
           </div>
         ))}
