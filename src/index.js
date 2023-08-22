@@ -11,7 +11,6 @@ import Overview from "./dashboard/overview/Overview";
 import Profile from "./dashboard/profile/Profile";
 import Library from "./dashboard/library/Library";
 import Wallet from "./dashboard/wallet/Wallet";
-import Check from "./dashboard/check";
 import Login  from "./component/Login/Login"
 import Signup from "./component/Signup/Signup";
 import Providers from "./component/Providers/Providers";
@@ -40,6 +39,7 @@ import Zend from "./component/Exams/Zend";
 
 
 
+import Support from "./dashboard/support/Support";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -51,7 +51,6 @@ const router = createBrowserRouter(
       <Route path="profile" element={<Profile />} />
       <Route path="library" element={<Library />} />
       <Route path="wallet" element={<Wallet />} />
-      <Route path="check" element={<Check />} />
       <Route path="providers" element={<Providers />} />
       <Route path="pronavbar" element={<ProNavbar />} />
       <Route path="alibaba" element={<Alibaba />} />
@@ -73,6 +72,7 @@ const router = createBrowserRouter(
       <Route path="testprep" element={<Testprep/>} />
       <Route path="vmware" element={<Vmware/>} />
       <Route path="zend" element={<Zend/>} />
+      <Route path="support" element={<Support />} />
     </>
   )
 );

@@ -1,12 +1,8 @@
-.overview {
-  padding: 100px 0 30px;
-}
-
-.overview h2 {
+.d-overview h2 {
   text-align: center;
   margin: 20px 0;
 }
-.overview-wrapper {
+.d-overview-wrapper {
   background-color: var(--white);
   padding: 20px 10px;
   width: 100%;
@@ -16,25 +12,40 @@
   border-radius: 20px;
 }
 
-.overview-cards {
+.d-overview-cards {
   display: grid;
-  /* grid-template-columns: repeat(1, 150px); */
-  grid-template-rows: repeat(4, 150px);
+  grid-template-columns: repeat(1, 180px);
   grid-gap: 15px;
   justify-content: center;
-  /* justify-content: space-between; */
-  /* max-width: 70%; */
-  /* margin: 0 auto; */
 }
 
-@media screen and (min-width: 500px) {
-  .overview-cards {
-    grid-template-columns: repeat(3, 200px);
+@media screen and (min-width: 375px) {
+  .d-overview-cards {
+    grid-template-columns: repeat(2, 120px);
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .d-overview-cards {
+    grid-template-columns: repeat(2, 140px);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .d-overview-cards {
+    grid-template-columns: repeat(3, 180px);
   }
 }
 
 @media screen and (min-width: 850px) {
-  .overview-cards {
-    grid-template-columns: repeat(4, 150px);
+  .d-overview-cards {
+    grid-template-columns: repeat(3, 180px);
+  }
+}
+
+
+@media screen and (min-width: 1280px) {
+  .d-overview-cards {
+    grid-template-columns: repeat(4, 180px);
   }
 }

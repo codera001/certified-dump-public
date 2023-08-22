@@ -2,7 +2,7 @@ import React from 'react'
 import './Button.css'
 export const Button = ({children}) => {
   return (
-    <button className="secondary-btn">{children}
+    <button className="d-secondary-btn">{children}
     </button>
   )
 }

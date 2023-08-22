@@ -7,21 +7,20 @@ import "./Layout.css";
 const Layout = ({ children }) => {
   return (
     <>
-      <div className="layout">
-        {/* <Nav /> */}
+      <div className="d-layout">
         {/* some texts */}
-        <div className="inner-layout">
-          <Sidebar />
+        <div className="d-inner-layout">
           <Nav />
-          <div className="inner">
-            {/* <Sidebar /> */}
-            <main className="children user-scroll">{children}</main>
-          </div>
+          <Sidebar />
+          {/* <div className="inner"> */}
+          {/* <Sidebar /> */}
+          <main className="d-children user-scroll">{children}</main>
+          {/* </div> */}
         </div>
         <Footer />
-        </div>
-   </>
+      </div>
+    </>
   );
 };
 
-      export default Layout;
+export default Layout;
