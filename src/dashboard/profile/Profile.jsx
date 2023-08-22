@@ -25,50 +25,56 @@ const Profile = () => {
   };
   return (
     <Layout>
-      <div className="profile-wrapper">
-        <div className="profile-heading">
+      <div className="d-profile-wrapper">
+        <div className="d-profile-heading">
           <h1>Personal Information</h1>
           <p>
             Your privacy matters to us. We handle your personal information with
             utmost care and in accordance with our Privacy Policy.
           </p>
         </div>
-        <div className="profile-pic">
-          <BiUserCircle className="profile-image" />
+        <div className="d-profile-pic">
+          <BiUserCircle className="d-profile-image" />
         </div>
-        <div className="account-details">
+        <div className="d-account-details">
           <h2>Denis Holland</h2>
           <p>$50.00</p>
           <p>Balance</p>
         </div>
         <form action="">
-          <div className="profile-info">
-            <div className="input-box">
+          <div className="d-profile-info">
+            <div className="d-input-box">
               <input type="text" required="required" />
               <span>First Name</span>
             </div>
-            <div className="input-box">
+            <div className="d-input-box">
               <input type="text" required="required" />
               <span>Last Name</span>
             </div>
           </div>
-          <div className="input-box" id="email">
-            <input type="text" required="required" />
-            <span>Email</span>
+          <div className="d-profile-info">
+            <div className="d-input-box">
+              <input type="text" required="required" />
+              <span>Email</span>
+            </div>
+            <div className="d-input-box">
+              <input type="text" required="required" />
+              <span>Country</span>
+            </div>
           </div>
-          <div className="profile-info">
-            <div className="input-box">
+          <div className="d-profile-info">
+            <div className="d-input-box">
               <input
                 type="number"
                 required="required"
                 placeholder="(+33) - - - - - - -"
               />
             </div>
-            <div className="input-box">
+            <div className="d-input-box">
               <input type="date" />
             </div>
           </div>
-          <div className="gender-button">
+          <div className="d-gender-button">
             <button onClick={ActiveGender}>
               <BsGenderMale />
               <p>Male</p>
@@ -80,23 +86,23 @@ const Profile = () => {
             </button>
           </div>
           <div>
-            <button className="change-password-btn" onClick={ShowChangePass}>
+            <button className="d-change-password-btn" onClick={ShowChangePass}>
               Change Password
             </button>
-            {changePass && <ChangePassword HideChangePass={HideChangePass} />}
           </div>
-          <div className="note-before">
+          {changePass && <ChangePassword HideChangePass={HideChangePass} />}
+          <div className="d-note-before">
             <p>
               In order to access some features from the service, you will have
               to fill out your account details.
             </p>
           </div>
-          <div className="button-row">
-            <div className="save-cancel-button">
-              <button className="save-button">Save</button>
-              <button className="cancel-button">Cancel</button>
+          <div className="d-button-row">
+            <div className="d-save-cancel-button">
+              <button className="d-save-button">Save</button>
+              <button className="d-cancel-button">Cancel</button>
             </div>
-            <div className="delete-button">
+            <div className="d-delete-button">
               <button>Delete Account</button>
             </div>
           </div>
