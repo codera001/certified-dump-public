@@ -1,8 +1,8 @@
-.profile-wrapper {
+.d-profile-wrapper {
   width: 100%;
   margin: auto 0;
 }
-.profile-heading {
+.d-profile-heading {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,45 +10,45 @@
   background-image: linear-gradient(var(--primary-color), white);
   margin-bottom: 30px;
 }
-.profile-heading h1 {
+.d-profile-heading h1 {
   font-size: 35px;
   padding-top: 20px;
 }
-.profile-heading p {
+.d-profile-heading p {
   font-size: 20px;
 }
-.profile-pic {
+.d-profile-pic {
   display: flex;
   justify-content: center;
 }
-.profile-image {
+.d-profile-image {
   width: 15%;
   height: 50%;
   color: var(--secondary-color);
   cursor: pointer;
 }
-.account-details {
+.d-account-details {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 20px;
 }
-form {
+.d-profile-wrapper form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
 }
-.profile-info {
+.d-profile-info {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
-.input-box {
+.d-input-box {
   position: relative;
   width: 280px;
 }
-.input-box input {
+.d-input-box input {
   width: 100%;
   padding: 10px;
   border: 1px solid var(--primary-color);
@@ -57,31 +57,31 @@ form {
   font-size: 20px;
   outline: none;
 }
-.input-box span {
+.d-input-box span {
   position: absolute;
   left: 0;
   padding: 8px;
   font-size: 20px;
   pointer-events: none;
 }
-.input-box input:valid ~ span,
-.input-box input:focus ~ span {
+.d-input-box input:valid ~ span,
+.d-input-box input:focus ~ span {
   color: var(--primary-color);
   transform: translateX(10px) translateY(-20px);
   font-size: 15px;
   background-color: var(--white);
   transition: var(--transition-all);
 }
-.input-box input:focus {
+.d-input-box input:focus {
   border: 1px solid var(--primary-color);
 }
 
-.gender-button {
+.d-gender-button {
   display: flex;
   gap: 20px;
 }
 
-.gender-button button {
+.d-gender-button button {
   width: 90px;
   height: 80px;
   background-color: var(--white);
@@ -91,98 +91,96 @@ form {
   box-shadow: var(--box-shadow);
 }
 
-.gender-button button:hover {
+.d-gender-button button:hover {
   border: 1px solid var(--hover-color);
   background-color: var(--hover-color);
   transition: var(--transition-all);
   color: var(--white);
 }
-.change-password-btn {
+.d-change-password-btn {
   padding: 10px;
-  border-radius: 5px;
   font-size: 20px;
-  background-color: var(--secondary-color);
-  color: var(--white);
-  border: 1px solid var(--secondary-color);
+  background-color: transparent;
+  /* color: var(--white); */
+  border: 1px solid var(--black);
 }
-.change-password-btn:hover {
+.d-change-password-btn:hover {
   border: 1px solid var(--hover-color);
-  background-color: var(--hover-color);
 }
-.note-before {
+.d-note-before {
   display: flex;
   text-align: center;
   font-size: 20px;
   padding: 3px;
 }
-.button-row {
+.d-button-row {
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 20px;
   gap: 70px;
 }
-.save-cancel-button {
+.d-save-cancel-button {
   display: flex;
   gap: 20px;
 }
-.save-cancel-button button {
+.d-save-cancel-button button {
   width: 90px;
   height: 50px;
   font-size: 20px;
-  border-radius: 5px;
-  border: none;
-  background-color: var(--secondary-color);
-  color: var(--white);
+  border: 1px solid var(--black);
+  background-color: transparent;
+  color: var(--black);
 }
-.save-cancel-button button:hover {
-  background-color: var(--hover-color);
+.d-save-cancel-button button:hover {
+  border: 1px solid var(--hover-color);
   transition: var(--transition-all);
 }
-.delete-button button {
+.d-delete-button button {
+  position: relative;
   padding: 10px;
   font-size: 20px;
-  background-color: var(--secondary-color);
-  border-radius: 5px;
-  border: 1px solid var(--secondary-color);
-  color: var(--white);
+  outline: none;
+  background-color: transparent;
+  border: 1px solid var(--black);
+  color: var(--black);
 }
-.delete-button button:hover {
-  background-color: var(--hover-color);
+.d-delete-button button:hover {
+  border: 1px solid var(--hover-color);
   transition: var(--transition-all);
 }
 @media screen and (min-width: 768px) {
-  .profile-heading p {
+  .d-profile-heading p {
     padding: 0 70px;
   }
-  .profile-info {
+  .d-profile-info {
     flex-direction: row;
   }
-  form {
+  .d-profile-wrapper form {
     align-items: flex-start;
     padding: 20px 80px;
   }
-  #email {
+  /* #email {
     width: 100%;
-  }
-  .button-row {
+  } */
+  .d-button-row {
     flex-direction: row;
     justify-content: space-between;
   }
-  .gender-button {
+  .d-gender-button {
     font-size: 25px;
   }
-  .gender-button button {
+  .d-gender-button button {
     width: 150px;
     height: 100px;
   }
 }
 @media screen and (min-width: 1024px) {
-  .profile-info {
+  .d-profile-info {
     display: flex;
     width: 100%;
   }
-  .input-box {
+  .d-input-box {
     width: 100%;
   }
   #email {
