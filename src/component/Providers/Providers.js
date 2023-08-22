@@ -23,69 +23,13 @@ import huawei from "../static/huawei.png";
 import netapp from "../static/netapp.png";
 import nokia from "../static/nokia.png";
 import redhat from "../static/study.png";
-
-
 import "./Providers.css";
+import ProNavbar from "../ProNavbar/ProNavbar";
 
 function Providers() {
     return (
         <>
-            <Navbar className="pro-navbar">
-                <Container>
-                    <Navbar.Brand href="#home">
-                        <img
-                            src={logo}
-                            width="50"
-                            height="50"
-                            className="d-inline-block align-top bg-white"
-                            alt="React Bootstrap logo"
-                        />
-                    </Navbar.Brand>
-
-                    <Form className="d-flex">
-                        <FormControl
-                            type="search"
-                            placeholder="Search"
-                            className="me-2 bg-white"
-                            aria-label="Search"
-                        />
-                        <Button
-                            className="text-dark py-0 mx-4"
-                            style={{
-                                backgroundColor: "white",
-                                border: "none",
-                                fontSize: "14px",
-                                borderRadius: "5px",
-                            }}
-                        >
-                            Find Provider <AiOutlineSearch className="ms-4"></AiOutlineSearch>
-                        </Button>
-                    </Form>
-
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home" className="pro-nav-links mx-2">
-                            EXAM LIST
-                        </Nav.Link>
-                        <Nav.Link href="#features" className="pro-nav-links mx-2 ">
-                            UNLIMITED ACCESS
-                        </Nav.Link>
-                        <Nav.Link href="/" className="pro-nav-links  mx-2">
-                            HOME
-                        </Nav.Link>
-                        <Nav.Link href="login">
-                            <button className="button-one a" style={{ backgroundColor: "transparent" }}>SIGN IN</button>
-                        </Nav.Link>
-                        <Nav.Link href="signup">
-                            <button className="button-two a">JOIN NOW</button>
-                        </Nav.Link>
-                    </Nav>
-                </Container>
-            </Navbar>
-
-
-
-
-            {/* section-two */}
+        <ProNavbar/>
             <section className="container section-two">
                 <div className="mt-5">
                     <a href="/"  style={{ fontWeight: "bolder" }}><TiArrowLeftThick style={{color: "black"}}></TiArrowLeftThick>Back</a>
