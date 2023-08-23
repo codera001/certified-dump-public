@@ -13,23 +13,23 @@
     background-color:var(--black);
     color: rgba(255, 255, 255, 0.623);
   }
-  .nav {
+  .first-nav .nav {
     align-items: center;
   }
   
-  .brand {
+  .first-nav   .brand {
     font-size: 16px;
   }
   
-  .nav-lists {
+  .first-nav  .nav-lists {
     font-size: 14px;
   }
-  .icon {
+  .first-nav  .icon {
     /* margin-top: 8px; */
     margin-left: 1rem;
   }
 
-  .icon.image {
+  .first-nav   .icon.image {
     width: 23px;
     height: 23px;
   }

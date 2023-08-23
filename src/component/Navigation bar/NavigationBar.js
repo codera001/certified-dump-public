@@ -71,7 +71,7 @@ function NavigationBar() {
             height="140px"
             src={logo}
             style={{ float: "left" }}
-            alt="logo"
+            // alt="logo"
           />
         </div>
         <div className="d-flex ">
