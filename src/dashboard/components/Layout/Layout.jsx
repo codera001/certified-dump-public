@@ -8,14 +8,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="d-layout">
-        {/* some texts */}
         <div className="d-inner-layout">
           <Nav />
           <Sidebar />
-          {/* <div className="inner"> */}
-          {/* <Sidebar /> */}
           <main className="d-children user-scroll">{children}</main>
-          {/* </div> */}
         </div>
         <Footer />
       </div>

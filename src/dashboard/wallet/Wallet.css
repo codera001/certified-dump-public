@@ -1,0 +1,50 @@
+.d-wallets {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    margin: 20px auto;
+    padding: 0 10px;
+    width: 100%;
+
+    & .d-spent, .d-bal {
+      box-shadow: var(--box-shadow);
+      padding: 20px;
+      border-radius: 10%;
+      transition: var(--transition-all);
+
+      &:hover {
+        box-shadow: var(--box-shadow-hover);
+      }
+    }
+}
+
+.d-table-container {
+  width: 100%;
+  max-width: 90%;
+  margin: 20px auto;
+  padding: 20px 10px;
+  overflow-x: auto;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+@media screen and (min-width: 550px) {
+  .d-wallets {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .d-wallets {
+    max-width: 80%;
+    margin: 20px auto;
+
+    & strong {
+      font-size: var(--ptext2);
+    }
+  }
+}

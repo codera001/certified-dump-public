@@ -52,7 +52,7 @@ const Tickets = () => {
             <Link
               to="/support"
             >
-              <button>View more</button>
+              <button className="d-sub-btn">View more</button>
             </Link>
           </div>
         ))}

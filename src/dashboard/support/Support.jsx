@@ -19,7 +19,7 @@ const Support = () => {
         <div>
           <h1>Support Ticket</h1>
         </div>
-        <div>
+        <div className="d-ticket-btn">
           <button onClick={() => setModal(!modal)}>Add a support ticket</button>
         </div>
         <div className="d-support-wrapper">
@@ -38,7 +38,7 @@ const Support = () => {
                       rows="5"
                     />
                   </div>
-                  <button onClick={() => setModal(modal)}>Send</button>
+                  <button className="d-modal-btn" onClick={() => setModal(modal)}>Send</button>
                 </form>
               </div>
             </div>
