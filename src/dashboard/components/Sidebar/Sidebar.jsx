@@ -17,7 +17,7 @@ const Sidebar = () => {
     <>
       <aside
         className={`${"d-user-sidebar"} ${
-          open ? "d-user-sidebar-test" : ".d-user-sidebar-mobile"
+          open ? "d-user-sidebar-test" : "d-user-sidebar-mobile"
         } `}
       >
         <div className="d-sidebar-inner">

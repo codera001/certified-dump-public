@@ -23,7 +23,7 @@ export const sideMenu = [
     path: "/library",
   },
   {
-    title: "Wallet",
+    title: "Finance",
     icon: <AiOutlineWallet />,
     path: "/wallet",
   },
