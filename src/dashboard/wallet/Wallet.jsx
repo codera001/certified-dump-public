@@ -72,6 +72,9 @@ const Wallet = () => {
         </div>
       </div>
       <div className="d-table-container">
+        <div className="d-table-header">
+        <h3>Your transactions History</h3>
+      </div>
         <Table title={titles} data={data} />
       </div>
     </Layout>

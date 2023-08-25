@@ -27,29 +27,70 @@
   }
 }
 
-.d-table tbody tr td:last-child {
-  border-radius: 10px;
-  transition: var(--transition-all);
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--primary-color);
-  }
-}
 
 .d-table {
   .d-status-success {
-    color: var(--white);
-    background-color: var(--green-200);
+    color: var(--green-200);
   }
 
   .d-status-pend {
-    color: var(--white);
-    background-color: var(--pend);
+    color: var(--pend);
   }
 
   .d-status-fail {
-    color: var(--white);
-    background-color: var(--fail);
+    color: var(--fail);
+  }
+}
+
+.d-table-modal {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.15);
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.d-modal-ticket {
+  background-color: #eee;
+  width: 100%;
+  max-width: 80%;
+  padding: 20px 0;
+}
+
+@media screen and (min-width: 730px) {
+  .d-table .d-mobile-row {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  tbody .d-desktop-row,
+  thead {
+    display: none;
+  }
+
+  .d-table .d-mobile-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    font-size: 12px;
+    width: 100%;
+
+    > td p {
+      font-weight: 700;
+    }
+
+    > td .d-mobile-success {
+      color: var(--green-200);
+    }
+    > td .d-mobile-pend {
+      color: var(--pend);
+    }
+    > td .d-mobile-fail {
+      color: var(--fail);
+    }
   }
 }
