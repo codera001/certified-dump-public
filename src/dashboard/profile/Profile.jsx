@@ -17,11 +17,11 @@ const Profile = () => {
   };
   const FemaleActiveGender = () => {
     setFemaleBtn(false);
-    console.log("yes");
+    // console.log("yes");
   };
   const ActiveGender = () => {
     setGenderBtn(false);
-    console.log("yes");
+    // console.log("yes");
   };
   return (
     <Layout>

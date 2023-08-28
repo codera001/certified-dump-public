@@ -24,14 +24,20 @@
 
 .d-inner-layout {
   display: flex;
-  /* justify-content:space-between; */
   align-items: center;
 }
 
 .d-children {
   width: 100%;
   height: 100vh;
-  padding: 100px 0 30px;
+  padding: 70px 0 30px;
   background-color: var(--green-100);
   overflow-y: scroll;
+}
+
+
+@media screen and (min-width: 1000px) {
+  .d-children{
+    padding-top: 95px;
+  }
 }
