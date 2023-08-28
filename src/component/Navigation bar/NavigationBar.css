@@ -1,8 +1,11 @@
-.a{
+
+
+a{
   color: white;
+  text-decoration: none;
 }
 
-.a:hover {
+a:hover {
   color: blue;
   /* background-color: aqua; */
 }
@@ -11,75 +14,143 @@
 
 .first-nav {
     background-color:var(--black);
+    margin-top: 0;
+    padding: 0.5rem 0;
+  
+  }
+  .first-nav a {
     color: rgba(255, 255, 255, 0.623);
   }
+
   .first-nav .nav {
     align-items: center;
+    align-content: center;
   }
-  
+
   .first-nav   .brand {
     font-size: 16px;
   }
-  
-  .first-nav  .nav-lists {
-    font-size: 14px;
-  }
-  .first-nav  .icon {
-    /* margin-top: 8px; */
-    margin-left: 1rem;
+  .first-nav   .brand-icon{
+    font-size: 22px;
   }
 
-  .first-nav   .icon.image {
-    width: 23px;
-    height: 23px;
+  .first-nav .item-list{
+    display: flex;
   }
-  .border-left {
+
+  .first-nav .user-auth{
+    display: none;
+  }
+  
+  .first-nav  .nav-list {
+    font-size: 16px;
+    margin-right: 1rem;
+  }
+ 
+  .first-nav   .icon{
+    font-size: 14px;
+    margin-top: 0;
+  }
+  .first-nav   .icon.image {
+    width: 15px;
+    height: 15px;
+  }
+  .first-nav .border-left {
     border-right: 2px solid var(--white);
     height: 3vh;
-    margin-top: 6px;
+    
   }
-  .button-one {
-   border: 1px solid var(--tertiary-color); 
-   border-radius:10px ;
-   padding: 0 0.5rem;
+  .nav-logo img{
+    width: 280px;
+    /* height: 140px; */
+  }
+
+ .second-nav {
+  background-color: var(--green-500);
+  
+ }
+  .second-nav .button {
+   border: 1px solid var(--black); 
+   border-radius:1px ;
+   padding: 0.5rem 2.5rem;
    font-weight: bolder;
-   background-color: rgba(255, 255, 255, 0.801);
    font-size: 18px;
-   color: black;
+   color:var(--white);
+   background-color:none;
+   margin-top:0;
+   margin-right:1rem
+
+
   }
-  .button-two {
-    background-color: var(--tertiary-color);
-    padding: 0rem 1.5rem;
-    border-radius: 10px;
-    margin-left: 2rem;
-    color: white;
-    border: none;
-    font-size: 18px;
-    font-weight: bolder;
+ 
+  .second-nav .button:hover{
+    color:var(--tertairy-color);
   }
 
 
   .second-nav  .nav-links{
       font-weight: bolder;
       font-size: 18px;
-      color: black;
+      color:var(--white);
       margin-right: 2rem;
 
   }
   .second-nav  .nav-links:hover{
-    color: blue;
+    color: var(--tertiary-color);
+  }
+
+
+  .navbar-expand-lg .navbar-nav .nav-link{
+    padding-right:2rem;
+    padding-left:2rem;
+    margin-right: 2rem;
   }
   
 
   @media screen and (max-width:767px) {
 
-    .icon {
-      /* margin-top: 8px; */
-      margin-left: 0.5rem;
+ 
+    .first-nav   .brand {
+      font-size: 14px;
+    }
+ .first-nav .item-list{
+  display: none;
+ }
+
+    .first-nav .user-auth{
+      display: block;
+      color: white;
     }
 
-  
-    .nav-toogle{
+    .first-nav .user-auth:hover{
+color: rgba(255, 255, 255, 0.39);
+    }
+
+
+    .first-nav  .nav-list {
+      font-size: 14px;
+   
+    }
+   
+    .first-nav   .icon{
+      font-size: 12px;
+      margin-top: 0;
+    }
+
+    .nav-logo img{
+      width: 100px;
+      height: 100px;
+    }
+
+ 
+    .nav-log0 h6 {
+      font-size: 14px;
+    }
+
+    .nav-logo span{
+      font-size: 14px;
+    }
+    .second-nav.nav-toogle{
        /* top:-140px;
        right: 10px;  */
        background-color: rgba(0, 0, 0, 0.815);
@@ -91,7 +162,7 @@
        padding: 1rem;
     }
 
-    .toggle {
+    .second-nav  .toggle {
       border: 1px solid var(--white);
       color: var(--white);
       background-color: white;

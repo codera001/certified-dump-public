@@ -18,7 +18,7 @@ function Main() {
       <section className="w-full ">
         <NavigationBar/>
         {/* <DashboardPage></DashboardPage> */}
-        <section className="section-one mt-o pt-0">
+        <section className="section-one">
           <div className="text my-auto" style={{}}>
             <h1
               style={{
@@ -42,8 +42,8 @@ function Main() {
 
 
             <div className=" container d-md-flex justify-content-around  w-50  text-align-center">
-              <button className="py-1 px-3 mt-1  button" style={{ backgroundColor: "var(--green-500)", borderRadius: "10px", border: "none" }}>UNLIMITED ACCESS</button>
-              <button className="py-1 px-3 mt-1  button" style={{ backgroundColor: "#ff5607", borderRadius: "10px", border: "none" }}>FIND YOUR EXAM NOW</button>
+              <a href="" className="py-1 px-3 mt-1  button" style={{borderColor: "var(--green-500)", borderWidth:"1px", borderStyle:"solid" , borderRadius: "1px"}}>UNLIMITED ACCESS</a>
+              <a href="" className="py-1 px-3 mt-1  button" style={{borderColor: "var(--green-500)", borderWidth:"1px", borderStyle:"solid" , borderRadius: "1px" }}>FIND YOUR EXAM NOW</a>
             </div>
 
           </div>
@@ -56,7 +56,7 @@ function Main() {
       {/* section-two */}
       <section className="container section-two">
         <div>
-          <h5 className="mt-5" style={{ fontWeight: "bolder", color: "black" }}>Our Top Providers</h5>
+          <h5 className="mt-5" style={{ fontWeight: "bolder", color: "black", fontSize:"3rem" }}>Our Top Providers</h5>
           <p className="mb-5" style={{ fontSize: "16px" }}>
             Certified dump has one of the largest collection of professional
             certification and exam practice tests and online courses. Use <br />
@@ -149,14 +149,14 @@ function Main() {
             </div>
           </div>
           <div className="button">
-            <button className=" px-5 text-white py-1 mt-5" style={{ border: "none", backgroundColor: "#ff5607", borderRadius: "10px" }}>VIEW ALL</button>
+            <a href="/" className=" px-5 py-1" style={{ color:"black", borderColor: "var(--tertiary-color)", borderWidth:"1px", borderStyle:"solid" , borderRadius: "1px" }}>VIEW ALL</a>
           </div>
         </div>
       </section>
 
       {/* section-three */}
       <section className="section-three">
-        <div className="d-md-flex " style={{ height: "50vh" }}>
+        <div className="d-md-flex justify-content-between" style={{ height: "50vh" }}>
           <div className="image " style={{ height: "50vh" }}>
             <img alt="" width="100%" src={study} style={{ height: "inherit" }} />
           </div>
