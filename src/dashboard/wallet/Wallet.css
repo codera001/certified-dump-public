@@ -32,6 +32,11 @@
   box-shadow: var(--box-shadow);
 }
 
+.d-table-header h3 {
+ text-align: center;
+ margin: 20px 0;
+}
+
 @media screen and (min-width: 550px) {
   .d-wallets {
     flex-direction: row;
@@ -41,10 +46,16 @@
 @media screen and (min-width: 768px) {
   .d-wallets {
     max-width: 80%;
-    margin: 20px auto;
+    margin: 60px auto;
 
     & strong {
       font-size: var(--ptext2);
     }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .d-wallets {
+    max-width: 70%;
   }
 }
