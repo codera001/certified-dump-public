@@ -10,7 +10,7 @@ const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(!open);
-    console.log("I am clickable");
+    // console.log("I am clickable");
   };
 
   return (
@@ -36,6 +36,7 @@ const Sidebar = () => {
             {sideMenu.map((menu, index) => {
               return (
                 <NavLink
+                  title={menu.title}
                   to={menu.path}
                   key={index}
                   className={({ isActive }) => (isActive ? "d-bg-change" : "")}

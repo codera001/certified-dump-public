@@ -20,6 +20,13 @@
   justify-content: center;
 }
 
+.d-overview-no-books {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #aaa;
+  margin: 20px 0;
+}
+
 @media screen and (min-width: 375px) {
   .d-overview-cards {
     grid-template-columns: repeat(2, 120px);
