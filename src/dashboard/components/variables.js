@@ -25,8 +25,8 @@ export const books = [
     date: "2/2/2021",
   },
   {
-    image: book1,
-    title: "Home Front",
+    image: book2,
+    title: "Omnivore's Dilemma",
     provider: "Amazon,",
     cost: "$12.00",
     date: "12/08/2021",
