@@ -34,12 +34,6 @@ import Salesforce from "./pages/Exams/Salesforce";
 import Testprep from "./pages/Exams/Testprep";
 import Vmware from "./pages/Exams/Vmware";
 import Zend from "./pages/Exams/Zend";
-
-
-
-
-
-
 import Support from "./dashboard/support/Support";
 import Chat from "./dashboard/chats/Chat";
 
@@ -63,18 +57,19 @@ const router = createBrowserRouter(
       <Route path="fortinet" element={<Fortinet />} />
       <Route path="google" element={<Google />} />
       <Route path="huawei" element={<Huawei />} />
-      <Route path="isaca" element={<Isaca/>} />
+      <Route path="isaca" element={<Isaca />} />
       <Route path="juniper" element={<Juniper />} />
       <Route path="providers" element={<Microsoft />} />
       <Route path="netapp" element={<Netapp />} />
       <Route path="nokia" element={<Nokia />} />
       <Route path="qlikview" element={<Qlikview />} />
-      <Route path="redhat" element={<Redhat/>} />
-      <Route path="sakesforce" element={<Salesforce/>} />
-      <Route path="testprep" element={<Testprep/>} />
-      <Route path="vmware" element={<Vmware/>} />
-      <Route path="zend" element={<Zend/>} />
+      <Route path="redhat" element={<Redhat />} />
+      <Route path="sakesforce" element={<Salesforce />} />
+      <Route path="testprep" element={<Testprep />} />
+      <Route path="vmware" element={<Vmware />} />
+      <Route path="zend" element={<Zend />} />
       <Route path="support" element={<Support />} />
+      <Route path="contac" element={<Contact />} />
       <Route path="chat" element={<Chat />} />
     </>
   )
