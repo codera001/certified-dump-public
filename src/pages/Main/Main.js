@@ -176,7 +176,7 @@ function Main() {
           </Col>
 
           <div className="button">
-          <a href="providers" className=" px-5 py-1" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
+          <a href="providers" className=" px-2 py-1" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
         </div>
       
         </Row>

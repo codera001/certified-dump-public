@@ -22,6 +22,7 @@ import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import PageFooter from "../../component/PageFooter/PageFooter";
 
 function Providers() {
     return (
@@ -42,7 +43,7 @@ function Providers() {
                 <img src={microsoft} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="microsoft" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -55,7 +56,7 @@ function Providers() {
                 <img src={google} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="google" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -68,7 +69,7 @@ function Providers() {
                 <img src={amazon} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="amazon" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -81,7 +82,7 @@ function Providers() {
                 <img src={juniper} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="juniper" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -94,7 +95,7 @@ function Providers() {
                 <img src={vmare} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="vmware" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -107,7 +108,7 @@ function Providers() {
                 <img src={cisco} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="cisco" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -120,7 +121,7 @@ function Providers() {
                 <img src={salesforce} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="salesforce" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -134,7 +135,7 @@ function Providers() {
                 <img src={isaca} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="isaca" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -147,7 +148,7 @@ function Providers() {
                 <img src={alibaba} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="alibaba" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -160,7 +161,7 @@ function Providers() {
                 <img src={blockchain} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="blockchain" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -173,7 +174,7 @@ function Providers() {
                 <img src={cloudera} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="cloudera" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -186,7 +187,7 @@ function Providers() {
                 <img src={fortnet} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="fortinet" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -199,7 +200,7 @@ function Providers() {
                 <img src={huawei} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="huawei" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -212,7 +213,7 @@ function Providers() {
                 <img src={netapp} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="netapp" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -225,7 +226,7 @@ function Providers() {
                 <img src={nokia} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="nokia" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -238,7 +239,7 @@ function Providers() {
                 <img src={redhat} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="redhat" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
               </Card.Footer>
@@ -247,17 +248,12 @@ function Providers() {
           </Col>
 
           <div className="button">
-                        <button className=" px-5 text-white py-1 mt-5" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</button>
+                        <a href="/" className=" px-2 text-white py-1 mt-5" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
                     </div>
           </Row>
-                
-
-                   
-                     
-                 
-                   
-                
+      
             </section>
+            <PageFooter/>
         </>
     );
 }
