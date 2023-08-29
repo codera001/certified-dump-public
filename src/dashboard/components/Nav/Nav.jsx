@@ -29,7 +29,7 @@ const Nav = () => {
           <div className="d-nav-balance">
             <div className="d-price">
               <p className="d-bal">Balance:</p>
-              <p className="d-value">6.14$</p>
+              <p className="d-value">$5003.20</p>
             </div>
             <Button>
               <span className="d-icon">
@@ -39,8 +39,8 @@ const Nav = () => {
             </Button>
           </div>
           <div className="d-user-dropdown">
-            <BiUserCircle style={{ fontSize: "50px" }} />
-            <PiCaretDownLight style={{ fontSize: "20px" }} />
+            <BiUserCircle className="d-drop-icon" />
+            <PiCaretDownLight className="d-drop-icon-2" />
             <div className="d-dropdown-inner">
               <div>
                 <p>email address</p>

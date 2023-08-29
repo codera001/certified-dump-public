@@ -50,7 +50,7 @@ const Tickets = () => {
           <div key={id} className="d-tickets">
             <span>{ticket.subject}</span>
             <Link
-              to="/support"
+              to="/chat"
             >
               <button className="d-sub-btn">View more</button>
             </Link>
