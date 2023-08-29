@@ -20,6 +20,14 @@
   grid-template-columns: repeat(1, 180px);
   grid-gap: 15px;
   justify-content: center;
+  margin-bottom: 20px;
+}
+
+.d-lib-no-books {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #aaa;
+  margin: 20px 0;
 }
 
 @media screen and (min-width: 375px) {

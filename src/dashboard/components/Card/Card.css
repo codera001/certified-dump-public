@@ -6,9 +6,11 @@
   cursor: pointer;
   padding-top: 10px;
   text-align: center;
+  transition: var(transition-all);
 }
 
 .d-card-img {
+  position: relative;
   width: 90%;
   aspect-ratio: 0.69;
   overflow: hidden;
@@ -17,12 +19,21 @@
   border: 1px solid var(--primary-color);
 }
 
+.d-card-img a {
+position: absolute;
+right: 10px;
+top: 5px;
+color: var(--primary-color);
+  font-size: 1.5rem;
+  display: none;
+}
+
 .d-card-img img {
   transition: transform 0.5s ease-in-out;
 }
 
-.d-card:hover img {
-  transform: scale(1.1);
+.d-card:hover .d-card-img a{
+  display: block;
 }
 
 .d-card-details {
