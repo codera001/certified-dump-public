@@ -14,7 +14,6 @@ import Wallet from "./dashboard/wallet/Wallet";
 import Login  from "./component/Login/Login"
 import Signup from "./component/Signup/Signup";
 import Providers from "./component/Providers/Providers";
-import ProNavbar from "./component/ProNavbar/ProNavbar";
 import Alibaba from "./component/Exams/Alibaba";
 import Blockchain from "./component/Exams/Blockchain";
 import Cisco from "./component/Exams/Cisco";
