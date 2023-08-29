@@ -1,5 +1,5 @@
 import React from "react";
-import './footer.css'
+import './PageFooter.css'
 // import footer from "../static/footer.png";
 import logo from "../../static/logo.png";
 import { RiHome4Fill } from "react-icons/ri";

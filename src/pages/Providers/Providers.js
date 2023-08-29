@@ -19,7 +19,9 @@ import nokia from "../../static/nokia.png";
 import redhat from "../../static/study.png";
 import "./Providers.css";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
-
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 function Providers() {
     return (

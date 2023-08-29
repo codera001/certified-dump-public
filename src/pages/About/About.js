@@ -1,6 +1,6 @@
 import React from "react";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import Footer from "../../component/PageFooter/PageFooter";
+import PageFooter from "../../component/PageFooter/PageFooter";
 import signup from "../../static/signup.jpg"
 import about2 from "../../static/about2.png"
 import about3 from "../../static/about3.png"
