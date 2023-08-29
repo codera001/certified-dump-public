@@ -17,20 +17,20 @@ function PageFooter() {
             <h3>CONNECT WITH US</h3>
             <div className="">
               <div className="icon-text">
-                <BiLogoFacebook></BiLogoFacebook>
+                <BiLogoFacebook className="icon me-2"></BiLogoFacebook>
                 <p>facebook</p>
               </div>
               <div className="icon-text">
-                <BiLogoInstagram></BiLogoInstagram>
+                <BiLogoInstagram className="icon me-2"></BiLogoInstagram>
                 <p>Instagram</p>
 
               </div>
               <div className="icon-text">
-                < BiLogoTwitter></ BiLogoTwitter>
+                < BiLogoTwitter className="icon me-2"></ BiLogoTwitter>
                 <p>Twitter</p>
               </div>
               <div className="icon-text">
-                <RxEnvelopeClosed></RxEnvelopeClosed>
+                <RxEnvelopeClosed className="icon me-2"></RxEnvelopeClosed>
                 <p>Hello@certifieddump.com</p>
               </div>
 

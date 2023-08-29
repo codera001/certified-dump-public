@@ -245,15 +245,17 @@ function Providers() {
             </Card>
 
           </Col>
+
+          <div className="button">
+                        <button className=" px-5 text-white py-1 mt-5" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</button>
+                    </div>
           </Row>
                 
 
                    
                      
                  
-                    <div className="button">
-                        <button className=" px-5 text-white py-1 mt-5" style={{ border: "none", backgroundColor: "#ff5607", borderRadius: "10px" }}>VIEW ALL</button>
-                    </div>
+                   
                 
             </section>
         </>

@@ -174,13 +174,15 @@ function Main() {
             </Card>
 
           </Col>
+
+          <div className="button">
+          <a href="providers" className=" px-5 py-1" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
+        </div>
+      
         </Row>
 
 
 
-        <div className="button">
-          <a href="providers" className=" px-5 py-1" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
-        </div>
       
     </section >
 
@@ -215,13 +217,13 @@ function Main() {
           <h2 style={{ fontWeight: "bolder", color: "black" }}>
             FIND EXAMS NOW
           </h2>
-          <div style={{ marginTop: "4rem" }}>
+          <div style={{ marginTop: "4rem" , paddingBottom:"5rem"}}>
             <button
-              className="px-3 text-dark mx-3 py-3"
+              className="px-3 text-dark mx-3 "
               style={{
                 backgroundColor: "white",
                 fontSize: "14px",
-                borderRadius: "10px",
+                borderRadius: "5px",
                 border: "none",
               }}
             >
@@ -236,7 +238,7 @@ function Main() {
               style={{
                 backgroundColor: "white",
                 fontSize: "14px",
-                borderRadius: "10px",
+                borderRadius: "5px",
                 border: "none",
                 paddingLeft:"4rem",
                 paddingRight:"4rem"
@@ -246,13 +248,13 @@ function Main() {
             </button>
             <a
             href="/"
-              className="mx-md-3 mb-5 button"
+              className="mx-md-3 button"
               style={{
                 fontSize: "16px",
                 borderColor: "var(--green-500)",
                 borderStyle: "solid",
                 borderWidth:"1px",
-                borderRadius: "10px",
+                borderRadius: "5px",
                 color:"var(--green-500)",
                 paddingLeft:"2rem",
                 paddingRight:"2rem"

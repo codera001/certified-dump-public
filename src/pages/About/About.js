@@ -60,7 +60,7 @@ function About() {
             </section>
 
             <section className="section3 container">
-                <h1>Our Services</h1>
+                <h1 className="text-center">Our Services</h1>
 
                 <Row xs={2}sm={2} md={3} lg={4} className=" card-section">
       
@@ -127,8 +127,8 @@ function About() {
         </Col>
         </Row>
 
-        <a href="/">GET STARTED</a>
-        <small>Begin your journey towards exam sucess with Certified Dump</small>
+        <a href="/" className="text-center">GET STARTED</a>
+        <small className="text-center">Begin your journey towards exam sucess with Certified Dump</small>
 
 
             </section>

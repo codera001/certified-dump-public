@@ -9,16 +9,21 @@
       background-image: url('../../static/aboutUs.png');
   }
 
+  .section-one h1{
+    z-index:1;
+  color:white;
+  }
+
   .section-two .text-image {
     display:flex;
     justify-content:space-around
   }
 
-  .section-two .text-image.image{
+  .section-two .text-image .image{
     width:35%
   }
 
-  .section-two .text-image.text {
+  .section-two .text-image .text {
     width:35%;
   }
 
