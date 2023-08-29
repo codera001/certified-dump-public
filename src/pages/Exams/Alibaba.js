@@ -5,6 +5,8 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import {TiArrowLeftThick } from "react-icons/ti";
+import {AiOutlineSearch } from "react-icons/ai";
+
 import './Exams.css'
 function Alibaba () {
 return (
@@ -14,12 +16,15 @@ return (
               <div className="navigate container">
               <div className="d-flex justify-content-between arrow-text"><a href="/"  style={{ fontWeight: "bolder" }}><TiArrowLeftThick style={{color: "black"}}></TiArrowLeftThick>Back</a>
                 <h6> All Alibaba Exams</h6></div>
+                <div>
+                  <AiOutlineSearch></AiOutlineSearch>
                 <input
           placeholder="exam code or name"
           type="search"
           className="w-full rounded-lg search
                   "
         />
+                </div>
               </div>
               <Row xs={2}sm={2} md={3} lg={4} className=" card-section">
       

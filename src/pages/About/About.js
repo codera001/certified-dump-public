@@ -1,6 +1,6 @@
 import React from "react";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import Footer from "../../component/Footer/Footer";
+import Footer from "../../component/PageFooter/PageFooter";
 import signup from "../../static/signup.jpg"
 import about2 from "../../static/about2.png"
 import about3 from "../../static/about3.png"
@@ -18,7 +18,7 @@ function About() {
         <>
             <NavigationBar />
             <section className="section-one">
-                <h1>ABOUT US</h1>
+                <h1 className="text-white">ABOUT US</h1>
             </section>
 
             <section className="section-two container">
@@ -133,7 +133,7 @@ function About() {
 
             </section>
 
-            <Footer />
+            <PageFooter />
         </>
     )
 }

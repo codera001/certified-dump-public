@@ -9,24 +9,24 @@
       background-image: url('../../static/aboutUs.png');
   }
 
-  .section-two .image-text {
+  .section-two .text-image {
     display:flex;
     justify-content:space-around
   }
 
-  .section-two .image-text .image{
+  .section-two .text-image.image{
     width:35%
   }
 
-  .section-two .image-text .text {
+  .section-two .text-image.text {
     width:35%;
   }
 
-  .section-two .image-text .image img {
+  .section-two .text-image .image img {
     width:100%
   }
 
-  .section-two .image-text .text p {
+  .section-two .text-image .text p {
     font-weight:bold
   }
 
