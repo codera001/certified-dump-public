@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.c-contact-top-section {
+  background-image: url("../static/contact0001.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  color: var(--white);
+  align-items: center;
+  justify-content: center;
+}
+
+.c-contact-body form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 1px;
+}
+.c-contact-body form p {
+  font-size: 20px;
+}
+.c-contact-body form label {
+  font-size: 20px;
+  padding: 8px 0;
+}
+.c-contact-body form label span {
+  color: var(--fail);
+}
+.c-contact-body form input {
+  width: 280px;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid var(--secondary-color);
+  box-shadow: var(--box-shadow);
+}
+.c-contact-textarea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin: 20px 0;
+}
+
+.c-contact-textarea textarea {
+  border-radius: 10px;
+  border: 1px solid var(--secondary-color);
+  box-shadow: var(--box-shadow);
+  width: 280px;
+}
+
+.c-contact-body form button {
+  background: transparent;
+  padding: 5px 10px;
+  border: 1px solid var(--black);
+  box-shadow: var(--box-shadow);
+  margin: 20px 0;
+  font-size: 20px;
+}
+.c-contact-body-inquiries {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 15px;
+  gap: 50px;
+}
+.c-contact-body-inquiries h1 {
+  font-weight: 600;
+}
+.c-contact-body-inquiries p {
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  word-spacing: 2px;
+}
+.c-contact-body-inquiries h2 {
+  font-size: 18px;
+}
+.c-contact-body-questions {
+  display: flex;
+  align-items: center;
+}
+.c-arrow {
+  width: 100px;
+}
+@media screen and (min-width: 425px) {
+    .c-contact-top-section{
+        height: 20vh;
+    }
+  .c-contact-body form input {
+    width: 370px;
+    height: 45px;
+  }
+  .c-contact-textarea textarea {
+    width: 370px;
+  }
+  .c-arrow {
+    width: 50px;
+  }
+}
+@media screen and (min-width: 768px){
+    .c-contact-top-section{
+        height: 30vh;
+    }
+    .c-contact-body{
+        /* display: flex;
+        flex-direction: row-reverse; */
+        /* width: 100%;
+        padding: 10px;
+        gap: 20px; */
+    }
+}

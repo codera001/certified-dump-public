@@ -96,7 +96,7 @@ function NavigationBar() {
               className="mt-0  nb-0 text-start"
               style={{ color: " var(--tertiary-color)", fontSize: "16px" }}
             >
-              hello@certifieddump.com
+              {/* hello@certifieddump.com */}
             </span>
           </div>
         </div>
