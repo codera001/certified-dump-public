@@ -71,7 +71,7 @@ a{
   
  }
   .second-nav .button {
-   border: 1px solid var(--black); 
+   border: 1px solid #DEDEDE; 
    border-radius:1px ;
    padding: 0.5rem 2.5rem;
    font-weight: bolder;
@@ -79,9 +79,7 @@ a{
    color:var(--white);
    background-color:none;
    margin-top:0;
-   margin-right:1rem
-
-
+   margin-right:1rem;
   }
  
   .second-nav .button:hover{

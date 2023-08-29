@@ -9,25 +9,30 @@
       background-image: url('../../static/aboutUs.png');
   }
 
-  .section-two .image-text {
+  .section-one h1{
+    z-index:1;
+  color:white;
+  }
+
+  .section-two .text-image {
     display:flex;
     justify-content:space-around
   }
 
-  .section-two .image-text .image{
-    width:35%
+  .section-two .text-image .image{
+    width:40%
   }
 
-  .section-two .image-text .text {
-    width:35%;
+  .section-two .text-image .text {
+    width:40%;
   }
 
-  .section-two .image-text .image img {
+  .section-two .text-image .image img {
     width:100%
   }
 
-  .section-two .image-text .text p {
-    font-weight:bold
+  .section-two .text-image .text p {
+    font-size:16px
   }
 
 
@@ -38,18 +43,23 @@
   
  .section-three .card-section .card-wrap{
     border:  2px solid var(--tertiary-color);
-    width:85%;
-    height: 21vh; 
+    width:100%;
+    height: 25vh; 
   margin:1rem auto;
   text-align:center;
   align-items:center;
    
 }
 
-.section-three .card-section .card-wrap .image{
+.section-three .card-section .card-wrap .image img{
     border-radius:50%;
-    border:1px solid var(--tertiary-color)
+    border:1px solid var(--tertiary-color);
+    width:10%;
     
+}
+
+.section-three .card-section .card-wrap .strong{
+font-size:16px
 }
 
 .section-three a{

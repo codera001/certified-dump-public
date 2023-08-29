@@ -19,7 +19,10 @@ import nokia from "../../static/nokia.png";
 import redhat from "../../static/study.png";
 import "./Providers.css";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
-
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import PageFooter from "../../component/PageFooter/PageFooter";
 
 function Providers() {
     return (
@@ -31,176 +34,226 @@ function Providers() {
                     <h5 className=" mb-5" style={{ fontWeight: "bolder", color: "black", textAlign: "center",fontSize:"2.5rem" }}>All Providers</h5>
 
                 </div>
-                <div className="container">
-                    <div className=" row mb-5 " >
-                        <div className="col-sm-2 col-sm-offset-1 card-wrap" >
-                            <div className="card card-block text-xs-center align-items-center" style={{}}>
-                                <img src={microsoft} style={{ borderBottom: "2px solid #ff5607" }} alt="card-pics" />
+                <Row xs={2} sm={2} md={3} lg={4} className=" card-section">
 
-                                <a href="microsoft" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                        <div className=" col-sm-2 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center" style={{}}>
-                                <img
-                                    src={google}
-                                    style={{ borderBottom: "2px solid #ff5607" }}
-                                    alt="card-pics"
-                                />
 
-                                <a href="google" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                        <div className=" col-sm-2 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center" style={{}}>
-                                <img
-                                    src={amazon}
-                                    style={{ borderBottom: "2px solid #ff5607" }}
-                                    alt="card-pics"
-                                />
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={microsoft} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="microsoft" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
 
-                                <a href="amazon" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                        <div className=" col-sm-2 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center" style={{}}>
-                                <img src={juniper} style={{ borderBottom: "2px solid #ff5607" }} alt="card-pics" />
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={google} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="google" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
 
-                                <a href="juniper" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={amazon} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="amazon" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={juniper} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="juniper" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={vmare} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="vmware" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={cisco} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="cisco" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={salesforce} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="salesforce" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={isaca} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="isaca" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={alibaba} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="alibaba" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={blockchain} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="blockchain" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={cloudera} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="cloudera" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={fortnet} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="fortinet" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={huawei} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="huawei" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={netapp} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="netapp" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={nokia} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="nokia" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={redhat} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="redhat" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                  View more
+                </a>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+
+          <div className="button">
+                        <a href="/" className=" px-2 text-white py-1 mt-5" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
                     </div>
-
-                    <div className=" row mb-5"  >
-                        <div className=" col-2 col-sm-offset-1 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center" style={{}}>
-                                <img src={vmare} style={{ borderBottom: "2px solid #ff5607" }}  alt="card-pics" />
-
-                                <a href="vmware" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                        <div className=" col-2 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center " style={{}}>
-                                <img src={cisco} style={{ borderBottom: "2px solid #ff5607" }} alt="card-pics"/>
-
-                                <a href="cisco" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                        <div className=" col-2 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center" style={{}}>
-                                <img src={salesforce} style={{ borderBottom: "2px solid #ff5607" }} alt="card-pics"/>
-
-                                <a href="salesforce" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                        <div className=" col-2 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center" style={{}}>
-                                <img src={isaca} style={{ borderBottom: "2px solid #ff5607" }} alt="card-pics"/>
-
-                                <a href="isaca" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className=" row mb-5"  >
-                        <div className=" col-2 col-sm-offset-1 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center" style={{}}>
-                                <img src={alibaba} style={{ borderBottom: "2px solid #ff5607" }} alt="card-pics"/>
-
-                                <a href="alibaba" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                        <div className=" col-2 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center " style={{}}>
-                                <img src={blockchain} style={{ borderBottom: "2px solid #ff5607" }} alt="card-pics"/>
-
-                                <a href="blockchain" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                        <div className=" col-2 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center" style={{}}>
-                                <img src={cloudera} style={{ borderBottom: "2px solid #ff5607" }} alt="card-pics"/>
-
-                                <a href="cloudera" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                        <div className=" col-2 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center" style={{}}>
-                                <img src={fortnet} style={{ borderBottom: "2px solid #ff5607" }} alt="card-pics"/>
-
-                                <a href="fortinet" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className=" row"  >
-                        <div className=" col-2 col-sm-offset-1 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center" style={{}}>
-                                <img src={huawei} style={{ borderBottom: "2px solid #ff5607" }} alt="card-pics"/>
-
-                                <a href="huawei" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                        <div className=" col-2 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center " style={{}}>
-                                <img src={netapp} style={{ borderBottom: "2px solid #ff5607" }} alt="card-pics"/>
-
-                                <a href="netapp" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                        <div className=" col-2 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center" style={{}}>
-                                <img src={nokia} style={{ borderBottom: "2px solid #ff5607" }} alt="card-pics"/>
-
-                                <a href="nokia" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                        <div className=" col-2 card-wrap">
-                            <div className="card card-block text-xs-center align-items-center" style={{}}>
-                                <img src={redhat} style={{ borderBottom: "2px solid #ff5607" }} alt="card-pics"/>
-
-                                <a href="redhat" className="card-text">
-                                    View more
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                 
-                    <div className="button">
-                        <button className=" px-5 text-white py-1 mt-5" style={{ border: "none", backgroundColor: "#ff5607", borderRadius: "10px" }}>VIEW ALL</button>
-                    </div>
-                </div>
+          </Row>
+      
             </section>
+            <PageFooter/>
         </>
     );
 }

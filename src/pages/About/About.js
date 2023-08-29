@@ -1,6 +1,6 @@
 import React from "react";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import Footer from "../../component/Footer/Footer";
+import PageFooter from "../../component/PageFooter/PageFooter";
 import signup from "../../static/signup.jpg"
 import about2 from "../../static/about2.png"
 import about3 from "../../static/about3.png"
@@ -18,10 +18,10 @@ function About() {
         <>
             <NavigationBar />
             <section className="section-one">
-                <h1>ABOUT US</h1>
+                <h1 className="text-white">ABOUT US</h1>
             </section>
 
-            <section className="section-two container">
+            <section className="section-two container mt-5">
                 <div className="text-image">
                     <div className="text">
                         <h5>Our Vision</h5>
@@ -59,10 +59,10 @@ function About() {
 
             </section>
 
-            <section className="section3 container">
-                <h1>Our Services</h1>
+            <section className="section3 container mt-4">
+                <h1 className="text-center">Our Services</h1>
 
-                <Row xs={2}sm={2} md={3} lg={4} className=" card-section">
+                <Row xs={2}sm={2} md={3} lg={4} className=" card-section mb-3">
       
        
         <Col className="">
@@ -127,13 +127,13 @@ function About() {
         </Col>
         </Row>
 
-        <a href="/">GET STARTED</a>
-        <small>Begin your journey towards exam sucess with Certified Dump</small>
+        <a href="/" className="text-center">GET STARTED</a>
+        <small className="text-center">Begin your journey towards exam sucess with Certified Dump</small>
 
 
             </section>
 
-            <Footer />
+            <PageFooter />
         </>
     )
 }

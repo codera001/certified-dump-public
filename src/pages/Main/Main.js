@@ -12,11 +12,14 @@ import study from "../../static/study.png";
 import { FaAngleDown } from "react-icons/fa";
 import './Main.css'
 import Footer from "../../component/Footer/Footer"
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 function Main() {
   return (
     <>
       <section className="w-full ">
-        <NavigationBar/>
+        <NavigationBar />
         {/* <DashboardPage></DashboardPage> */}
         <section className="section-one">
           <div className="text my-auto" style={{}}>
@@ -42,8 +45,8 @@ function Main() {
 
 
             <div className=" container d-md-flex justify-content-around  w-50  text-align-center">
-              <a href="" className="py-1 px-3 mt-1  button" style={{borderColor: "var(--green-500)", borderWidth:"1px", borderStyle:"solid" , borderRadius: "1px"}}>UNLIMITED ACCESS</a>
-              <a href="" className="py-1 px-3 mt-1  button" style={{borderColor: "var(--green-500)", borderWidth:"1px", borderStyle:"solid" , borderRadius: "1px" }}>FIND YOUR EXAM NOW</a>
+              <a href="" className="py-1 px-3 mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>UNLIMITED ACCESS</a>
+              <a href="" className="py-1 px-3 mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>FIND YOUR EXAM NOW</a>
             </div>
 
           </div>
@@ -56,106 +59,135 @@ function Main() {
       {/* section-two */}
       <section className="container section-two">
         <div>
-          <h5 className="mt-5" style={{ fontWeight: "bolder", color: "black", fontSize:"3rem" }}>Our Top Providers</h5>
+          <h5 className="mt-5" style={{ fontWeight: "bolder", color: "black", fontSize: "3rem" }}>Our Top Providers</h5>
           <p className="mb-5" style={{ fontSize: "16px" }}>
             Certified dump has one of the largest collection of professional
             certification and exam practice tests and online courses. Use <br />
             our study materials to pass your examinations on the first try! Our goal is to see you succeed.
           </p>
         </div>
-        <div className="container mx-md-5">
-          <div className=" row mb-5 " >
-            <div className="col-sm-2 col-sm-offset-1 card-wrap" >
-              <div className="card card-block text-xs-center align-items-center" style={{}}>
-                <img src={microsoft} alt="" style={{ borderBottom: "2px solid #ff5607" }} />
+        <Row xs={2} sm={2} md={3} lg={4} className=" card-section">
 
-                <a href="/" className="card-text">
+
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={microsoft} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
-              </div>
-            </div>
-            <div className=" col-sm-2 card-wrap">
-              <div className="card card-block text-xs-center align-items-center" style={{}}>
-                <img alt=""
-                  src={google}
-                  style={{ borderBottom: "2px solid #ff5607" }}
-                />
+              </Card.Footer>
+            </Card>
 
-                <a href="/" className="card-text">
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={google} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
-              </div>
-            </div>
-            <div className=" col-sm-2 card-wrap">
-              <div className="card card-block text-xs-center align-items-center" style={{}}>
-                <img
-                  alt=""
-                  src={amazon}
-                  style={{ borderBottom: "2px solid #ff5607" }}
-                />
+              </Card.Footer>
+            </Card>
 
-                <a href="/" className="card-text">
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={amazon} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
-              </div>
-            </div>
-            <div className=" col-sm-2 card-wrap">
-              <div className="card card-block text-xs-center align-items-center" style={{}}>
-                <img alt="" src={juniper} style={{ borderBottom: "2px solid #ff5607" }} />
+              </Card.Footer>
+            </Card>
 
-                <a href="/" className="card-text">
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={juniper} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
-              </div>
-            </div>
-          </div>
+              </Card.Footer>
+            </Card>
 
-          <div className=" row"  >
-            <div className=" col-2 col-sm-offset-1 card-wrap">
-              <div className="card card-block text-xs-center align-items-center" style={{}}>
-                <img alt="" src={vmare} style={{ borderBottom: "2px solid #ff5607" }} />
-
-                <a href="providers" className="card-text">
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={vmare} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
-              </div>
-            </div>
-            <div className=" col-2 card-wrap">
-              <div className="card card-block text-xs-center align-items-center " style={{}}>
-                <img alt="" src={cisco} style={{ borderBottom: "2px solid #ff5607" }} />
+              </Card.Footer>
+            </Card>
 
-                <a href="providers" className="card-text">
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={cisco} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
-              </div>
-            </div>
-            <div className=" col-2 card-wrap">
-              <div className="card card-block text-xs-center align-items-center" style={{}}>
-                <img alt="" src={salesforce} style={{ borderBottom: "2px solid #ff5607" }} />
+              </Card.Footer>
+            </Card>
 
-                <a href="providers" className="card-text">
+          </Col>
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={salesforce} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
-              </div>
-            </div>
-            <div className=" col-2 card-wrap">
-              <div className="card card-block text-xs-center align-items-center" style={{}}>
-                <img alt="" src={isaca} style={{ borderBottom: "2px solid #ff5607" }} />
+              </Card.Footer>
+            </Card>
 
-                <a href="providers" className="card-text">
+          </Col>
+
+          <Col className="">
+            <Card className="card-wrap">
+              <Card.Body >
+                <img src={isaca} alt="" />
+              </Card.Body>
+              <Card.Footer className="card-footer py-0" >
+                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
                   View more
                 </a>
-              </div>
-            </div>
-          </div>
+              </Card.Footer>
+            </Card>
+
+          </Col>
+
           <div className="button">
-            <a href="providers" className=" px-5 py-1" style={{ color:"var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth:"1px", borderStyle:"solid" , borderRadius: "1px" }}>VIEW ALL</a>
-          </div>
+          <a href="providers" className=" px-2 py-1" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
         </div>
-      </section>
+      
+        </Row>
 
-      {/* section-three */}
-      <section className="section-three">
+
+
+      
+    </section >
+
+      {/* section-three */ }
+      < section className = "section-three" >
         <div className="d-md-flex justify-content-between" style={{ height: "50vh" }}>
           <div className="image " style={{ height: "50vh" }}>
             <img alt="" width="100%" src={study} style={{ height: "inherit" }} />
@@ -181,17 +213,17 @@ function Main() {
           </div>
         </div>
 
-        <div className="search pb-0">
+        <div className="search pb-0 mb-4">
           <h2 style={{ fontWeight: "bolder", color: "black" }}>
             FIND EXAMS NOW
           </h2>
-          <div style={{ marginTop: "4rem" }}>
+          <div style={{ marginTop: "4rem" , paddingBottom:"5rem"}}>
             <button
-              className="px-3 text-dark mx-3 py-3"
+              className="px-3 text-dark mx-3 "
               style={{
                 backgroundColor: "white",
                 fontSize: "14px",
-                borderRadius: "10px",
+                borderRadius: "5px",
                 border: "none",
               }}
             >
@@ -202,34 +234,39 @@ function Main() {
               ></FaAngleDown>
             </button>
             <button
-              className="px-5 text-dark mx-3 py-3"
+              className=" text-dark mx-3 py-2"
               style={{
                 backgroundColor: "white",
                 fontSize: "14px",
-                borderRadius: "10px",
+                borderRadius: "5px",
                 border: "none",
+                paddingLeft:"4rem",
+                paddingRight:"4rem"
               }}
             >
               Exam Code or Keyword
             </button>
             <a
             href="/"
-              className="px-2 py-3 mx-md-3 mb-5 button"
+              className="mx-md-3 button"
               style={{
                 fontSize: "16px",
                 borderColor: "var(--green-500)",
                 borderStyle: "solid",
                 borderWidth:"1px",
-                borderRadius: "10px",
+                borderRadius: "5px",
+                color:"var(--green-500)",
+                paddingLeft:"2rem",
+                paddingRight:"2rem"
               }}
             >
               Search Exams
             </a>
           </div>
         </div>
-      </section>
+      </section >
 
-      <Footer />
+    <Footer />
 
 
 
