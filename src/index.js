@@ -34,12 +34,8 @@ import Salesforce from "./component/Exams/Salesforce";
 import Testprep from "./component/Exams/Testprep";
 import Vmware from "./component/Exams/Vmware";
 import Zend from "./component/Exams/Zend";
-
-
-
-
-
 import Support from "./dashboard/support/Support";
+import Chat from "./dashboard/chats/Chat";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -73,6 +69,7 @@ const router = createBrowserRouter(
       <Route path="vmware" element={<Vmware/>} />
       <Route path="zend" element={<Zend/>} />
       <Route path="support" element={<Support />} />
+      <Route path="chat" element={<Chat />} />
     </>
   )
 );
