@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Wallet.css";
 import Layout from "../components/Layout/Layout";
 import Table from "../components/Table/Table";
+import SearchBar from "../components/SearchBar.jsx/SearchBar";
 
 const Wallet = () => {
+  const [searchTerm, setSearchTerm] = useState("");
   const titles = ["S/N", "Id", "Amount", "Date & Time", "Status", "Type"];
   const data = [
     {
@@ -73,9 +75,20 @@ const Wallet = () => {
       </div>
       <div className="d-table-container">
         <div className="d-table-header">
-        <h3>Your transactions History</h3>
-      </div>
-        <Table title={titles} data={data} />
+          <h3>Your transactions History</h3>
+        </div>
+        <SearchBar title="Search Transactions" setSearchTerm={setSearchTerm} />
+        <Table title={titles} data={data} searchTerm={searchTerm} />
+
+        {searchTerm == "" && data.filter((all) => {
+          return (
+            all.trx_id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            all.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            all.status.toLowerCase().includes(searchTerm.toLowerCase())
+          );
+        }).length === 0 && (
+          <div className="d-lib-no-books">No Transactions Found</div>
+        )}
       </div>
     </Layout>
   );

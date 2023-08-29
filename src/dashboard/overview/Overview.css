@@ -18,6 +18,7 @@
   grid-template-columns: repeat(1, 180px);
   grid-gap: 15px;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .d-overview-no-books {

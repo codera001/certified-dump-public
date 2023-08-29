@@ -4,7 +4,7 @@ import RowWallet from "./RowWallet";
 import RowModal from "./RowModal";
 import DesktopRow from "./DesktopRow";
 
-const Table = ({ title, data }) => {
+const Table = ({ title, data, searchTerm }) => {
   const [show, setShow] = useState(false);
   let modalRef = useRef();
   const closeModal = (e) => {
@@ -38,9 +38,20 @@ const Table = ({ title, data }) => {
           </>
         ))}
 
-        {data.map((each, i) => (
-          <DesktopRow i={i} each={each} />
-        ))}
+        {data
+          .filter((all) => {
+            if (searchTerm == "") return all;
+            else if (
+              all.trx_id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              all.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              all.status.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return all;
+            } else return null;
+          })
+          .map((each, i) => (
+            <DesktopRow i={i} each={each} />
+          ))}
       </tbody>
     </table>
   );
