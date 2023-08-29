@@ -8,18 +8,13 @@
 
 .d-user-nav-items {
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   padding: 0 20px;
 }
 
 .d-nav-logo {
-  /* display: block; */
   width: 18rem;
   text-align: center;
-  /* display: block; */
-  /* overflow: hidden;+ */
-  /* width: sidebar size - padding right */
 }
 
 .d-nav-cta {
@@ -31,7 +26,6 @@
   border-radius: 10px;
   border: 1px solid var(--black);
   width: 22rem;
-  margin-left: 20px;
   max-height: 4rem;
 }
 
@@ -46,7 +40,7 @@
 .d-nav-balance {
   display: flex;
   align-items: center;
-  width: 12rem;
+  width: 13rem;
   margin-left: auto;
   background-color: var(--white);
   padding: 10px;
@@ -86,6 +80,14 @@
   width: 6rem;
   align-self: flex-end;
   cursor: pointer;
+}
+
+.d-drop-icon {
+  font-size: 50px;
+}
+
+.d-drop-icon-2 {
+  font-size: 20px;
 }
 
 .d-user-dropdown .d-dropdown-inner {
@@ -151,8 +153,9 @@
   .d-nav-balance {
     padding: 5px;
 
-    & .d-price .d-bal, Button .d-text{
-    display: none;
+    & .d-price .d-bal,
+    Button .d-text {
+      display: none;
     }
   }
 }
@@ -160,5 +163,23 @@
 @media screen and (max-width: 768px) {
   .d-nav-cta {
     display: none;
+  }
+}
+@media screen and (max-width: 425px) {
+  .d-nav-balance Button {
+    width: 30%;
+    align-self: flex-end;
+  }
+
+  .d-nav-balance .d-price {
+    width: 80%;
+  }
+
+  .d-user-dropdown {
+    margin-left: 0px;
+  }
+
+  .d-drop-icon{
+    font-size: 40px;
   }
 }

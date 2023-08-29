@@ -1,100 +1,97 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Offcanvas from 'react-bootstrap/Offcanvas';
 import { AiFillHome } from "react-icons/ai";
 import { RiFacebookFill, RiMailSendLine } from "react-icons/ri";
 import { TbBrandTwitterFilled } from "react-icons/tb";
+import { FaUser } from "react-icons/fa";
 import "./NavigationBar.css";
-import logo from "../static/logo.png";
-import instagram from "../static/instagram.png";
+import logo from "../../static/logo.png";
+import instagram from "../../static/instagram.png";
 
 function NavigationBar() {
   return (
     <>
-      <Navbar
-        collapseOnSelect
-        expand="sm"
-        className=" first-nav text-white "
-        fixed="top"
-      >
-        <Container>
-          <AiFillHome color="orange" />
-          <Navbar.Brand href="#home" className=" first-nav text-white brand">
-            {" "}
-            Welcome to Certified Dump{" "}
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              {/* <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link> */}
-            </Nav>
-            <Nav className="nav">
-              <Nav.Link
-                href="login"
-                className=" nav-lists a"
-              >
-                Login
-              </Nav.Link>
-              <Nav.Link
-                eventKey={2}
-                href="#memes"
-                className="   border-left a"
-              ></Nav.Link>
-              <Nav.Link
-                href="signup"
-                className=" nav-lists ms-3 a"
-              >
-                Sign up
-              </Nav.Link>
-              <RiFacebookFill color="blue" className="icon" />
-              <TbBrandTwitterFilled color="blue" className="icon" />
-              <Nav.Link  >
+      {/*first nav  */}
+      <div className="container-fluid first-nav">
+        <div className="container d-flex justify-content-between  nav">
+          <div className="d-flex my-0 item-head">
+      
+            <a href="#home" className=" text-white brand ">
+            <AiFillHome color="orange" className="brand-icon  me-1" />
+              Welcome to Certified Dump
+            </a>
+          </div>
+        
+         <a href="/login"> <FaUser className="user-auth"></FaUser></a>
+          <div className=" item-list">
+            <a
+              href="login"
+              className=" nav-list "
+            >
+              Login
+            </a>
+            <a
+              eventKey={2}
+              href="#memes"
+              className=" nav-list  border-left"
+            ></a>
+            <a
+              href="signup"
+              className=" nav-list  "
+            >
+              Sign up
+            </a>
+            <div className="icon">
+              <RiFacebookFill color="blue" className="me-2" />
+              <TbBrandTwitterFilled color="blue" />
+              <a >
                 <img
-                src={instagram}
-                className="icon image"
-                alt="instagram"
-              />
-              </Nav.Link>
-              
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+                  src={instagram}
+                  className="icon image"
+                  alt="instagram"
+                />
+              </a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
 
-      <div className="container d-flex justify-content-between align-items-center mt-5">
+
+
+
+
+      {/* secon-nav */}
+      <div className="container d-flex justify-content-between align-items-center mt-3 nav-logo">
         <div>
           <img
-            alt=""
-            width="190px"
-            height="140px"
+            alt="logo"
             src={logo}
-            style={{ float: "left" }}
-            // alt="logo"
+          
           />
         </div>
         <div className="d-flex ">
           <div className="mx-1">
             <RiMailSendLine
               color=" var(--tertiary-color)"
-              style={{ fontSize: "30px" }}
+              className="mail-icon"
+            style={{fontSize:"30px"}}
             />
           </div>
-          <div className="d-block ">
+          <div className="d-block  mx-0">
             <h6
               className="mb-0 mt-0 text-start"
               style={{
                 color: " black",
-                fontSize: "16px",
                 fontWeight: "bolder",
               }}
             >
               MAIL US
             </h6>
             <span
-              className="mt-0  nb-0 text-start"
-              style={{ color: " var(--tertiary-color)", fontSize: "16px" }}
+              className="mt-0  mb-0 text-start"
+              style={{ color: " var(--tertiary-color)"}}
             >
               {/* hello@certifieddump.com */}
             </span>
@@ -122,7 +119,7 @@ function NavigationBar() {
                 HOME
               </Nav.Link>
               <Nav.Link
-                href="#pricing"
+                href="about"
                 className="nav-links "
               >
                 ABOUT US
@@ -139,11 +136,11 @@ function NavigationBar() {
               >
                 CONTACT US
               </Nav.Link>
-              <Nav.Link href="login">
-                <button className="button-one a">SIGN IN</button>
+              <Nav.Link href="login"  className="button">
+                 SIGN IN
               </Nav.Link>
-              <Nav.Link href="signup">
-                <button className="button-two a">JOIN NOW</button>
+              <Nav.Link href="signup"  className="button">
+                 JOIN NOW
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

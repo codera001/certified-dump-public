@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import "./Table.css";
+import RowWallet from "./RowWallet";
+import RowModal from "./RowModal";
+import DesktopRow from "./DesktopRow";
 
-const Table = ({ title, data }) => {
+const Table = ({ title, data, searchTerm }) => {
+  const [show, setShow] = useState(false);
+  let modalRef = useRef();
+  const closeModal = (e) => {
+    if (!modalRef.current.contains(e.target)) {
+      setShow(false);
+    }
+  };
   return (
     <table className="d-table">
       <thead>
@@ -16,23 +26,32 @@ const Table = ({ title, data }) => {
       </thead>
       <tbody>
         {data.map((each, i) => (
-          <tr key={i}>
-            <td>{i + 1}</td>
-            <td>{each.trx_id}</td>
-            <td>{each.amt}</td>
-            <td>{each.date}</td>
-            <td>{each.type}</td>
-            {each.status === 'successful' ? (
-              <td className="d-status-success">Successful</td>
-            ) : 
-              each.status === "pending" ? (
-              <td className="d-status-pend">Pending</td>
-            
-              ) : (
-              <td className="d-status-fail">Failed</td>
+          <>
+            <RowWallet key={i} each={each} onClick={() => setShow(!show)} />
+            {show && (
+              <RowModal
+                each={each}
+                closeModal={closeModal}
+                modalRef={modalRef}
+              />
             )}
-          </tr>
+          </>
         ))}
+
+        {data
+          .filter((all) => {
+            if (searchTerm == "") return all;
+            else if (
+              all.trx_id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              all.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              all.status.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return all;
+            } else return null;
+          })
+          .map((each, i) => (
+            <DesktopRow i={i} each={each} />
+          ))}
       </tbody>
     </table>
   );

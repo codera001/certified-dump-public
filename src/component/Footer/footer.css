@@ -1,8 +1,9 @@
 .footeer{
-    background-image: url('../static/footer.png');
+    background-image: url('../../static/footer.png');
     height: 80vh;
     width: 100%;
     background-size: cover;
+    text-align: center;
 
 }
  .pu-footer{

@@ -4,8 +4,6 @@ import { ImLibrary } from "react-icons/im";
 import { AiOutlineWallet } from "react-icons/ai";
 import { MdOutlineSettingsPower } from "react-icons/md";
 
-// MdOutlineSettingsPower
-
 export const sideMenu = [
   {
     title: "Overview",

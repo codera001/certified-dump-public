@@ -2,6 +2,7 @@
   text-align: center;
   margin: 20px 0;
 }
+
 .d-overview-wrapper {
   background-color: var(--white);
   padding: 20px 10px;
@@ -17,6 +18,14 @@
   grid-template-columns: repeat(1, 180px);
   grid-gap: 15px;
   justify-content: center;
+  margin-bottom: 20px;
+}
+
+.d-overview-no-books {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #aaa;
+  margin: 20px 0;
 }
 
 @media screen and (min-width: 375px) {
@@ -42,7 +51,6 @@
     grid-template-columns: repeat(3, 180px);
   }
 }
-
 
 @media screen and (min-width: 1280px) {
   .d-overview-cards {
