@@ -6,8 +6,8 @@ import { RiFacebookFill, RiMailSendLine } from "react-icons/ri";
 import { TbBrandTwitterFilled } from "react-icons/tb";
 import { FaUser } from "react-icons/fa";
 import "./NavigationBar.css";
-import logo from "../static/logo.png";
-import instagram from "../static/instagram.png";
+import logo from "../../static/logo.png";
+import instagram from "../../static/instagram.png";
 
 function NavigationBar() {
   return (
@@ -119,7 +119,7 @@ function NavigationBar() {
                 HOME
               </Nav.Link>
               <Nav.Link
-                href="alibaba"
+                href="about"
                 className="nav-links "
               >
                 ABOUT US

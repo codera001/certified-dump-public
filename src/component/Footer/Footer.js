@@ -1,7 +1,7 @@
 import React from "react";
 import './footer.css'
 // import footer from "../static/footer.png";
-import logo from "../static/logo.png";
+import logo from "../../static/logo.png";
 import { RiHome4Fill } from "react-icons/ri";
 import { HiOutlineArrowCircleRight, HiOutlineInformationCircle } from "react-icons/hi";
 import { BiSolidMessageRoundedDetail, BiUserPin } from "react-icons/bi";

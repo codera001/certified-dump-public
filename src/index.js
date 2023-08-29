@@ -11,29 +11,29 @@ import Overview from "./dashboard/overview/Overview";
 import Profile from "./dashboard/profile/Profile";
 import Library from "./dashboard/library/Library";
 import Wallet from "./dashboard/wallet/Wallet";
-import Login  from "./component/Login/Login"
-import Signup from "./component/Signup/Signup";
-import Providers from "./component/Providers/Providers";
-import ProNavbar from "./component/ProNavbar/ProNavbar";
-import Alibaba from "./component/Exams/Alibaba";
-import Blockchain from "./component/Exams/Blockchain";
-import Cisco from "./component/Exams/Cisco";
-import Cloudera from "./component/Exams/Cloudera";
-import EcCouncil from "./component/Exams/EcCouncil";
-import Fortinet from "./component/Exams/Fortinet";
-import Google from "./component/Exams/Google";
-import Huawei from "./component/Exams/Huawei";
-import Isaca from "./component/Exams/Isaca";
-import Juniper from "./component/Exams/Juniper";
-import Microsoft from "./component/Exams/Microsoft";
-import Netapp from "./component/Exams/Netapp";
-import Nokia from "./component/Exams/Nokia";
-import Qlikview from "./component/Exams/Qlikview";
-import Redhat from "./component/Exams/Redhat";
-import Salesforce from "./component/Exams/Salesforce";
-import Testprep from "./component/Exams/Testprep";
-import Vmware from "./component/Exams/Vmware";
-import Zend from "./component/Exams/Zend";
+import Login  from "./pages/Login/Login"
+import Signup from "./pages/Signup/Signup";
+import Providers from "./pages/Providers/Providers";
+import About from "./pages/About/About"
+import Alibaba from "./pages/Exams/Alibaba";
+import Blockchain from "./pages/Exams/Blockchain";
+import Cisco from "./pages/Exams/Cisco";
+import Cloudera from "./pages/Exams/Cloudera";
+import EcCouncil from "./pages/Exams/EcCouncil";
+import Fortinet from "./pages/Exams/Fortinet";
+import Google from "./pages/Exams/Google";
+import Huawei from "./pages/Exams/Huawei";
+import Isaca from "./pages/Exams/Isaca";
+import Juniper from "./pages/Exams/Juniper";
+import Microsoft from "./pages/Exams/Microsoft";
+import Netapp from "./pages/Exams/Netapp";
+import Nokia from "./pages/Exams/Nokia";
+import Qlikview from "./pages/Exams/Qlikview";
+import Redhat from "./pages/Exams/Redhat";
+import Salesforce from "./pages/Exams/Salesforce";
+import Testprep from "./pages/Exams/Testprep";
+import Vmware from "./pages/Exams/Vmware";
+import Zend from "./pages/Exams/Zend";
 
 
 
@@ -52,7 +52,7 @@ const router = createBrowserRouter(
       <Route path="library" element={<Library />} />
       <Route path="wallet" element={<Wallet />} />
       <Route path="providers" element={<Providers />} />
-      <Route path="pronavbar" element={<ProNavbar />} />
+      <Route path="about" element={<About />} />
       <Route path="alibaba" element={<Alibaba />} />
       <Route path="blockchain" element={<Blockchain />} />
       <Route path="cisco" element={<Cisco />} />
