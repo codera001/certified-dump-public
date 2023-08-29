@@ -176,7 +176,7 @@ function Main() {
           </Col>
 
           <div className="button">
-          <a href="providers" className=" px-2 py-1" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
+          <a href="providers" className=" px-4 py-1" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
         </div>
       
         </Row>
@@ -219,7 +219,7 @@ function Main() {
           </h2>
           <div style={{ marginTop: "4rem" , paddingBottom:"5rem"}}>
             <button
-              className="px-3 text-dark mx-3 "
+              className="px-3 py-1 text-dark mx-3 "
               style={{
                 backgroundColor: "white",
                 fontSize: "14px",
@@ -248,7 +248,7 @@ function Main() {
             </button>
             <a
             href="/"
-              className="mx-md-3 button"
+              className="mx-md-3 button py-1"
               style={{
                 fontSize: "16px",
                 borderColor: "var(--green-500)",

@@ -248,7 +248,7 @@ function Providers() {
           </Col>
 
           <div className="button">
-                        <a href="/" className=" px-2 text-white py-1 mt-5" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
+                        <a href="/" className=" px-4  py-1 mt-5" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
                     </div>
           </Row>
       
