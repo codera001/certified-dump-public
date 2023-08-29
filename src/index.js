@@ -36,6 +36,7 @@ import Vmware from "./pages/Exams/Vmware";
 import Zend from "./pages/Exams/Zend";
 import Support from "./dashboard/support/Support";
 import Chat from "./dashboard/chats/Chat";
+import Contact from "./component/Contact/Contact";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -69,7 +70,7 @@ const router = createBrowserRouter(
       <Route path="vmware" element={<Vmware />} />
       <Route path="zend" element={<Zend />} />
       <Route path="support" element={<Support />} />
-      <Route path="contac" element={<Contact />} />
+      <Route path="contact" element={<Contact />} />
       <Route path="chat" element={<Chat />} />
     </>
   )
