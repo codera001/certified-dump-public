@@ -79,16 +79,16 @@ const Wallet = () => {
         </div>
         <SearchBar title="Search Transactions" setSearchTerm={setSearchTerm} />
         <Table title={titles} data={data} searchTerm={searchTerm} />
-
-        {searchTerm == "" && data.filter((all) => {
-          return (
-            all.trx_id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            all.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            all.status.toLowerCase().includes(searchTerm.toLowerCase())
-          );
-        }).length === 0 && (
-          <div className="d-lib-no-books">No Transactions Found</div>
-        )}
+        {searchTerm !== "" &&
+          data.filter((all) => {
+            return (
+              all.trx_id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              all.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              all.status.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+          }).length === 0 && (
+            <div className="d-lib-no-books">No transactions Found</div>
+          )}
       </div>
     </Layout>
   );
