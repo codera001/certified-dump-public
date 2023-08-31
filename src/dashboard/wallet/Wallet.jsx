@@ -57,6 +57,34 @@ const Wallet = () => {
       status: "failed",
       type: "Book Purchase",
     },
+    {
+      trx_id: "cd356",
+      amt: `$25`,
+      date: "30/08/23 08:00:31",
+      status: "failed",
+      type: "Wallet Funding",
+    },
+    {
+      trx_id: "cd357",
+      amt: `$15`,
+      date: "31/08/23 09:00:00",
+      status: "successful",
+      type: "Wallet Funding",
+    },
+    {
+      trx_id: "cd358",
+      amt: `$9`,
+      date: "01/09/23 07:00:31",
+      status: "failed",
+      type: "Book Purchase",
+    },
+    {
+      trx_id: "cd359",
+      amt: `$6`,
+      date: "01/09/23 09:00:31",
+      status: "successful",
+      type: "Book Purchase",
+    },
   ];
 
   return (
