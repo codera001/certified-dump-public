@@ -1,6 +1,8 @@
 import React from 'react'
 
-const RowWallet = ({each}) => {
+const RowWallet = ({ each }) => {
+  const status = each.status.toLowerCase();
+  
   return (
     <>
       <td>
@@ -9,9 +11,9 @@ const RowWallet = ({each}) => {
       </td>
       <td>
         <p>{each.amt}</p>
-        {each.status === "successful" ? (
+        {status === "successful" ? (
           <em className="d-mobile-success">Successful</em>
-        ) : each.status === "pending" ? (
+        ) : status === "pending" ? (
           <em className="d-mobile-pend">Pending</em>
         ) : (
           <em className="d-mobile-fail">Failed</em>

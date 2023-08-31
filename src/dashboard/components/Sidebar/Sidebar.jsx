@@ -10,7 +10,6 @@ const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(!open);
-    // console.log("I am clickable");
   };
 
   return (

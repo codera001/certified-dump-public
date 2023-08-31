@@ -1,6 +1,8 @@
 import React from "react";
 
 const RowModal = ({ each, closeModal, modalRef }) => {
+  const status = each.status.toLowerCase();
+
   return (
     <td onClick={closeModal} className="d-table-modal">
       <p ref={modalRef} className="d-modal-ticket">
@@ -10,9 +12,9 @@ const RowModal = ({ each, closeModal, modalRef }) => {
         <span>Amount: {each.amt}</span>
         <span>
           Status:{" "}
-          {each.status === "successful" ? (
+          {status === "successful" ? (
             <em className="d-mobile-success">Successful</em>
-          ) : each.status === "pending" ? (
+          ) : status === "pending" ? (
             <em className="d-mobile-pend">Pending</em>
           ) : (
             <em className="d-mobile-fail">Failed</em>
