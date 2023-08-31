@@ -164,17 +164,26 @@
   .d-nav-cta {
     display: none;
   }
-}
-@media screen and (max-width: 425px) {
+  
+  .d-nav-balance {
+    width: 11rem;
+justify-content: center;
+  }
+
   .d-nav-balance Button {
     width: 30%;
     align-self: flex-end;
   }
-
+  
   .d-nav-balance .d-price {
-    width: 80%;
+    width: 50%;
   }
-
+}
+@media screen and (max-width: 425px) {
+  .d-nav-balance .d-price {
+    width: 65%;
+  }
+  
   .d-user-dropdown {
     margin-left: 0px;
   }

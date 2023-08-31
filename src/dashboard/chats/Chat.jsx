@@ -33,7 +33,7 @@ const Chat = () => {
           {/* <!-- Input --> */}
           <div className="d-chat-input">
             <div className="d-chat-input-container">
-              <input type="text" />
+              <textarea rows={3} cols={50} />
             </div>
             <button>Send</button>
           </div>

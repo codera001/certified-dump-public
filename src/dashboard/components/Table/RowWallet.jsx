@@ -2,7 +2,7 @@ import React from 'react'
 
 const RowWallet = ({each}) => {
   return (
-    <tr className="d-mobile-row">
+    <>
       <td>
         <p>{each.type}</p>
         <em>{each.date}</em>
@@ -17,7 +17,7 @@ const RowWallet = ({each}) => {
           <em className="d-mobile-fail">Failed</em>
         )}
       </td>
-    </tr>
+    </>
   );
 }
 

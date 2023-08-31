@@ -79,6 +79,7 @@
 .d-chat-input {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 16px 0;
   width: 100%;
 
@@ -86,11 +87,11 @@
     margin: 0 8px 0 0;
     width: 100%;
 
-    & input {
+    & textarea {
       width: 100%;
-      border-radius: 10px;
+      outline: none;
       border: 1px solid var(--black);
-      padding: 2;
+      padding: 4px  10px ;
     }
   }
 
@@ -101,7 +102,8 @@
     color: var(--white);
     transition: var(--transition-all);
     padding: 4px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
+    height: 60%;
 
     & :hover {
       background-color: var(--green-600);
