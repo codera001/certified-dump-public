@@ -2,14 +2,20 @@ import React from "react";
 import "./Sidebar.css";
 import logo from "../../images/logo.png";
 import { sideMenu } from "./SideMenu";
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import { AiOutlineDoubleLeft } from "react-icons/ai";
 import { useState } from "react";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   const handleClick = () => {
     setOpen(!open);
+  };
+
+  const signOut = async () => {
+    sessionStorage.clear();
+    navigate("/");
   };
 
   return (
@@ -35,6 +41,7 @@ const Sidebar = () => {
             {sideMenu.map((menu, index) => {
               return (
                 <NavLink
+                  onClick={() => (menu.title === "Log out" ? signOut() : "")}
                   title={menu.title}
                   to={menu.path}
                   key={index}

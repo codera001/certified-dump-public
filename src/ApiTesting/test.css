@@ -1,0 +1,52 @@
+.login-container,
+.signup-container {
+  max-width: 400px;
+  margin: 40px auto 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1,
+.signup-container h1 {
+  text-align: center;
+}
+
+.login-container .form-group,
+.signup-container .form-group {
+  margin-bottom: 15px;
+}
+
+.login-container label,
+.signup-container label {
+  display: block;
+  font-weight: bold;
+}
+
+.login-container input[type="text"],
+.signup-container input[type="text"],
+.login-container input[type="password"],
+.signup-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-container button,
+.signup-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-container button:hover,
+.signup-container button:hover {
+  background-color: #0056b3;
+}

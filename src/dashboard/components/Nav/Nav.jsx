@@ -6,10 +6,11 @@ import { Button } from "../Button/Button";
 import { BiLogOutCircle, BiUserCheck, BiUserCircle } from "react-icons/bi";
 import { PiCaretDownLight } from "react-icons/pi";
 import { MdOutlinePayment } from "react-icons/md";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import { GiAutogun } from "react-icons/gi";
 
 const Nav = () => {
+  const navigate = useNavigate();
   return (
     <>
       <nav className="d-user-nav">
@@ -44,11 +45,15 @@ const Nav = () => {
             <div className="d-dropdown-inner">
               <div>
                 <p>email address</p>
-                <Link to="/">
+                <Link to="/"
+                  onClick={() => sessionStorage.clear()}
+                >
                   <BiUserCheck />
                   <span>Profile</span>
                 </Link>
-                <Link to="/">
+                <Link to="/"
+                  onClick={() => sessionStorage.clear()}
+                >
                   <BiLogOutCircle /> <span>Logout</span>
                 </Link>
               </div>
