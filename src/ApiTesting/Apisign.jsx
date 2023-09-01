@@ -1,52 +1,40 @@
-import React, { useState } from 'react';
-import "./test.css"
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState } from "react";
+import "./test.css";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Apisign = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    username: "",
+    email: "",
+    phone_no: "",
+    password: "",
+    password_repeat: "",
+  });
 
-  const handleFirstNameChange = (e) => {
-    setFirstName(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const handleLastNameChange = (e) => {
-    setLastName(e.target.value);
-  };
-
-  const handleUserNameChange = (e) => {
-    setUserName(e.target.value);
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePhoneChange = (e) => {
-    setPhoneNumber(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleConfirmPasswordChange = (e) => {
-    setConfirmPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your signup logic here
-    // For example, you can send a request to an API to create a new user
-    console.log(
-      `First Name: ${firstName}, Last Name: ${lastName}, Email: ${email}, Password: ${password}`
-    );
+    try {
+      const response = await axios.post(
+        "https://api.certifieddump.com/api/signup",
+        formData
+      );
+      console.log("Signup Successful:", response.data);
+      navigate("/confirm-email")
+    } catch (error) {
+      console.log("signup error:", error.response.data.msg);
+    }
   };
 
   return (
@@ -54,35 +42,35 @@ const Apisign = () => {
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="firstName">First Name</label>
+          <label htmlFor="firstname">First Name</label>
           <input
             type="text"
-            id="firstName"
-            name="firstName"
-            value={firstName}
-            onChange={handleFirstNameChange}
+            id="firstname"
+            name="firstname"
+            value={formData.firstname}
+            onChange={handleChange}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="lastName">Last Name</label>
+          <label htmlFor="lastname">Last Name</label>
           <input
             type="text"
-            id="lastName"
-            name="lastName"
-            value={lastName}
-            onChange={handleLastNameChange}
+            id="lastname"
+            name="lastname"
+            value={formData.lastname}
+            onChange={handleChange}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="lastName">Username</label>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
-            id="lastName"
-            name="lastName"
-            value={userName}
-            onChange={handleUserNameChange}
+            id="username"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
             required
           />
         </div>
@@ -93,19 +81,19 @@ const Apisign = () => {
             type="email"
             id="email"
             name="email"
-            value={email}
-            onChange={handleEmailChange}
+            value={formData.email}
+            onChange={handleChange}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="lastName">Phone Number</label>
+          <label htmlFor="phone_no">Phone Number</label>
           <input
-            type="number"
+            type="text"
             id="phone"
-            name="phoneNumber"
-            value={phoneNumber}
-            onChange={handlePhoneChange}
+            name="phone_no"
+            value={formData.phone_no}
+            onChange={handleChange}
             required
           />
         </div>
@@ -115,19 +103,19 @@ const Apisign = () => {
             type="password"
             id="password"
             name="password"
-            value={password}
-            onChange={handlePasswordChange}
+            value={formData.password}
+            onChange={handleChange}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password</label>
+          <label htmlFor="password_repeat">Confirm Password</label>
           <input
             type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
+            id="password_repeat"
+            name="password_repeat"
+            value={formData.password_repeat}
+            onChange={handleChange}
             required
           />
         </div>
@@ -138,5 +126,4 @@ const Apisign = () => {
   );
 };
 
-
-export default Apisign
+export default Apisign;

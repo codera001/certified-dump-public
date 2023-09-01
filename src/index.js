@@ -39,6 +39,7 @@ import Chat from "./dashboard/chats/Chat";
 import Contact from "./component/Contact/Contact";
 import Apilog from "./ApiTesting/Apilog";
 import Apisign from "./ApiTesting/Apisign";
+import Verify from "./ApiTesting/Verify";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -76,6 +77,7 @@ const router = createBrowserRouter(
       <Route path="chat" element={<Chat />} />
       <Route path="apilog" element={<Apilog />} />
       <Route path="apisign" element={<Apisign />} />
+      <Route path="confirm-email" element={<Verify />} />
     </>
   )
 );

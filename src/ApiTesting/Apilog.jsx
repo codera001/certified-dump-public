@@ -1,23 +1,38 @@
-import React, {useState} from 'react'
-import "./test.css"
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import "./test.css";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 const Apilog = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your login logic here
-    // For example, you can send a request to an API to verify the user's credentials
-    console.log(`Username: ${username}, Password: ${password}`);
+    try {
+      const response = await axios.post(
+        "https://api.certifieddump.com/api/login",
+        formData
+      );
+      sessionStorage.setItem("token", response.data.token);
+      console.log("login Successful:", response.data);
+      navigate("/dashboard");
+    } catch (error) {
+      if (error.response.data.msg == "Unverified Email ") {
+        navigate("/confirm-email");
+      }
+      console.log("login error:", error.response.data.msg);
+    }
   };
 
   return (
@@ -27,11 +42,11 @@ const Apilog = () => {
         <div className="form-group">
           <label htmlFor="username">Username</label>
           <input
-            type="text"
+            type="username"
             id="username"
             name="username"
-            value={username}
-            onChange={handleUsernameChange}
+            value={formData.username}
+            onChange={handleChange}
             required
           />
         </div>
@@ -41,8 +56,8 @@ const Apilog = () => {
             type="password"
             id="password"
             name="password"
-            value={password}
-            onChange={handlePasswordChange}
+            value={formData.password}
+            onChange={handleChange}
             required
           />
         </div>
@@ -51,6 +66,6 @@ const Apilog = () => {
       </form>
     </div>
   );
-}
+};
 
-export default Apilog
+export default Apilog;
