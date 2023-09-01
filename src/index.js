@@ -37,6 +37,9 @@ import Zend from "./pages/Exams/Zend";
 import Support from "./dashboard/support/Support";
 import Chat from "./dashboard/chats/Chat";
 import Contact from "./component/Contact/Contact";
+import Apilog from "./ApiTesting/Apilog";
+import Apisign from "./ApiTesting/Apisign";
+import Verify from "./ApiTesting/Verify";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -72,6 +75,9 @@ const router = createBrowserRouter(
       <Route path="support" element={<Support />} />
       <Route path="contact" element={<Contact />} />
       <Route path="chat" element={<Chat />} />
+      <Route path="apilog" element={<Apilog />} />
+      <Route path="apisign" element={<Apisign />} />
+      <Route path="confirm-email" element={<Verify />} />
     </>
   )
 );
