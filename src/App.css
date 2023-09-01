@@ -31,52 +31,10 @@
   font-family: "Jost", sans-serif;
 }
 
-/* a:hover{
-  color: blue;
-} */
 
 .App {
   text-align: center;
 }
 
-/* .button {
-  color: white;
-} */
 
-/* .button:hover{
-  color: blue;
-  } */
 
-.nav-list {
-  font-size: 14px;
-}
-.icon {
-  margin-top: 8px;
-  margin-left: 1rem;
-}
-
-.border-left {
-  border-right: 2px solid var(--white);
-  height: 3vh;
-  margin-top: 6px;
-}
-
-.button-one {
-  border: 1px solid #ffaa33;
-  border-radius: 10px;
-  padding: 0 0.4rem;
-  font-weight: bolder;
-  background-color: rgba(255, 255, 255, 0.801);
-  font-size: 18px;
-}
-
-.button-two {
-  background-color: #ffaa33;
-  padding: 0rem 1.5rem;
-  border-radius: 10px;
-  margin-left: 2rem;
-  color: white;
-  border: none;
-  font-size: 18px;
-  font-weight: bolder;
-}

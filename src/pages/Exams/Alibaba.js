@@ -17,16 +17,15 @@ return (
               <div className="d-flex justify-content-between arrow-text"><a href="/"  style={{ fontWeight: "bolder" }}><TiArrowLeftThick style={{color: "black"}}></TiArrowLeftThick>Back</a>
                 <h6> All Alibaba Exams</h6></div>
                 <div>
-                  <AiOutlineSearch></AiOutlineSearch>
+                  <AiOutlineSearch className="s-icon"></AiOutlineSearch>
                 <input
           placeholder="exam code or name"
           type="search"
-          className="w-full rounded-lg search
-                  "
+          className=" search"
         />
                 </div>
               </div>
-              <Row xs={2}sm={2} md={3} lg={4} className=" card-section">
+              <Row xs={2}sm={2} md={3} lg={4} className=" card-section mt-5">
       
        
         <Col className="">

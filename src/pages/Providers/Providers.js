@@ -1,6 +1,6 @@
 import Container from "react-bootstrap/Container";
 import { AiOutlineSearch } from "react-icons/ai";
-import {TiArrowLeftThick } from "react-icons/ti";
+import { TiArrowLeftThick } from "react-icons/ti";
 import amazon from "../../static/amazon.png";
 import microsoft from "../../static/microsoft.png";
 import juniper from "../../static/juniper.png";
@@ -25,16 +25,28 @@ import Row from 'react-bootstrap/Row';
 import PageFooter from "../../component/PageFooter/PageFooter";
 
 function Providers() {
-    return (
-        <>
-        <NavigationBar/>
-            <section className="container section-two">
-                <div className="mt-5">
-                    <a href="/"  style={{ fontWeight: "bolder" }}><TiArrowLeftThick style={{color: "black"}}></TiArrowLeftThick>Back</a>
-                    <h5 className=" mb-5" style={{ fontWeight: "bolder", color: "black", textAlign: "center",fontSize:"2.5rem" }}>All Providers</h5>
+  return (
+    <>
+      <NavigationBar />
+      <section className="container section-two">
+        <div className="d-flex justify-content-between">
+          <div className="mt-5">
+            <a href="/" style={{ fontWeight: "bolder" }}><TiArrowLeftThick style={{ color: "black" }}></TiArrowLeftThick>Back</a>
+            <h5 className=" mb-5" style={{ fontWeight: "bolder", color: "black", textAlign: "center", fontSize: "2rem" }}>All Providers</h5>
 
-                </div>
-                <Row xs={2} sm={2} md={3} lg={4} className=" card-section">
+          </div>
+          <div>
+                  <AiOutlineSearch className="search-icon"></AiOutlineSearch>
+            <input
+              placeholder="exam code or name"
+              type="search"
+              className="search py-3
+                  "
+            />
+        </div>
+
+        </div>
+        <Row xs={2} sm={2} md={3} lg={4} className=" card-section">
 
 
           <Col className="">
@@ -247,15 +259,13 @@ function Providers() {
 
           </Col>
 
-          <div className="button">
-                        <a href="/" className=" px-4  py-1 mt-5" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
-                    </div>
-          </Row>
-      
-            </section>
-            <PageFooter/>
-        </>
-    );
+
+        </Row>
+
+      </section>
+      <PageFooter />
+    </>
+  );
 }
 
 export default Providers;

@@ -4,8 +4,6 @@ import Footer from "../../component/Footer/Footer"
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/Form";
 import {TiArrowLeftThick } from "react-icons/ti";
 import './Exams.css'
 function Fortinet () {
@@ -23,7 +21,7 @@ return (
                   "
         />
               </div>
-              <Row xs={2}sm={2} md={3} lg={4} className=" card-section">
+              <Row xs={2}sm={2} md={3} lg={4} className=" card-section mt-5">
       
        
         <Col className="">

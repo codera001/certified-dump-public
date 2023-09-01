@@ -1,6 +1,6 @@
 .section-two .card-wrap {
   width:100%;
-   height:21vh;
+   height:23vh;
    -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box; 
    box-sizing: border-box; 
@@ -11,4 +11,14 @@ margin:1rem auto;
 .section-two .card-wrap img{
   width: 100px;
   height:100px
+}
+
+.section-two .search-icon {
+position:absolute;
+
+}
+
+.section-two .search {
+width:30%;
+
 }

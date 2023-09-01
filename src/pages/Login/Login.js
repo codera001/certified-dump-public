@@ -1,49 +1,66 @@
 import React from "react";
 import './Login.css'
-import Form from 'react-bootstrap/Form';
-import { MdVpnKey } from "react-icons/md"
-import { FaUserCircle } from "react-icons/fa"
-import { GrFormClose } from "react-icons/gr"
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import Footer from "../../component/Footer/Footer"
+import PageFooter from "../../component/PageFooter/PageFooter"
+import recaptcha from "../../static/recaptcha.png";
+import facebook from "../../static/facebook.png";
+import twitter from "../../static/twitter.png";
+import insta from "../../static/insta.png";
+import whatsapp from "../../static/whatsapp.png";
 function Login() {
     return (
         <>
             <section className="section">
-                <NavigationBar/>
-                <div className=" login">
-                    <div className="form-wrap-l">
-                        <Form className="form-l">
-                            <Form.Group className="mb-3  d-flex justify-content-between">
-                                <Form.Label style={{fontWeight:"bolder"}}>Login into  Certified Dump</Form.Label>
-                                <Form.Label><GrFormClose /></Form.Label>
-                            </Form.Group>
-                            <Form.Group className="mb-3 form-group-l">
-                                < FaUserCircle className="fa fa-icons"></FaUserCircle>
-                                <Form.Control className="form-control-l" placeholder="Email or Phone number or Username" disabled />
-                            </Form.Group>
+                <NavigationBar />
+                <div className="signup container">
+                    <div className="signup-form-wrap">
+                    <Form className="signup-form">
 
-                            <Form.Group className="mb-3 form-group-l">
-                                <MdVpnKey className="fa fa-icons"></MdVpnKey>
-                                <Form.Control className="form-control-l" placeholder="Password" disabled />
-                            </Form.Group>
+                        <Form.Group className="mb-3 " >
+                            <Form.Label className="my-2 form-title"> Log in</Form.Label>
+                        </Form.Group>
+                        <Form.Group className="mb-3 form-group-s"  style={{border:"1px solid var(--green-500)"}}>
+                            <Form.Control classname="form-control-s" type="email" placeholder="Enter your email" />
+                        </Form.Group>
 
-                            <Form.Group className="mb-3 d-flex justify-content-between" controlId="formBasicCheckbox">
-                                <Form.Check type="checkbox" label="Remember me" style={{fontWeight:"bolder"}}/>
-                                <Form.Label style={{color:"red", fontWeight:"bolder"}}>Forgot password</Form.Label>
-                            </Form.Group>
-                            <Button className="form-button-l pb-md-3" type="submit">
-                                Login
-                            </Button>
+                        <Form.Group className="mb-3 form-group-s">
+                            <Form.Control classname="form-control-s" type="password" placeholder="Enter your password" />
+                        </Form.Group>
+
+                        
+                        <Form.Group className="mb-3 d-flex justify-content-between form-group-s" controlId="formBasicCheckbox">
+                            <Form.Check type="checkbox" label="I'm not a robot" style={{ fontWeight: "bold"}}></Form.Check>
+                            <Form.Label>
+                                <div>
+                                    <img src={recaptcha} alt="recaptcha"  className="d-block"></img>
+                                    <small style={{fontSize:"10px"}} className="d-block">reCAPTCHA</small>
+                                    <small style={{fontSize:"10px"}}   className="d-block"> Privacy-Terms</small>
+                                </div>
+                            </Form.Label>
+                        </Form.Group>
 
 
-                            <p className="pt-md-5" style={{ fontWeight:"bolder"}}> Dont have an account yet?     <a href="signup" style={{color:"var(--green-600", fontWeight:"light"}}>Create one</a></p>
-                            <button className="close">close</button>
-                        </Form>
+                        <Button variant="primary" type="submit" className="form-button-s">
+                            SIGN IN
+                        </Button>
+                        <p href="/" style={{ color: "var(--green-600", fontWeight: "bolder" }}>forgot password?</p>
+                        <p className="" style={{ fontWeight: "bolder", color: "black", fontSize: "12px" }}> Already have an account yet?     <a href="/" style={{ color: "var(--green-600", fontWeight: "light" }}>Sign in</a></p>
+                        <p style={{ fontWeight: "bolder", color: "black", fontSize: "12px" }}>Or log in with your social network</p>
+                        <div className="social-images d-flex">
+                            <img src={facebook} alt="facebook" className="me-1"></img>
+                            <img src={twitter} alt="twitter" className="me-1"></img>
+                            <img src={whatsapp} alt="whatsapp" className="me-1"></img>
+                            <img src={insta} alt="instagram" className="me-1"></img>
+                        </div>
+
+
+
+                    </Form>
                     </div>
                 </div>
-<Footer/>
+                <PageFooter />
             </section>
 
 

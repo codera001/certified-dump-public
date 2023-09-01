@@ -44,9 +44,9 @@ function Main() {
             <p style={{ fontSize: "16px", marginBottom: "2rem" }}>You are assured to pass your exam-for free</p>
 
 
-            <div className=" container d-md-flex justify-content-around  w-50  text-align-center">
-              <a href="" className="py-1 px-3 mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>UNLIMITED ACCESS</a>
-              <a href="" className="py-1 px-3 mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>FIND YOUR EXAM NOW</a>
+            <div className=" container  justify-content-around  w-50  text-align-center">
+              {/* <a href="" className="py-1 px-3 mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>UNLIMITED ACCESS</a> */}
+              <a href="" className=" mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>FIND YOUR EXAM NOW</a>
             </div>
 
           </div>
