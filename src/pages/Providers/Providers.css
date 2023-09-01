@@ -1,6 +1,6 @@
-.section-two .card-wrap {
+.section-two-providers .card-wrap {
   width:100%;
-   height:23vh;
+   /* height:23vh; */
    -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box; 
    box-sizing: border-box; 
@@ -8,17 +8,19 @@
 border: 5px solid whitesmoke;
 margin:1rem auto;
 }
-.section-two .card-wrap img{
+.section-two-providers .card-wrap img{
   width: 100px;
-  height:100px
+  /* height:100px */
 }
 
-.section-two .search-icon {
-position:absolute;
-
+.section-two-providers .search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
-.section-two .search {
-width:30%;
-
+.section-two-providers .search-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
 }
+

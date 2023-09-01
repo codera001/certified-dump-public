@@ -21,7 +21,7 @@ function Main() {
       <section className="w-full ">
         <NavigationBar />
         {/* <DashboardPage></DashboardPage> */}
-        <section className="section-one">
+        <section className="section-one-main">
           <div className="text my-auto" style={{}}>
             <h1
               style={{
@@ -44,7 +44,7 @@ function Main() {
             <p style={{ fontSize: "16px", marginBottom: "2rem" }}>You are assured to pass your exam-for free</p>
 
 
-            <div className=" container  justify-content-around  w-50  text-align-center">
+            <div className=" container  justify-content-around  text-align-center">
               {/* <a href="" className="py-1 px-3 mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>UNLIMITED ACCESS</a> */}
               <a href="" className=" mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>FIND YOUR EXAM NOW</a>
             </div>
@@ -57,9 +57,9 @@ function Main() {
 
 
       {/* section-two */}
-      <section className="container section-two">
+      <section className="container section-two-main">
         <div>
-          <h5 className="mt-5" style={{ fontWeight: "bolder", color: "black", fontSize: "3rem" }}>Our Top Providers</h5>
+          <h5 className="mt-5" style={{ fontWeight: "bolder", color: "black" }}>Our Top Providers</h5>
           <p className="mb-5" style={{ fontSize: "16px" }}>
             Certified dump has one of the largest collection of professional
             certification and exam practice tests and online courses. Use <br />
@@ -75,7 +75,7 @@ function Main() {
                 <img src={microsoft} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="/" className="card-text">
                   View more
                 </a>
               </Card.Footer>
@@ -88,7 +88,7 @@ function Main() {
                 <img src={google} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="/" className="card-text" >
                   View more
                 </a>
               </Card.Footer>
@@ -101,7 +101,7 @@ function Main() {
                 <img src={amazon} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="/" className="card-text" >
                   View more
                 </a>
               </Card.Footer>
@@ -114,7 +114,7 @@ function Main() {
                 <img src={juniper} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="/" className="card-text" >
                   View more
                 </a>
               </Card.Footer>
@@ -127,7 +127,7 @@ function Main() {
                 <img src={vmare} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="/" className="card-text" >
                   View more
                 </a>
               </Card.Footer>
@@ -140,7 +140,7 @@ function Main() {
                 <img src={cisco} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="/" className="card-text" >
                   View more
                 </a>
               </Card.Footer>
@@ -153,7 +153,7 @@ function Main() {
                 <img src={salesforce} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="/" className="card-text" >
                   View more
                 </a>
               </Card.Footer>
@@ -167,7 +167,7 @@ function Main() {
                 <img src={isaca} alt="" />
               </Card.Body>
               <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+                <a href="/" className="card-text">
                   View more
                 </a>
               </Card.Footer>
@@ -187,10 +187,10 @@ function Main() {
     </section >
 
       {/* section-three */ }
-      < section className = "section-three" >
-        <div className="d-md-flex justify-content-between" style={{ height: "50vh" }}>
-          <div className="image " style={{ height: "50vh" }}>
-            <img alt="" width="100%" src={study} style={{ height: "inherit" }} />
+      < section className = "section-three-main" >
+        <div className="d-md-flex justify-content-between">
+          <div className="image ">
+            <img alt="" width="100%" src={study}  />
           </div>
 
           <div className="text ">
@@ -213,7 +213,7 @@ function Main() {
           </div>
         </div>
 
-        <div className="search pb-0 mb-4">
+        <div className="search-main pb-0 mb-4">
           <h2 style={{ fontWeight: "bolder", color: "black" }}>
             FIND EXAMS NOW
           </h2>

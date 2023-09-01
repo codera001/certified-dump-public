@@ -1,4 +1,4 @@
-.section-one{
+.section-one-about{
     position: relative; 
       height: 80vh;
       width: 100%;
@@ -9,30 +9,30 @@
       background-image: url('../../static/aboutUs.png');
   }
 
-  .section-one h1{
+  .section-one-about h1{
     z-index:1;
   color:white;
   }
 
-  .section-two .text-image {
+  .section-two-about .text-image {
     display:flex;
     justify-content:space-around;
     margin-bottom:3rem
   }
 
-  .section-two .text-image .image{
+  .section-two-about .text-image .image{
     width:40%
   }
 
-  .section-two .text-image .text {
+  .section-two-about .text-image .text {
     width:40%;
   }
 
-  .section-two .text-image .image img {
+  .section-two-about .text-image .image img {
     width:100%
   }
 
-  .section-two .text-image .text p {
+  .section-two-about .text-image .text p {
     font-size:16px
   }
 
@@ -59,7 +59,8 @@
     border-radius:50%;
     border:1px solid var(--tertiary-color);
     width:20%;
-    padding:1rem;
+    padding:0.4rem;
+    height:6vh;
 
     
 }

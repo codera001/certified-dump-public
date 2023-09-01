@@ -17,11 +17,11 @@ function About() {
     return (
         <>
             <NavigationBar />
-            <section className="section-one">
+            <section className=".section-one-about">
                 <h1 className="text-white">ABOUT US</h1>
             </section>
 
-            <section className="section-two container mt-5">
+            <section className="section-two-about container mt-5">
                 <div className="text-image">
                     <div className="text">
                         <h5>Our Vision</h5>

@@ -76,7 +76,7 @@ function NavigationBar() {
             <RiMailSendLine
               color=" var(--tertiary-color)"
               className="mail-icon"
-            style={{fontSize:"30px"}}
+            
             />
           </div>
           <div className="d-block  mx-0">
