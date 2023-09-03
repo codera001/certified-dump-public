@@ -32,7 +32,7 @@ function NavigationBar() {
               Login
             </a>
             <a
-              eventKey={2}
+              // eventKey={2}
               href="#memes"
               className=" nav-list  border-left"
             ></a>
@@ -58,17 +58,12 @@ function NavigationBar() {
         </div>
       </div>
 
-
-
-
-
       {/* secon-nav */}
       <div className="container d-flex justify-content-between align-items-center mt-3 nav-logo">
         <div>
           <img
             alt="logo"
             src={logo}
-          
           />
         </div>
         <div className="d-flex ">
@@ -76,7 +71,6 @@ function NavigationBar() {
             <RiMailSendLine
               color=" var(--tertiary-color)"
               className="mail-icon"
-            
             />
           </div>
           <div className="d-block  mx-0">

@@ -34,7 +34,6 @@ const Support = () => {
                       type="text"
                       required
                       placeholder="Type your message"
-                      className=""
                       rows="5"
                     />
                   </div>
