@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 const PassReset = () => {
   const [hidden, setHidden] = useState(false);
@@ -57,7 +57,6 @@ const PassReset = () => {
 
   return (
     <div className="login-container">
-      <Toaster position="top-center" />
       <h2>Reset your password</h2>
       {hidden ? (
         ""

@@ -41,6 +41,7 @@ import Apilog from "./ApiTesting/Apilog";
 import Apisign from "./ApiTesting/Apisign";
 import Verify from "./ApiTesting/Verify";
 import PassReset from "./ApiTesting/PassReset";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -87,6 +88,7 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <Toaster position="top-center" />
     <RouterProvider router={router} />
   </React.StrictMode>
 );

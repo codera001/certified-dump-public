@@ -9,7 +9,7 @@ import facebook from "../../static/facebook.png";
 import twitter from "../../static/twitter.png";
 import insta from "../../static/insta.png";
 import whatsapp from "../../static/whatsapp.png";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -54,7 +54,6 @@ function Signup() {
 
   return (
     <>
-      <Toaster position="top-center" />
       <section className="section">
         <NavigationBar />
         <div className="signup container">

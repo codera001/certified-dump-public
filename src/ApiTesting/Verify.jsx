@@ -29,9 +29,6 @@ const Verify = () => {
     }
   };
 
-  // setTimeout(() => {
-  //   setHidden(!hidden);
-  // }, 25000);
   const getVerificationCode = async (e) => {
     e.preventDefault();
     try {
