@@ -36,6 +36,7 @@ import Vmware from "./pages/Exams/Vmware";
 import Zend from "./pages/Exams/Zend";
 import Support from "./dashboard/support/Support";
 import Chat from "./dashboard/chats/Chat";
+import Contact from "./component/Contact/Contact.jsx"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
