@@ -10,7 +10,9 @@ import { Outlet, Link, useNavigate } from "react-router-dom";
 import { GiAutogun } from "react-icons/gi";
 
 const Nav = () => {
-  const navigate = useNavigate();
+  const email = sessionStorage.getItem("userEmail");
+  // console.log(email);
+  // const navigate = useNavigate();
   return (
     <>
       <nav className="d-user-nav">
@@ -44,16 +46,12 @@ const Nav = () => {
             <PiCaretDownLight className="d-drop-icon-2" />
             <div className="d-dropdown-inner">
               <div>
-                <p>email address</p>
-                <Link to="/"
-                  onClick={() => sessionStorage.clear()}
-                >
+                <p>{email}</p>
+                <Link to="/" onClick={() => sessionStorage.clear()}>
                   <BiUserCheck />
                   <span>Profile</span>
                 </Link>
-                <Link to="/"
-                  onClick={() => sessionStorage.clear()}
-                >
+                <Link to="/" onClick={() => sessionStorage.clear()}>
                   <BiLogOutCircle /> <span>Logout</span>
                 </Link>
               </div>

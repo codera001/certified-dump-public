@@ -39,14 +39,18 @@ function Login() {
       );
       toast.success("success message");
       sessionStorage.setItem("token", response.data.token);
-      //   console.log("login Successful:", response.data);
-      navigate("/dashboard");
+      sessionStorage.setItem("userEmail", response.data.user.email);
+      sessionStorage.setItem("userId", response.data.user.id);
+        // console.log("login Successful:", response.data);
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 2000);
     } catch (error) {
       toast.error(error.response.data.msg);
       if (error.response.data.msg == "Unverified Email ") {
         navigate("/confirm-email");
       }
-      //   console.log("login error:", error.response.data.msg);
+        // console.log("login error:", error.response.data.msg);
     }
   };
 
@@ -119,7 +123,7 @@ function Login() {
                 SIGN IN
               </Button>
               <Link
-                to="/"
+                to="/reset-password"
                 style={{ color: "var(--green-600", fontWeight: "bolder" }}
               >
                 forgot password?
@@ -131,14 +135,11 @@ function Login() {
                   color: "black",
                   fontSize: "12px",
                 }}
-              >
-                {" "}
-                Already have an account yet?{" "}
-                <Link
-                  to="/login"
+              >Don&apos;t have an account yet?<Link
+                  to="/signup"
                   style={{ color: "var(--green-600", fontWeight: "light" }}
                 >
-                  Sign in
+                  Sign up
                 </Link>
               </p>
               <p

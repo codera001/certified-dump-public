@@ -41,7 +41,7 @@ function Signup() {
         formData
       );
       // console.log("Signup Successful:", response.data);
-      toast.success(response.data);
+      toast.success(response.data.msg);
       navigate("/confirm-email");
     } catch (error) {
       // console.log("signup error:", error.response.data.msg);
@@ -80,7 +80,7 @@ function Signup() {
                   type="text"
                   placeholder="Enter your lastname"
                   name="lastname"
-                  value={formData.firstname}
+                  value={formData.lastname}
                   onChange={handleChange}
                   required
                 />
@@ -193,8 +193,7 @@ function Signup() {
                   fontSize: "12px",
                 }}
               >
-                {" "}
-                Already have an account yet?{" "}
+                Already have an account yet?
                 <Link
                   to="/login"
                   style={{ color: "var(--green-600", fontWeight: "light" }}

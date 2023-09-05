@@ -40,6 +40,7 @@ import Contact from "./component/Contact/Contact";
 import Apilog from "./ApiTesting/Apilog";
 import Apisign from "./ApiTesting/Apisign";
 import Verify from "./ApiTesting/Verify";
+import PassReset from "./ApiTesting/PassReset";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -78,6 +79,7 @@ const router = createBrowserRouter(
       <Route path="apilog" element={<Apilog />} />
       <Route path="apisign" element={<Apisign />} />
       <Route path="confirm-email" element={<Verify />} />
+      <Route path="reset-password" element={<PassReset />} />
     </>
   )
 );
