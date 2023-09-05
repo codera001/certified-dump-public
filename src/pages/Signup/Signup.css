@@ -53,7 +53,7 @@
         margin:4rem auto;
         align-items:center;
         text-align:center;
-        border:1px solid grey;
+        /* border:1px solid grey; */
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box; 
         box-sizing: border-box; 
@@ -62,12 +62,24 @@
 }
 
 .signup .signup-form{
-width:70%;
+width:60%;
 margin:2rem auto;
 }
 
 .signup .form-group-s{
         border: 1px solid var(--green-600);
+        height:55px;
+}
+
+.signup .recaptcha{
+     height:80px;
+     align-items:center;  
+     background-color:#f9f9f9; 
+}
+
+.signup .form-group-s .form-control-s{
+        background-color:none;
+        border-radius:none;
 }
 
 .signup .form-group-s .form-control-s::placeholder {
@@ -78,24 +90,32 @@ margin:2rem auto;
 
 .signup img {
         width: 30px;
+        margin:0 auto;
 
 }
 
- .form-check-label{
+.signup .form-check-label{
       font-size:smaller;
       align-items:center
 }
 
-.form-check .form-check-input{
+.signup .form-check .form-check-input{
         vertical-align:middle;
         font-size:smaller;
-        margin-left:-2rem;
-        margin-top:1.5rem
+       width:2em;
+       height:2em;
+       margin-left:0;
+       border: 1px solid var(--green-500)
 }
 
-.form-title {
+.signup .form-check .form-check-input:hover{
+        border: 1px solid var(--tertiary-color)
+}
+
+.signup .form-title {
        font-weight:bolder;
-       font-size:20px;
+       font-size:30px;
+       margin:2rem auto;
        
 
 }
@@ -104,26 +124,46 @@ margin:2rem auto;
         font-size:smaller;
 }
 
+.signup .form-check-label{
+        margin-left:10px;
+        margin-top:5px;
+}
 
-.form-button-s {
+
+.signup .form-button-s {
         background-color: var(--green-500);
         font-size: 16px;
         color: var(--white);
         border: none;
         width:100%;
         margin:0 auto;
+        height:55px;
 
 }
 
-.signup .social-images{
-        width:40%;
-        margin:0 auto;
+.signup .form-button-s:hover{
+color:var(--tertiary-color)
+}
 
+.signup .social-images{
+        width:80%;
+        margin:0 auto;
+}
+
+
+
+.signup .social-images .social-images-wrap{
+width:100%;
+margin:1rem auto;
 }
 
 small{
         font-size:10px;
 }
+form input{
+        border-radius:none;
+}
+
 
 
 
@@ -131,25 +171,50 @@ small{
 
 
 @media screen and (max-width:767px) {
+        .signup .signup-form-wrap{
+                width:100%
+        }
         .signup-form {
-                /* width: 52%;
-                margin-right: 10rem; */
+                width:80%;
         }
 
-        .signup img {
-                /* width: 30%;
-                margin: 0 5rem; */
-
-        }
-
-        .form-title {
-                /* width: 80%;
-                margin: 0 3rem; */
+         .signup img {
+                width:20px;
 
         }
 
-        .form-button-s{
+        .signup .form-title {
+              font-size:20px;
+
+        }
+
+        .signup .form-check{
+                padding-left:0.5em;
+        }
+       .signup  .form-check .form-check-input{
+             width:1em;
+             height:1.2em
+        }
+
+        .signup .form-check-label{
+                font-size:10px
+        }
+
+        .signup .form-button-s{
                 /* margin: 0 2rem; */
         }
+
+        .signup .form-group-s .form-control-s::placeholder{
+                font-size:14px;
+        }
+
+        .signup .social-images{
+                width:100%;
+        }
+
+        .signup .signin{
+                display:block
+        }
+        
 
 }

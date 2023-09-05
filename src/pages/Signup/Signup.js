@@ -26,7 +26,27 @@ function Signup() {
               >
                 <Form.Control
                   classname="form-control-s"
-                  type="email"
+                  type="text"
+                  placeholder="Enter your firstname"
+                />
+              </Form.Group>
+              <Form.Group
+                className="mb-3 form-group-s"
+                style={{ border: "1px solid var(--green-500)" }}
+              >
+                <Form.Control
+                  classname="form-control-s"
+                  type="text"
+                  placeholder="Enter your lastname"
+                />
+              </Form.Group>
+              <Form.Group
+                className="mb-3 form-group-s"
+                style={{ border: "1px solid var(--green-500)" }}
+              >
+                <Form.Control
+                  classname="form-control-s"
+                  type="text"
                   placeholder="Enter your username"
                 />
               </Form.Group>
@@ -34,8 +54,15 @@ function Signup() {
               <Form.Group className="mb-3 form-group-s">
                 <Form.Control
                   className="form-control-s"
-                  type="password"
+                  type="text"
                   placeholder="Enter your email"
+                />
+              </Form.Group>
+              <Form.Group className="mb-3 form-group-s">
+                <Form.Control
+                  className="form-control-s"
+                  type="text"
+                  placeholder="Enter phone number"
                 />
               </Form.Group>
 
@@ -54,12 +81,12 @@ function Signup() {
                 <Form.Control
                   className="form-control-s"
                   type="password"
-                  placeholder="Confitm password"
+                  placeholder="Confirm password"
                 />
               </Form.Group>
 
               <Form.Group
-                className="mb-3 d-flex justify-content-between form-group-s"
+                className="mb-3 d-flex justify-content-between form-group-s recaptcha"
                 controlId="formBasicCheckbox"
               >
                 <Form.Check
@@ -85,7 +112,7 @@ function Signup() {
                 </Form.Label>
               </Form.Group>
 
-              <Button variant="primary" type="submit" className="form-button-s">
+              <Button type="submit" className="form-button-s">
                 SIGN UP
               </Button>
 
@@ -102,6 +129,7 @@ function Signup() {
                 <a
                   href="/"
                   style={{ color: "var(--green-600", fontWeight: "light" }}
+                  classname="signin"
                 >
                   Sign in
                 </a>
@@ -116,10 +144,12 @@ function Signup() {
                 Or log in with your social network
               </p>
               <div className="social-images d-flex">
+                <div className="social-images-wrap">
                 <img src={facebook} alt="facebook" className="me-1"></img>
                 <img src={twitter} alt="twitter" className="me-1"></img>
                 <img src={whatsapp} alt="whatsapp" className="me-1"></img>
                 <img src={insta} alt="instagram" className="me-1"></img>
+              </div>
               </div>
             </Form>
           </div>

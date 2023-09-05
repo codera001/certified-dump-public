@@ -1,47 +1,49 @@
-.footeer{
+.pa-footeer{
     background-image: url('../../static/pagefooter.png');
-    height: 80vh;
     width: 100%;
     background-size: cover;
     text-align: center;
 
 }
- .pu-footer{
-    display: flex;
-    justify-content: space-between;
+ .pa-footer{
     padding-top: 10rem;
 }
-.pu-footer .text {
+.pa-footer .text {
     width: 25%;
     color: var(--white);
     font-weight: bold;
 }
-.pu-footer .text h3 {
+.pa-footer .text h3 {
 border-bottom:3px solid var(--tertiary-color)
 }
 
-.pu-footer .text .icon-text{
+.pa-footer .text .icon-text{
     display:flex;
 }
 
-.pu-footer .text .icon-text .icon {
+.pa-footer .text .icon-text .icon {
     font-size:22px;
 }
 
 
-.pu-footer .text .icon-text p{
+.pa-footer .text .icon-text p{
     font-size:16px;
 }
 
+.pa-footer .icons-icon{
+    margin-top:1.5rem;
+}
 
-.pu-footer .icons {
+
+.pa-footer .icons {
     width: 50%;
     color: white;
     display: block;
     font-size: 30px;
+    
 }
 
-.pu-footer .line {
+.pa-footer .line {
     border-bottom: 3px solid var(--secondary-color);
     z-index: 1;
     width: 15%;
@@ -51,23 +53,39 @@ border-bottom:3px solid var(--tertiary-color)
 
 
 @media screen and (max-width:767px) {
-
-    .footeer{
-        height: 60vh;
-    }
-    .pu-footer{
+    .pa-footer{
     padding-top: 4rem;
+    display:block;
+    width:80%;
  
     }
-    .pu-footer .text{
-        width: 80%;
+
+    .pa-footer .logo {
+        width: 200px;
+        margin-right: 0;
+        
+        }
+    .pa-footer .text{
+        width: 100%;
        
     }
-    .pu-footer .text .icon-text p{
- display:none;
+    .pa-footer .text .icon-text p{
+ /* display:none; */
     }
 
-    .pu-footer .line{
-        width:25%
+    .pa-footer .icons{
+        margin-top:1rem;
+    }
+
+    .pa-footer .icons-icon{
+        width:90%;
+        display:flex;
+        margin-top:0.5rem
+    }
+
+    .pa-footer .line{
+        width:50%
     }
 }
+
+

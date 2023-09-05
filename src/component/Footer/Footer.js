@@ -12,53 +12,54 @@ function Footer() {
   return (
     <>
       <div className="footeer">
-        <div className="pu-footer container bg-none">
-          <div className="text">
-            <img
-              src={logo}
-              alt="logo"
-              className="logo"
-            />
+        <div>
+          <div className="pu-footer d-md-flex justify-content-between container bg-none">
+            <div className="text">
+              <img
+                src={logo}
+                alt="logo"
+                className="logo"
+              />
 
-            <div>
-              <p className="text-start mt-5">
-                We are the largest and most curent website offering IT certifications test materials.
-              </p>
-              <p className="text-start">
-                Our mission is to enhance the IT professionals community for free by using our own resources
-              </p>
+              <div>
+                <p className="text-start mt-5">
+                  We are the largest and most curent website offering IT certifications test materials.
+                </p>
+                <p className="text-start">
+                  Our mission is to enhance the IT professionals community for free by using our own resources
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="icons ">
-            <h6 className="" style={{ fontWeight: "bolder" }}>SITEMAP</h6>
-            <p className="line" />
-            <div className="icons-icon">
-              <div className="mt-4 ">
-                <RiHome4Fill></RiHome4Fill>
-              </div>
-              <div>
-                <BiSolidMessageRoundedDetail></BiSolidMessageRoundedDetail>
-              </div>
-              <div>
-                < HiOutlineArrowCircleRight></ HiOutlineArrowCircleRight>
-              </div>
-              <div>
-                <TbEditCircle></TbEditCircle>
-              </div>
-              <div>
-                <BiUserPin></BiUserPin>
-              </div>
-              <div>
-                <HiOutlineInformationCircle></HiOutlineInformationCircle>
+            <div className="icons ">
+              <h6 className="" style={{ fontWeight: "bolder" }}>SITEMAP</h6>
+              <p className="line" />
+              <div className="icons-icon">
+                <div className=" ">
+                  <RiHome4Fill></RiHome4Fill>
+                </div>
+                <div>
+                  <BiSolidMessageRoundedDetail></BiSolidMessageRoundedDetail>
+                </div>
+                <div>
+                  < HiOutlineArrowCircleRight></ HiOutlineArrowCircleRight>
+                </div>
+                <div>
+                  <TbEditCircle></TbEditCircle>
+                </div>
+                <div>
+                  <BiUserPin></BiUserPin>
+                </div>
+                <div>
+                  <HiOutlineInformationCircle></HiOutlineInformationCircle>
+                </div>
+
               </div>
 
             </div>
 
           </div>
-          <small className="text-center">{`Copyright © Certified dump ${year}`}</small>
+          <small className="text-center text-white">{`Copyright © Certified dump ${year}`}</small>
         </div>
-          
-
       </div>
     </>
   );

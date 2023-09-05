@@ -16,6 +16,7 @@ import Signup from "./pages/Signup/Signup";
 import Providers from "./pages/Providers/Providers";
 import About from "./pages/About/About"
 import Alibaba from "./pages/Exams/Alibaba";
+import Preview from "./pages/Preview/Preview";
 import Blockchain from "./pages/Exams/Blockchain";
 import Cisco from "./pages/Exams/Cisco";
 import Cloudera from "./pages/Exams/Cloudera";
@@ -54,6 +55,7 @@ const router = createBrowserRouter(
       <Route path="providers" element={<Providers />} />
       <Route path="about" element={<About />} />
       <Route path="alibaba" element={<Alibaba />} />
+      <Route path="alibabaPreview" element={<Preview />} />
       <Route path="blockchain" element={<Blockchain />} />
       <Route path="cisco" element={<Cisco />} />
       <Route path="cloudera" element={<Cloudera />} />
@@ -78,6 +80,7 @@ const router = createBrowserRouter(
       <Route path="apilog" element={<Apilog />} />
       <Route path="apisign" element={<Apisign />} />
       <Route path="confirm-email" element={<Verify />} />
+     
     </>
   )
 );

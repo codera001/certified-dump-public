@@ -46,7 +46,7 @@ function Login() {
                             SIGN IN
                         </Button>
                         <p href="/" style={{ color: "var(--green-600", fontWeight: "bolder" }}>forgot password?</p>
-                        <p className="" style={{ fontWeight: "bolder", color: "black", fontSize: "12px" }}> Already have an account yet?     <a href="/" style={{ color: "var(--green-600", fontWeight: "light" }}>Sign in</a></p>
+                        <p className="" style={{ fontWeight: "bolder", color: "black", fontSize: "12px" }}> Already have an account yet?     <a href="/" classname="signin" style={{ color: "var(--green-600", fontWeight: "light" }}>Sign in</a></p>
                         <p style={{ fontWeight: "bolder", color: "black", fontSize: "12px" }}>Or log in with your social network</p>
                         <div className="social-images d-flex">
                             <img src={facebook} alt="facebook" className="me-1"></img>
