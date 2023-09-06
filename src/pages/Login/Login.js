@@ -12,6 +12,9 @@ import { AiFillGithub } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Google from "../../ApiTesting/GoogleLogin";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+
 function Login() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -27,6 +30,9 @@ function Login() {
     });
   };
 
+  let date = new Date();
+  let currentTime = date.getTime();
+  console.log(currentTime);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -43,6 +49,7 @@ function Login() {
         navigate("/dashboard");
       }, 2000);
     } catch (error) {
+      // console.log(error);
       toast.error(error.response.data.msg);
       if (error.response.data.msg == "Unverified Email ") {
         navigate("/confirm-email");
