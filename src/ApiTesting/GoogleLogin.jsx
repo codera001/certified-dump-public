@@ -1,7 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-// import axios from "axios";
-
 import { GoogleLogin } from "@react-oauth/google";
 import { toast } from "react-hot-toast";
 
@@ -10,7 +8,8 @@ const Google = () => {
   return (
     <GoogleLogin
       onSuccess={(credentialResponse) => {
-        console.log(credentialResponse);
+        // console.log(credentialResponse.credential);
+        sessionStorage.setItem("google-token", credentialResponse.credential);
         navigate("/dashboard");
         toast.success("You are logged in successfully");
       }}

@@ -12,6 +12,8 @@ import whatsapp from "../../static/whatsapp.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 function Signup() {
   const navigate = useNavigate();

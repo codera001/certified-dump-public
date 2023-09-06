@@ -11,12 +11,12 @@ import Overview from "./dashboard/overview/Overview";
 import Profile from "./dashboard/profile/Profile";
 import Library from "./dashboard/library/Library";
 import Wallet from "./dashboard/wallet/Wallet";
-import Login  from "./pages/Login/Login"
+import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import ForgotPass from "./pages/Verify/ForgotPass";
-import VerifyEmail from "./pages/Verify/VerifyEmail"
+import VerifyEmail from "./pages/Verify/VerifyEmail";
 import Providers from "./pages/Providers/Providers";
-import About from "./pages/About/About"
+import About from "./pages/About/About";
 import Alibaba from "./pages/Exams/Alibaba";
 import Preview from "./pages/Preview/Preview";
 import Blockchain from "./pages/Exams/Blockchain";
@@ -45,6 +45,7 @@ import Apisign from "./ApiTesting/Apisign";
 import Verify from "./ApiTesting/Verify";
 import PassReset from "./ApiTesting/PassReset";
 import { Toaster } from "react-hot-toast";
+import ProtectedRoute from "./dashboard/ProtectedRoutes";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -54,10 +55,6 @@ const router = createBrowserRouter(
       <Route path="signup" element={<Signup />}></Route>
       <Route path="forgotpass" element={<ForgotPass />}></Route>
       <Route path="verifyemail" element={<VerifyEmail />}></Route>
-      <Route path="dashboard" element={<Overview />} />
-      <Route path="profile" element={<Profile />} />
-      <Route path="library" element={<Library />} />
-      <Route path="wallet" element={<Wallet />} />
       <Route path="providers" element={<Providers />} />
       <Route path="about" element={<About />} />
       <Route path="alibaba" element={<Alibaba />} />
@@ -79,18 +76,23 @@ const router = createBrowserRouter(
       <Route path="sakesforce" element={<Salesforce />} />
       <Route path="testprep" element={<Testprep />} />
       <Route path="vmware" element={<Vmware />} />
-      <Route path="zend" element={<Zend />} />
-      <Route path="support" element={<Support />} />
+      <Route path="zend" element={<Zend />} />`
       <Route path="contact" element={<Contact />} />
       <Route path="chat" element={<Chat />} />
       <Route path="apilog" element={<Apilog />} />
       <Route path="apisign" element={<Apisign />} />
       <Route path="confirm-email" element={<Verify />} />
       <Route path="reset-password" element={<PassReset />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="dashboard" element={<Overview />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="library" element={<Library />} />
+        <Route path="wallet" element={<Wallet />} />
+        <Route path="support" element={<Support />} />
+      </Route>
     </>
   )
 );
-
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
