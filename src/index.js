@@ -13,9 +13,12 @@ import Library from "./dashboard/library/Library";
 import Wallet from "./dashboard/wallet/Wallet";
 import Login  from "./pages/Login/Login"
 import Signup from "./pages/Signup/Signup";
+import ForgotPass from "./pages/Verify/ForgotPass";
+import VerifyEmail from "./pages/Verify/VerifyEmail"
 import Providers from "./pages/Providers/Providers";
 import About from "./pages/About/About"
 import Alibaba from "./pages/Exams/Alibaba";
+import Preview from "./pages/Preview/Preview";
 import Blockchain from "./pages/Exams/Blockchain";
 import Cisco from "./pages/Exams/Cisco";
 import Cloudera from "./pages/Exams/Cloudera";
@@ -49,6 +52,8 @@ const router = createBrowserRouter(
       <Route path="/" element={<App />}></Route>
       <Route path="login" element={<Login />}></Route>
       <Route path="signup" element={<Signup />}></Route>
+      <Route path="forgotpass" element={<ForgotPass />}></Route>
+      <Route path="verifyemail" element={<VerifyEmail />}></Route>
       <Route path="dashboard" element={<Overview />} />
       <Route path="profile" element={<Profile />} />
       <Route path="library" element={<Library />} />
@@ -56,6 +61,7 @@ const router = createBrowserRouter(
       <Route path="providers" element={<Providers />} />
       <Route path="about" element={<About />} />
       <Route path="alibaba" element={<Alibaba />} />
+      <Route path="alibabaPreview" element={<Preview />} />
       <Route path="blockchain" element={<Blockchain />} />
       <Route path="cisco" element={<Cisco />} />
       <Route path="cloudera" element={<Cloudera />} />

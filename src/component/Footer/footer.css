@@ -1,14 +1,11 @@
 .footeer{
     background-image: url('../../static/footer.png');
-    height: 80vh;
     width: 100%;
     background-size: cover;
     text-align: center;
 
 }
  .pu-footer{
-    display: flex;
-    justify-content: space-between;
     padding-top: 10rem;
 }
 .pu-footer .text {
@@ -31,6 +28,9 @@ border-radius: 10px;
 margin-right: 3rem;
 
 }
+.pu-footer .icons-icon{
+    margin-top:1.5rem;
+}
 
 .pu-footer .icons {
     width: 50%;
@@ -48,25 +48,25 @@ margin-right: 3rem;
 }
 
 
+
+
 @media screen and (max-width:767px) {
 
-    .footeer{
-        height: 60vh;
-    }
+    
     .pu-footer{
     padding-top: 4rem;
-    display:block;
+display:block;
+width:80%;
  
     }
 
     .pu-footer .logo {
-        width: 100%;
-        height: 0;
+        width: 200px;
         margin-right: 0;
         
         }
     .pu-footer .text{
-        width: 90%;
+        width: 100%;
        
     }
 
@@ -74,12 +74,17 @@ margin-right: 3rem;
         font-size:14px;
     }
 
+    .pu-footer .icons {
+        margin-top:1rem;
+    }
+
     .pu-footer .icons-icon{
         width:90%;
-        display:flex
+        display:flex;
+        margin-top:0.5rem
     }
 
     .pu-footer .line{
-        width:25%
+        width:50%;
     }
 }

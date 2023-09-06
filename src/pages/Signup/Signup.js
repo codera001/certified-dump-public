@@ -9,10 +9,6 @@ import facebook from "../../static/facebook.png";
 import twitter from "../../static/twitter.png";
 import insta from "../../static/insta.png";
 import whatsapp from "../../static/whatsapp.png";
-import { toast } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-
 function Signup() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -60,7 +56,24 @@ function Signup() {
           <div className="signup-form-wrap">
             <Form className="signup-form" onSubmit={handleSubmit}>
               <Form.Group className="mb-3 ">
-                <Form.Label className="my-2 form-title"> Sign up</Form.Label>
+                <Form.Label className="my-4  form-title"> Sign up</Form.Label>
+              </Form.Group>
+
+
+
+              <Form.Group className="mb-3 form-group-s">
+                <Form.Control
+                  className="form-control-s"
+                  type="text"
+                  placeholder="Enter your firstname"
+                />
+              </Form.Group>
+              <Form.Group className="mb-3 form-group-s">
+                <Form.Control
+                  className="form-control-s"
+                  type="text"
+                  placeholder="Enter your lastname"
+                />
               </Form.Group>
               <Form.Group className="mb-3 form-group-s">
                 <Form.Control
@@ -84,11 +97,10 @@ function Signup() {
                   required
                 />
               </Form.Group>
-              <Form.Group
-                className="mb-3 form-group-s"
-                style={{ border: "1px solid var(--green-500)" }}
-              >
+              <Form.Group className="mb-3 form-group-s">
                 <Form.Control
+                  className="form-control-s"
+                  type="text"
                   className="form-control-s"
                   type="text"
                   placeholder="Enter your username"
@@ -98,31 +110,11 @@ function Signup() {
                   required
                 />
               </Form.Group>
-
               <Form.Group className="mb-3 form-group-s">
                 <Form.Control
                   className="form-control-s"
                   type="email"
                   placeholder="Enter your email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-
-              <Form.Group
-                className="mb-3 form-group-s"
-                style={{ border: "1px solid var(--green-500)" }}
-              >
-                <Form.Control
-                  className="form-control-s"
-                  type="text"
-                  placeholder="Enter your phone number"
-                  name="phone_no"
-                  value={formData.phone_no}
-                  onChange={handleChange}
-                  required
                 />
               </Form.Group>
 
@@ -154,7 +146,7 @@ function Signup() {
               </Form.Group>
 
               <Form.Group
-                className="mb-3 d-flex justify-content-between form-group-s"
+                className="mb-3 d-flex justify-content-between form-group-s recaptcha"
                 controlId="formBasicCheckbox"
               >
                 <Form.Check
@@ -163,7 +155,7 @@ function Signup() {
                   style={{ fontWeight: "bold" }}
                 ></Form.Check>
                 <Form.Label>
-                  <div>
+                  <div className="me-2">
                     <img
                       src={recaptcha}
                       alt="recaptcha"
@@ -180,7 +172,7 @@ function Signup() {
                 </Form.Label>
               </Form.Group>
 
-              <Button variant="primary" type="submit" className="form-button-s">
+              <Button type="submit" className="form-button-s">
                 SIGN UP
               </Button>
 
@@ -196,6 +188,7 @@ function Signup() {
                 <Link
                   to="/login"
                   style={{ color: "var(--green-600", fontWeight: "light" }}
+                  classname="signin"
                 >
                   Sign in
                 </Link>
@@ -210,10 +203,12 @@ function Signup() {
                 Or log in with your social network
               </p>
               <div className="social-images d-flex">
-                <img src={facebook} alt="facebook" className="me-1"></img>
-                <img src={twitter} alt="twitter" className="me-1"></img>
-                <img src={whatsapp} alt="whatsapp" className="me-1"></img>
-                <img src={insta} alt="instagram" className="me-1"></img>
+                <div className="social-images-wrap">
+                  <img src={facebook} alt="facebook" className="me-1"></img>
+                  <img src={twitter} alt="twitter" className="me-1"></img>
+                  <FcGoogle className="me-1" style={{ fontSize: "22px" }}></FcGoogle>
+                  <AiFillGithub className="me-1" style={{ fontSize: "22px" }}></AiFillGithub>
+                </div>
               </div>
             </Form>
           </div>

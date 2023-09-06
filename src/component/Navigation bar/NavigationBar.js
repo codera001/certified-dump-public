@@ -125,7 +125,7 @@ function NavigationBar() {
                 BLOG AREA
               </Nav.Link>
               <Nav.Link
-                href="providers"
+                href="contact"
                 className="nav-links "
               >
                 CONTACT US

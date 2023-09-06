@@ -33,7 +33,7 @@ function About() {
                     </div>
                 </div>
 
-                <div  className="text-image">
+                <div  className="text-image index">
                     <div className="image">
                         <img src={about2}></img>
                     </div>
@@ -62,7 +62,7 @@ function About() {
             <section className="section3 container mt-4 about">
                 <h1 className="text-center">Our Services</h1>
 
-                <Row xs={2}sm={2} md={3} lg={4} className=" card-sections mb-3">
+                <Row xs={1}sm={1} md={2} lg={4} className=" card-sections mb-3">
       
        
         <Col className="">
