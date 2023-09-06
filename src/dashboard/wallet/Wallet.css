@@ -12,7 +12,7 @@
     & .d-spent, .d-bal {
       box-shadow: var(--box-shadow);
       padding: 20px;
-      border-radius: 10%;
+      border-radius: 20px;
       transition: var(--transition-all);
 
       &:hover {
