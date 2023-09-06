@@ -9,6 +9,10 @@ import facebook from "../../static/facebook.png";
 import twitter from "../../static/twitter.png";
 import insta from "../../static/insta.png";
 import whatsapp from "../../static/whatsapp.png";
+import { Link, useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import { AiFillGithub } from "react-icons/ai";
+
 function Signup() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -101,8 +105,6 @@ function Signup() {
                 <Form.Control
                   className="form-control-s"
                   type="text"
-                  className="form-control-s"
-                  type="text"
                   placeholder="Enter your username"
                   name="username"
                   value={formData.username}
@@ -185,7 +187,7 @@ function Signup() {
                 }}
               >
                 Already have an account yet?
-                <Link
+                <Link   
                   to="/login"
                   style={{ color: "var(--green-600", fontWeight: "light" }}
                   classname="signin"
