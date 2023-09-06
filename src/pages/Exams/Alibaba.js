@@ -10,9 +10,9 @@ function Alibaba() {
       <NavigationBar />
 
       <div className="navigate container">
-        <div className="d-flex justify-content-between arrow-text"><a href="/" style={{ fontWeight: "bolder" }}><TiArrowLeftThick style={{ color: "black" }}></TiArrowLeftThick>Back</a>
-          <h6> All Alibaba Exams</h6></div>
-        <div className="search-container mt-5">
+        <div className="d-flex justify-content-between arrow-text mt-3"><a href="/"  className="back ms-2" style={{ fontWeight: "bolder" }}><TiArrowLeftThick style={{ color: "black" }}></TiArrowLeftThick>Back</a>
+          <h6 className="ms-2"> All Alibaba Exams</h6></div>
+        <div className="search-container mb-5">
 
           <input
             placeholder="exam code or name"

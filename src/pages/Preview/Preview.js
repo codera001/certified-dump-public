@@ -5,6 +5,7 @@ import PageFooter from "../../component/PageFooter/PageFooter"
 import { AiOutlineLogin, AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
 import {  TbEditCircle } from "react-icons/tb";
 import {  TiArrowLeftThick  } from "react-icons/ti";
+import { BsDot } from "react-icons/bs";
 
 function Preview() {
     return (
@@ -12,21 +13,20 @@ function Preview() {
             
                 <NavigationBar />
                 <div className="d-flex justify-content-between">
-                    <div className="mt-5">
-                        <a href="/" className="back" style={{ fontWeight: "bolder" }}><TiArrowLeftThick style={{ color: "black", marginRight: "0.5rem" }}></TiArrowLeftThick></a>
+                <div className="navigate container">
+        <div className="d-flex justify-content-between arrow-text"><a href="/"  className="back ms-2" style={{ fontWeight: "bolder" }}><TiArrowLeftThick style={{ color: "black" }}></TiArrowLeftThick>Back</a>
+          </div>
+        <div className="search-container mb-5">
 
-
-                    </div>
-                    <div className="search-container mt-5">
-
-                        <input
-                            placeholder="exam code or name"
-                            type="search"
-                            className="
-                  "
-                        />
-                        <AiOutlineSearch className="search-icon"></AiOutlineSearch>
-                    </div>
+          <input
+            placeholder="exam code or name"
+            type="search"
+            className="
+      "
+          />
+          <AiOutlineSearch className="search-icon"></AiOutlineSearch>
+        </div>
+      </div>
 
 
                 </div>
@@ -49,7 +49,7 @@ function Preview() {
                         <AiOutlineSearch className="me-2" style={{fontWeight:"bolder", fontSize:"18px"}}></AiOutlineSearch>
                         <p style={{fontWeight:"bolder"}}>Keywords: </p>
                     </div>
-                    <div className="keyword">
+                    <div className="keyword ms-2">
                         <a href="/">Keyword</a>
                         <a href="/">Keyword</a>
                         <a href="/">Keyword</a>
@@ -57,7 +57,7 @@ function Preview() {
                     </div>
                 </div>
 
-                <div className="preview-auth-buy">
+                <div className="preview-auth-buy container">
                     <div className="preview-auth">
                       <a className="d-flex py-3">
                         <AiOutlineLogin style={{fontSize:"30px", marginRight:"1rem"}}></AiOutlineLogin>
@@ -70,17 +70,17 @@ function Preview() {
                       </a>
                     </div>
                     <div className="preview-purchase">
-                        <h5>Buy exam</h5>
-                        <div className="preview-purchase-text px-1 py-1">
+                        <h5 className="ps-2" >Buy exam</h5>
+                        <div className="preview-purchase-text mx-2 my-2 px-2">
                             <h6>PDF download + Online access</h6>
-                            <p>Lifetime access to exam PDF & online version</p>
-                            <p>Exam PDF can be downloaded</p>
-                            <p>Exam PDF can be printed</p>
+                            <p><BsDot style={{fontSize:"25px"}}/>Lifetime access to exam PDF & online version</p>
+                            <p><BsDot style={{fontSize:"25px"}}/>Exam PDF can be downloaded</p>
+                            <p><BsDot style={{fontSize:"25px"}}/>Exam PDF can be printed</p>
                             <div>
                             <h6>USD 0.00</h6>
-                            <a href="/" className="d-flex" style={{border:"1px solid var(--tertiary-color)"}}> 
-                            <AiOutlineShoppingCart style={{color:"var(--tertiary-color", fontSize:"20px"}}></AiOutlineShoppingCart>
-                                <small  style={{color:"var(--tertiary-color"}}>Buy Exam</small>
+                            <a href="/" className="d-flex justify-content-between px-2" style={{border:"1px solid var(--tertiary-color)"}}> 
+                            <AiOutlineShoppingCart style={{color:"var(--tertiary-color", fontSize:"30px"}}></AiOutlineShoppingCart>
+                                <small  style={{color:"var(--tertiary-color", fontSize:"16px"}}>Buy Exam</small>
                             </a>
                             </div>
                         </div>

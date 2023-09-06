@@ -38,13 +38,6 @@
 
 } */
 
-.sign-up{
-        /* border:1px solid black;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box; 
-        box-sizing: border-box; 
-        box-shadow: 0 4px 10px rgba(0,0,0,0.16), 0 4px 10px rgba(0,0,0,0.23); */
-}
 
 
 .signup .signup-form-wrap {   
@@ -66,10 +59,7 @@ width:60%;
 margin:2rem auto;
 }
 
-.signup .form-group-s{
-        border: 1px solid var(--green-600);
-        height:55px;
-}
+
 
 .signup .recaptcha{
      height:80px;
@@ -80,6 +70,8 @@ margin:2rem auto;
 .signup .form-group-s .form-control-s{
         background-color:none;
         border-radius:none;
+        border: 1px solid var(--green-600);
+        height:55px;
 }
 
 .signup .form-group-s .form-control-s::placeholder {
@@ -200,9 +192,7 @@ form input{
                 font-size:10px
         }
 
-        .signup .form-button-s{
-                /* margin: 0 2rem; */
-        }
+        
 
         .signup .form-group-s .form-control-s::placeholder{
                 font-size:14px;

@@ -207,10 +207,13 @@ margin-top:5rem;
       }
       .section-two-main .card-section{
         margin:0;
+        overflow-x: scroll;
+      
       }
 
       .section-two-main .card-body {
-        min-width:100%;
+        min-width:70%;
+        margin-right: 1rem;
       }
   .section-two-main .button{
     width: 100%;

@@ -13,8 +13,10 @@
     color: var(--white);
     font-weight: bold;
 }
-.pa-footer .text h3 {
-border-bottom:3px solid var(--tertiary-color)
+.pa-footer .text h6 {
+border-bottom:3px solid var(--tertiary-color);
+width:180px;
+padding-bottom: 0.5rem;
 }
 
 .pa-footer .text .icon-text{
@@ -69,9 +71,7 @@ border-bottom:3px solid var(--tertiary-color)
         width: 100%;
        
     }
-    .pa-footer .text .icon-text p{
- /* display:none; */
-    }
+   
 
     .pa-footer .icons{
         margin-top:1rem;

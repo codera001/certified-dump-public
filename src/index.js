@@ -13,6 +13,8 @@ import Library from "./dashboard/library/Library";
 import Wallet from "./dashboard/wallet/Wallet";
 import Login  from "./pages/Login/Login"
 import Signup from "./pages/Signup/Signup";
+import ForgotPass from "./pages/Verify/ForgotPass";
+import VerifyEmail from "./pages/Verify/VerifyEmail"
 import Providers from "./pages/Providers/Providers";
 import About from "./pages/About/About"
 import Alibaba from "./pages/Exams/Alibaba";
@@ -48,6 +50,8 @@ const router = createBrowserRouter(
       <Route path="/" element={<App />}></Route>
       <Route path="login" element={<Login />}></Route>
       <Route path="signup" element={<Signup />}></Route>
+      <Route path="forgotpass" element={<ForgotPass />}></Route>
+      <Route path="verifyemail" element={<VerifyEmail />}></Route>
       <Route path="dashboard" element={<Overview />} />
       <Route path="profile" element={<Profile />} />
       <Route path="library" element={<Library />} />

@@ -1,7 +1,7 @@
 .navigate {
     display:flex;
     justify-content:space-between;
-    margin-top:3rem;
+    margin-top:1rem;
 }
 
 .navigate .search {
@@ -11,17 +11,41 @@
     width:30%;
     padding:0.5rem 0;
 }
+.navigate .back{
+  color:var(--black);
 
-.navigate .s-icon{
-  /* position:absolute; */
+}
+
+.navigate .back:hover{
+  color:var(--tertiary-color);
+  
+}
+
+.navigate .search-container {
+  display: flex;
+  align-items: center;
+  
+}
+
+.navigate .search-container input{
+  padding-top:1rem;
+  padding-bottom:1rem;
+  /* margin-bottom:2rem; */
   padding-left:2rem;
+  width:350px;
+}
+.navigate .search-container input::placeholder{
+  color:var(--black)
+}
 
+.navigate .search-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  position:absolute;
+  /* margin-bottom:2rem; */
+  padding-left:0.5rem;
 }
-.navigate input::placeholder{
-    color:black;
-    font-size:14px
-    
-}
+
 
 
 .exam-card-section img {
@@ -36,7 +60,7 @@
     
 } */
 
-.exam-card-section .card-section{
+.exam-card-section{
   width:80%;
   margin:0 auto;
 }
@@ -77,16 +101,25 @@
   /* .navigate h5{
     font-size:1rem
   } */
+
+  .navigate .search-container input{
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    width:170px;
+    
+  }
+  .navigate .search-container input::placeholder{
+    font-size:14px;
+  }
+  .exam-card-section{
+    margin:0;
+    overflow-x: scroll;
+  }
+
     .exam-card-section .card-body {
-        min-width:100%;
+        min-width:70%;
+        margin-right: 1rem;
       }
-      .exam-card- .search-container input{
-        padding-top:0.5rem;
-        padding-bottom:0.5rem;
-        width:170px;
-      }
-      .exam-card-section .search-container input::placeholder{
-        font-size:14px;
-      }
+    
       
 }

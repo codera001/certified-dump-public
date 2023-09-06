@@ -7,8 +7,8 @@ import PageFooter from "../../component/PageFooter/PageFooter";
 import recaptcha from "../../static/recaptcha.png";
 import facebook from "../../static/facebook.png";
 import twitter from "../../static/twitter.png";
-import insta from "../../static/insta.png";
-import whatsapp from "../../static/whatsapp.png";
+import { FcGoogle } from "react-icons/fc";
+import { AiFillGithub } from "react-icons/ai";
 function Signup() {
   return (
     <>
@@ -18,39 +18,32 @@ function Signup() {
           <div className="signup-form-wrap">
             <Form className="signup-form">
               <Form.Group className="mb-3 ">
-                <Form.Label className="my-2 form-title"> Sign up</Form.Label>
+                <Form.Label className="my-4  form-title"> Sign up</Form.Label>
               </Form.Group>
-              <Form.Group
-                className="mb-3 form-group-s"
-                style={{ border: "1px solid var(--green-500)" }}
-              >
+
+
+
+              <Form.Group className="mb-3 form-group-s">
                 <Form.Control
-                  classname="form-control-s"
+                  className="form-control-s"
                   type="text"
                   placeholder="Enter your firstname"
                 />
               </Form.Group>
-              <Form.Group
-                className="mb-3 form-group-s"
-                style={{ border: "1px solid var(--green-500)" }}
-              >
+              <Form.Group className="mb-3 form-group-s">
                 <Form.Control
-                  classname="form-control-s"
+                  className="form-control-s"
                   type="text"
                   placeholder="Enter your lastname"
                 />
               </Form.Group>
-              <Form.Group
-                className="mb-3 form-group-s"
-                style={{ border: "1px solid var(--green-500)" }}
-              >
+              <Form.Group className="mb-3 form-group-s">
                 <Form.Control
-                  classname="form-control-s"
+                  className="form-control-s"
                   type="text"
                   placeholder="Enter your username"
                 />
               </Form.Group>
-
               <Form.Group className="mb-3 form-group-s">
                 <Form.Control
                   className="form-control-s"
@@ -95,7 +88,7 @@ function Signup() {
                   style={{ fontWeight: "bold" }}
                 ></Form.Check>
                 <Form.Label>
-                  <div>
+                  <div className="me-2">
                     <img
                       src={recaptcha}
                       alt="recaptcha"
@@ -145,11 +138,11 @@ function Signup() {
               </p>
               <div className="social-images d-flex">
                 <div className="social-images-wrap">
-                <img src={facebook} alt="facebook" className="me-1"></img>
-                <img src={twitter} alt="twitter" className="me-1"></img>
-                <img src={whatsapp} alt="whatsapp" className="me-1"></img>
-                <img src={insta} alt="instagram" className="me-1"></img>
-              </div>
+                  <img src={facebook} alt="facebook" className="me-1"></img>
+                  <img src={twitter} alt="twitter" className="me-1"></img>
+                  <FcGoogle className="me-1" style={{ fontSize: "22px" }}></FcGoogle>
+                  <AiFillGithub className="me-1" style={{ fontSize: "22px" }}></AiFillGithub>
+                </div>
               </div>
             </Form>
           </div>

@@ -33,7 +33,7 @@ function About() {
                     </div>
                 </div>
 
-                <div  className="text-image">
+                <div  className="text-image index">
                     <div className="image">
                         <img src={about2}></img>
                     </div>

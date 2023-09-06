@@ -31,7 +31,7 @@ function Providers() {
             <a href="/" className="back" style={{ fontWeight: "bolder" }}><TiArrowLeftThick style={{ color: "black", marginRight: "0.5rem" }}></TiArrowLeftThick>Back</a>
 
           </div>
-          <div className="search-container mt-5">
+          <div className="search-container " >
 
             <input
               placeholder="exam code or name"
@@ -44,10 +44,10 @@ function Providers() {
          
 
         </div>
-        <h5 className=" mb-5" style={{ fontWeight: "bolder", color: "black", textAlign: "center" }}>All Providers</h5>
+        <h5 className=" mt-5 mb-5" style={{ fontWeight: "bolder", color: "black", textAlign: "center" }}>All Providers</h5>
 
 
-        <div class="container-fluid py-2">
+        <div class="container-fluid py-2 mb-5" >
 
 
           <div class="d-flex flex-row flex-nowrap card-section">

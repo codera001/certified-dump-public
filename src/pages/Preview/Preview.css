@@ -3,7 +3,7 @@
     background-image: -o-linear-gradient(top,  var(--brown) , white , var(--brown) );
     background-image: -moz-linear-gradient(top,  var(--brown) , white , var(--brown) );
     background-image: -webkit-linear-gradient(top,  var(--brown) , white , var(--brown) );
-    background-image: -ms-linear-gradient(top,  var(--brown) , white , var(--brown) );
+    /* background-image: -ms-linear-gradient(top,  var(--brown) , white , var(--brown) ); */
 }
 
 .preview-keyword{
@@ -20,7 +20,7 @@
 
 .preview-auth-buy{
     display:flex;
-    width:80%;
+    /* width:80%; */
     margin:2rem auto;
 }
 
@@ -29,6 +29,12 @@
     width:300px;
     min-height:150px;
     color:white;
+}
+
+.preview-auth a{
+    color: var(--white);
+    margin-left: 1rem;
+    align-items: center;
 }
 
 
