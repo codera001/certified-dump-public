@@ -9,6 +9,13 @@
   }
 }
 
+.d-payment-body{
+  background-color: var(--white);
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+}
+
 .d-payment-modes {
   display: flex;
   flex-wrap: wrap;
@@ -82,6 +89,13 @@
       justify-content: flex-start;
       max-width: 80%;
     }
+  }
+
+  .d-payment-body{
+    padding: 20px;
+    width: 100%;
+    max-width: 70%;
+    margin: 0 auto;
   }
 
   .d-payment-btn .d-secondary-btn {

@@ -32,7 +32,7 @@ function Login() {
 
   let date = new Date();
   let currentTime = date.getTime();
-  console.log(currentTime);
+  // console.log(currentTime);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

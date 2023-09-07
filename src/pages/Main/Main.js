@@ -63,11 +63,11 @@ function Main() {
             our study materials to pass your examinations on the first try! Our goal is to see you succeed.
           </p>
         </div>
-        <div class="container-fluid py-2">
+        <div className="container-fluid py-2">
 
           
-          <div class="d-flex flex-row flex-nowrap card-section">
-            <div class="card card-body">
+          <div className="d-flex flex-row flex-nowrap card-section">
+            <div className="card card-body">
               <div className="card-image" >
                 <img src={cisco} alt="" />
               </div>
@@ -77,7 +77,7 @@ function Main() {
                 </a>
               </div>
             </div>
-            <div class="card card-body">
+            <div className="card card-body">
               <div className="card-image" >
                 <img src={salesforce} alt="" />
               </div>
@@ -87,7 +87,7 @@ function Main() {
                 </a>
               </div>
             </div>
-            <div class="card card-body">
+            <div className="card card-body">
               <div className="card-image" >
                 <img src={isaca} alt="" />
               </div>
@@ -97,7 +97,7 @@ function Main() {
                 </a>
               </div>
             </div>
-            <div class="card card-body">
+            <div className="card card-body">
               <div className="card-image" >
                 <img src={vmare} alt="" />
               </div>
@@ -112,8 +112,8 @@ function Main() {
 
 
           </div>
-          <div class="d-flex flex-row flex-nowrap card-section">
-            <div class="card card-body">
+          <div className="d-flex flex-row flex-nowrap card-section">
+            <div className="card card-body">
               <div className="card-image" >
                 <img src={microsoft} alt="" />
               </div>
@@ -123,7 +123,7 @@ function Main() {
                 </a>
               </div>
             </div>
-            <div class="card card-body">
+            <div className="card card-body">
               <div className="card-image" >
                 <img src={salesforce} alt="" />
               </div>
@@ -133,7 +133,7 @@ function Main() {
                 </a>
               </div>
             </div>
-            <div class="card card-body">
+            <div className="card card-body">
               <div className="card-image" >
                 <img src={google} alt="" />
               </div>
@@ -143,7 +143,7 @@ function Main() {
                 </a>
               </div>
             </div>
-            <div class="card card-body">
+            <div className="card card-body">
               <div className="card-image" >
                 <img src={juniper} alt="" />
               </div>
