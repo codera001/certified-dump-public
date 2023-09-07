@@ -5,6 +5,7 @@
   text-align: center;
   border-radius: 10px;
   padding: 5px;
+  transition: var(--transition-all);
 }
 
 .d-secondary-btn:hover {

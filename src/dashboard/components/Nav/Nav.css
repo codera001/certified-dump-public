@@ -59,14 +59,24 @@
     }
   }
 
-  & Button {
+  & a {
     width: 50%;
     font-size: 1rem;
+    background: var(--secondary-color);
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    transition: var(--transition-all);
+
 
     & .d-text {
       margin-left: 2px;
     }
   }
+  & a:hover {
+  background-color: var(--hover-color);
+  color: white;
+}
 }
 
 .d-user-dropdown {
@@ -154,7 +164,7 @@
     padding: 5px;
 
     & .d-price .d-bal,
-    Button .d-text {
+    a .d-text {
       display: none;
     }
   }
@@ -164,17 +174,17 @@
   .d-nav-cta {
     display: none;
   }
-  
+
   .d-nav-balance {
     width: 11rem;
-justify-content: center;
+    justify-content: center;
   }
 
-  .d-nav-balance Button {
+  .d-nav-balance a {
     width: 30%;
     align-self: flex-end;
   }
-  
+
   .d-nav-balance .d-price {
     width: 50%;
   }
@@ -183,12 +193,12 @@ justify-content: center;
   .d-nav-balance .d-price {
     width: 65%;
   }
-  
+
   .d-user-dropdown {
     margin-left: 0px;
   }
 
-  .d-drop-icon{
+  .d-drop-icon {
     font-size: 40px;
   }
 }
