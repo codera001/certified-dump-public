@@ -192,7 +192,7 @@ function Signup() {
                 <Link   
                   to="/login"
                   style={{ color: "var(--green-600", fontWeight: "light" }}
-                  classname="signin"
+                  className="signin"
                 >
                   Sign in
                 </Link>
