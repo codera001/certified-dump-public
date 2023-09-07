@@ -6,16 +6,14 @@ import "./Layout.css";
 
 const Layout = ({ children }) => {
   return (
-    <>
-      <div className="d-layout">
-        <div className="d-inner-layout">
-          <Nav />
-          <Sidebar />
-          <main className="d-children user-scroll">{children}</main>
-        </div>
-        <Footer />
+    <div className="d-layout">
+      <div className="d-inner-layout">
+        <Nav />
+        <Sidebar />
+        <main className="d-children user-scroll">{children}</main>
       </div>
-    </>
+      <Footer />
+    </div>
   );
 };
 

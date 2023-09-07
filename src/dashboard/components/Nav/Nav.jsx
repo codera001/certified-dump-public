@@ -2,17 +2,13 @@ import React from "react";
 import "./Nav.css";
 import logo from "../../images/logo.png";
 import windows from "../../images/windows.png";
-import { Button } from "../Button/Button";
 import { BiLogOutCircle, BiUserCheck, BiUserCircle } from "react-icons/bi";
 import { PiCaretDownLight } from "react-icons/pi";
 import { MdOutlinePayment } from "react-icons/md";
-import { Outlet, Link, useNavigate } from "react-router-dom";
-import { GiAutogun } from "react-icons/gi";
+import { Outlet, Link } from "react-router-dom";
 
 const Nav = () => {
   const email = sessionStorage.getItem("userEmail");
-  // console.log(email);
-  // const navigate = useNavigate();
   return (
     <>
       <nav className="d-user-nav">
@@ -34,12 +30,12 @@ const Nav = () => {
               <p className="d-bal">Balance:</p>
               <p className="d-value">$5003.20</p>
             </div>
-            <Button>
+            <Link to="/payment">
               <span className="d-icon">
                 <MdOutlinePayment />
               </span>
               <span className="d-text">Top up</span>
-            </Button>
+            </Link>
           </div>
           <div className="d-user-dropdown">
             <BiUserCircle className="d-drop-icon" />

@@ -15,8 +15,8 @@
 
 .d-open-side-handle,
 .d-close-side-handle {
-  position: fixed;
-  top: 30vh;
+  position: absolute;
+  top: calc(40% - 50px);
   width: 25px;
   height: 60px;
   border-radius: 0 10px 10px 0;
@@ -104,6 +104,10 @@
 }
 
 @media screen and (max-width: 600px) {
+.d-sidebar-menu a {
+  font-size: 1rem;
+}
+
   .d-user-sidebar-test {
     width: 14rem;
   }

@@ -1,8 +1,8 @@
-import { GrOverview } from "react-icons/gr"
+import { GrOverview } from "react-icons/gr";
 import { BiSupport, BiUserCircle } from "react-icons/bi";
 import { ImLibrary } from "react-icons/im";
 import { AiOutlineWallet } from "react-icons/ai";
-import { MdOutlineSettingsPower } from "react-icons/md";
+import { MdOutlinePayment, MdOutlineSettingsPower } from "react-icons/md";
 
 export const sideMenu = [
   {
@@ -24,6 +24,11 @@ export const sideMenu = [
     title: "Finance",
     icon: <AiOutlineWallet />,
     path: "/wallet",
+  },
+  {
+    title: "Top up your balance",
+    icon: <MdOutlinePayment />,
+    path: "/payment",
   },
   {
     title: "Support & Help",
