@@ -40,7 +40,7 @@ function Login() {
         "https://api.certifieddump.com/api/login",
         formData
       );
-      toast.success("success message");
+      toast.success(response.data.msg);
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.setItem("userEmail", response.data.user.email);
       sessionStorage.setItem("userId", response.data.user.id);
@@ -49,8 +49,8 @@ function Login() {
         navigate("/dashboard");
       }, 2000);
     } catch (error) {
-      // console.log(error);
-      toast.error(error.response.data.msg);
+      // toast.error(error.response.data.msg)
+      console.log(error);
       if (error.response.data.msg == "Unverified Email ") {
         navigate("/confirm-email");
       }
@@ -79,6 +79,7 @@ function Login() {
                   name="username"
                   value={formData.username}
                   onChange={handleChange}
+                  autoComplete="true"
                   required
                 />
               </Form.Group>
@@ -91,6 +92,7 @@ function Login() {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
+                  autoComplete="true"
                   required
                 />
               </Form.Group>
