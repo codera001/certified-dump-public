@@ -44,7 +44,7 @@
   top: 60%;
   right: 0;
   left: 0;
-  display: none;
+  /* display: none; */
 }
 .c-contact-top-section header nav ul {
   margin: 0;
@@ -58,6 +58,12 @@
 .c-contact-top-section header nav ul li a {
   text-decoration: none;
   color: black;
+}
+.open-close {
+  display: block;
+}
+.menu-close {
+  display: none;
 }
 .c-contact-top-section h1 {
   font-size: 40px;
@@ -95,17 +101,98 @@
 }
 
 .contact-address button {
-  width: 250px;
+  width: 100px;
   padding: 10px;
   background: transparent;
   border: 1px solid var(--black);
   box-shadow: var(--box-shadow);
 }
+.contact-address form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto 0;
+  align-items: center;
+  gap: 30px;
+  border: 1px solid var(--black);
+  border-radius: 10px;
+  padding: 30px 0px;
+}
+.contact-address form input {
+  height: 50px;
+}
+.contact-address form input::placeholder {
+  padding-left: 10px;
+  font-size: 20px;
+}
+.contact-address form textarea {
+  width: 90%;
+}
+.contact-footer {
+  background-color: var(--green-600);
+  color: var(--white);
+  width: 100%;
+  padding: 10px 11px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center;
+}
+.contact-footer-left {
+  font-size: 15px;
+  font-weight: 100;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  letter-spacing: 1.5px;
+}
+.contact-footer-social-icons {
+  display: flex;
+  font-size: 40px;
+  gap: 20px;
+  padding: 30px;
+}
+
+.contact-copyright {
+  background-color: var(--green-600);
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  color: var(--white);
+  align-items: center;
+  justify-content: end;
+  font-size: 11px;
+  border-top: 1px solid var(--white);
+}
 
 .contact-desktop-header {
   display: none;
 }
-
+@media screen and (min-width: 768px) {
+  .c-contact-top-section {
+    height: 30vh;
+  }
+  .contact-address form input {
+    width: 70%;
+  }
+  .contact-address form textarea {
+    width: 70%;
+  }
+  .contact-footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .contact-footer-left {
+    flex-basis: 60%;
+    text-align: left;
+    padding-left: 40px;
+  }
+  .contact-footer-social-icons {
+    flex-direction: column;
+    padding-right: 50px;
+  }
+}
 @media screen and (min-width: 1024px) {
   .c-contact-top-section {
     display: none;
@@ -283,9 +370,9 @@
     height: 30vh;
   } */
 /* .c-contact-body { */
-  /* display: flex;
+/* display: flex;
         flex-direction: row-reverse; */
-  /* width: 100%;
+/* width: 100%;
         padding: 10px;
         gap: 20px; */
 /* } */

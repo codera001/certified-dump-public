@@ -1,19 +1,25 @@
 import React from "react";
 import "./contact.css";
 import logo from "../../static/logo.png";
-
-// import logo from "../static/logo.png";
-// import Footer from "../Footer/Footer";
-// import { AiOutlineDown } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { MdOutlineCancelPresentation } from "react-icons/md";
 import {
   AiFillFacebook,
   AiOutlineTwitter,
   AiOutlineInstagram,
   AiFillLinkedin,
 } from "react-icons/ai";
+import { useState } from "react";
+import Footer from "../Footer/Footer";
 
 const Contact = () => {
+  const [show, setShow] = useState(false);
+  const ShowMenu = () => {
+    setShow(true);
+  };
+  const HideMenu = () => {
+    setShow(false);
+  };
   return (
     <div>
       <div className="c-contact-top-section">
@@ -21,26 +27,32 @@ const Contact = () => {
           <div className="contact-logo-div">
             <img src={logo} alt="" />
           </div>
-          <nav>
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/">About</a>
-              </li>
-              <li>
-                <a href="/">Services</a>
-              </li>
-              <li>
-                <a href="/">Industry</a>
-              </li>
-              <li>
-                <a href="/">Contact Us</a>
-              </li>
-            </ul>
-          </nav>
-          <BsThreeDotsVertical className="open-menu" />
+          {show && (
+            <nav>
+              <ul>
+                <li>
+                  <a href="/">Home</a>
+                </li>
+                <li>
+                  <a href="/">About</a>
+                </li>
+                <li>
+                  <a href="/">Services</a>
+                </li>
+                <li>
+                  <a href="/">Industry</a>
+                </li>
+                <li>
+                  <a href="/">Contact Us</a>
+                </li>
+              </ul>
+            </nav>
+          )}
+          <BsThreeDotsVertical
+            className={`${show ? "menu-close" : " "}`}
+            onClick={ShowMenu}
+          />
+          {show && <MdOutlineCancelPresentation onClick={HideMenu} />}
         </header>
 
         <h1>CONTACT US</h1>
@@ -48,7 +60,9 @@ const Contact = () => {
       <div className="contact-desktop-header">
         <header>
           <div className="desktop-top-bar">
-            <div><img src={logo} alt="" /></div>
+            <div>
+              <img src={logo} alt="" />
+            </div>
             <div>
               <p>Want To Talk to Us ? +2345554433</p>
             </div>
@@ -85,20 +99,16 @@ const Contact = () => {
 
         <h1>CONTACT US</h1>
       </div>
-      <div className="heading-text">
-        <h2>Our Branches</h2>
-        <h1>Contact Details</h1>
-      </div>
+
       <div className="contact-address">
-        <form action=""></form>
-        <h4>Head offices</h4>
-        <h5>Address:</h5>
-        <p>No 4b, Emma Abimbola Cole, Lekki Phase 1, Lagos State, Nigeria.</p>
-        <h5>Phone:</h5>
-        <p>+234 667 772</p>
-        <h5>Email:</h5>
-        <p>Business@3rycetech.com</p>
-        <button>GET APPOINTMENT</button>
+        <form action="">
+          <h1>Contact Details</h1>
+          <input type="text" placeholder="Your Name" />
+          <input type="text" placeholder="Your Email" />
+          <input type="text" placeholder="Subject" />
+          <textarea name="" id="" cols="29" rows="10"></textarea>
+          <button>Submit</button>
+        </form>
       </div>
       <div className="map-container">
         <iframe
@@ -112,6 +122,8 @@ const Contact = () => {
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
+        <Footer/>
+      
     </div>
   );
 };
