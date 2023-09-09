@@ -2,14 +2,14 @@
   padding: 10px;
   text-align: center;
   font-size: 1rem;
-
-  & h3,
-  h4 {
-    font-size: 1rem;
-  }
 }
 
-.d-payment-body{
+.d-payment h3,
+.d-payment h4 {
+  font-size: 1rem;
+}
+
+.d-payment-body {
   background-color: var(--white);
   padding: 10px;
   border-radius: 20px;
@@ -23,18 +23,20 @@
   width: 100%;
   margin: 20px auto;
   justify-content: center;
+}
 
-  & .payment-mode {
-    width: 100px;
-    cursor: pointer;
-    box-shadow: var(--box-shadow);
-    & img {
-      aspect-ratio: 1.7;
-    }
-  }
-  & .payment-mode:active {
-    border: 1px solid var(--primary-color);
-  }
+.d-payment-modes .payment-mode {
+  width: 100px;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+}
+
+.d-payment-modes .payment-mode img {
+  aspect-ratio: 1.7;
+}
+
+.d-payment-modes .payment-mode:active {
+  border: 1px solid var(--primary-color);
 }
 
 .d-payment .d-amounts {
@@ -44,23 +46,24 @@
   width: 100%;
   gap: 10px;
   margin: 20px auto;
+}
 
-  & Button {
-    width: 70px;
-    font-size: 12px;
-    background-color: var(--primary-color);
-  }
-  & Button:active,
-  input {
-    border: 1px solid var(--green-100);
-  }
+.d-payment .d-amounts Button {
+  width: 70px;
+  font-size: 12px;
+  background-color: var(--primary-color);
+}
 
-  & input {
-    outline: none;
-    border-radius: 20px;
-    padding: 5px 10px;
-    text-align: center;
-  }
+.d-payment .d-amounts Button:active,
+.d-payment .d-amounts input {
+  border: 1px solid var(--green-100);
+}
+
+.d-payment .d-amounts input {
+  outline: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  text-align: center;
 }
 
 .d-payment-btn .d-secondary-btn {
@@ -71,27 +74,28 @@
 @media screen and (min-width: 768px) {
   .d-payment {
     margin: 20px auto;
-    & h3,
-    h4,
-    p,
-    .d-payment-btn {
-      text-align: left;
-    }
-
-    & h3,
-    h4 {
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-
-    & .d-payment-modes,
-    .d-amounts {
-      justify-content: flex-start;
-      max-width: 80%;
-    }
   }
 
-  .d-payment-body{
+  .d-payment h3,
+  .d-payment h4,
+  .d-payment p,
+  .d-payment .d-payment-btn {
+    text-align: left;
+  }
+
+  .d-payment h3,
+  .d-payment h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  .d-payment .d-payment-modes,
+  .d-payment .d-amounts {
+    justify-content: flex-start;
+    max-width: 80%;
+  }
+
+  .d-payment-body {
     padding: 20px;
     width: 100%;
     max-width: 70%;

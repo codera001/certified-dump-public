@@ -23,10 +23,11 @@
   cursor: pointer;
   font-size: 1.3rem;
   background: var(--primary-color);
+}
 
-  & svg {
-    margin-top: 18px;
-  }
+.d-open-side-handle svg,
+.d-close-side-handle svg {
+  margin-top: 18px;
 }
 
 .d-open-side-handle {
@@ -54,17 +55,18 @@
 
 .d-sidebar-menu {
   width: 100%;
-  & a {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    color: var(--black);
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 1.3rem;
-    transition: var(--transition-all);
-  }
+}
+
+.d-sidebar-menu a {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--black);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1.3rem;
+  transition: var(--transition-all);
 }
 
 .d-bg-change,
@@ -91,11 +93,12 @@
     flex: 0 0 4rem;
     overflow: hidden;
     z-index: 1;
-    & .d-sidebar-logo {
-      position: relative;
-      left: 90px;
-      width: 14rem;
-    }
+  }
+
+  .d-user-sidebar-mobile .d-sidebar-logo {
+    position: relative;
+    left: 90px;
+    width: 14rem;
   }
 
   .d-sidebar-menu-open {
@@ -104,9 +107,9 @@
 }
 
 @media screen and (max-width: 600px) {
-.d-sidebar-menu a {
-  font-size: 1rem;
-}
+  .d-sidebar-menu a {
+    font-size: 1rem;
+  }
 
   .d-user-sidebar-test {
     width: 14rem;
