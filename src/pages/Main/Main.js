@@ -43,7 +43,7 @@ function Main() {
 
             <div className=" container  justify-content-around  text-align-center">
               {/* <a href="" className="py-1 px-3 mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>UNLIMITED ACCESS</a> */}
-              <a href="" className=" mt-1 button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>FIND YOUR EXAM NOW</a>
+              <a href="" className=" mt-1 button" style={{ borderColor: "var(--white)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>FIND YOUR EXAM NOW</a>
             </div>
 
           </div>

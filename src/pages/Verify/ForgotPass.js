@@ -25,7 +25,7 @@ function ForgotPass() {
             <button className="py-2">Confirm Password</button>
           </div>
         </div>
-
+       <div className="pb-5"> 
         <div className="forgot-social-images d-flex ">
           <div className="forgot-social-images-wrap ">
             <BsFacebook className="me-1" style={{ fontSize: "21px", color: "blue" }}></BsFacebook>
@@ -35,7 +35,8 @@ function ForgotPass() {
           </div>
         </div>
 
-        <small>Tip: You are entering <span style={{ color: "var(--tertiary-color)" }}>sudo mode</span> we won't ask for your password again in few hours</small>
+        <small>Tip: You are entering <span style={{ color: "var(--tertiary-color)"}}>sudo mode</span> we won't ask for your password again in few hours</small>
+      </div>
       </div>
 
 

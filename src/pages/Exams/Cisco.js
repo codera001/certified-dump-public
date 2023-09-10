@@ -1,10 +1,8 @@
 import React from "react";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import Footer from "../../component/Footer/Footer"
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import {TiArrowLeftThick } from "react-icons/ti";
+import { AiOutlineSearch } from "react-icons/ai";
 import './Exams.css'
 function Cisco () {
 return (

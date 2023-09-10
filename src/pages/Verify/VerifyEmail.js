@@ -17,7 +17,7 @@ function VerifyEmail() {
                     <div className="pass-text">
                         <p>You are one step away</p>
                         <h1 className="mb-3">Verify your Email</h1>
-                        <p className="mb-5"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p className="mb-5"> Please click on the button below to verify your email address and enjoy exclusive resources to excel in your educational journey</p>
                         <a href="/" className="px-4 py-2">VERIFY NOW</a>
                     </div>
 

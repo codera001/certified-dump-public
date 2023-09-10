@@ -35,7 +35,8 @@
   width:350px;
 }
 .navigate .search-container input::placeholder{
-  color:var(--black)
+  color:var(--black);
+  padding-left: 1rem;
 }
 
 .navigate .search-icon {
@@ -44,6 +45,7 @@
   position:absolute;
   /* margin-bottom:2rem; */
   padding-left:0.5rem;
+  margin-left: 1rem;
 }
 
 

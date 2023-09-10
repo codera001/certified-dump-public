@@ -8,12 +8,13 @@ import recaptcha from "../../static/recaptcha.png";
 import facebook from "../../static/facebook.png";
 import twitter from "../../static/twitter.png";
 import { FcGoogle } from "react-icons/fc";
-import { AiFillGithub } from "react-icons/ai";
+import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Google from "../../ApiTesting/GoogleLogin";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { BsFacebook } from "react-icons/bs"
 
 function Login() {
   const navigate = useNavigate();
@@ -62,15 +63,15 @@ function Login() {
     <>
       <section className="section">
         <NavigationBar />
-        <div className="signup container">
-          <div className="signup-form-wrap">
-            <Form className="signup-form" onSubmit={handleSubmit}>
+        <div className="login container">
+          <div className="login-form-wrap">
+            <Form className="login-form" onSubmit={handleSubmit}>
               <Form.Group className="mb-3 ">
-                <Form.Label className="my-2 form-title"> Log in</Form.Label>
+                <Form.Label className="my-4 form-title"> Log in</Form.Label>
               </Form.Group>
               <Form.Group
                 className="mb-3 form-group-s"
-                style={{ border: "1px solid var(--green-500)" }}
+                
               >
                 <Form.Control
                   className="form-control-s"
@@ -96,7 +97,7 @@ function Login() {
               </Form.Group>
 
               <Form.Group
-                className="mb-3 d-flex justify-content-between form-group-s"
+                className="mb-3 d-flex justify-content-around form-group-s recaptcha"
                 controlId="formBasicCheckbox"
               >
                 <Form.Check
@@ -160,16 +161,12 @@ function Login() {
                 <Google />
               </GoogleOAuthProvider>
               <div className="social-images d-flex">
-                <img src={facebook} alt="facebook" className="me-1"></img>
-                <img src={twitter} alt="twitter" className="me-1"></img>
-                <FcGoogle
-                  className="me-1"
-                  style={{ fontSize: "22px" }}
-                ></FcGoogle>
-                <AiFillGithub
-                  className="me-1"
-                  style={{ fontSize: "22px" }}
-                ></AiFillGithub>
+                <div className="social-images-wrap">
+                <BsFacebook className="me-1" style={{ fontSize: "21px", color: "blue" }}></BsFacebook>
+                            <AiFillTwitterCircle className="me-1" style={{ fontSize: "23px", color: "skyblue" }}></AiFillTwitterCircle>
+                  <FcGoogle className="me-1" style={{ fontSize: "22px" }}></FcGoogle>
+                  <AiFillGithub className="me-1" style={{ fontSize: "22px" }}></AiFillGithub>
+                </div>
               </div>
             </Form>
           </div>

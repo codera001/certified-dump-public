@@ -24,7 +24,7 @@ function About() {
             <section className="section-two-about container mt-5">
                 <div className="text-image">
                     <div className="text">
-                        <h5>Our Vision</h5>
+                        <h5 style={{fontWeight:"bolder"}}>Our Vision</h5>
                         <p>"Our Vision is to empower students with the resources they need to excel in their educational journey. We envision a platform that offers a comprehensive collection of authentic past exam questions and answers, fosterind=g a culture of effective learning , understanding and growth" </p><br/>
                         <p>  "Our goal is to provide a supportive environment where students can engage with challenging questions, learn from detailed explanations, and track their progress over time. Through our Platform, we aim to promote responsible practices, foster collaborative learning, and contribute to the academic success of students around the world."</p>
                     </div>
@@ -38,7 +38,7 @@ function About() {
                         <img src={about2}></img>
                     </div>
                     <div className="text">
-                        <h5>Our Process</h5>
+                        <h5  style={{fontWeight:"bolder"}}>Our Process</h5>
                         <p>   "At Certified Dump, We define the target audience, including students, educators, and institutions, determine the subjects, exam boards and levels to be covered. </p><br/>
                          <p>  We also verify the Authenticity of the questions and seek permission to use them if necessary. Create content categorization system to organize questions by subject, topic and year. </p><br/>
                          <p>  Design an intuitive and user-friendly platform that facilitates easy navigation and interaction. We also implement features for user registratrion, profile creation and account management.</p>
@@ -47,7 +47,7 @@ function About() {
                 </div>
                 <div  className="text-image">
                     <div className="text">
-                        <h5>Our Approach</h5>
+                        <h5 style={{fontWeight:"bolder"}}>Our Approach</h5>
                         <p>"Providing genuine past exam questions from reputable sources and ensurig accuracy and correctness of answers to build credibility and trust by compiling a wide range of past exam questions covering various subjects, levels and exam boards.</p>
                         <p>  Organizing questions by exam year, subject and topic for easy navigation. Keeping the platform up-to-date  with the latest past questions and answers to align current curriculum or exam changes. Implementing robust security measures to protect user data and privacy.</p>
                         <p>  Offering acesss to a limited number of questions and charge a reasonable subscription fee or full access to questions and features."</p>

@@ -2,10 +2,11 @@ import React from "react";
 import './Preview.css'
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter"
-import { AiOutlineLogin, AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineLogin, AiOutlineSearch } from "react-icons/ai";
 import {  TbEditCircle } from "react-icons/tb";
 import {  TiArrowLeftThick  } from "react-icons/ti";
 import { BsDot } from "react-icons/bs";
+import { HiShoppingCart} from "react-icons/hi";
 
 function Preview() {
     return (
@@ -60,27 +61,27 @@ function Preview() {
                 <div className="preview-auth-buy container">
                     <div className="preview-auth">
                       <a className="d-flex py-3">
-                        <AiOutlineLogin style={{fontSize:"30px", marginRight:"1rem"}}></AiOutlineLogin>
-                        <h5>Login</h5>
+                        <AiOutlineLogin style={{fontSize:"25px", marginRight:"1rem"}}></AiOutlineLogin>
+                        <h6 className="mt-2"> Login</h6>
                       </a>
                       <hr className="preview-line"/>
                       <a className="d-flex py-3">
-                      <TbEditCircle style={{fontSize:"30px", marginRight:"1rem"}}></TbEditCircle>
-                        <h5>Create an account</h5>
+                      <TbEditCircle style={{fontSize:"25px", marginRight:"1rem"}}></TbEditCircle>
+                        <h6 className="mt-2"> Create an account</h6>
                       </a>
                     </div>
                     <div className="preview-purchase">
-                        <h5 className="ps-2" >Buy exam</h5>
+                        <h5 className="ps-2 mt-2" >Buy exam</h5>
                         <div className="preview-purchase-text mx-2 my-2 px-2">
-                            <h6>PDF download + Online access</h6>
+                            <h6 className="mt-2 mb-0" style={{fontSize:"14px"}}> PDF download + Online access</h6>
                             <p><BsDot style={{fontSize:"25px"}}/>Lifetime access to exam PDF & online version</p>
                             <p><BsDot style={{fontSize:"25px"}}/>Exam PDF can be downloaded</p>
                             <p><BsDot style={{fontSize:"25px"}}/>Exam PDF can be printed</p>
-                            <div>
-                            <h6>USD 0.00</h6>
-                            <a href="/" className="d-flex justify-content-between px-2" style={{border:"1px solid var(--tertiary-color)"}}> 
-                            <AiOutlineShoppingCart style={{color:"var(--tertiary-color", fontSize:"30px"}}></AiOutlineShoppingCart>
-                                <small  style={{color:"var(--tertiary-color", fontSize:"16px"}}>Buy Exam</small>
+                            <div className="d-flex justify-content-between align-items-center">
+                            <h6 style={{fontSize:"14px"}}> USD 0.00</h6>
+                            <a href="/" className=" px-2 mb-1" style={{border:"1px solid var(--tertiary-color)"}}> 
+                            <HiShoppingCart style={{color:"var(--tertiary-color", fontSize:"15px"}}></HiShoppingCart>
+                                <small className="ms-2" style={{color:"var(--tertiary-color"}}>Buy Exam</small>
                             </a>
                             </div>
                         </div>

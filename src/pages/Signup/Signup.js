@@ -11,7 +11,8 @@ import insta from "../../static/insta.png";
 import whatsapp from "../../static/whatsapp.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { AiFillGithub } from "react-icons/ai";
+import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
+import { BsFacebook } from "react-icons/bs"
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
@@ -150,7 +151,7 @@ function Signup() {
               </Form.Group>
 
               <Form.Group
-                className="mb-3 d-flex justify-content-between form-group-s recaptcha"
+                className="mb-3 d-flex justify-content-around form-group-s recaptcha"
                 controlId="formBasicCheckbox"
               >
                 <Form.Check
@@ -208,8 +209,8 @@ function Signup() {
               </p>
               <div className="social-images d-flex">
                 <div className="social-images-wrap">
-                  <img src={facebook} alt="facebook" className="me-1"></img>
-                  <img src={twitter} alt="twitter" className="me-1"></img>
+                <BsFacebook className="me-1" style={{ fontSize: "21px", color: "blue" }}></BsFacebook>
+                            <AiFillTwitterCircle className="me-1" style={{ fontSize: "23px", color: "skyblue" }}></AiFillTwitterCircle>
                   <FcGoogle className="me-1" style={{ fontSize: "22px" }}></FcGoogle>
                   <AiFillGithub className="me-1" style={{ fontSize: "22px" }}></AiFillGithub>
                 </div>

@@ -41,7 +41,7 @@ font-size: 38px;
 
   .section-one-main .button{
     padding:0.5rem 2rem;
-    color:var(--green-500)
+    color:var(--white)
   }
 
   .section-one-main .button:hover {
@@ -130,7 +130,7 @@ margin-top:5rem;
     z-index: 1;
     width: 15%;
   z-index: 1;
-  margin-left:10rem;
+  margin-left:5rem;
   
   }
   .section-three-main .image{
@@ -138,13 +138,14 @@ margin-top:5rem;
   }
   .section-three-main .text{
     width: 50%;
+    margin: 0 auto;
   }
 .section-three-main .text h4 {
         width: 80%;
         font-size:30px;
-        font-weight: bolder;
+        /* font-weight: bold; */
         padding-top: 5rem;
-        padding-left: 4rem;
+        /* padding-left: 4rem; */
         color: black;
         margin:0 auto;
       
@@ -152,8 +153,8 @@ margin-top:5rem;
   .section-three-main .text p{
     width: 80%;
     padding-top: 1rem;
-    padding-left: 4rem;
-    font-weight: bold;
+    /* padding-left: 4rem; */
+    /* font-weight: bold; */
     color: black;
     margin:0 auto;
   }

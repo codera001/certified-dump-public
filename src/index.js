@@ -15,6 +15,7 @@ import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import ForgotPass from "./pages/Verify/ForgotPass";
 import VerifyEmail from "./pages/Verify/VerifyEmail";
+import Success from "./pages/Verify/Success";
 import Providers from "./pages/Providers/Providers";
 import About from "./pages/About/About";
 import Alibaba from "./pages/Exams/Alibaba";
@@ -56,6 +57,7 @@ const router = createBrowserRouter(
       <Route path="signup" element={<Signup />}></Route>
       <Route path="forgotpass" element={<ForgotPass />}></Route>
       <Route path="verifyemail" element={<VerifyEmail />}></Route>
+      <Route path="success" element={<Success/>}></Route>
       <Route path="providers" element={<Providers />} />
       <Route path="about" element={<About />} />
       <Route path="alibaba" element={<Alibaba />} />
