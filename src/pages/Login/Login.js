@@ -125,7 +125,7 @@ function Login() {
                 </Form.Label>
               </Form.Group>
 
-              <Button variant="primary" type="submit" className="form-button-s">
+              <Button type="submit" className="form-button-s">
                 SIGN IN
               </Button>
               <Link
