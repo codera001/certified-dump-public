@@ -20,10 +20,10 @@
 }
 
 .d-card-img a {
-position: absolute;
-right: 10px;
-top: 5px;
-color: var(--primary-color);
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: var(--primary-color);
   font-size: 1.5rem;
   display: none;
 }
@@ -32,16 +32,17 @@ color: var(--primary-color);
   transition: transform 0.5s ease-in-out;
 }
 
-.d-card:hover .d-card-img a{
+.d-card:hover .d-card-img a {
   display: block;
 }
 
 .d-card-details {
   text-align: center;
   padding: 10px 5px;
+}
 
-  & .title, .cost {
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
+.d-card-details .title,
+.d-card-details .cost {
+  font-size: 1.2rem;
+  font-weight: 600;
 }

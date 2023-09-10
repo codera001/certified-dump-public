@@ -23,6 +23,7 @@ const Verify = () => {
         `https://api.certifieddump.com/api/verify-email/${pin}`
       );
       console.log("Email verification Successful:", response.data.msg);
+      toastr.success(response.data.msg);
       navigate("/login");
     } catch (error) {
       console.log("verification error:", error.response.data.msg);
@@ -56,7 +57,7 @@ const Verify = () => {
             required
           />
         </div>
-        <button type="submit">Very Your Email Address</button>
+        <button type="submit">Verify Your Email Address</button>
       </form>
       {hidden && (
         <form onSubmit={getVerificationCode}>
