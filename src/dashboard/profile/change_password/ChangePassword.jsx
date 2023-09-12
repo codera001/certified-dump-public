@@ -12,19 +12,16 @@ const ChangePassword = (props) => {
         <form action="">
           <div className="pass-form">
             <div>
-
-            <label htmlFor="current password">Current Password</label>
-            <input type="text" placeholder="Current Password" />
+              <label htmlFor="current password">Current Password</label>
+              <input type="text" placeholder="Current Password" />
             </div>
             <div>
-
-            <label htmlFor="new password">New Password</label>
-            <input type="text" placeholder="New Password" />
+              <label htmlFor="new password">New Password</label>
+              <input type="text" placeholder="New Password" />
             </div>
             <div>
-
-            <label htmlFor="current password">Confirm Password</label>
-            <input type="text" placeholder="Confirm New Password" />
+              <label htmlFor="current password">Confirm Password</label>
+              <input type="text" placeholder="Confirm New Password" />
             </div>
           </div>
           <div className="submit-cancel-Btn">
