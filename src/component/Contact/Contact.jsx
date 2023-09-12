@@ -1,104 +1,13 @@
 import React from "react";
 import "./contact.css";
-import logo from "../../static/logo.png";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { MdOutlineCancelPresentation } from "react-icons/md";
-import {
-  AiFillFacebook,
-  AiOutlineTwitter,
-  AiOutlineInstagram,
-  AiFillLinkedin,
-} from "react-icons/ai";
-import { useState } from "react";
+
 import Footer from "../Footer/Footer";
+import NavigationBar from "../Navigation bar/NavigationBar";
 
 const Contact = () => {
-  const [show, setShow] = useState(false);
-  const ShowMenu = () => {
-    setShow(true);
-  };
-  const HideMenu = () => {
-    setShow(false);
-  };
   return (
     <div>
-      <div className="c-contact-top-section">
-        <header>
-          <div className="contact-logo-div">
-            <img src={logo} alt="" />
-          </div>
-          {show && (
-            <nav>
-              <ul>
-                <li>
-                  <a href="/">Home</a>
-                </li>
-                <li>
-                  <a href="/">About</a>
-                </li>
-                <li>
-                  <a href="/">Services</a>
-                </li>
-                <li>
-                  <a href="/">Industry</a>
-                </li>
-                <li>
-                  <a href="/">Contact Us</a>
-                </li>
-              </ul>
-            </nav>
-          )}
-          <BsThreeDotsVertical
-            className={`${show ? "menu-close" : " "}`}
-            onClick={ShowMenu}
-          />
-          {show && <MdOutlineCancelPresentation onClick={HideMenu} />}
-        </header>
-
-        <h1>CONTACT US</h1>
-      </div>
-      <div className="contact-desktop-header">
-        <header>
-          <div className="desktop-top-bar">
-            <div>
-              <img src={logo} alt="" />
-            </div>
-            <div>
-              <p>Want To Talk to Us ? +2345554433</p>
-            </div>
-
-            <div className="contact-social-icons">
-              <AiFillFacebook className="social-icons" />
-              <AiOutlineTwitter className="social-icons" />
-              <AiOutlineInstagram className="social-icons" />
-              <AiFillLinkedin className="social-icons" />
-            </div>
-          </div>
-          <hr className="divider" />
-          <nav>
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/">About</a>
-              </li>
-              <li>
-                <a href="/">Services</a>
-              </li>
-              <li>
-                <a href="/">Industry</a>
-              </li>
-              <li className="contact-link">
-                <a href="/">Contact Us</a>
-              </li>
-            </ul>
-            <button>QUICK ENQUIRIES</button>
-          </nav>
-        </header>
-
-        <h1>CONTACT US</h1>
-      </div>
+      <NavigationBar />
 
       <div className="contact-address">
         <form action="">
@@ -122,8 +31,7 @@ const Contact = () => {
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-        <Footer/>
-      
+      <Footer />
     </div>
   );
 };
