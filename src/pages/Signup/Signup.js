@@ -41,7 +41,8 @@ function Signup() {
       );
       // console.log("Signup Successful:", response.data);
       toast.success(response.data.msg);
-      navigate("/confirm-email");
+      localStorage.setItem("unverifiedMail", formData.email);
+      navigate("/verify-email");
     } catch (error) {
       // console.log("signup error:", error.response.data.msg);
       toast.error(error.response.data.msg);
