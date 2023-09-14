@@ -9,7 +9,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import Google from "../../ApiTesting/GoogleLogin";
+// import Google from "../../ApiTesting/GoogleLogin";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { BsFacebook } from "react-icons/bs";

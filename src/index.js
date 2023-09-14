@@ -57,7 +57,7 @@ const router = createBrowserRouter(
       <Route path="signup" element={<Signup />}></Route>
       <Route path="forgot-password" element={<ForgotPass />}></Route>
       <Route path="verify-email" element={<VerifyEmail />}></Route>
-      <Route path="success" element={<Success/>}></Route>
+      <Route path="success" element={<Success />}></Route>
       <Route path="providers" element={<Providers />} />
       <Route path="about" element={<About />} />
       <Route path="alibaba" element={<Alibaba />} />
@@ -81,7 +81,6 @@ const router = createBrowserRouter(
       <Route path="vmware" element={<Vmware />} />
       <Route path="zend" element={<Zend />} />`
       <Route path="contact" element={<Contact />} />
-      <Route path="chat" element={<Chat />} />
       <Route path="apilog" element={<Apilog />} />
       <Route path="apisign" element={<Apisign />} />
       <Route path="confirm-email" element={<Verify />} />
@@ -93,6 +92,7 @@ const router = createBrowserRouter(
         <Route path="wallet" element={<Wallet />} />
         <Route path="payment" element={<Payment />} />
         <Route path="support" element={<Support />} />
+        <Route path="chat/:ticketId" element={<Chat />} />
       </Route>
     </>
   )

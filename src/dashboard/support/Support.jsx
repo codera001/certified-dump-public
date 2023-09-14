@@ -3,13 +3,46 @@ import Layout from "../components/Layout/Layout";
 import { useRef, useState } from "react";
 import "./Support.css";
 import Tickets from "../components/TicketList/Tickets";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import toast from "react-hot-toast";
 
+// https://api.certifieddump.com/api/getSupportChat?subjectId=1
 const Support = () => {
   const [modal, setModal] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   let modalRef = useRef();
   const closeModal = (e) => {
     if (!modalRef.current.contains(e.target)) {
       setModal(false);
+    }
+  };
+
+  const CreateTicket = async ({ subject, message }) => {
+    try {
+      const response = await axios.post(
+        "https://api.certifieddump.com/api/supportChat",
+        {
+          subject: subject,
+          message: message,
+          senderId: sessionStorage.getItem("userId"),
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+        }
+      );
+      // console.log(response);
+      toast.success(response.data.msg);
+      setModal(!modal);
+    } catch (error) {
+      toast.error(error.response.data.msg);
+      // console.log(error);
     }
   };
 
@@ -27,17 +60,23 @@ const Support = () => {
             <div onClick={closeModal} className="d-modal-wrapper">
               <div ref={modalRef} className="d-modal-inner">
                 <button onClick={() => setModal(false)}>X</button>
-                <form>
-                  <input type="text" required placeholder="Enter a subject" />
+                <form onSubmit={handleSubmit(CreateTicket)}>
+                  <input
+                    type="text"
+                    placeholder="Enter a subject"
+                    {...register("subject", {
+                      required: true,
+                    })}
+                  />
                   <div className="d-message-area">
                     <textarea
                       type="text"
-                      required
+                      {...register("message", { required: true })}
                       placeholder="Type your message"
                       rows="5"
                     />
                   </div>
-                  <button className="d-modal-btn" onClick={() => setModal(modal)}>Send</button>
+                  <button className="d-modal-btn">Send</button>
                 </form>
               </div>
             </div>

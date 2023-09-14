@@ -28,7 +28,6 @@ const Nav = () => {
       console.log(response);
     } catch (error) {
       setError(error.response.data.msg);
-
       // setError(error.response.data.msg);
       // console.log(error);
     }
