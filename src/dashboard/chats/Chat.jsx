@@ -79,13 +79,17 @@ const Chat = () => {
                 rows={3}
                 cols={50}
                 onChange={(e) => {
-                  if (e.currentTarget.value !== "") {
-                    setTextMessage(e.currentTarget.value);
-                  }
+                  setTextMessage(e.currentTarget.value);
                 }}
               />
             </div>
-            <button onClick={() => SendMessage()}>Send</button>
+            <button
+              onClick={() => {
+                if (textMessage.trim() !== "") SendMessage();
+              }}
+            >
+              Send
+            </button>
           </div>
         </div>
       </div>
