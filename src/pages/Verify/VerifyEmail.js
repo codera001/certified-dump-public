@@ -71,11 +71,11 @@ function VerifyEmail() {
               <button type="submit">Verify Your Email Address</button>
             </form>
             {hidden ? (
+              ""
+            ) : (
               <button type="submit" onClick={() => getVerificationCode()}>
                 Resend verification code
               </button>
-            ) : (
-              ""
             )}
           </div>
           <div className="help-text mt-5 d-flex justify-content-around mx-auto px-2 py-3">
