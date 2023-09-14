@@ -18,7 +18,6 @@ function Success() {
               SIGN IN NOW
             </Link>
           </div>
-
           <div className="help-text mt-5 d-flex justify-content-around mx-auto px-2 py-3">
             <AiFillMessage style={{ fontSize: "50px" }} className="" />
             <div className="">

@@ -48,6 +48,7 @@ import PassReset from "./ApiTesting/PassReset";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./dashboard/ProtectedRoutes";
 import Payment from "./dashboard/payment/Payment";
+import VerifyForgotPass from "./pages/Verify/VerifyForgotPass";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -56,6 +57,7 @@ const router = createBrowserRouter(
       <Route path="login" element={<Login />}></Route>
       <Route path="signup" element={<Signup />}></Route>
       <Route path="forgot-password" element={<ForgotPass />}></Route>
+      <Route path="verify-account" element={<VerifyForgotPass />}></Route>
       <Route path="verify-email" element={<VerifyEmail />}></Route>
       <Route path="success" element={<Success />}></Route>
       <Route path="providers" element={<Providers />} />
