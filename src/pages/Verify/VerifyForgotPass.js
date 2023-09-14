@@ -1,64 +1,62 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
 import "./Verify.css";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const VerifyForgotPass = () => {
-  const [userData, setUserData] = useState({
-    username: "",
-    email: "",
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUserData({
-      ...userData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
+  const resetPassword = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `https://api.certifieddump.com/api/forgot-password`,
-        userData
+        `https://api.certifieddump.com/api/verify-forgot-password`,
+        verifyData
       );
-      // console.log("Email verification Successful:", response);
+      console.log("Verification Successful:", response);
       // console.log(userData);
-      toast.success(response.data.msg);
+      // toast.success(response.data.msg);
     } catch (error) {
       console.log("verification error:", error);
     }
   };
+
   return (
     <>
       <NavigationBar />
       <div className="confirmpass">
-        <h3 className="pt-5">
-          Forgot your Password? No qualms! Fill the form below to retrieve your
-          account
-        </h3>
+        <h3 className="pt-5">Retrieve your account now</h3>
         <div className="confirmpass-wrap">
           <div className="confirmpass-text">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(resetPassword)}>
               <div className="form-group">
                 <input
-                  type="text"
+                  type="number"
                   placeholder="Enter your username"
-                  name="username"
-                  value={userData.username}
-                  onChange={handleChange}
-                  required
+                  {...register("code", {
+                    required: true,
+                  })}
                 />
                 <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  name="email"
-                  value={userData.email}
-                  onChange={handleChange}
-                  required
+                  type="password"
+                  placeholder="Enter a new password"
+                  {...register("password", {
+                    required: true,
+                  })}
+                />
+                <input
+                  type="password"
+                  placeholder="Confirm your new password"
+                  {...register("confirmPassword", {
+                    required: true,
+                  })}
                 />
               </div>
               <button className="py-2" type="submit">
