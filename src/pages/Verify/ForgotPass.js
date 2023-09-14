@@ -3,8 +3,11 @@ import "./Verify.css";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function ForgotPass() {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     username: "",
     email: "",
@@ -27,9 +30,11 @@ function ForgotPass() {
       );
       // console.log("Email verification Successful:", response);
       // console.log(userData);
-      toast.success(response.data.msg)
+      navigate("/verify-account");
+      toast.success(response.data.msg);
     } catch (error) {
       console.log("verification error:", error);
+      toast.error("Username or email is incorrect")
     }
   };
 

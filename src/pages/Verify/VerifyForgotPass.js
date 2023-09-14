@@ -13,12 +13,15 @@ const VerifyForgotPass = () => {
     formState: { errors },
   } = useForm();
 
-  const resetPassword = async (e) => {
-    e.preventDefault();
+  const resetPassword = async ({ code, password, confirmPassword }) => {
     try {
       const response = await axios.post(
         `https://api.certifieddump.com/api/verify-forgot-password`,
-        verifyData
+        {
+          code: code,
+          password: password,
+          confirmPassword: confirmPassword,
+        }
       );
       console.log("Verification Successful:", response);
       // console.log(userData);
@@ -32,14 +35,14 @@ const VerifyForgotPass = () => {
     <>
       <NavigationBar />
       <div className="confirmpass">
-        <h3 className="pt-5">Retrieve your account now</h3>
+        <h3 className="pt-5">Retrieve your account now!</h3>
         <div className="confirmpass-wrap">
           <div className="confirmpass-text">
             <form onSubmit={handleSubmit(resetPassword)}>
               <div className="form-group">
                 <input
                   type="number"
-                  placeholder="Enter your username"
+                  placeholder="Enter your verification code"
                   {...register("code", {
                     required: true,
                   })}
