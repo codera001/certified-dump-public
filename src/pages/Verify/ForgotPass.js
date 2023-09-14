@@ -25,8 +25,9 @@ function ForgotPass() {
         `https://api.certifieddump.com/api/forgot-password`,
         userData
       );
-      console.log("Email verification Successful:", response);
-      console.log(userData);
+      // console.log("Email verification Successful:", response);
+      // console.log(userData);
+      toast.success(response.data.msg)
     } catch (error) {
       console.log("verification error:", error);
     }
@@ -45,7 +46,7 @@ function ForgotPass() {
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <input
-                  type="password"
+                  type="text"
                   placeholder="Enter your username"
                   name="username"
                   value={userData.username}
