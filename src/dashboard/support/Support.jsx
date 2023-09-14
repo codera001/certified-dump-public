@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import { useRef, useState } from "react";
 import "./Support.css";
@@ -9,6 +9,8 @@ import toast from "react-hot-toast";
 
 // https://api.certifieddump.com/api/getSupportChat?subjectId=1
 const Support = () => {
+  const [tickets, setTickets] = useState([]);
+  const userId = sessionStorage.getItem("userId");
   const [modal, setModal] = useState(false);
   const {
     register,
@@ -22,6 +24,24 @@ const Support = () => {
     }
   };
 
+  // https://api.certifieddump.com/api/getSupportChat?senderId=12345
+  const GetTickets = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.certifieddump.com/api/getSupportChat?senderId=${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+        }
+      );
+      // console.log(response);
+      setTickets(response.data.result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const CreateTicket = async ({ subject, message }) => {
     try {
       const response = await axios.post(
@@ -29,7 +49,7 @@ const Support = () => {
         {
           subject: subject,
           message: message,
-          senderId: sessionStorage.getItem("userId"),
+          senderId: userId,
         },
         {
           headers: {
@@ -40,11 +60,17 @@ const Support = () => {
       // console.log(response);
       toast.success(response.data.msg);
       setModal(!modal);
+      GetTickets();
     } catch (error) {
-      toast.error(error.response.data.msg);
-      // console.log(error);
+      // toast.error(error.response.data.msg);
+      console.log(error);
     }
   };
+
+  useEffect(() => {
+    sessionStorage.removeItem("ticket-subject");
+    GetTickets();
+  }, []);
 
   return (
     <Layout>
@@ -81,7 +107,7 @@ const Support = () => {
               </div>
             </div>
           )}
-          <Tickets />
+          <Tickets tickets={tickets} />
         </div>
       </section>
     </Layout>
