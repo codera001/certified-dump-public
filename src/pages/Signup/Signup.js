@@ -12,6 +12,7 @@ import { BsFacebook } from "react-icons/bs";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import Google from "../../ApiTesting/GoogleLogin";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function Signup() {
   const navigate = useNavigate();
@@ -192,7 +193,9 @@ function Signup() {
               >
                 Or log in with your social network
               </p>
-              <Google />
+              <GoogleOAuthProvider>
+                <Google />
+              </GoogleOAuthProvider>
               <div className="social-images d-flex">
                 <div className="social-images-wrap">
                   <BsFacebook
