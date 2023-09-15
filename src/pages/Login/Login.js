@@ -5,16 +5,14 @@ import Form from "react-bootstrap/Form";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
 import recaptcha from "../../static/recaptcha.png";
-import facebook from "../../static/facebook.png";
-import twitter from "../../static/twitter.png";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import Google from "../../ApiTesting/GoogleLogin";
+// import Google from "../../ApiTesting/GoogleLogin";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { BsFacebook } from "react-icons/bs"
+import { BsFacebook } from "react-icons/bs";
 
 function Login() {
   const navigate = useNavigate();
@@ -41,21 +39,23 @@ function Login() {
         "https://api.certifieddump.com/api/login",
         formData
       );
+      // console.log(response);
       toast.success(response.data.msg);
       sessionStorage.setItem("token", response.data.token);
-      sessionStorage.setItem("userEmail", response.data.user.email);
       sessionStorage.setItem("userId", response.data.user.id);
-      // console.log("login Successful:", response.data);
+      sessionStorage.setItem("username", response.data.user.username);
+      sessionStorage.setItem("userFirstname", response.data.user.firstname);
+      sessionStorage.setItem("userLastname", response.data.user.lastname);
+      sessionStorage.setItem("userEmail", response.data.user.email);
       setTimeout(() => {
         navigate("/dashboard");
       }, 2000);
     } catch (error) {
-      // toast.error(error.response.data.msg)
-      console.log(error);
+      toast.error(error.response.data.msg);
+      // console.log(error);
       if (error.response.data.msg == "Unverified Email ") {
-        navigate("/confirm-email");
+        navigate("/verify-email");
       }
-      // console.log("login error:", error.response.data.msg);
     }
   };
 
@@ -69,10 +69,7 @@ function Login() {
               <Form.Group className="mb-3 ">
                 <Form.Label className="my-4 form-title"> Log in</Form.Label>
               </Form.Group>
-              <Form.Group
-                className="mb-3 form-group-s"
-                
-              >
+              <Form.Group className="mb-3 form-group-s">
                 <Form.Control
                   className="form-control-s"
                   type="text"
@@ -129,7 +126,7 @@ function Login() {
                 SIGN IN
               </Button>
               <Link
-                to="/reset-password"
+                to="/forgot-password"
                 style={{ color: "var(--green-600", fontWeight: "bolder" }}
               >
                 forgot password?
@@ -164,10 +161,22 @@ function Login() {
               </GoogleOAuthProvider> */}
               <div className="social-images d-flex">
                 <div className="social-images-wrap">
-                <BsFacebook className="me-1" style={{ fontSize: "21px", color: "blue" }}></BsFacebook>
-                            <AiFillTwitterCircle className="me-1" style={{ fontSize: "23px", color: "skyblue" }}></AiFillTwitterCircle>
-                  <FcGoogle className="me-1" style={{ fontSize: "22px" }}></FcGoogle>
-                  <AiFillGithub className="me-1" style={{ fontSize: "22px" }}></AiFillGithub>
+                  <BsFacebook
+                    className="me-1"
+                    style={{ fontSize: "21px", color: "blue" }}
+                  ></BsFacebook>
+                  <AiFillTwitterCircle
+                    className="me-1"
+                    style={{ fontSize: "23px", color: "skyblue" }}
+                  ></AiFillTwitterCircle>
+                  <FcGoogle
+                    className="me-1"
+                    style={{ fontSize: "22px" }}
+                  ></FcGoogle>
+                  <AiFillGithub
+                    className="me-1"
+                    style={{ fontSize: "22px" }}
+                  ></AiFillGithub>
                 </div>
               </div>
             </Form>

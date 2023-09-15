@@ -9,12 +9,12 @@ const RowModal = ({ each, closeModal, modalRef }) => {
         <span>Transaction ID: {each.trx_id}</span>
         <span>Date: {each.date}</span>
         <span>Type: {each.type}</span>
-        <span>Amount: {each.amt}</span>
+        <span>Amount: {each.amount}</span>
         <span>
           Status:{" "}
           {status === "successful" ? (
             <em className="d-mobile-success">Successful</em>
-          ) : status === "pending" ? (
+          ) : status === "Pending" ? (
             <em className="d-mobile-pend">Pending</em>
           ) : (
             <em className="d-mobile-fail">Failed</em>

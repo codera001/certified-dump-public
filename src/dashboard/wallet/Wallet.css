@@ -39,6 +39,12 @@
   margin: 20px 0;
 }
 
+
+.d-table-container .error {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
 @media screen and (min-width: 550px) {
   .d-wallets {
     flex-direction: row;
