@@ -20,7 +20,7 @@
 }
 
 .d-ticket-list .d-tickets span {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .d-sub-btn {
@@ -45,7 +45,7 @@
   }
 
   .d-ticket-list {
-    max-width: 80%;
+    max-width: 90%;
     margin: 20px auto;
   }
 
