@@ -7,7 +7,7 @@ const Tickets = ({ tickets }) => {
     <div className="d-ticket-wrapper">
       <h3>Support Ticket Lists</h3>
       <div className="d-ticket-list">
-        {tickets
+        {tickets? (tickets
           .sort(function (a, b) {
             return b.id - a.id;
           })
@@ -23,7 +23,11 @@ const Tickets = ({ tickets }) => {
                 <button className="d-sub-btn">View more</button>
               </Link>
             </div>
-          ))}
+          ))) : (
+            <div>
+              You have no support tickets yet!
+            </div>
+          )}
       </div>
     </div>
   );

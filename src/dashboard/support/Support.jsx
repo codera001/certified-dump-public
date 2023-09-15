@@ -8,7 +8,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const Support = () => {
-  const [tickets, setTickets] = useState([]);
+  const [tickets, setTickets] = useState(null);
   const userId = sessionStorage.getItem("userId");
   const [modal, setModal] = useState(false);
   const {
