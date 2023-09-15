@@ -48,6 +48,7 @@ import PassReset from "./ApiTesting/PassReset";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./dashboard/ProtectedRoutes";
 import Payment from "./dashboard/payment/Payment";
+import VerifyForgotPass from "./pages/Verify/VerifyForgotPass";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -55,9 +56,10 @@ const router = createBrowserRouter(
       <Route path="/" element={<App />}></Route>
       <Route path="login" element={<Login />}></Route>
       <Route path="signup" element={<Signup />}></Route>
-      <Route path="forgotpass" element={<ForgotPass />}></Route>
-      <Route path="verifyemail" element={<VerifyEmail />}></Route>
-      <Route path="success" element={<Success/>}></Route>
+      <Route path="forgot-password" element={<ForgotPass />}></Route>
+      <Route path="verify-account" element={<VerifyForgotPass />}></Route>
+      <Route path="verify-email" element={<VerifyEmail />}></Route>
+      <Route path="success" element={<Success />}></Route>
       <Route path="providers" element={<Providers />} />
       <Route path="about" element={<About />} />
       <Route path="alibaba" element={<Alibaba />} />
@@ -81,7 +83,6 @@ const router = createBrowserRouter(
       <Route path="vmware" element={<Vmware />} />
       <Route path="zend" element={<Zend />} />`
       <Route path="contact" element={<Contact />} />
-      <Route path="chat" element={<Chat />} />
       <Route path="apilog" element={<Apilog />} />
       <Route path="apisign" element={<Apisign />} />
       <Route path="confirm-email" element={<Verify />} />
@@ -93,6 +94,7 @@ const router = createBrowserRouter(
         <Route path="wallet" element={<Wallet />} />
         <Route path="payment" element={<Payment />} />
         <Route path="support" element={<Support />} />
+        <Route path="chat/:ticketId" element={<Chat />} />
       </Route>
     </>
   )
