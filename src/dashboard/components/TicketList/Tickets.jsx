@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Tickets.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 const Tickets = ({tickets}) => {
 

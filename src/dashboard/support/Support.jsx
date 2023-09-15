@@ -7,7 +7,6 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-// https://api.certifieddump.com/api/getSupportChat?subjectId=1
 const Support = () => {
   const [tickets, setTickets] = useState([]);
   const userId = sessionStorage.getItem("userId");
@@ -24,7 +23,6 @@ const Support = () => {
     }
   };
 
-  // https://api.certifieddump.com/api/getSupportChat?senderId=12345
   const GetTickets = async () => {
     try {
       const response = await axios.get(
