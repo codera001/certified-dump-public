@@ -81,7 +81,7 @@ const router = createBrowserRouter(
       <Route path="sakesforce" element={<Salesforce />} />
       <Route path="testprep" element={<Testprep />} />
       <Route path="vmware" element={<Vmware />} />
-      <Route path="zend" element={<Zend />} />`
+      <Route path="zend" element={<Zend />} />
       <Route path="contact" element={<Contact />} />
       <Route path="apilog" element={<Apilog />} />
       <Route path="apisign" element={<Apisign />} />

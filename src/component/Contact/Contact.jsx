@@ -1,67 +1,36 @@
 import React from "react";
 import "./contact.css";
-import NavigationBar from "../Navigation bar/NavigationBar";
+
 import Footer from "../Footer/Footer";
-import { AiOutlineDown } from "react-icons/ai";
+import NavigationBar from "../Navigation bar/NavigationBar";
 
 const Contact = () => {
   return (
     <div>
       <NavigationBar />
-      <section className="c-contact-page">
-        <div className="c-contact-top-section ">
-          <h1>CONTACT US </h1>
-        </div>
-        <div className="c-contact-body">
-          <form action="">
-            {/* <h1>CONTACT US</h1> */}
-            <p> Let Us Know How We Can Help</p>
-            <div>
-              <label htmlFor="Name">
-                Name<span>*</span>
-              </label>
-              <input type="text" />
-            </div>
-            <div>
-              <label htmlFor="Email">
-                Email<span>*</span>
-              </label>
-              <input type="text" />
-            </div>
-            <div className="c-contact-textarea">
-              <label htmlFor="">
-                Tell Us About it<span>*</span>
-              </label>
-              <textarea name="" id="" cols="30" rows="10"></textarea>
-            </div>
-            <button>Submit</button>
-          </form>
-          <div className="c-contact-body-inquiries">
-            <div>
-              <h1>FOR MORE INQUIRIES</h1>
-              <p>
-                Our dedicated suport team is always ready to assist you. we are
-                Available Monday through Friday, from 8AM to 8PM
-              </p>
-            </div>
-            <div>
-              <h2>FREQUENTLY ASKED QUESTIONS</h2>
-              <div className="c-contact-body-questions">
-                <p>Are the questions on the site authentic and relevant?</p>
-                <AiOutlineDown className="c-arrow" />
-              </div>
-              <div className="c-contact-body-questions">
-                <p>Can I trust the accuracy of the provided answers?</p>
-                <AiOutlineDown className="c-arrow" />
-              </div>
-              <div className="c-contact-body-questions">
-                <p>Can I access thw site on mobile devices?</p>
-                <AiOutlineDown className="c-arrow" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
+      <div className="contact-address">
+        <form action="">
+          <h1>Contact Details</h1>
+          <input type="text" placeholder="Your Name" />
+          <input type="text" placeholder="Your Email" />
+          <input type="text" placeholder="Subject" />
+          <textarea name="" id="" cols="29" rows="10"></textarea>
+          <button>Submit</button>
+        </form>
+      </div>
+      <div className="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.2136699377807!2d7.469727974585522!3d9.044264488750699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0b725f29ed31%3A0x91f228dad2b84eea!2s1473%20Inner%20Block%20St%2C%20Central%20Business%20Dis%20900103%2C%20Abuja%2C%20Federal%20Capital%20Territory!5e0!3m2!1sen!2sng!4v1693603549177!5m2!1sen!2sng"
+          title="address"
+          width="600"
+          height="450"
+          style={{ border: 0 }}
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
       <Footer />
     </div>
   );
