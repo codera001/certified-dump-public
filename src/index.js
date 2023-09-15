@@ -48,6 +48,7 @@ import PassReset from "./ApiTesting/PassReset";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./dashboard/ProtectedRoutes";
 import Payment from "./dashboard/payment/Payment";
+import Blog from "./pages/Blog/Blog";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -93,6 +94,8 @@ const router = createBrowserRouter(
         <Route path="wallet" element={<Wallet />} />
         <Route path="payment" element={<Payment />} />
         <Route path="support" element={<Support />} />
+        <Route path="blogarea" element={<Blog />} />
+        
       </Route>
     </>
   )

@@ -119,7 +119,7 @@ function NavigationBar() {
                 ABOUT US
               </Nav.Link>
               <Nav.Link
-                href="#pricing"
+                href="blogarea"
                 className="nav-links "
               >
                 BLOG AREA
