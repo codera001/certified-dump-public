@@ -193,7 +193,7 @@ function Signup() {
               >
                 Or log in with your social network
               </p>
-              <GoogleOAuthProvider>
+              <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com">
                 <Google />
               </GoogleOAuthProvider>
               <div className="social-images d-flex">

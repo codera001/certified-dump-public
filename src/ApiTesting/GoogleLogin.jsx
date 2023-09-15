@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { toast } from "react-hot-toast";
+import axios from "axios";
 
 const Google = () => {
   const navigate = useNavigate();
@@ -21,11 +22,11 @@ const Google = () => {
   return (
     <GoogleLogin
       onSuccess={(credentialResponse) => {
-        // console.log(credentialResponse.credential);
+        console.log(credentialResponse.credential);
         const googleToken = credentialResponse.credential;
         sessionStorage.setItem("google-token", googleToken);
         postToken(googleToken);
-        navigate("/dashboard");
+        // navigate("/dashboard");
         toast.success("You are logged in successfully");
       }}
       onError={() => {
