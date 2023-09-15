@@ -24,7 +24,7 @@ const Nav = () => {
           },
         }
       );
-      setBalance(response.data.result.balance);
+      setBalance(response.data.result[0].balance);
       console.log(response);
     } catch (error) {
       setError(error.response.data.msg);

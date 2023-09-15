@@ -48,7 +48,7 @@ function VerifyEmail() {
   };
 
   setTimeout(() => {
-    setHidden(!hidden), 5000;
+    setHidden(!hidden), 25000;
   });
   return (
     <>
@@ -72,13 +72,13 @@ function VerifyEmail() {
               </div>
               <button type="submit">Verify Your Email Address</button>
             </form>
-            {hidden ? (
+            {/* {hidden ? (
               ""
             ) : (
               <button type="submit" onClick={() => getVerificationCode()}>
                 Resend verification code
               </button>
-            )}
+            )} */}
           </div>
           <div className="help-text mt-5 d-flex justify-content-around mx-auto px-2 py-3">
             <AiFillMessage style={{ fontSize: "50px" }} className="" />
