@@ -4,7 +4,19 @@ import { GoogleLogin } from "@react-oauth/google";
 import { toast } from "react-hot-toast";
 
 const Google = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+   try {
+     const response = axios.post(
+       "https://api.certifieddump.com/api/google_signup",
+       credentialResponse.credential
+     );
+     console.log(response);
+     toast.success("You are logged in successfully");
+     navigate("/dashboard");
+     sessionStorage.setItem("google-token", credentialResponse.credential);
+   } catch (error) {
+     console.log(error);
+   }
   return (
     <GoogleLogin
       onSuccess={(credentialResponse) => {
