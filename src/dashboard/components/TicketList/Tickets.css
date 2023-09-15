@@ -10,6 +10,8 @@
 .d-ticket-list {
   width: 100%;
   margin-top: 20px;
+  overflow-y: auto;
+  max-height: 700px;
 }
 
 .d-ticket-list .d-tickets {
@@ -45,7 +47,6 @@
   }
 
   .d-ticket-list {
-    max-width: 90%;
     margin: 20px auto;
   }
 
