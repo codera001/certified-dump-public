@@ -3,12 +3,18 @@ import { BiSupport, BiUserCircle } from "react-icons/bi";
 import { ImLibrary } from "react-icons/im";
 import { AiOutlineWallet } from "react-icons/ai";
 import { MdOutlinePayment, MdOutlineSettingsPower } from "react-icons/md";
+import { BsJournalBookmark } from "react-icons/bs";
 
 export const sideMenu = [
   {
     title: "Overview",
     icon: <GrOverview />,
     path: "/dashboard",
+  },
+  {
+    title: "Buy A Book",
+    icon: <BsJournalBookmark />,
+    path: "/providers",
   },
   {
     title: "Profile",
