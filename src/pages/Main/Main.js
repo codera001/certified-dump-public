@@ -12,16 +12,13 @@ import study from "../../static/study.png";
 import { FaAngleDown } from "react-icons/fa";
 import './Main.css'
 import Footer from "../../component/Footer/Footer"
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 function Main() {
   return (
     <>
-      <section className="w-full ">
+      
         <NavigationBar />
         {/* <DashboardPage></DashboardPage> */}
-        <section className="section-one">
+        <section className="section-one-main">
           <div className="text my-auto" style={{}}>
             <h1
               style={{
@@ -44,153 +41,138 @@ function Main() {
             <p style={{ fontSize: "16px", marginBottom: "2rem" }}>You are assured to pass your exam-for free</p>
 
 
-            <div className=" container d-md-flex justify-content-around  w-50  text-align-center">
-              <a href="" className="py-1 px-3 mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>UNLIMITED ACCESS</a>
-              <a href="" className="py-1 px-3 mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>FIND YOUR EXAM NOW</a>
+            <div className=" container  justify-content-around  text-align-center">
+              {/* <a href="" className="py-1 px-3 mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>UNLIMITED ACCESS</a> */}
+              <a href="" className=" mt-1 button" style={{ borderColor: "var(--white)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>FIND YOUR EXAM NOW</a>
             </div>
 
           </div>
         </section>
-      </section>
+    
 
 
 
 
       {/* section-two */}
-      <section className="container section-two">
+      <section className="container section-two-main">
         <div>
-          <h5 className="mt-5" style={{ fontWeight: "bolder", color: "black", fontSize: "3rem" }}>Our Top Providers</h5>
+          <h5 className="mt-5" style={{ fontWeight: "bolder", color: "black" }}>Our Top Providers</h5>
           <p className="mb-5" style={{ fontSize: "16px" }}>
             Certified dump has one of the largest collection of professional
             certification and exam practice tests and online courses. Use <br />
             our study materials to pass your examinations on the first try! Our goal is to see you succeed.
           </p>
         </div>
-        <Row xs={2} sm={2} md={3} lg={4} className=" card-section">
+        <div className="container-fluid py-2">
 
-
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
-                <img src={microsoft} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
-                  View more
-                </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
-                <img src={google} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
-                  View more
-                </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
-                <img src={amazon} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
-                  View more
-                </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
-                <img src={juniper} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
-                  View more
-                </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
-                <img src={vmare} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
-                  View more
-                </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
+          
+          <div className="d-flex flex-row flex-nowrap card-section">
+            <div className="card card-body">
+              <div className="card-image" >
                 <img src={cisco} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+              </div>
+              <div className="card-footer py-0" >
+                <a href="/" className="card-text">
                   View more
                 </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
+              </div>
+            </div>
+            <div className="card card-body">
+              <div className="card-image" >
                 <img src={salesforce} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+              </div>
+              <div className="card-footer py-0" >
+                <a href="/" className="card-text">
                   View more
                 </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
+              </div>
+            </div>
+            <div className="card card-body">
+              <div className="card-image" >
                 <img src={isaca} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="/" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+              </div>
+              <div className="card-footer py-0" >
+                <a href="/" className="card-text">
                   View more
                 </a>
-              </Card.Footer>
-            </Card>
+              </div>
+            </div>
+            <div className="card card-body">
+              <div className="card-image" >
+                <img src={vmare} alt="" />
+              </div>
+              <div className="card-footer py-0" >
+                <a href="/" className="card-text">
+                  View more
+                </a>
+              </div>
+            </div>
 
-          </Col>
 
+
+
+          </div>
+          <div className="d-flex flex-row flex-nowrap card-section">
+            <div className="card card-body">
+              <div className="card-image" >
+                <img src={microsoft} alt="" />
+              </div>
+              <div className="card-footer py-0" >
+                <a href="/" className="card-text">
+                  View more
+                </a>
+              </div>
+            </div>
+            <div className="card card-body">
+              <div className="card-image" >
+                <img src={salesforce} alt="" />
+              </div>
+              <div className="card-footer py-0" >
+                <a href="/" className="card-text">
+                  View more
+                </a>
+              </div>
+            </div>
+            <div className="card card-body">
+              <div className="card-image" >
+                <img src={google} alt="" />
+              </div>
+              <div className="card-footer py-0" >
+                <a href="/" className="card-text">
+                  View more
+                </a>
+              </div>
+            </div>
+            <div className="card card-body">
+              <div className="card-image" >
+                <img src={juniper} alt="" />
+              </div>
+              <div className="card-footer py-0" >
+                <a href="/" className="card-text">
+                  View more
+                </a>
+              </div>
+            </div>
+
+
+
+
+          </div>
           <div className="button">
-          <a href="providers" className=" px-4 py-1" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
+            <a href="providers" className=" px-4 py-1" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
+          </div>
         </div>
-      
-        </Row>
 
 
 
-      
-    </section >
 
-      {/* section-three */ }
-      < section className = "section-three" >
-        <div className="d-md-flex justify-content-between" style={{ height: "50vh" }}>
-          <div className="image " style={{ height: "50vh" }}>
-            <img alt="" width="100%" src={study} style={{ height: "inherit" }} />
+      </section >
+
+      {/* section-three */}
+      < section className="section-three-main" >
+        <div className="d-md-flex justify-content-between">
+          <div className="image ">
+            <img alt="" width="100%" src={study} />
           </div>
 
           <div className="text ">
@@ -200,7 +182,7 @@ function Main() {
             >
               FREE AND REVISED ACTUAL EXAM SUPPLEMENTALS
             </h4>
-            <hr className="section-three-line"></hr>
+            <hr className="section-three-main-line"></hr>
             <p
               className="text-start"
 
@@ -213,11 +195,11 @@ function Main() {
           </div>
         </div>
 
-        <div className="search pb-0 mb-4">
+        <div className="search-main pt-5">
           <h2 style={{ fontWeight: "bolder", color: "black" }}>
             FIND EXAMS NOW
           </h2>
-          <div style={{ marginTop: "4rem" , paddingBottom:"5rem"}}>
+          <div className="exam-search-buttons">
             <button
               className="px-3 py-1 text-dark mx-3 "
               style={{
@@ -234,30 +216,29 @@ function Main() {
               ></FaAngleDown>
             </button>
             <button
-              className=" text-dark mx-3 py-2"
+              className=" text-dark mx-3 py-2 keyword"
               style={{
                 backgroundColor: "white",
                 fontSize: "14px",
                 borderRadius: "5px",
-                border: "none",
-                paddingLeft:"4rem",
-                paddingRight:"4rem"
+                border: "none"
+               
               }}
             >
               Exam Code or Keyword
             </button>
             <a
-            href="/"
+              href="/"
               className="mx-md-3 button py-1"
               style={{
                 fontSize: "16px",
                 borderColor: "var(--green-500)",
                 borderStyle: "solid",
-                borderWidth:"1px",
+                borderWidth: "1px",
                 borderRadius: "5px",
-                color:"var(--green-500)",
-                paddingLeft:"2rem",
-                paddingRight:"2rem"
+                color: "var(--green-500)",
+                paddingLeft: "2rem",
+                paddingRight: "2rem"
               }}
             >
               Search Exams
@@ -266,12 +247,12 @@ function Main() {
         </div>
       </section >
 
-    <Footer />
+      <Footer />
 
 
 
 
-      
+
 
 
     </>

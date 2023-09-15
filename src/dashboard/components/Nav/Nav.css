@@ -46,27 +46,37 @@
   padding: 10px;
   border: 1px solid var(--black);
   border-radius: 15px;
+}
 
-  & .d-price {
-    width: 50%;
+.d-nav-balance .d-price {
+  width: 50%;
+}
 
-    & p:nth-child(1) {
-      color: var(--light-text-color);
-    }
+.d-nav-balance .d-pricep:nth-child(1) {
+  color: var(--light-text-color);
+}
 
-    & p:nth-child(2) {
-      font-weight: 700;
-    }
-  }
+.d-nav-balance .d-price p:nth-child(2) {
+  font-weight: 700;
+}
 
-  & Button {
-    width: 50%;
-    font-size: 1rem;
+.d-nav-balance a {
+  width: 50%;
+  font-size: 1rem;
+  background: var(--secondary-color);
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px;
+  transition: var(--transition-all);
+}
 
-    & .d-text {
-      margin-left: 2px;
-    }
-  }
+.d-nav-balance a .d-text {
+  margin-left: 2px;
+}
+
+.d-nav-balance a:hover {
+  background-color: var(--hover-color);
+  color: white;
 }
 
 .d-user-dropdown {
@@ -152,11 +162,11 @@
 
   .d-nav-balance {
     padding: 5px;
+  }
 
-    & .d-price .d-bal,
-    Button .d-text {
-      display: none;
-    }
+  .d-nav-balance .d-price .d-bal,
+  .d-nav-balance a .d-text {
+    display: none;
   }
 }
 
@@ -164,22 +174,31 @@
   .d-nav-cta {
     display: none;
   }
-}
-@media screen and (max-width: 425px) {
-  .d-nav-balance Button {
+
+  .d-nav-balance {
+    width: 11rem;
+    justify-content: center;
+  }
+
+  .d-nav-balance a {
     width: 30%;
     align-self: flex-end;
   }
 
   .d-nav-balance .d-price {
-    width: 80%;
+    width: 50%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .d-nav-balance .d-price {
+    width: 65%;
   }
 
   .d-user-dropdown {
     margin-left: 0px;
   }
 
-  .d-drop-icon{
+  .d-drop-icon {
     font-size: 40px;
   }
 }

@@ -1,6 +1,6 @@
 import Container from "react-bootstrap/Container";
 import { AiOutlineSearch } from "react-icons/ai";
-import {TiArrowLeftThick } from "react-icons/ti";
+import { TiArrowLeftThick } from "react-icons/ti";
 import amazon from "../../static/amazon.png";
 import microsoft from "../../static/microsoft.png";
 import juniper from "../../static/juniper.png";
@@ -19,243 +19,228 @@ import nokia from "../../static/nokia.png";
 import redhat from "../../static/study.png";
 import "./Providers.css";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import PageFooter from "../../component/PageFooter/PageFooter";
 
 function Providers() {
-    return (
-        <>
-        <NavigationBar/>
-            <section className="container section-two">
-                <div className="mt-5">
-                    <a href="/"  style={{ fontWeight: "bolder" }}><TiArrowLeftThick style={{color: "black"}}></TiArrowLeftThick>Back</a>
-                    <h5 className=" mb-5" style={{ fontWeight: "bolder", color: "black", textAlign: "center",fontSize:"2.5rem" }}>All Providers</h5>
+  return (
+    <>
+      <NavigationBar />
+      <section className="container section-providers">
+        <div className="d-flex justify-content-between">
+          <div className="mt-5">
+            <a href="/" className="back" style={{ fontWeight: "bolder" }}><TiArrowLeftThick style={{ color: "black", marginRight: "0.5rem" }}></TiArrowLeftThick>Back</a>
 
-                </div>
-                <Row xs={2} sm={2} md={3} lg={4} className=" card-section">
+          </div>
+          <div className="search-container " >
+
+            <input
+              placeholder="exam code or name"
+              type="search"
+              className="
+                  "
+            />
+            <AiOutlineSearch className="search-icon"></AiOutlineSearch>
+          </div>
+         
+
+        </div>
+        <h5 className=" mt-5 mb-5" style={{ fontWeight: "bolder", color: "black", textAlign: "center" }}>All Providers</h5>
 
 
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
-                <img src={microsoft} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="microsoft" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
-                  View more
-                </a>
-              </Card.Footer>
-            </Card>
+        <div class="container-fluid py-2 mb-5" >
 
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
-                <img src={google} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="google" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
-                  View more
-                </a>
-              </Card.Footer>
-            </Card>
 
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
-                <img src={amazon} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="amazon" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
-                  View more
-                </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
-                <img src={juniper} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="juniper" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
-                  View more
-                </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
-                <img src={vmare} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="vmware" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
-                  View more
-                </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
+          <div class="d-flex flex-row flex-nowrap card-section">
+            <div class="card card-body">
+              <div className="card-image" >
                 <img src={cisco} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="cisco" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+              </div>
+              <div className="card-footer py-0" >
+                <a href="cisco" className="card-text">
                   View more
                 </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
+              </div>
+            </div>
+            <div class="card card-body">
+              <div className="card-image" >
                 <img src={salesforce} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="salesforce" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+              </div>
+              <div className="card-footer py-0" >
+                <a href="salesforce" className="card-text">
                   View more
                 </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
+              </div>
+            </div>
+            <div class="card card-body">
+              <div className="card-image" >
                 <img src={isaca} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="isaca" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+              </div>
+              <div className="card-footer py-0" >
+                <a href="isaca" className="card-text">
                   View more
                 </a>
-              </Card.Footer>
-            </Card>
+              </div>
+            </div>
+            <div class="card card-body">
+              <div className="card-image" >
+                <img src={vmare} alt="" />
+              </div>
+              <div className="card-footer py-0" >
+                <a href="vmare" className="card-text">
+                  View more
+                </a>
+              </div>
+            </div>
 
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
+
+
+
+          </div>
+          <div class="d-flex flex-row flex-nowrap card-section">
+            <div class="card card-body">
+              <div className="card-image" >
+                <img src={microsoft} alt="" />
+              </div>
+              <div className="card-footer py-0" >
+                <a href="microsoft" className="card-text">
+                  View more
+                </a>
+              </div>
+            </div>
+            <div class="card card-body">
+              <div className="card-image" >
+                <img src={salesforce} alt="" />
+              </div>
+              <div className="card-footer py-0" >
+                <a href="salesforce" className="card-text">
+                  View more
+                </a>
+              </div>
+            </div>
+            <div class="card card-body">
+              <div className="card-image" >
+                <img src={google} alt="" />
+              </div>
+              <div className="card-footer py-0" >
+                <a href="google" className="card-text">
+                  View more
+                </a>
+              </div>
+            </div>
+            <div class="card card-body">
+              <div className="card-image" >
+                <img src={juniper} alt="" />
+              </div>
+              <div className="card-footer py-0" >
+                <a href="juniper" className="card-text">
+                  View more
+                </a>
+              </div>
+            </div>
+
+
+
+
+          </div>
+          <div class="d-flex flex-row flex-nowrap card-section">
+            <div class="card card-body">
+              <div className="card-image" >
                 <img src={alibaba} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="alibaba" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+              </div>
+              <div className="card-footer py-0" >
+                <a href="alibaba" className="card-text">
                   View more
                 </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
+              </div>
+            </div>
+            <div class="card card-body">
+              <div className="card-image" >
                 <img src={blockchain} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="blockchain" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+              </div>
+              <div className="card-footer py-0" >
+                <a href="blockchain" className="card-text">
                   View more
                 </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
+              </div>
+            </div>
+            <div class="card card-body">
+              <div className="card-image" >
                 <img src={cloudera} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="cloudera" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+              </div>
+              <div className="card-footer py-0" >
+                <a href="cloudera" className="card-text">
                   View more
                 </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
+              </div>
+            </div>
+            <div class="card card-body">
+              <div className="card-image" >
                 <img src={fortnet} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="fortinet" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+              </div>
+              <div className="card-footer py-0" >
+                <a href="fortinet" className="card-text">
                   View more
                 </a>
-              </Card.Footer>
-            </Card>
+              </div>
+            </div>
 
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
+
+
+
+          </div>
+          <div class="d-flex flex-row flex-nowrap card-section">
+            <div class="card card-body">
+              <div className="card-image" >
                 <img src={huawei} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="huawei" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+              </div>
+              <div className="card-footer py-0" >
+                <a href="huawei" className="card-text">
                   View more
                 </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
+              </div>
+            </div>
+            <div class="card card-body">
+              <div className="card-image" >
                 <img src={netapp} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="netapp" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+              </div>
+              <div className="card-footer py-0" >
+                <a href="netapp" className="card-text">
                   View more
                 </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
-                <img src={nokia} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="nokia" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
-                  View more
-                </a>
-              </Card.Footer>
-            </Card>
-
-          </Col>
-          <Col className="">
-            <Card className="card-wrap">
-              <Card.Body >
+              </div>
+            </div>
+            <div class="card card-body">
+              <div className="card-image" >
                 <img src={redhat} alt="" />
-              </Card.Body>
-              <Card.Footer className="card-footer py-0" >
-                <a href="redhat" className="card-text" style={{ borderTop: "1px solid var(--tertiary-color) " }}>
+              </div>
+              <div className="card-footer py-0" >
+                <a href="redhat" className="card-text">
                   View more
                 </a>
-              </Card.Footer>
-            </Card>
+              </div>
+            </div>
+            <div class="card card-body">
+              <div className="card-image" >
+                <img src={nokia} alt="" />
+              </div>
+              <div className="card-footer py-0" >
+                <a href="nokia" className="card-text">
+                  View more
+                </a>
+              </div>
+            </div>
 
-          </Col>
 
-          <div className="button">
-                        <a href="/" className=" px-4  py-1 mt-5" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
-                    </div>
-          </Row>
-      
-            </section>
-            <PageFooter/>
-        </>
-    );
+
+
+          </div>
+
+
+        </div>
+      </section>
+      <PageFooter />
+    </>
+  );
 }
 
 export default Providers;

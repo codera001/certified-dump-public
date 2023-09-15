@@ -1,0 +1,155 @@
+.verifyemail {
+  color: black;
+  width: 50%;
+  margin: 4rem auto;
+  align-items: center;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16), 0 4px 10px rgba(0, 0, 0, 0.23);
+}
+
+.verifyemail-wrap {
+  width: 60%;
+  margin: 2rem auto;
+  padding: 5rem 0;
+}
+
+.verifyemail input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.verifyemail button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--green-600);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.verifyemail button:hover {
+  background-color: var(--tertiary-color);
+}
+
+.pass-text {
+  text-align: center;
+}
+
+.pass-text a {
+  background-color: var(--tertiary-color);
+  color: var(--white);
+  margin-top: 4rem;
+}
+
+.help-text {
+  text-align: center;
+  background-color: #f9f9f9;
+  align-items: center;
+  border-bottom: 1px solid #f9f9f9;
+  border-top: 1px solid #f9f9f9;
+}
+
+.confirmpass {
+  color: black;
+  width: 50%;
+  margin: 4rem auto;
+  align-items: center;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16), 0 4px 10px rgba(0, 0, 0, 0.23);
+}
+
+.confirmpass h3 {
+  font-size: large;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.confirmpass-wrap {
+  width: 60%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+.confirmpass-text input {
+  background-color: none;
+  border-radius: none;
+  border: 1px solid var(--green-600);
+  height: 55px;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.confirmpass-text button {
+  background-color: var(--green-600);
+  color: white;
+  width: 100%;
+  font-weight: bolder;
+  border: none;
+  margin-top: 1.3rem;
+  height: 55px;
+}
+
+.forgot-social-images {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.forgot-social-images-wrap {
+  width: 100%;
+  margin: 1rem auto;
+}
+
+.success-mail {
+  color: black;
+  width: 50%;
+  margin: 4rem auto;
+  align-items: center;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16), 0 4px 10px rgba(0, 0, 0, 0.23);
+}
+
+.success-wrap {
+  width: 60%;
+  margin: 2rem auto;
+  padding: 5rem 0;
+}
+
+@media screen and (max-width: 767px) {
+  .verifyemail {
+    width: 90%;
+  }
+
+  .success-mail {
+    width: 90%;
+  }
+  .confirmpass {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .verifyemail-wrap {
+    width: 80%;
+  }
+  .success-wrap {
+    width: 80%;
+  }
+
+  .confirmpass-wrap {
+    width: 80%;
+  }
+}

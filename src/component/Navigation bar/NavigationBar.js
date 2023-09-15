@@ -32,7 +32,7 @@ function NavigationBar() {
               Login
             </a>
             <a
-              eventKey={2}
+              // eventKey={2}
               href="#memes"
               className=" nav-list  border-left"
             ></a>
@@ -58,17 +58,12 @@ function NavigationBar() {
         </div>
       </div>
 
-
-
-
-
       {/* secon-nav */}
       <div className="container d-flex justify-content-between align-items-center mt-3 nav-logo">
         <div>
           <img
             alt="logo"
             src={logo}
-          
           />
         </div>
         <div className="d-flex ">
@@ -76,7 +71,6 @@ function NavigationBar() {
             <RiMailSendLine
               color=" var(--tertiary-color)"
               className="mail-icon"
-            style={{fontSize:"30px"}}
             />
           </div>
           <div className="d-block  mx-0">
@@ -93,7 +87,7 @@ function NavigationBar() {
               className="mt-0  mb-0 text-start"
               style={{ color: " var(--tertiary-color)"}}
             >
-              {/* hello@certifieddump.com */}
+              hello@certifieddump.com
             </span>
           </div>
         </div>
@@ -131,7 +125,7 @@ function NavigationBar() {
                 BLOG AREA
               </Nav.Link>
               <Nav.Link
-                href="providers"
+                href="contact"
                 className="nav-links "
               >
                 CONTACT US

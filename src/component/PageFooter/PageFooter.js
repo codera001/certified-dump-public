@@ -9,12 +9,14 @@ import { TbEditCircle } from "react-icons/tb";
 import { RxEnvelopeClosed} from "react-icons/rx";
 
 function PageFooter() {
+  const year = new Date().getFullYear();
   return (
     <>
-      <div className="footeer">
-        <div className="pu-footer container bg-none">
+      <div className="pa-footeer">
+        <div>
+        <div className="pa-footer d-md-flex justify-content-between container bg-none">
           <div className="text">
-            <h3>CONNECT WITH US</h3>
+            <h6 style={{fontWeight:"bolder"}}>CONNECT WITH US</h6>
             <div className="">
               <div className="icon-text">
                 <BiLogoFacebook className="icon me-2"></BiLogoFacebook>
@@ -40,8 +42,8 @@ function PageFooter() {
           <div className="icons ">
             <h6 className="" style={{ fontWeight: "bolder" }}>SITEMAP</h6>
             <p className="line" />
-            <div className="">
-              <div className="mt-4">
+            <div className="icons-icon">
+              <div className="">
                 <RiHome4Fill></RiHome4Fill>
               </div>
               <div>
@@ -63,6 +65,8 @@ function PageFooter() {
             </div>
 
           </div>
+        </div>
+        <small className="text-center text-white">{`Copyright © Certified dump ${year}`}</small>
         </div>
       </div>
     </>

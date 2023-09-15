@@ -8,7 +8,7 @@
   --hover-color: #fec700;
   --light-text-color: #777a76;
   --tertiary-color: #ffaa33;
-  --post-tertiary-color: #ff5607;
+  --post-tertiary-color: #E88600;
   --green-100: #e3efe1;
   --green-200: #91ec80;
   --green-400:#52682d;
@@ -22,6 +22,7 @@
   --ptext2: 1.5rem;
   --transition-all: all 0.5s ease-in-out;
   --transition-bg: background 0.5s ease-in-out;
+  --brown:#E68D00;
 }
 
 * {
@@ -31,52 +32,15 @@
   font-family: "Jost", sans-serif;
 }
 
-/* a:hover{
-  color: blue;
-} */
 
 .App {
   text-align: center;
 }
 
-/* .button {
-  color: white;
-} */
-
-/* .button:hover{
-  color: blue;
-  } */
-
-.nav-list {
-  font-size: 14px;
-}
-.icon {
-  margin-top: 8px;
-  margin-left: 1rem;
+a{
+  text-decoration:none;
 }
 
-.border-left {
-  border-right: 2px solid var(--white);
-  height: 3vh;
-  margin-top: 6px;
-}
 
-.button-one {
-  border: 1px solid #ffaa33;
-  border-radius: 10px;
-  padding: 0 0.4rem;
-  font-weight: bolder;
-  background-color: rgba(255, 255, 255, 0.801);
-  font-size: 18px;
-}
 
-.button-two {
-  background-color: #ffaa33;
-  padding: 0rem 1.5rem;
-  border-radius: 10px;
-  margin-left: 2rem;
-  color: white;
-  border: none;
-  font-size: 18px;
-  font-weight: bolder;
-}
+

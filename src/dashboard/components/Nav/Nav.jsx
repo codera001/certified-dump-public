@@ -1,15 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Nav.css";
 import logo from "../../images/logo.png";
 import windows from "../../images/windows.png";
-import { Button } from "../Button/Button";
 import { BiLogOutCircle, BiUserCheck, BiUserCircle } from "react-icons/bi";
 import { PiCaretDownLight } from "react-icons/pi";
 import { MdOutlinePayment } from "react-icons/md";
 import { Outlet, Link } from "react-router-dom";
-import { GiAutogun } from "react-icons/gi";
+import axios from "axios";
 
 const Nav = () => {
+  const email = sessionStorage.getItem("userEmail");
+  const [balance, setBalance] = useState("");
+  const [error, setError] = useState("");
+  let userid = sessionStorage.getItem("userId");
+
+  const getUserBalance = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.certifieddump.com/api-wallet/userbalance?userid=${userid}`,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+        }
+      );
+      setBalance(response.data.result.balance);
+      console.log(response);
+    } catch (error) {
+      setError(error.response.data.msg);
+      // setError(error.response.data.msg);
+      // console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getUserBalance();
+    sessionStorage.setItem("balance", balance);
+  }, []);
+
   return (
     <>
       <nav className="d-user-nav">
@@ -29,26 +57,26 @@ const Nav = () => {
           <div className="d-nav-balance">
             <div className="d-price">
               <p className="d-bal">Balance:</p>
-              <p className="d-value">$5003.20</p>
+              <p className="d-value">${Number(balance).toFixed(2)}</p>
             </div>
-            <Button>
+            <Link to="/payment">
               <span className="d-icon">
                 <MdOutlinePayment />
               </span>
               <span className="d-text">Top up</span>
-            </Button>
+            </Link>
           </div>
           <div className="d-user-dropdown">
             <BiUserCircle className="d-drop-icon" />
             <PiCaretDownLight className="d-drop-icon-2" />
             <div className="d-dropdown-inner">
               <div>
-                <p>email address</p>
-                <Link to="/">
+                <p>{email}</p>
+                <Link to="/profile" onClick={() => sessionStorage.clear()}>
                   <BiUserCheck />
                   <span>Profile</span>
                 </Link>
-                <Link to="/">
+                <Link to="/" onClick={() => sessionStorage.clear()}>
                   <BiLogOutCircle /> <span>Logout</span>
                 </Link>
               </div>

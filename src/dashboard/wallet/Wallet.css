@@ -1,24 +1,26 @@
 .d-wallets {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    gap: 20px;
-    margin: 20px auto;
-    padding: 0 10px;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 20px;
+  margin: 20px auto;
+  padding: 0 10px;
+  width: 100%;
+}
 
-    & .d-spent, .d-bal {
-      box-shadow: var(--box-shadow);
-      padding: 20px;
-      border-radius: 10%;
-      transition: var(--transition-all);
+.d-wallets .d-spent,
+.d-wallets .d-bal {
+  box-shadow: var(--box-shadow);
+  padding: 20px;
+  border-radius: 20px;
+  transition: var(--transition-all);
+}
 
-      &:hover {
-        box-shadow: var(--box-shadow-hover);
-      }
-    }
+.d-wallets .d-spent:hover,
+.d-wallets .d-bal:hover {
+  box-shadow: var(--box-shadow-hover);
 }
 
 .d-table-container {
@@ -33,8 +35,14 @@
 }
 
 .d-table-header h3 {
- text-align: center;
- margin: 20px 0;
+  text-align: center;
+  margin: 20px 0;
+}
+
+
+.d-table-container .error {
+  text-align: center;
+  font-size: 1.2rem;
 }
 
 @media screen and (min-width: 550px) {
@@ -47,10 +55,10 @@
   .d-wallets {
     max-width: 80%;
     margin: 60px auto;
+  }
 
-    & strong {
-      font-size: var(--ptext2);
-    }
+  .d-wallets strong {
+    font-size: var(--ptext2);
   }
 }
 

@@ -13,12 +13,12 @@
   flex-direction: column;
   width: 90%;
   margin: 0 auto;
+}
 
-  & h3 {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-    text-align: center;
-  }
+.d-chatbox-inner h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  text-align: center;
 }
 
 .d-messages {
@@ -34,83 +34,85 @@
   margin-bottom: 8px;
   margin-left: auto;
   max-width: 512px;
-
-  .d-sent-message-inner {
-    background-color: var(--green-100);
-    border-radius: 10px;
-    padding: 8px 12px;
-
-    & .d-sent-time {
-      color: var(--light-text-color);
-      margin: 4px 0 0;
-      text-align: right;
-      font-size: x-small;
-    }
-  }
 }
 
-  .d-sent-message-inner .d-sent-text, .d-received-message-inner .d-received-text {
-      margin: 4px 0 0;
-      font-size: x-small;
-    }
+.d-sent-message-inner {
+  background-color: var(--green-100);
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.d-sent-message-inner .d-sent-time {
+  color: var(--light-text-color);
+  margin: 4px 0 0;
+  text-align: right;
+  font-size: x-small;
+}
+
+.d-sent-message-inner .d-sent-text,
+.d-received-message-inner .d-received-text {
+  margin: 4px 0 0;
+  font-size: x-small;
+}
 
 .d-received-message {
   margin-bottom: 8px;
   display: flex;
+}
 
-  & .d-received-message-inner {
-    border-radius: 10px;
-    background-color: var(--green-500);
-    padding: 8px 12px;
+.d-received-message-inner {
+  border-radius: 10px;
+  background-color: var(--green-500);
+  padding: 8px 12px;
+}
 
-     .d-received-text {
-      color: var(--white);
-    }
+.d-received-text {
+  color: var(--white);
+}
 
-    & .d-received-time {
-      color: var(--light-text-color);
-      margin: 4px 0 0;
-      text-align: right;
-      font-size: x-small;
-    }
-  }
+.d-received-time {
+  color: var(--light-text-color);
+  margin: 4px 0 0;
+  text-align: right;
+  font-size: x-small;
 }
 
 .d-chat-input {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 16px 0;
   width: 100%;
+}
 
-  & .d-chat-input-container {
-    margin: 0 8px 0 0;
-    width: 100%;
+.d-chat-input-container {
+  margin: 0 8px 0 0;
+  width: 100%;
+}
 
-    & input {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid var(--black);
-      padding: 2;
-    }
-  }
+.d-chat-input-container textarea {
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--black);
+  padding: 4px 10px;
+}
 
-  & button {
-    outline: none;
-    border: none;
-    background-color: var(--green-400);
-    color: var(--white);
-    transition: var(--transition-all);
-    padding: 4px;
-    border-radius: 10px;
+.d-chat-input button {
+  outline: none;
+  border: none;
+  background-color: var(--green-400);
+  color: var(--white);
+  transition: var(--transition-all);
+  padding: 4px;
+  height: 60%;
+}
 
-    & :hover {
-      background-color: var(--green-600);
-    }
+.d-chat-input button:hover {
+  background-color: var(--green-600);
+}
 
-    & :active {
-      opacity: 0.25;
-    }
-  }
+.d-chat-input button:active {
+  opacity: 0.25;
 }
 
 @media screen and (min-width: 768px) {
@@ -123,7 +125,8 @@
     width: 66.67%;
   }
 
-  .d-sent-message-inner .d-sent-text, .d-received-message-inner .d-received-text {
+  .d-sent-message-inner .d-sent-text,
+  .d-received-message-inner .d-received-text {
     font-size: 16px;
   }
 }

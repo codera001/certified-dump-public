@@ -1,9 +1,9 @@
 
-
+/* 
 a{
   color: white;
   text-decoration: none;
-}
+} */
 
 
 /* .a:hover {
@@ -66,6 +66,10 @@ a{
     /* height: 140px; */
   }
 
+  .nav-logo .mail-icon{
+    font-size:20px;
+  }
+
  .second-nav {
   background-color: var(--green-500);
   
@@ -83,7 +87,7 @@ a{
   }
  
   .second-nav .button:hover{
-    color:var(--tertairy-color);
+    color:var(--tertiary-color);
   }
 
 
@@ -138,27 +142,29 @@ color: rgba(255, 255, 255, 0.39);
 
     .nav-logo img{
       width: 100px;
-      height: 100px;
+     
+    }
+
+    .nav-logo .mail-icon{
+      font-size:20px;
     }
 
  
-    .nav-log0 h6 {
+    .nav-logo h6 {
       font-size: 14px;
     }
 
     .nav-logo span{
-      font-size: 14px;
+      font-size: 11px;
     }
     .second-nav.nav-toogle{
        /* top:-140px;
        right: 10px;  */
-       background-color: rgba(0, 0, 0, 0.815);
        width: 100%;
        border: none; 
        margin:  0;
-       padding: 0;
        align-items: left;
-       padding: 1rem;
+       padding: 5px 0;
     }
 
     .second-nav  .toggle {
@@ -180,12 +186,10 @@ color: rgba(255, 255, 255, 0.39);
     }
 
     .second-nav  .nav-links:hover{
-      color: blue;
+      color: var(--tertiary-color);
     }
 
 
-    .button-two{
-      margin-left: 0;  
-    }
+  
   }
  
