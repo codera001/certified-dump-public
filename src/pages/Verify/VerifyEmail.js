@@ -40,16 +40,17 @@ function VerifyEmail() {
         "https://api.certifieddump.com/api/resend-verification-email",
         localStorage.getItem("unverifiedMail")
       );
-      console.log("Verification Code sent:", response.data);
-      toast.success("Verification code has been sent to your mail")
+      // console.log("Verification Code sent:", response.data);
+      toast.success("Verification code has been sent to your mail");
     } catch (error) {
-      console.log("verification error:", error);
+      // console.log("verification error:", error);
+      toast.success("Your account is already verified, please login")
     }
   };
 
   setTimeout(() => {
-    setHidden(!hidden), 25000;
-  });
+    setHidden(!hidden);
+  }, 25000);
   return (
     <>
       <NavigationBar />
@@ -72,13 +73,13 @@ function VerifyEmail() {
               </div>
               <button type="submit">Verify Your Email Address</button>
             </form>
-            {/* {hidden ? (
-              ""
-            ) : (
-              <button type="submit" onClick={() => getVerificationCode()}>
+            {hidden ? (
+              <button type="submit" onClick={ getVerificationCode}>
                 Resend verification code
               </button>
-            )} */}
+            ) : (
+              ""
+            )}
           </div>
           <div className="help-text mt-5 d-flex justify-content-around mx-auto px-2 py-3">
             <AiFillMessage style={{ fontSize: "50px" }} className="" />
