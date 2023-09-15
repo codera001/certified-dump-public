@@ -5,6 +5,7 @@ import axios from "axios";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
 import { AiFillMessage } from "react-icons/ai";
+import toast from "react-hot-toast";
 
 function VerifyEmail() {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ function VerifyEmail() {
         `https://api.certifieddump.com/api/verify-email/${pin}`
       );
       console.log("Email verification Successful:", response.data.msg);
-      toastr.success(response.data.msg);
+      toast.success(response.data.msg);
       navigate("/success");
     } catch (error) {
       console.log("verification error:", error.response.data.msg);
@@ -40,6 +41,7 @@ function VerifyEmail() {
         localStorage.getItem("unverifiedMail")
       );
       console.log("Verification Code sent:", response.data);
+      toast.success("Verification code has been sent to your mail")
     } catch (error) {
       console.log("verification error:", error);
     }
