@@ -4,15 +4,17 @@ import Layout from "../components/Layout/Layout";
 import Table from "../components/Table/Table";
 import SearchBar from "../components/SearchBar.jsx/SearchBar";
 import axios from "axios";
+import loader from "../../static/loader.gif";
 
 const Wallet = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [transactions, setTransactions] = useState([]);
-  const [spent, setSpent] = useState("");
+  const [spent, setSpent] = useState(null);
   const [error, setError] = useState("");
   let userid = sessionStorage.getItem("userId");
   const token = sessionStorage.getItem("token");
   const balance = sessionStorage.getItem("balance");
+  const [loading, setLoading] = useState(true);
 
   const titles = ["S/N", "Id", "Amount", "Date & Time", "Status", "Type"];
 
@@ -53,6 +55,7 @@ const Wallet = () => {
   useEffect(() => {
     moneySpent();
     fetchUserTransactions();
+    setLoading(!loading);
   }, []);
 
   return (
@@ -60,7 +63,13 @@ const Wallet = () => {
       <div className="d-wallets">
         <div className="d-spent">
           <p>Total Spent</p>
-          {error ? <strong>$0.00</strong> : <strong>{spent}</strong>}
+          {loading ? (
+            <img src={loader} alt="loading-gif" />
+          ) : (spent ? (
+            <strong>{spent}</strong>
+          ) : (
+            <strong>$0.00</strong>
+          ))}
           <p>Total amount spent on Exam Purchase</p>
         </div>
         <div className="d-bal">

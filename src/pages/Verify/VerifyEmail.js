@@ -5,6 +5,7 @@ import axios from "axios";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
 import { AiFillMessage } from "react-icons/ai";
+import toast from "react-hot-toast";
 
 function VerifyEmail() {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ function VerifyEmail() {
         `https://api.certifieddump.com/api/verify-email/${pin}`
       );
       console.log("Email verification Successful:", response.data.msg);
-      toastr.success(response.data.msg);
+      toast.success(response.data.msg);
       navigate("/success");
     } catch (error) {
       console.log("verification error:", error.response.data.msg);
@@ -39,15 +40,17 @@ function VerifyEmail() {
         "https://api.certifieddump.com/api/resend-verification-email",
         localStorage.getItem("unverifiedMail")
       );
-      console.log("Verification Code sent:", response.data);
+      // console.log("Verification Code sent:", response.data);
+      toast.success("Verification code has been sent to your mail");
     } catch (error) {
-      console.log("verification error:", error);
+      // console.log("verification error:", error);
+      toast.success("Your account is already verified, please login")
     }
   };
 
   setTimeout(() => {
-    setHidden(!hidden), 5000;
-  });
+    setHidden(!hidden);
+  }, 25000);
   return (
     <>
       <NavigationBar />
@@ -71,11 +74,11 @@ function VerifyEmail() {
               <button type="submit">Verify Your Email Address</button>
             </form>
             {hidden ? (
-              ""
-            ) : (
-              <button type="submit" onClick={() => getVerificationCode()}>
+              <button type="submit" onClick={ getVerificationCode}>
                 Resend verification code
               </button>
+            ) : (
+              ""
             )}
           </div>
           <div className="help-text mt-5 d-flex justify-content-around mx-auto px-2 py-3">

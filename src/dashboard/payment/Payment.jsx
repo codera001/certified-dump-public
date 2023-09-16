@@ -8,20 +8,6 @@ import card from "../images/card.jpg";
 import flutterwave from "../images/flutterwave.jpg";
 
 const Payment = () => {
-  const paymentMethods = [
-    {
-      image: card,
-      name: "Pay with card",
-    },
-    {
-      image: paystack,
-      name: "Pay with Paystack",
-    },
-    {
-      image: flutterwave,
-      name: "Pay with Flutterwave",
-    },
-  ];
   return (
     <Layout>
       <div className="d-payment">
@@ -29,9 +15,9 @@ const Payment = () => {
         <div className="d-payment-body">
           <h4>1. Choose a payment method</h4>
           <div className="d-payment-modes">
-            {paymentMethods.map((item, i) => (
-              <PaymentMethod key={i} title={item.name} image={item.image} />
-            ))}
+            <div className="payment-mode">
+              <img src={card} alt="card payment method" />
+            </div>
           </div>
           <h4>2. Specify top up amount</h4>
           <div className="d-amounts">

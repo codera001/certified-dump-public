@@ -19,17 +19,21 @@ const Table = ({ title, data, searchTerm }) => {
     setModalIndex(-1);
   };
 
-  const filteredData = data.filter((all) => {
-    if (searchTerm === "") return all;
-    else if (
-      all.trx_id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      all.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      all.status.toLowerCase().includes(searchTerm.toLowerCase())
-    ) {
-      console.log(all);
-      return all;
-    } else return null;
-  });
+  const filteredData = data
+    .sort(function (a, b) {
+      return b.id - a.id;
+    })
+    .filter((all) => {
+      if (searchTerm === "") return all;
+      else if (
+        all.trx_id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        all.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        all.status.toLowerCase().includes(searchTerm.toLowerCase())
+      ) {
+        // console.log(all);
+        return all;
+      } else return null;
+    });
 
   // Calculate the total number of pages
   const totalPages = Math.ceil(filteredData.length / ItemsPerPage);

@@ -4,11 +4,14 @@
 
 .d-ticket-wrapper h3 {
   text-align: center;
+  margin: 20px 0;
 }
 
 .d-ticket-list {
   width: 100%;
   margin-top: 20px;
+  overflow-y: auto;
+  max-height: 700px;
 }
 
 .d-ticket-list .d-tickets {
@@ -19,7 +22,7 @@
 }
 
 .d-ticket-list .d-tickets span {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .d-sub-btn {
@@ -44,7 +47,6 @@
   }
 
   .d-ticket-list {
-    max-width: 80%;
     margin: 20px auto;
   }
 

@@ -11,6 +11,8 @@ import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import Google from "../../ApiTesting/GoogleLogin";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function Signup() {
   const navigate = useNavigate();
@@ -191,6 +193,9 @@ function Signup() {
               >
                 Or log in with your social network
               </p>
+              {/* <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com">
+                <Google />
+              </GoogleOAuthProvider> */}
               <div className="social-images d-flex">
                 <div className="social-images-wrap">
                   <BsFacebook
