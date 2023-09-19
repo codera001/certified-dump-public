@@ -48,13 +48,16 @@
   margin: 20px auto;
 }
 
-.d-payment .d-amounts Button {
+.d-payment .d-amounts button {
   width: 70px;
   font-size: 12px;
   background-color: var(--primary-color);
+  border: none;
+  border-radius: 10px;
+  transition: var(--transition-all);
 }
 
-.d-payment .d-amounts Button:active,
+.d-payment .d-amounts button:active,
 .d-payment .d-amounts input {
   border: 1px solid var(--green-100);
 }
@@ -66,9 +69,22 @@
   text-align: center;
 }
 
-.d-payment-btn .d-secondary-btn {
+.d-payment-btn .d-sec-btn {
+  all: unset;
   width: 150px;
   margin: 0 0 10px;
+  background-color: var(--secondary-color);
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px;
+  transition: var(--transition-all);
+  cursor: pointer;
+}
+
+.d-payment-btn button:hover,
+.d-payment .d-amounts button:hover {
+  background-color: var(--hover-color);
+  color: white;
 }
 
 @media screen and (min-width: 768px) {
@@ -102,7 +118,7 @@
     margin: 0 auto;
   }
 
-  .d-payment-btn .d-secondary-btn {
+  .d-payment-btn .d-sec-btn {
     margin-left: 20px;
   }
 }

@@ -46,6 +46,7 @@ function Login() {
       sessionStorage.setItem("userFirstname", response.data.user.firstname);
       sessionStorage.setItem("userLastname", response.data.user.lastname);
       sessionStorage.setItem("userEmail", response.data.user.email);
+      sessionStorage.setItem("userPhone", response.data.user.phone_no);
       setTimeout(() => {
         navigate("/dashboard");
       }, 2000);
