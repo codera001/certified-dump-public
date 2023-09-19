@@ -75,7 +75,7 @@
 }
 
 .d-nav-balance a:hover {
-  background-color: var(--hover-color);
+  background-color: var(--primary-color);
   color: white;
 }
 

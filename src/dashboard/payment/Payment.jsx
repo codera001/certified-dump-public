@@ -20,9 +20,9 @@ const Payment = () => {
       const response = await axios.post(
         "https://api.certifieddump.com/api-wallet/payment",
         {
-          amount: Number(amt) * 100,
+          amount: "15000",
           userid: sessionStorage.getItem("userId"),
-          callbackUrl: "/payment-verification",
+          callbackUrl: "http://localhost:3000/payment-verification",
           currency: "NGN",
           customerFirstName: sessionStorage.getItem("userFirstname"),
           customerLastName: sessionStorage.getItem("userLastname"),
