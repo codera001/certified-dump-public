@@ -49,6 +49,7 @@ import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./dashboard/ProtectedRoutes";
 import Payment from "./dashboard/payment/Payment";
 import VerifyForgotPass from "./pages/Verify/VerifyForgotPass";
+import Blog from "./pages/Blog/Blog";
 import VerifyPayment from "./dashboard/payment/Verify";
 
 const router = createBrowserRouter(
@@ -82,12 +83,13 @@ const router = createBrowserRouter(
       <Route path="sakesforce" element={<Salesforce />} />
       <Route path="testprep" element={<Testprep />} />
       <Route path="vmware" element={<Vmware />} />
-      <Route path="zend" element={<Zend />} />`
+      <Route path="zend" element={<Zend />} />
       <Route path="contact" element={<Contact />} />
       <Route path="apilog" element={<Apilog />} />
       <Route path="apisign" element={<Apisign />} />
       <Route path="confirm-email" element={<Verify />} />
       <Route path="reset-password" element={<PassReset />} />
+      <Route path="blogarea" element={<Blog />} />
       <Route element={<ProtectedRoute />}>
         <Route path="dashboard" element={<Overview />} />
         <Route path="profile" element={<Profile />} />
@@ -96,7 +98,6 @@ const router = createBrowserRouter(
         <Route path="payment" element={<Payment />} />
         <Route path="payment-verification" element={<VerifyPayment />} />
         <Route path="support" element={<Support />} />
-        <Route path="chat/:ticketId" element={<Chat />} />
       </Route>
     </>
   )

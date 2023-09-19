@@ -116,7 +116,10 @@ function NavigationBar() {
               <Nav.Link href="about" className="nav-links ">
                 ABOUT US
               </Nav.Link>
-              <Nav.Link href="#pricing" className="nav-links ">
+              <Nav.Link
+                href="blogarea"
+                className="nav-links "
+              >
                 BLOG AREA
               </Nav.Link>
               <Nav.Link href="contact" className="nav-links ">
