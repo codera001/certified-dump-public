@@ -50,6 +50,7 @@ import ProtectedRoute from "./dashboard/ProtectedRoutes";
 import Payment from "./dashboard/payment/Payment";
 import VerifyForgotPass from "./pages/Verify/VerifyForgotPass";
 import Blog from "./pages/Blog/Blog";
+import VerifyPayment from "./dashboard/payment/Verify";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -95,6 +96,7 @@ const router = createBrowserRouter(
         <Route path="library" element={<Library />} />
         <Route path="wallet" element={<Wallet />} />
         <Route path="payment" element={<Payment />} />
+        <Route path="payment-verification" element={<VerifyPayment />} />
         <Route path="support" element={<Support />} />
       </Route>
     </>

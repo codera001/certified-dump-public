@@ -25,7 +25,7 @@ function VerifyEmail() {
       const response = await axios.post(
         `https://api.certifieddump.com/api/verify-email/${pin}`
       );
-      console.log("Email verification Successful:", response.data.msg);
+      // console.log("Email verification Successful:", response.data.msg);
       toast.success(response.data.msg);
       navigate("/success");
     } catch (error) {
