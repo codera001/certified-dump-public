@@ -98,6 +98,7 @@ const router = createBrowserRouter(
         <Route path="payment" element={<Payment />} />
         <Route path="payment-verification" element={<VerifyPayment />} />
         <Route path="support" element={<Support />} />
+        <Route path="chat/:ticketId" element={<Chat />} />
       </Route>
     </>
   )
