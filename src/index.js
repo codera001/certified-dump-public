@@ -64,7 +64,7 @@ const router = createBrowserRouter(
       <Route path="success" element={<Success />}></Route>
       <Route path="providers" element={<Providers />} />
       <Route path="about" element={<About />} />
-      <Route path="alibaba" element={<Alibaba />} />
+      <Route path="provider/:name" element={<Alibaba />} />
       <Route path="alibabaPreview" element={<Preview />} />
       <Route path="blockchain" element={<Blockchain />} />
       <Route path="cisco" element={<Cisco />} />
@@ -98,6 +98,7 @@ const router = createBrowserRouter(
         <Route path="payment" element={<Payment />} />
         <Route path="payment-verification" element={<VerifyPayment />} />
         <Route path="support" element={<Support />} />
+        <Route path="chat/:ticketId" element={<Chat />} />
       </Route>
     </>
   )

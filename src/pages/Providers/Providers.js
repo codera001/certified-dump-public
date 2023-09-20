@@ -20,222 +20,69 @@ import redhat from "../../static/study.png";
 import "./Providers.css";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Provider from "../../component/Provider";
+import loader from "../../static/loader.gif";
 
 function Providers() {
+  const [allProviders, setAllProviders] = useState(null);
+  const GetProviders = async () => {
+    try {
+      const response = await axios.get(
+        "https://api.certifieddump.com/api-admin/getProviders"
+      );
+      // console.log(response);
+      console.log(response.data.providers.slice(0, 5));
+      setAllProviders(response.data.providers);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    GetProviders();
+  }, []);
+
   return (
     <>
       <NavigationBar />
       <section className="container section-providers">
         <div className="d-flex justify-content-between">
           <div className="mt-5">
-            <a href="/" className="back" style={{ fontWeight: "bolder" }}><TiArrowLeftThick style={{ color: "black", marginRight: "0.5rem" }}></TiArrowLeftThick>Back</a>
-
+            <a href="/" className="back" style={{ fontWeight: "bolder" }}>
+              <TiArrowLeftThick
+                style={{ color: "black", marginRight: "0.5rem" }}
+              ></TiArrowLeftThick>
+              Back
+            </a>
           </div>
-          <div className="search-container " >
-
+          <div className="search-container ">
             <input
               placeholder="exam code or name"
               type="search"
-              className="
-                  "
             />
             <AiOutlineSearch className="search-icon"></AiOutlineSearch>
           </div>
-         
-
         </div>
-        <h5 className=" mt-5 mb-5" style={{ fontWeight: "bolder", color: "black", textAlign: "center" }}>All Providers</h5>
-
-
-        <div class="container-fluid py-2 mb-5" >
-
-
+        <h5
+          className=" mt-5 mb-5"
+          style={{ fontWeight: "bolder", color: "black", textAlign: "center" }}
+        >
+          All Providers
+        </h5>
+        <div class="container-fluid py-2 mb-5">
           <div class="d-flex flex-row flex-nowrap card-section">
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={cisco} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="cisco" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={salesforce} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="salesforce" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={isaca} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="isaca" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={vmare} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="vmare" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-
-
-
-
+            {allProviders ? (
+              <>
+                {allProviders.map((item, i) => (
+                  <Provider key={i} name={item.name} i={i} text="View More" />
+                ))}
+              </>
+            ) : (
+              <img src={loader} alt="loading gif" />
+            )}
           </div>
-          <div class="d-flex flex-row flex-nowrap card-section">
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={microsoft} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="microsoft" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={salesforce} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="salesforce" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={google} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="google" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={juniper} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="juniper" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-
-
-
-
-          </div>
-          <div class="d-flex flex-row flex-nowrap card-section">
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={alibaba} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="alibaba" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={blockchain} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="blockchain" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={cloudera} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="cloudera" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={fortnet} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="fortinet" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-
-
-
-
-          </div>
-          <div class="d-flex flex-row flex-nowrap card-section">
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={huawei} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="huawei" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={netapp} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="netapp" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={redhat} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="redhat" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div class="card card-body">
-              <div className="card-image" >
-                <img src={nokia} alt="" />
-              </div>
-              <div className="card-footer py-0" >
-                <a href="nokia" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-
-
-
-
-          </div>
-
-
         </div>
       </section>
       <PageFooter />
