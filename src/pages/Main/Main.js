@@ -10,183 +10,186 @@ import cisco from "../../static/cisco.png";
 import google from "../../static/google.png";
 import study from "../../static/study.png";
 import { FaAngleDown } from "react-icons/fa";
-import './Main.css'
-import Footer from "../../component/Footer/Footer"
+import "./Main.css";
+import Footer from "../../component/Footer/Footer";
 function Main() {
   return (
     <>
-      
-        <NavigationBar />
-        {/* <DashboardPage></DashboardPage> */}
-        <section className="section-one-main">
-          <div className="text my-auto" style={{}}>
-            <h1
+      <NavigationBar />
+      {/* <DashboardPage></DashboardPage> */}
+      <section className="section-one-main">
+        <div className="text my-auto" style={{}}>
+          <h1
+            style={{
+              fontWeight: "bolder",
+              marginBottom: "2rem",
+            }}
+          >
+            WELCOME TO CERTIFIED DUMP
+          </h1>
+          <h6 style={{ fontWeight: "bolder", marginBottom: "2rem" }}>
+            A COMMUNITY TO WHICH YOU CAN ASPIRE
+          </h6>
+          <p
+            className="text-align-center mx-auto p-text"
+            style={{ fontSize: "16px" }}
+          >
+            You'll discover that none of the suppliers of real exam materials
+            are genuinely free when you search for them. We made the decision to
+            withhold all of that dreck and just provide you with the most
+            recent, accurate, and confirmed genuine exam questions & answers.{" "}
+          </p>
+          <p style={{ fontSize: "16px", marginBottom: "2rem" }}>
+            You are assured to pass your exam-for free
+          </p>
+
+          <div className=" container  justify-content-around  text-align-center">
+            {/* <a href="" className="py-1 px-3 mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>UNLIMITED ACCESS</a> */}
+            <a
+              href=""
+              className=" mt-1 button"
               style={{
-                fontWeight: "bolder",
-                marginBottom: "2rem",
+                borderColor: "var(--white)",
+                borderWidth: "1px",
+                borderStyle: "solid",
+                borderRadius: "1px",
               }}
             >
-              WELCOME TO CERTIFIED DUMP
-            </h1>
-            <h6 style={{ fontWeight: "bolder", marginBottom: "2rem" }}>
-              A COMMUNITY TO WHICH YOU CAN ASPIRE
-            </h6>
-            <p className="text-align-center mx-auto p-text" style={{ fontSize: "16px" }}>
-              You'll discover that none of the suppliers of real exam materials
-              are genuinely free when you search for them.
-
-              We made the decision to withhold all of that dreck and just
-              provide you with the most recent, accurate, and confirmed genuine
-              exam questions & answers. </p>
-            <p style={{ fontSize: "16px", marginBottom: "2rem" }}>You are assured to pass your exam-for free</p>
-
-
-            <div className=" container  justify-content-around  text-align-center">
-              {/* <a href="" className="py-1 px-3 mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>UNLIMITED ACCESS</a> */}
-              <a href="" className=" mt-1 button" style={{ borderColor: "var(--white)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>FIND YOUR EXAM NOW</a>
-            </div>
-
+              FIND YOUR EXAM NOW
+            </a>
           </div>
-        </section>
-    
-
-
-
+        </div>
+      </section>
 
       {/* section-two */}
       <section className="container section-two-main">
         <div>
-          <h5 className="mt-5" style={{ fontWeight: "bolder", color: "black" }}>Our Top Providers</h5>
+          <h5 className="mt-5" style={{ fontWeight: "bolder", color: "black" }}>
+            Our Top Providers
+          </h5>
           <p className="mb-5" style={{ fontSize: "16px" }}>
             Certified dump has one of the largest collection of professional
             certification and exam practice tests and online courses. Use <br />
-            our study materials to pass your examinations on the first try! Our goal is to see you succeed.
+            our study materials to pass your examinations on the first try! Our
+            goal is to see you succeed.
           </p>
         </div>
         <div className="container-fluid py-2">
-
-          
           <div className="d-flex flex-row flex-nowrap card-section">
             <div className="card card-body">
-              <div className="card-image" >
+              <div className="card-image">
                 <img src={cisco} alt="" />
               </div>
-              <div className="card-footer py-0" >
+              <div className="card-footer py-0">
                 <a href="/" className="card-text">
                   View more
                 </a>
               </div>
             </div>
             <div className="card card-body">
-              <div className="card-image" >
+              <div className="card-image">
                 <img src={salesforce} alt="" />
               </div>
-              <div className="card-footer py-0" >
+              <div className="card-footer py-0">
                 <a href="/" className="card-text">
                   View more
                 </a>
               </div>
             </div>
             <div className="card card-body">
-              <div className="card-image" >
+              <div className="card-image">
                 <img src={isaca} alt="" />
               </div>
-              <div className="card-footer py-0" >
+              <div className="card-footer py-0">
                 <a href="/" className="card-text">
                   View more
                 </a>
               </div>
             </div>
             <div className="card card-body">
-              <div className="card-image" >
+              <div className="card-image">
                 <img src={vmare} alt="" />
               </div>
-              <div className="card-footer py-0" >
+              <div className="card-footer py-0">
                 <a href="/" className="card-text">
                   View more
                 </a>
               </div>
             </div>
-
-
-
-
           </div>
           <div className="d-flex flex-row flex-nowrap card-section">
             <div className="card card-body">
-              <div className="card-image" >
+              <div className="card-image">
                 <img src={microsoft} alt="" />
               </div>
-              <div className="card-footer py-0" >
+              <div className="card-footer py-0">
                 <a href="/" className="card-text">
                   View more
                 </a>
               </div>
             </div>
             <div className="card card-body">
-              <div className="card-image" >
+              <div className="card-image">
                 <img src={salesforce} alt="" />
               </div>
-              <div className="card-footer py-0" >
+              <div className="card-footer py-0">
                 <a href="/" className="card-text">
                   View more
                 </a>
               </div>
             </div>
             <div className="card card-body">
-              <div className="card-image" >
+              <div className="card-image">
                 <img src={google} alt="" />
               </div>
-              <div className="card-footer py-0" >
+              <div className="card-footer py-0">
                 <a href="/" className="card-text">
                   View more
                 </a>
               </div>
             </div>
             <div className="card card-body">
-              <div className="card-image" >
+              <div className="card-image">
                 <img src={juniper} alt="" />
               </div>
-              <div className="card-footer py-0" >
+              <div className="card-footer py-0">
                 <a href="/" className="card-text">
                   View more
                 </a>
               </div>
             </div>
-
-
-
-
           </div>
           <div className="button">
-            <a href="providers" className=" px-4 py-1" style={{ color: "var(--tertiary-color)", borderColor: "var(--tertiary-color)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>VIEW ALL</a>
+            <a
+              href="providers"
+              className=" px-4 py-1"
+              style={{
+                color: "var(--tertiary-color)",
+                borderColor: "var(--tertiary-color)",
+                borderWidth: "1px",
+                borderStyle: "solid",
+                borderRadius: "1px",
+              }}
+            >
+              VIEW ALL
+            </a>
           </div>
         </div>
-
-
-
-
-      </section >
+      </section>
 
       {/* section-three */}
-      < section className="section-three-main" >
+      <section className="section-three-main">
         <div className="d-md-flex justify-content-between">
           <div className="image ">
             <img alt="" width="100%" src={study} />
           </div>
 
           <div className="text ">
-            <h4
-              className="text-start"
-
-            >
+            <h4 className="text-start">
               FREE AND REVISED ACTUAL EXAM SUPPLEMENTALS
             </h4>
             <hr className="section-three-main-line"></hr>
-            <p
-              className="text-start"
-
-            >
+            <p className="text-start">
               Certified dump gives you not only UNLIMITED but also FREE access
               to all actual exam questions and descripotive answers. While
               studying actual exam questions, you can also benefit from our
@@ -221,8 +224,7 @@ function Main() {
                 backgroundColor: "white",
                 fontSize: "14px",
                 borderRadius: "5px",
-                border: "none"
-               
+                border: "none",
               }}
             >
               Exam Code or Keyword
@@ -238,23 +240,16 @@ function Main() {
                 borderRadius: "5px",
                 color: "var(--green-500)",
                 paddingLeft: "2rem",
-                paddingRight: "2rem"
+                paddingRight: "2rem",
               }}
             >
               Search Exams
             </a>
           </div>
         </div>
-      </section >
+      </section>
 
       <Footer />
-
-
-
-
-
-
-
     </>
   );
 }
