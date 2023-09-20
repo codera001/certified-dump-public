@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import amazon from "../../static/amazon.png";
 import microsoft from "../../static/microsoft.png";
@@ -12,11 +12,32 @@ import study from "../../static/study.png";
 import { FaAngleDown } from "react-icons/fa";
 import "./Main.css";
 import Footer from "../../component/Footer/Footer";
+import Provider from "../../component/Provider";
+import axios from "axios";
+import loader from "../../static/loader.gif";
+
 function Main() {
+  const [providers, setProviders] = useState(null);
+  const GetProviders = async () => {
+    try {
+      const response = await axios.get(
+        "https://api.certifieddump.com/api-admin/getProviders"
+      );
+      // console.log(response);
+      // console.log(response.data.providers.slice(0, 5));
+      setProviders(response.data.providers.slice(0, 5));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    GetProviders();
+  }, []);
+
   return (
     <>
       <NavigationBar />
-      {/* <DashboardPage></DashboardPage> */}
       <section className="section-one-main">
         <div className="text my-auto" style={{}}>
           <h1
@@ -44,7 +65,6 @@ function Main() {
           </p>
 
           <div className=" container  justify-content-around  text-align-center">
-            {/* <a href="" className="py-1 px-3 mt-1  button" style={{ borderColor: "var(--green-500)", borderWidth: "1px", borderStyle: "solid", borderRadius: "1px" }}>UNLIMITED ACCESS</a> */}
             <a
               href=""
               className=" mt-1 button"
@@ -76,88 +96,15 @@ function Main() {
         </div>
         <div className="container-fluid py-2">
           <div className="d-flex flex-row flex-nowrap card-section">
-            <div className="card card-body">
-              <div className="card-image">
-                <img src={cisco} alt="" />
-              </div>
-              <div className="card-footer py-0">
-                <a href="/" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div className="card card-body">
-              <div className="card-image">
-                <img src={salesforce} alt="" />
-              </div>
-              <div className="card-footer py-0">
-                <a href="/" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div className="card card-body">
-              <div className="card-image">
-                <img src={isaca} alt="" />
-              </div>
-              <div className="card-footer py-0">
-                <a href="/" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div className="card card-body">
-              <div className="card-image">
-                <img src={vmare} alt="" />
-              </div>
-              <div className="card-footer py-0">
-                <a href="/" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="d-flex flex-row flex-nowrap card-section">
-            <div className="card card-body">
-              <div className="card-image">
-                <img src={microsoft} alt="" />
-              </div>
-              <div className="card-footer py-0">
-                <a href="/" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div className="card card-body">
-              <div className="card-image">
-                <img src={salesforce} alt="" />
-              </div>
-              <div className="card-footer py-0">
-                <a href="/" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div className="card card-body">
-              <div className="card-image">
-                <img src={google} alt="" />
-              </div>
-              <div className="card-footer py-0">
-                <a href="/" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
-            <div className="card card-body">
-              <div className="card-image">
-                <img src={juniper} alt="" />
-              </div>
-              <div className="card-footer py-0">
-                <a href="/" className="card-text">
-                  View more
-                </a>
-              </div>
-            </div>
+            {providers ? (
+              <>
+                {providers.map((item, i) => (
+                  <Provider key={i} item={item} i={i} />
+                ))}
+              </>
+            ) : (
+              <img src={loader} alt="loading gif" />
+            )}
           </div>
           <div className="button">
             <a
