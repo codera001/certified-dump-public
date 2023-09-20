@@ -10,7 +10,7 @@ const Provider = ({title, name, i, text }) => {
       </div>
       <h4>{title}</h4>
       <div className="card-footer py-0">
-        <Link to={`${name}`} className="card-text">
+        <Link to={`/provider/${name}`} className="card-text">
           {text}
         </Link>
       </div>

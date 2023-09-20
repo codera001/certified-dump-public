@@ -33,7 +33,7 @@ function Providers() {
         "https://api.certifieddump.com/api-admin/getProviders"
       );
       // console.log(response);
-      // console.log(response.data.providers.slice(0, 5));
+      console.log(response.data.providers.slice(0, 5));
       setAllProviders(response.data.providers);
     } catch (error) {
       console.log(error);

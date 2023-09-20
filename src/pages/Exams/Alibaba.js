@@ -7,16 +7,19 @@ import "./Exams.css";
 import Provider from "../../component/Provider";
 import axios from "axios";
 import loader from "../../static/loader.gif";
+import { useParams } from "react-router-dom";
 
 function Alibaba() {
   const [exams, setExams] = useState(null);
+  const { providerName } = useParams();
+
   const GetExams = async () => {
     try {
       const response = await axios.get(
         "https://api.certifieddump.com/api-admin/getExams"
       );
       // console.log(response);
-      console.log(response.data.exams);
+      // console.log(response.data.exams);
       setExams(response.data.exams);
     } catch (error) {
       console.log(error);
@@ -45,8 +48,9 @@ function Alibaba() {
         <div className="d-flex flex-row flex-nowrap exam-card-section">
           {exams ? (
             <>
+            {providerName}
               {exams.map((item, i) => (
-                <Provider key={i} title={item.title} i={i} text="Preview" />
+                <Provider key={i} title={item.title} name={item.name} i={i} text="Preview" />
               ))}
             </>
           ) : (

@@ -99,7 +99,7 @@ function Main() {
             {providers ? (
               <>
                 {providers.map((item, i) => (
-                  <Provider key={i} item={item} i={i} />
+                  <Provider key={i} name={item.name} i={i} text="View More" />
                 ))}
               </>
             ) : (
