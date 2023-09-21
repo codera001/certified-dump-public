@@ -63,7 +63,7 @@ const VerifyForgotPass = () => {
                 />
               </div>
               <button className="py-2" type="submit">
-                Get Reset link
+               Send
               </button>
             </form>
           </div>

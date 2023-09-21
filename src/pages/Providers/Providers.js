@@ -24,6 +24,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Provider from "../../component/Provider";
 import loader from "../../static/loader.gif";
+import { Link } from "react-router-dom";
 
 function Providers() {
   const [allProviders, setAllProviders] = useState(null);
@@ -50,18 +51,15 @@ function Providers() {
       <section className="container section-providers">
         <div className="d-flex justify-content-between">
           <div className="mt-5">
-            <a href="/" className="back" style={{ fontWeight: "bolder" }}>
+            <Link to="/" className="back" style={{ fontWeight: "bolder" }}>
               <TiArrowLeftThick
                 style={{ color: "black", marginRight: "0.5rem" }}
               ></TiArrowLeftThick>
               Back
-            </a>
+            </Link>
           </div>
           <div className="search-container ">
-            <input
-              placeholder="exam code or name"
-              type="search"
-            />
+            <input placeholder="exam code or name" type="search" />
             <AiOutlineSearch className="search-icon"></AiOutlineSearch>
           </div>
         </div>
@@ -71,12 +69,17 @@ function Providers() {
         >
           All Providers
         </h5>
-        <div class="container-fluid py-2 mb-5">
-          <div class="d-flex flex-row flex-nowrap card-section">
+        <div className="container-fluid py-2 mb-5">
+          <div className="d-flex flex-row flex-nowrap card-section">
             {allProviders ? (
               <>
                 {allProviders.map((item, i) => (
-                  <Provider key={i} name={item.name} i={i} text="View More" />
+                  <Provider
+                    key={i}
+                    providerName={`/provider/${item.name}`}
+                    i={i}
+                    text="View More"
+                  />
                 ))}
               </>
             ) : (

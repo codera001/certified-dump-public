@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Preview.css";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
@@ -8,19 +8,42 @@ import { TiArrowLeftThick } from "react-icons/ti";
 import { BsDot } from "react-icons/bs";
 import { HiShoppingCart } from "react-icons/hi";
 import axios from "axios";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function Preview() {
   const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
+  const navigate = useNavigate();
+  const { providerName, examName, bookId } = useParams();
+  const [book, setBook] = useState(null);
+  //  const { providerName, examName } = useParams();
+  const GetBook = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.certifieddump.com/api-admin/getBook/${bookId}`
+      );
+      console.log(response);
+      //  console.log(response.data.books);
+      //get all exams by the name of provider here
+      setBook(response.data.book);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  const BuyBook = async () => {
+  const BuyBook = async ({ bookId, price, title }) => {
     try {
       const response = await axios.post(
         "https://api.certifieddump.com/api-wallet/buyBook",
         {
-          userid: "1ada2fe1-2c5d-45d5-8352-06a0fe515447",
-          bookid: 1,
-          price: 19.99,
-          title: "buybook",
+          userid: sessionStorage.getItem("userId"),
+          bookid: bookId,
+          price: price,
+          title: title,
+          // userid: "1ada2fe1-2c5d-45d5-8352-06a0fe515447",
+          // bookid: 1,
+          // price: 19.99,
+          // title: "buybook",
         },
         {
           headers: {
@@ -33,6 +56,11 @@ function Preview() {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    GetBook();
+  }, []);
+
   return (
     <>
       <NavigationBar />
@@ -54,11 +82,19 @@ function Preview() {
       <div className="preview-header container-fluid">
         <div className="container">
           <h1>
-            <strong>ACA-Cloud1:</strong>ACA Cloud Computing Certification Exam
+            <strong>
+              {/* {book.exam} */}
+              ACA-Cloud1:
+            </strong>{" "}
+            {/* {book.title} */}
+            ACA Cloud Computing Certification Exam
           </h1>
-          <p style={{ fontWeight: "bolder" }}>Alibaba</p>
+          <p style={{ fontWeight: "bolder" }}>{/* {book.author} */}</p>
           <small style={{ fontWeight: "bolder" }}>
-            Pages 1, Published online:September 1, 2023{" "}
+            {/* {book.page_count} */}
+            Pages 1, Published online:
+            {/* {book.published_date} */}
+            September 1, 2023{" "}
           </small>
         </div>
       </div>
@@ -66,6 +102,7 @@ function Preview() {
       <div className="container preview-text mt-5">
         <h5>Abstract</h5>
         <p>
+          {/* {book.description} */}
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
           commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
           et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
@@ -143,9 +180,22 @@ function Preview() {
               Exam PDF can be printed
             </p>
             <div className="d-flex justify-content-between align-items-center">
-              <h6 style={{ fontSize: "14px" }}> USD 0.00</h6>
+              <h6 style={{ fontSize: "14px" }}>
+                {" "}
+                USD
+                {/* {book.price} */}
+                0.00
+              </h6>
               <button
                 // href="/"
+                onClick={() => {
+                  if (authToken) {
+                    BuyBook(book.id, book.price, book.title);
+                  } else {
+                    navigate("/login");
+                    toast.error("Please login to buy a book");
+                  }
+                }}
                 className="px-2 mb-1"
                 style={{
                   border: "1px solid var(--tertiary-color)",

@@ -7,11 +7,12 @@ import "./Exams.css";
 import Provider from "../../component/Provider";
 import axios from "axios";
 import loader from "../../static/loader.gif";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Alibaba() {
   const [exams, setExams] = useState(null);
   const { providerName } = useParams();
+  // console.log(providerName);
 
   const GetExams = async () => {
     try {
@@ -19,7 +20,8 @@ function Alibaba() {
         "https://api.certifieddump.com/api-admin/getExams"
       );
       // console.log(response);
-      // console.log(response.data.exams);
+      console.log(response.data.exams);
+      //get all exams by the name of provider here
       setExams(response.data.exams);
     } catch (error) {
       console.log(error);
@@ -34,10 +36,14 @@ function Alibaba() {
       <NavigationBar />
       <div className="navigate container">
         <div className="d-flex justify-content-between arrow-text mt-3">
-          <a href="/" className="back ms-2" style={{ fontWeight: "bolder" }}>
+          <Link
+            to="/providers"
+            className="back ms-2"
+            style={{ fontWeight: "bolder" }}
+          >
             <TiArrowLeftThick style={{ color: "black" }}></TiArrowLeftThick>Back
-          </a>
-          <h6 className="ms-2"> All Alibaba Exams</h6>
+          </Link>
+          <h6 className="ms-2"> All {providerName} Exams</h6>
         </div>
         <div className="search-container mb-5">
           <input placeholder="exam code or name" type="search" />
@@ -48,9 +54,15 @@ function Alibaba() {
         <div className="d-flex flex-row flex-nowrap exam-card-section">
           {exams ? (
             <>
-            {providerName}
+              {providerName} Exams
               {exams.map((item, i) => (
-                <Provider key={i} title={item.title} name={item.name} i={i} text="Preview" />
+                <Provider
+                  key={i}
+                  title={item.title}
+                  providerName={`/provider/${providerName}/${item.title}`}
+                  i={i}
+                  text="View Books"
+                />
               ))}
             </>
           ) : (
