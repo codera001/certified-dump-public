@@ -8,63 +8,67 @@ import { FaUser } from "react-icons/fa";
 import "./NavigationBar.css";
 import logo from "../../static/logo.png";
 import instagram from "../../static/instagram.png";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function NavigationBar() {
+  const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
+
   return (
     <>
       {/*first nav  */}
       <div className="container-fluid first-nav">
         <div className="container d-flex justify-content-between  nav">
           <div className="d-flex my-0 item-head">
-      
             <a href="#home" className=" text-white brand ">
-            <AiFillHome color="orange" className="brand-icon  me-1" />
+              <AiFillHome color="orange" className="brand-icon  me-1" />
               Welcome to Certified Dump
             </a>
           </div>
-        
-         <a href="/login"> <FaUser className="user-auth"></FaUser></a>
+
+          {/* <a href="/login"> <FaUser className="user-auth"></FaUser></a> */}
           <div className=" item-list">
-            <a
-              href="login"
-              className=" nav-list "
-            >
-              Login
-            </a>
-            <a
-              // eventKey={2}
-              href="#memes"
-              className=" nav-list  border-left"
-            ></a>
-            <a
-              href="signup"
-              className=" nav-list  "
-            >
-              Sign up
-            </a>
+            {!authToken && (
+              <>
+                <a href="login" className=" nav-list ">
+                  Login
+                </a>
+                <a
+                  // eventKey={2}
+                  href="#memes"
+                  className=" nav-list  border-left"
+                ></a>
+                <a href="signup" className=" nav-list  ">
+                  Sign up
+                </a>
+              </>
+            )}
+            {authToken && (
+              <Link
+                to="/dashboard"
+                // style={{
+                //   color: "white",
+                // }}
+                className="to-dash"
+              >
+                Go back to dashboard
+              </Link>
+            )}
             <div className="icon">
               <RiFacebookFill color="blue" className="me-2" />
               <TbBrandTwitterFilled color="blue" />
-              <a >
-                <img
-                  src={instagram}
-                  className="icon image"
-                  alt="instagram"
-                />
+              <a>
+                <img src={instagram} className="icon image" alt="instagram" />
               </a>
             </div>
           </div>
-          
         </div>
       </div>
 
       {/* secon-nav */}
       <div className="container d-flex justify-content-between align-items-center mt-3 nav-logo">
         <div>
-          <img
-            alt="logo"
-            src={logo}
-          />
+          <img alt="logo" src={logo} />
         </div>
         <div className="d-flex ">
           <div className="mx-1">
@@ -85,7 +89,7 @@ function NavigationBar() {
             </h6>
             <span
               className="mt-0  mb-0 text-start"
-              style={{ color: " var(--tertiary-color)"}}
+              style={{ color: " var(--tertiary-color)" }}
             >
               hello@certifieddump.com
             </span>
@@ -106,16 +110,10 @@ function NavigationBar() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav className="me-auto text-center nav-items">
-              <Nav.Link
-                href="/"
-                className="nav-links"
-              >
+              <Nav.Link href="/" className="nav-links">
                 HOME
               </Nav.Link>
-              <Nav.Link
-                href="about"
-                className="nav-links "
-              >
+              <Nav.Link href="about" className="nav-links ">
                 ABOUT US
               </Nav.Link>
               <Nav.Link
@@ -124,18 +122,19 @@ function NavigationBar() {
               >
                 BLOG AREA
               </Nav.Link>
-              <Nav.Link
-                href="contact"
-                className="nav-links "
-              >
+              <Nav.Link href="contact" className="nav-links ">
                 CONTACT US
               </Nav.Link>
-              <Nav.Link href="login"  className="button">
-                 SIGN IN
-              </Nav.Link>
-              <Nav.Link href="signup"  className="button">
-                 JOIN NOW
-              </Nav.Link>
+              {!authToken && (
+                <>
+                  <Nav.Link href="login" className="button">
+                    SIGN IN
+                  </Nav.Link>
+                  <Nav.Link href="signup" className="button">
+                    JOIN NOW
+                  </Nav.Link>
+                </>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

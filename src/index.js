@@ -50,6 +50,7 @@ import ProtectedRoute from "./dashboard/ProtectedRoutes";
 import Payment from "./dashboard/payment/Payment";
 import VerifyForgotPass from "./pages/Verify/VerifyForgotPass";
 import Blog from "./pages/Blog/Blog";
+import VerifyPayment from "./dashboard/payment/Verify";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -63,7 +64,7 @@ const router = createBrowserRouter(
       <Route path="success" element={<Success />}></Route>
       <Route path="providers" element={<Providers />} />
       <Route path="about" element={<About />} />
-      <Route path="alibaba" element={<Alibaba />} />
+      <Route path="provider/:name" element={<Alibaba />} />
       <Route path="alibabaPreview" element={<Preview />} />
       <Route path="blockchain" element={<Blockchain />} />
       <Route path="cisco" element={<Cisco />} />
@@ -95,7 +96,9 @@ const router = createBrowserRouter(
         <Route path="library" element={<Library />} />
         <Route path="wallet" element={<Wallet />} />
         <Route path="payment" element={<Payment />} />
+        <Route path="payment-verification" element={<VerifyPayment />} />
         <Route path="support" element={<Support />} />
+        <Route path="chat/:ticketId" element={<Chat />} />
       </Route>
     </>
   )
