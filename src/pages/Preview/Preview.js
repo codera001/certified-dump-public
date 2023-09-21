@@ -191,9 +191,10 @@ function Preview() {
                 onClick={() => {
                   if (authToken) {
                     BuyBook(book.id, book.price, book.title);
+                  } else {
+                    navigate("/login");
+                    toast.error("Please login to buy a book");
                   }
-                  navigate("/login");
-                  toast.error("Please login to buy a book");
                 }}
                 className="px-2 mb-1"
                 style={{
