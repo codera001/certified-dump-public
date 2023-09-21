@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Preview.css";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
@@ -12,7 +12,22 @@ import { Link, useParams } from "react-router-dom";
 
 function Preview() {
   const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
-  const { providerName, examName } = useParams();
+  const { providerName, examName, bookId } = useParams();
+  const [book, setBook] = useState(null);
+  //  const { providerName, examName } = useParams();
+  const GetBook = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.certifieddump.com/api-admin/getBook/${bookId}`
+      );
+      console.log(response);
+      //  console.log(response.data.books);
+      //get all exams by the name of provider here
+      // setBook(response.data.book);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const BuyBook = async () => {
     try {
@@ -35,6 +50,11 @@ function Preview() {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    GetBook();
+  }, []);
+
   return (
     <>
       <NavigationBar />

@@ -22,7 +22,7 @@ function Blockchain() {
         "https://api.certifieddump.com/api-admin/getBooks"
       );
       // console.log(response);
-      //  console.log(response.data.exams);
+      //  console.log(response.data.books);
       //get all exams by the name of provider here
        setBooks(response.data.books);
     } catch (error) {
