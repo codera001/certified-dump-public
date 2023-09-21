@@ -8,9 +8,11 @@ import { TiArrowLeftThick } from "react-icons/ti";
 import { BsDot } from "react-icons/bs";
 import { HiShoppingCart } from "react-icons/hi";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 
 function Preview() {
   const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
+  const { providerName, examName } = useParams();
 
   const BuyBook = async () => {
     try {

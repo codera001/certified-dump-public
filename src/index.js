@@ -21,23 +21,6 @@ import About from "./pages/About/About";
 import Alibaba from "./pages/Exams/Alibaba";
 import Preview from "./pages/Preview/Preview";
 import Blockchain from "./pages/Exams/Blockchain";
-import Cisco from "./pages/Exams/Cisco";
-import Cloudera from "./pages/Exams/Cloudera";
-import EcCouncil from "./pages/Exams/EcCouncil";
-import Fortinet from "./pages/Exams/Fortinet";
-import Google from "./pages/Exams/Google";
-import Huawei from "./pages/Exams/Huawei";
-import Isaca from "./pages/Exams/Isaca";
-import Juniper from "./pages/Exams/Juniper";
-import Microsoft from "./pages/Exams/Microsoft";
-import Netapp from "./pages/Exams/Netapp";
-import Nokia from "./pages/Exams/Nokia";
-import Qlikview from "./pages/Exams/Qlikview";
-import Redhat from "./pages/Exams/Redhat";
-import Salesforce from "./pages/Exams/Salesforce";
-import Testprep from "./pages/Exams/Testprep";
-import Vmware from "./pages/Exams/Vmware";
-import Zend from "./pages/Exams/Zend";
 import Support from "./dashboard/support/Support";
 import Chat from "./dashboard/chats/Chat";
 import Contact from "./component/Contact/Contact";
@@ -64,26 +47,9 @@ const router = createBrowserRouter(
       <Route path="success" element={<Success />}></Route>
       <Route path="providers" element={<Providers />} />
       <Route path="about" element={<About />} />
-      <Route path="provider/:name" element={<Alibaba />} />
-      <Route path="alibabaPreview" element={<Preview />} />
-      <Route path="blockchain" element={<Blockchain />} />
-      <Route path="cisco" element={<Cisco />} />
-      <Route path="cloudera" element={<Cloudera />} />
-      <Route path="eccouncil" element={<EcCouncil />} />
-      <Route path="fortinet" element={<Fortinet />} />
-      <Route path="google" element={<Google />} />
-      <Route path="huawei" element={<Huawei />} />
-      <Route path="isaca" element={<Isaca />} />
-      <Route path="juniper" element={<Juniper />} />
-      <Route path="providers" element={<Microsoft />} />
-      <Route path="netapp" element={<Netapp />} />
-      <Route path="nokia" element={<Nokia />} />
-      <Route path="qlikview" element={<Qlikview />} />
-      <Route path="redhat" element={<Redhat />} />
-      <Route path="sakesforce" element={<Salesforce />} />
-      <Route path="testprep" element={<Testprep />} />
-      <Route path="vmware" element={<Vmware />} />
-      <Route path="zend" element={<Zend />} />
+      <Route path="provider/:providerName" element={<Alibaba />} />
+      <Route path="provider/:providerName/:examName" element={<Blockchain />} />
+      <Route path="provider/:providerName/:examName/:bookId" element={<Preview />} />
       <Route path="contact" element={<Contact />} />
       <Route path="apilog" element={<Apilog />} />
       <Route path="apisign" element={<Apisign />} />
