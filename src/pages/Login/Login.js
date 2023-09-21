@@ -12,6 +12,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { BsFacebook } from "react-icons/bs";
+import Google from "../../ApiTesting/GoogleLogin";
 
 function Login() {
   const navigate = useNavigate();
