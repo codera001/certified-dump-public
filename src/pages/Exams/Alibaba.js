@@ -13,6 +13,7 @@ function Alibaba() {
   const [exams, setExams] = useState(null);
   const { providerName } = useParams();
   // console.log(providerName);
+  const checkProvider = (name) => name.providerid == providerName;
 
   const GetExams = async () => {
     try {
@@ -50,12 +51,12 @@ function Alibaba() {
           <AiOutlineSearch className="search-icon"></AiOutlineSearch>
         </div>
       </div>
-      <div className="container-fluid py-2">
-        <div className="d-flex flex-row flex-nowrap exam-card-section">
-          {exams ? (
-            <>
-              {providerName} Exams
-              {exams.map((item, i) => (
+      <div style={{ textAlign: "center" }} className="container-fluid py-2">
+        {exams ? (
+          <>
+            <h3 style={{ textAlign: "center" }}>{providerName} Exams</h3>
+            <div className="d-flex flex-row flex-nowrap exam-card-section">
+              {exams.filter(checkProvider).map((item, i) => (
                 <Provider
                   key={i}
                   title={item.title}
@@ -64,11 +65,16 @@ function Alibaba() {
                   text="View Books"
                 />
               ))}
-            </>
-          ) : (
-            <img src={loader} alt="loading gif" />
-          )}
-        </div>
+            </div>
+            {exams.filter(checkProvider).length === 0 ? (
+              <div style={{ textAlign: "center" }}>No exams found</div>
+            ) : (
+              ""
+            )}
+          </>
+        ) : (
+          <img src={loader} alt="loading gif" />
+        )}
       </div>
       <Footer />
     </>

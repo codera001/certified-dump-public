@@ -7,6 +7,8 @@ import { PiCaretDownLight } from "react-icons/pi";
 import { MdOutlinePayment } from "react-icons/md";
 import { Outlet, Link } from "react-router-dom";
 import axios from "axios";
+// import { Button } from "react-bootstrap";
+import { Button } from "../Button/Button";
 
 const Nav = () => {
   const email = sessionStorage.getItem("userEmail");
@@ -54,6 +56,7 @@ const Nav = () => {
               <p>Get your e-books at your finger tips</p>
             </div>
           </div>
+          {/* <Button /> */}
           <div className="d-nav-balance">
             <div className="d-price">
               <p className="d-bal">Balance:</p>

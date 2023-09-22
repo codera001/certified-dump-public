@@ -10,6 +10,7 @@ import { HiShoppingCart } from "react-icons/hi";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
+import loader from "../../static/loader.gif";
 
 function Preview() {
   const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
@@ -23,15 +24,13 @@ function Preview() {
         `https://api.certifieddump.com/api-admin/getBook/${bookId}`
       );
       console.log(response);
-      //  console.log(response.data.books);
-      //get all exams by the name of provider here
       setBook(response.data.book);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const BuyBook = async ({ bookId, price, title }) => {
+  const BuyBook = async (bookId, price, title) => {
     try {
       const response = await axios.post(
         "https://api.certifieddump.com/api-wallet/buyBook",
@@ -40,10 +39,7 @@ function Preview() {
           bookid: bookId,
           price: price,
           title: title,
-          // userid: "1ada2fe1-2c5d-45d5-8352-06a0fe515447",
-          // bookid: 1,
-          // price: 19.99,
-          // title: "buybook",
+          type: "book",
         },
         {
           headers: {
@@ -54,6 +50,7 @@ function Preview() {
       console.log(response);
     } catch (error) {
       console.log(error);
+      toast.error(error.response.data.msg);
     }
   };
 
@@ -67,10 +64,10 @@ function Preview() {
       <div className="d-flex justify-content-between">
         <div className="navigate container">
           <div className="d-flex justify-content-between arrow-text">
-            <a href="/" className="back ms-2" style={{ fontWeight: "bolder" }}>
+            <Link to="/" className="back ms-2" style={{ fontWeight: "bolder" }}>
               <TiArrowLeftThick style={{ color: "black" }}></TiArrowLeftThick>
               Back
-            </a>
+            </Link>
           </div>
           <div className="search-container mb-5">
             <input placeholder="exam code or name" type="search" className="" />
@@ -78,144 +75,127 @@ function Preview() {
           </div>
         </div>
       </div>
-
-      <div className="preview-header container-fluid">
-        <div className="container">
-          <h1>
-            <strong>
-              {/* {book.exam} */}
-              ACA-Cloud1:
-            </strong>{" "}
-            {/* {book.title} */}
-            ACA Cloud Computing Certification Exam
-          </h1>
-          <p style={{ fontWeight: "bolder" }}>{/* {book.author} */}</p>
-          <small style={{ fontWeight: "bolder" }}>
-            {/* {book.page_count} */}
-            Pages 1, Published online:
-            {/* {book.published_date} */}
-            September 1, 2023{" "}
-          </small>
-        </div>
-      </div>
-
-      <div className="container preview-text mt-5">
-        <h5>Abstract</h5>
-        <p>
-          {/* {book.description} */}
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-          consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
-          nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
-          venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-          Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean
-          vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat
-          vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra
-          quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius
-          laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
-          augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam
-          rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam
-          semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
-          blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio
-          et ante tincidunt tempus. Donec vitae sapien ut libero venenatis
-          faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus
-          tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales
-          sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit
-          cursus nunc,
-        </p>
-      </div>
-      <div className="container preview-keyword">
-        <div className="d-flex">
-          <AiOutlineSearch
-            className="me-2"
-            style={{ fontWeight: "bolder", fontSize: "18px" }}
-          ></AiOutlineSearch>
-          <p style={{ fontWeight: "bolder" }}>Keywords: </p>
-        </div>
-        <div className="keyword ms-2">
-          <a href="/">Keyword</a>
-          <a href="/">Keyword</a>
-          <a href="/">Keyword</a>
-          <a href="/">Keyword</a>
-        </div>
-      </div>
-
-      <div className="preview-auth-buy container">
-        {!authToken && (
-          <div className="preview-auth">
-            <Link to="/login" className="d-flex py-3">
-              <AiOutlineLogin
-                style={{ fontSize: "25px", marginRight: "1rem" }}
-              ></AiOutlineLogin>
-              <h6 className="mt-2"> Login</h6>
-            </Link>
-            <hr className="preview-line" />
-            <Link to="/signup" className="d-flex py-3">
-              <TbEditCircle
-                style={{ fontSize: "25px", marginRight: "1rem" }}
-              ></TbEditCircle>
-              <h6 className="mt-2"> Create an account</h6>
-            </Link>
-          </div>
-        )}
-        <div className="preview-purchase">
-          <h5 className="ps-2 mt-2">Buy exam</h5>
-          <div className="preview-purchase-text mx-2 my-2 px-2">
-            <h6 className="mt-2 mb-0" style={{ fontSize: "14px" }}>
-              {" "}
-              PDF download + Online access
-            </h6>
-            <p>
-              <BsDot style={{ fontSize: "25px" }} />
-              Lifetime access to exam PDF & online version
-            </p>
-            <p>
-              <BsDot style={{ fontSize: "25px" }} />
-              Exam PDF can be downloaded
-            </p>
-            <p>
-              <BsDot style={{ fontSize: "25px" }} />
-              Exam PDF can be printed
-            </p>
-            <div className="d-flex justify-content-between align-items-center">
-              <h6 style={{ fontSize: "14px" }}>
-                {" "}
-                USD
-                {/* {book.price} */}
-                0.00
-              </h6>
-              <button
-                // href="/"
-                onClick={() => {
-                  if (authToken) {
-                    BuyBook(book.id, book.price, book.title);
-                  } else {
-                    navigate("/login");
-                    toast.error("Please login to buy a book");
-                  }
-                }}
-                className="px-2 mb-1"
-                style={{
-                  border: "1px solid var(--tertiary-color)",
-                  background: "none",
-                }}
-              >
-                <HiShoppingCart
-                  style={{ color: "var(--tertiary-color", fontSize: "15px" }}
-                ></HiShoppingCart>
-                <small
-                  className="ms-2"
-                  style={{ color: "var(--tertiary-color" }}
-                >
-                  Buy Exam
-                </small>
-              </button>
+      {book ? (
+        <>
+          <div className="preview-header container-fluid">
+            <div className="container">
+              <h1>
+                <strong>
+                  {book.exam || ""}
+                  ACA-Cloud1:
+                </strong>
+                {book.title}
+              </h1>
+              <p style={{ fontWeight: "bolder" }}>{/* {book.author} */}</p>
+              <small style={{ fontWeight: "bolder" }}>
+                {book.page_count || ""}
+                Pages 1, Published online:
+                {book.published_date || ""}
+                September 1, 2023
+              </small>
             </div>
           </div>
-        </div>
-      </div>
+
+          <div className="container preview-text mt-5">
+            <h5>Abstract</h5>
+            <p>{book.description}</p>
+          </div>
+          <div className="container preview-keyword">
+            <div className="d-flex">
+              <AiOutlineSearch
+                className="me-2"
+                style={{ fontWeight: "bolder", fontSize: "18px" }}
+              ></AiOutlineSearch>
+              <p style={{ fontWeight: "bolder" }}>Keywords: </p>
+            </div>
+            <div className="keyword ms-2">
+              <a href="/">Keyword</a>
+              <a href="/">Keyword</a>
+              <a href="/">Keyword</a>
+              <a href="/">Keyword</a>
+            </div>
+          </div>
+
+          <div className="preview-auth-buy container">
+            {!authToken && (
+              <div className="preview-auth">
+                <Link to="/login" className="d-flex py-3">
+                  <AiOutlineLogin
+                    style={{ fontSize: "25px", marginRight: "1rem" }}
+                  ></AiOutlineLogin>
+                  <h6 className="mt-2"> Login</h6>
+                </Link>
+                <hr className="preview-line" />
+                <Link to="/signup" className="d-flex py-3">
+                  <TbEditCircle
+                    style={{ fontSize: "25px", marginRight: "1rem" }}
+                  ></TbEditCircle>
+                  <h6 className="mt-2"> Create an account</h6>
+                </Link>
+              </div>
+            )}
+            <div className="preview-purchase">
+              <h5 className="ps-2 mt-2">Buy exam</h5>
+              <div className="preview-purchase-text mx-2 my-2 px-2">
+                <h6 className="mt-2 mb-0" style={{ fontSize: "14px" }}>
+                  PDF download + Online access
+                </h6>
+                <p>
+                  <BsDot style={{ fontSize: "25px" }} />
+                  Lifetime access to exam PDF & online version
+                </p>
+                <p>
+                  <BsDot style={{ fontSize: "25px" }} />
+                  Exam PDF can be downloaded
+                </p>
+                <p>
+                  <BsDot style={{ fontSize: "25px" }} />
+                  Exam PDF can be printed
+                </p>
+                <div className="d-flex justify-content-between align-items-center">
+                  <h6 style={{ fontSize: "14px" }}>
+                    USD
+                    {book.price}
+                  </h6>
+                  <button
+                    onClick={() => {
+                      if (authToken) {
+                        BuyBook(book.id, Number(book.price), book.title);
+                      } else {
+                        navigate("/login");
+                        toast.error("Please login to buy a book");
+                      }
+                    }}
+                    className="px-2 mb-1"
+                    style={{
+                      border: "1px solid var(--tertiary-color)",
+                      background: "none",
+                    }}
+                  >
+                    <HiShoppingCart
+                      style={{
+                        color: "var(--tertiary-color)",
+                        fontSize: "15px",
+                      }}
+                    ></HiShoppingCart>
+                    <small
+                      className="ms-2"
+                      style={{
+                        color: "var(--black)",
+                      }}
+                    >
+                      Buy Exam
+                    </small>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <img src={loader} alt="loading gif" />
+      )}
+
       <PageFooter />
     </>
   );

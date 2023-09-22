@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 function ForgotPass() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
-    username: "",
+  
     email: "",
   });
 
@@ -29,7 +29,7 @@ function ForgotPass() {
         userData
       );
       // console.log("Email verification Successful:", response);
-      // console.log(userData);
+      console.log(userData);
       navigate("/verify-account");
       toast.success(response.data.msg);
     } catch (error) {
@@ -50,14 +50,14 @@ function ForgotPass() {
           <div className="confirmpass-text">
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <input
+                {/* <input
                   type="text"
                   placeholder="Enter your username"
                   name="username"
                   value={userData.username}
                   onChange={handleChange}
                   required
-                />
+                /> */}
                 <input
                   type="email"
                   placeholder="Enter your email address"

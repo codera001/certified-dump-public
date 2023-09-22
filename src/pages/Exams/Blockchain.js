@@ -16,13 +16,14 @@ import loader from "../../static/loader.gif";
 function Blockchain() {
   const [books, setBooks] = useState(null);
   const { providerName, examName } = useParams();
+  const checkProvider = (name) => name.providerid == providerName;
   const GetBooks = async () => {
     try {
       const response = await axios.get(
         "https://api.certifieddump.com/api-admin/getBooks"
       );
       // console.log(response);
-      //  console.log(response.data.books);
+       console.log(response.data.books);
       //get all exams by the name of provider here
        setBooks(response.data.books);
     } catch (error) {
@@ -54,7 +55,7 @@ function Blockchain() {
           {books ? (
             <>
             {providerName} {examName} Books
-              {books.map((item, i) => (
+              {books.filter(checkProvider).map((item, i) => (
                 <Provider
                   key={i}
                   title={item.title}
