@@ -5,29 +5,31 @@ import PageFooter from "../../component/PageFooter/PageFooter";
 import "./Verify.css";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const VerifyForgotPass = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const resetPassword = async ({ code, password, confirmPassword }) => {
+  const resetPassword = async ({ code, password }) => {
     try {
       const response = await axios.post(
         `https://api.certifieddump.com/api/verify-forgot-password`,
         {
           code: code,
-          password: password,
-          confirmPassword: confirmPassword,
+          newpass: password,
         }
       );
-      console.log("Verification Successful:", response);
-      // console.log(userData);
-      // toast.success(response.data.msg);
+      // console.log("Verification Successful:", response);
+      toast.success(response.data.msg);
+      navigate("/success")
     } catch (error) {
-      console.log("verification error:", error);
+      toast.error(response.data.msg)
+      // console.log("verification error:", error);
     }
   };
 
@@ -54,16 +56,16 @@ const VerifyForgotPass = () => {
                     required: true,
                   })}
                 />
-                <input
+                {/* <input
                   type="password"
                   placeholder="Confirm your new password"
                   {...register("confirmPassword", {
                     required: true,
                   })}
-                />
+                /> */}
               </div>
               <button className="py-2" type="submit">
-               Send
+                Send
               </button>
             </form>
           </div>

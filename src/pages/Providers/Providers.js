@@ -78,6 +78,7 @@ function Providers() {
                     key={i}
                     providerName={`/provider/${item.name}`}
                     i={i}
+                    title={item.name}
                     text="View More"
                   />
                 ))}

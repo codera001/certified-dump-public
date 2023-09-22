@@ -10,14 +10,10 @@ import toast from "react-hot-toast";
 function VerifyEmail() {
   const navigate = useNavigate();
   const [pin, setPin] = useState("");
-  // const [input, setInput] = useState("");
   const [hidden, setHidden] = useState(false);
   const handleChange = (e) => {
     setPin(e.target.value);
   };
-  // const inputChange = (e) => {
-  //   setInput(e.target.value);
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +25,7 @@ function VerifyEmail() {
       toast.success(response.data.msg);
       navigate("/success");
     } catch (error) {
-      console.log("verification error:", error.response.data.msg);
+      // console.log("verification error:", error.response.data.msg);
     }
   };
 
