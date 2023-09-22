@@ -24,8 +24,8 @@ import Blockchain from "./pages/Exams/Blockchain";
 import Support from "./dashboard/support/Support";
 import Chat from "./dashboard/chats/Chat";
 import Contact from "./component/Contact/Contact";
-import Apilog from "./ApiTesting/Apilog";
-import Apisign from "./ApiTesting/Apisign";
+// import Apilog from "./ApiTesting/Apilog";
+// import Apisign from "./ApiTesting/Apisign";
 import Verify from "./ApiTesting/Verify";
 import PassReset from "./ApiTesting/PassReset";
 import { Toaster } from "react-hot-toast";
@@ -51,8 +51,8 @@ const router = createBrowserRouter(
       <Route path="provider/:providerName/:examName" element={<Blockchain />} />
       <Route path="provider/:providerName/:examName/:bookId" element={<Preview />} />
       <Route path="contact" element={<Contact />} />
-      <Route path="apilog" element={<Apilog />} />
-      <Route path="apisign" element={<Apisign />} />
+      {/* <Route path="apilog" element={<Apilog />} /> */}
+      {/* <Route path="apisign" element={<Apisign />} /> */}
       <Route path="confirm-email" element={<Verify />} />
       <Route path="reset-password" element={<PassReset />} />
       <Route path="blogarea" element={<Blog />} />

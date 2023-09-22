@@ -30,29 +30,35 @@ function NavigationBar() {
           <div className=" item-list">
             {!authToken && (
               <>
-                <a href="login" className=" nav-list ">
+                <Link to="/login" className=" nav-list ">
                   Login
-                </a>
+                </Link>
                 <a
                   // eventKey={2}
                   href="#memes"
                   className=" nav-list  border-left"
                 ></a>
-                <a href="signup" className=" nav-list  ">
+                <Link to="/signup" className=" nav-list  ">
                   Sign up
-                </a>
+                </Link>
               </>
             )}
             {authToken && (
-              <Link
-                to="/dashboard"
-                // style={{
-                //   color: "white",
-                // }}
-                className="to-dash"
-              >
-                Go back to dashboard
-              </Link>
+              <>
+                <Link to="/dashboard" className="to-dash">
+                  Go back to dashboard
+                </Link>
+                <p
+                  style={{
+                    color: "white",
+                    fontWeight: "bolder",
+                    display: "flex",
+                    alignItems: "center"
+                  }}
+                >
+                  Balance: <span>{sessionStorage.getItem("balance")}</span>
+                </p>
+              </>
             )}
             <div className="icon">
               <RiFacebookFill color="blue" className="me-2" />
@@ -116,10 +122,7 @@ function NavigationBar() {
               <Nav.Link href="about" className="nav-links ">
                 ABOUT US
               </Nav.Link>
-              <Nav.Link
-                href="blogarea"
-                className="nav-links "
-              >
+              <Nav.Link href="blogarea" className="nav-links ">
                 BLOG AREA
               </Nav.Link>
               <Nav.Link href="contact" className="nav-links ">
