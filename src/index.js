@@ -55,7 +55,7 @@ const router = createBrowserRouter(
       {/* <Route path="apisign" element={<Apisign />} /> */}
       <Route path="confirm-email" element={<Verify />} />
       <Route path="reset-password" element={<PassReset />} />
-      <Route path="blogarea" element={<Blog />} />
+      <Route path="blog" element={<Blog />} />
       <Route element={<ProtectedRoute />}>
         <Route path="dashboard" element={<Overview />} />
         <Route path="profile" element={<Profile />} />

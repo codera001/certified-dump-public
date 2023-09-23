@@ -1,14 +1,12 @@
 import React from "react";
 import NavigationBar from "../Navigation bar/NavigationBar";
 import Footer from "../Footer/Footer";
-import "./contact.css"
-
+import "./contact.css";
+import PublicLayout from "../PublicLayout";
 
 const Contact = () => {
   return (
-    <div>
-      <NavigationBar />
-
+    <PublicLayout>
       <div className="contact-address">
         <form action="">
           <h1>Contact Details</h1>
@@ -26,13 +24,12 @@ const Contact = () => {
           width="600"
           height="450"
           style={{ border: 0 }}
-          allowfullscreen=""
+          allowFullScreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      <Footer />
-    </div>
+    </PublicLayout>
   );
 };
 

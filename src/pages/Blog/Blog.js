@@ -6,10 +6,11 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import image from "../../static/image.png";
 import "./Blog.css";
+import PublicLayout from "../../component/PublicLayout";
+import { Link } from "react-router-dom";
 function Blog() {
   return (
-    <>
-      <NavigationBar/>
+    <PublicLayout>
       <section className="blog-area mt-5 mb-5">
         <div className="left-blog-area">
           <div className="blog-image-text mb-3">
@@ -19,14 +20,13 @@ function Blog() {
             <div className="blog-text">
               <p className="blog-text-head">Category</p>
               <h6 style={{ fontWeight: "bolder" }}>
-                {" "}
                 Lorem ipsum dolor sit amet, consecteteur adipiscing elit
               </h6>
               <p style={{ fontSize: "14px" }}>
                 Aenan massa, Cum solicis natoquo <br /> mus....
-                <a href="/" style={{ color: "var(--tertiary-color)" }}>
+                <Link to="/blog" style={{ color: "var(--tertiary-color)" }}>
                   Read More
-                </a>
+                </Link>
               </p>
               <div className="blog-social-icons">
                 <div className="blog-social-icon me-2">
@@ -46,7 +46,6 @@ function Blog() {
 
                 <div className="span-user-text">
                   <span className="" style={{ fontSize: "14px" }}>
-                    {" "}
                     Author
                   </span>
                   <span className="d-block">Mon Sept 11 2023</span>
@@ -55,7 +54,7 @@ function Blog() {
             </div>
           </div>
 
-          <hr/>
+          <hr />
           <div className="blog-image-text mb-2">
             <div className="blog-image">
               <img src={image}></img>
@@ -63,14 +62,13 @@ function Blog() {
             <div className="blog-text">
               <p className="blog-text-head">Category</p>
               <h6 style={{ fontWeight: "bolder" }}>
-                {" "}
                 Lorem ipsum dolor sit amet, consecteteur adipiscing elit
               </h6>
               <p style={{ fontSize: "14px" }}>
                 Aenan massa, Cum solicis natoquo <br /> mus....
-                <a href="/" style={{ color: "var(--tertiary-color)" }}>
+                <Link to="/blog" style={{ color: "var(--tertiary-color)" }}>
                   Read More
-                </a>
+                </Link>
               </p>
               <div className="blog-social-icons">
                 <div className="blog-social-icon me-2">
@@ -90,7 +88,6 @@ function Blog() {
 
                 <div className="span-user-text">
                   <span className="" style={{ fontSize: "14px" }}>
-                    {" "}
                     Author
                   </span>
                   <span className="d-block">Mon Sept 11 2023</span>
@@ -99,7 +96,7 @@ function Blog() {
             </div>
           </div>
 
-          <hr/>
+          <hr />
           <div className="blog-image-text">
             <div className="blog-image">
               <img src={image}></img>
@@ -107,14 +104,13 @@ function Blog() {
             <div className="blog-text">
               <p className="blog-text-head">Category</p>
               <h6 style={{ fontWeight: "bolder" }}>
-                {" "}
                 Lorem ipsum dolor sit amet, consecteteur adipiscing elit
               </h6>
               <p style={{ fontSize: "14px" }}>
                 Aenan massa, Cum solicis natoquo <br /> mus....
-                <a href="/" style={{ color: "var(--tertiary-color)" }}>
+                <Link to="/blog" style={{ color: "var(--tertiary-color)" }}>
                   Read More
-                </a>
+                </Link>
               </p>
               <div className="blog-social-icons">
                 <div className="blog-social-icon me-2">
@@ -134,7 +130,6 @@ function Blog() {
 
                 <div className="span-user-text">
                   <span className="" style={{ fontSize: "14px" }}>
-                    {" "}
                     Author
                   </span>
                   <span className="d-block">Mon Sept 11 2023</span>
@@ -151,49 +146,42 @@ function Blog() {
             <div>
               <p className="side-post-date  mb-0"> Mon Sept 11 2023</p>
               <span className="side-post-span d-block ">
-                {" "}
                 Lorem ipsum dolor sit amet
               </span>
             </div>
-            <hr/>
+            <hr />
             <div>
               <p className="side-post-date  mb-0"> Mon Sept 11 2023</p>
               <span className="side-post-span d-block ">
-                {" "}
                 Lorem ipsum dolor sit amet
               </span>
             </div>
-            <hr/>
+            <hr />
             <div>
               <p className="side-post-date  mb-0"> Mon Sept 11 2023</p>
               <span className="side-post-span d-block ">
-                {" "}
                 Lorem ipsum dolor sit amet
               </span>
             </div>
-            <hr/>
+            <hr />
             <div>
               <p className="side-post-date  mb-0"> Mon Sept 11 2023</p>
               <span className="side-post-span d-block ">
-                {" "}
                 Lorem ipsum dolor sit amet
               </span>
             </div>
-            <hr/>
+            <hr />
             <div>
               <p className="side-post-date  mb-0"> Mon Sept 11 2023</p>
               <span className="side-post-span d-block ">
-                {" "}
                 Lorem ipsum dolor sit amet
               </span>
             </div>
-            <hr/>
+            <hr />
           </div>
         </div>
       </section>
-
-      <PageFooter />
-    </>
+    </PublicLayout>
   );
 }
 

@@ -26,18 +26,13 @@ function NavigationBar() {
             </a>
           </div>
 
-          {/* <a href="/login"> <FaUser className="user-auth"></FaUser></a> */}
           <div className=" item-list">
             {!authToken && (
               <>
                 <Link to="/login" className=" nav-list ">
                   Login
                 </Link>
-                <a
-                  // eventKey={2}
-                  href="#memes"
-                  className=" nav-list  border-left"
-                ></a>
+                <Link to="/" className=" nav-list  border-left"></Link>
                 <Link to="/signup" className=" nav-list  ">
                   Sign up
                 </Link>
@@ -53,7 +48,7 @@ function NavigationBar() {
                     color: "white",
                     fontWeight: "bolder",
                     display: "flex",
-                    alignItems: "center"
+                    alignItems: "center",
                   }}
                 >
                   Balance: <span>{sessionStorage.getItem("balance")}</span>
@@ -106,7 +101,7 @@ function NavigationBar() {
       <Navbar
         collapseOnSelect
         expand="lg"
-        className="second-nav mx-0 nav-toogle  my-0 "
+        className="second-nav mx-0 nav-toogle my-0 "
       >
         <Container fluid>
           <Navbar.Toggle
@@ -116,111 +111,32 @@ function NavigationBar() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav className="me-auto text-center nav-items">
-              <Nav.Link href="/" className="nav-links">
+              <Link to="/" className="nav-links">
                 HOME
-              </Nav.Link>
-              <Nav.Link href="about" className="nav-links ">
+              </Link>
+              <Link to="/about" className="nav-links ">
                 ABOUT US
-              </Nav.Link>
-              <Nav.Link href="blogarea" className="nav-links ">
+              </Link>
+              <Link to="/blog" className="nav-links ">
                 BLOG AREA
-              </Nav.Link>
-              <Nav.Link href="contact" className="nav-links ">
+              </Link>
+              <Link to="/contact" className="nav-links ">
                 CONTACT US
-              </Nav.Link>
+              </Link>
               {!authToken && (
                 <>
-                  <Nav.Link href="login" className="button">
+                  <Link to="/login" className="button">
                     SIGN IN
-                  </Nav.Link>
-                  <Nav.Link href="signup" className="button">
+                  </Link>
+                  <Link to="/signup" className="button">
                     JOIN NOW
-                  </Nav.Link>
+                  </Link>
                 </>
               )}
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
-      {/* {['md'].map((expand) => ( */}
-      {/* <Navbar key={expand} expand={expand} className="second-nav">
-           <Container>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}  className="nav-toogle"/>
-            <Navbar.Offcanvas
-              id={`offcanvasNavbar-expand-${expand}`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-              placement="end"
-            >
-              <Offcanvas.Header closeButton>
-                {/* <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Offcanvas
-                </Offcanvas.Title> */}
-      {/* </Offcanvas.Header>
-              <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Nav className="me-auto">
-          
-          </Nav>
-          <Nav className="me-auto text-center">
-            <Nav.Link
-              href="#features"
-              style={{
-                fontWeight: "bolder",
-                fontSize: "18px",
-                color: "black",
-                marginRight: "2rem",
-              }}
-            >
-              HOME
-            </Nav.Link>
-            <Nav.Link
-              href="#pricing"
-              style={{
-                fontWeight: "bolder",
-                fontSize: "18px",
-                color: "black",
-                marginRight: "2rem",
-              }}
-            >
-              ABOUT US
-            </Nav.Link>
-            <Nav.Link
-              href="#pricing"
-              style={{
-                fontWeight: "bolder",
-                fontSize: "18px",
-                color: "black",
-                marginRight: "2rem",
-              }}
-            >
-              BLOG AREA
-            </Nav.Link>
-            <Nav.Link
-              href="#pricing"
-              style={{
-                fontWeight: "bolder",
-                fontSize: "18px",
-                color: "black",
-                marginRight: "2rem",
-              }}
-            >
-              CONTACT US
-            </Nav.Link>
-            <Nav.Link href="#pricing">
-              <button className="button-one">SIGN IN</button>
-            </Nav.Link>
-            <Nav.Link href="#pricing">
-              <button className="button-two">JOIN NOW</button>
-            </Nav.Link>
-          </Nav>    
-                </Nav>
-
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
-        </Navbar> */}
-      {/* ))} */}
     </>
   );
 }

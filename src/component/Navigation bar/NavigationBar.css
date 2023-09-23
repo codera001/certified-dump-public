@@ -1,23 +1,9 @@
-/* 
-a{
-  color: white;
-  text-decoration: none;
-} */
-
-/* .a:hover {
-  color: blue;
-  background-color: aqua;
-} */
-
-/* first-nav */
-
 .first-nav {
   background-color: var(--black);
   margin-top: 0;
   padding: 0.5rem 0;
 }
 .first-nav a {
-  /* color: rgba(255, 255, 255, 0.623); */
   color: white;
 }
 
@@ -60,7 +46,6 @@ a{
 }
 .nav-logo img {
   width: 280px;
-  /* height: 140px; */
 }
 
 .nav-logo .mail-icon {
@@ -159,8 +144,6 @@ a{
     font-size: 11px;
   }
   .second-nav.nav-toogle {
-    /* top:-140px;
-       right: 10px;  */
     width: 100%;
     border: none;
     margin: 0;
