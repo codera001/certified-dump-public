@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./Preview.css";
-import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import PageFooter from "../../component/PageFooter/PageFooter";
 import { AiOutlineLogin, AiOutlineSearch } from "react-icons/ai";
 import { TbEditCircle } from "react-icons/tb";
 import { TiArrowLeftThick } from "react-icons/ti";
@@ -11,6 +9,8 @@ import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import loader from "../../static/loader.gif";
+import SearchBar from "../../component/SearchBar";
+import PublicLayout from "../../component/PublicLayout";
 
 function Preview() {
   const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
@@ -23,7 +23,7 @@ function Preview() {
       const response = await axios.get(
         `https://api.certifieddump.com/api-admin/getBook/${bookId}`
       );
-      console.log(response);
+      // console.log(response);
       setBook(response.data.book);
     } catch (error) {
       console.log(error);
@@ -59,20 +59,20 @@ function Preview() {
   }, []);
 
   return (
-    <>
-      <NavigationBar />
+    <PublicLayout>
       <div className="d-flex justify-content-between">
         <div className="navigate container">
           <div className="d-flex justify-content-between arrow-text">
-            <Link to="/" className="back ms-2" style={{ fontWeight: "bolder" }}>
+            <Link
+              to={`/provider/${providerName}/${examName}`}
+              className="back ms-2"
+              style={{ fontWeight: "bolder" }}
+            >
               <TiArrowLeftThick style={{ color: "black" }}></TiArrowLeftThick>
               Back
             </Link>
           </div>
-          <div className="search-container mb-5">
-            <input placeholder="exam code or name" type="search" className="" />
-            <AiOutlineSearch className="search-icon"></AiOutlineSearch>
-          </div>
+          <SearchBar text="Exam Code or Name" />
         </div>
       </div>
       {book ? (
@@ -109,10 +109,10 @@ function Preview() {
               <p style={{ fontWeight: "bolder" }}>Keywords: </p>
             </div>
             <div className="keyword ms-2">
-              <a href="/">Keyword</a>
-              <a href="/">Keyword</a>
-              <a href="/">Keyword</a>
-              <a href="/">Keyword</a>
+              <Link to="/">Keyword</Link>
+              <Link to="/">Keyword</Link>
+              <Link to="/">Keyword</Link>
+              <Link to="/">Keyword</Link>
             </div>
           </div>
 
@@ -162,6 +162,10 @@ function Preview() {
                       if (authToken) {
                         BuyBook(book.id, Number(book.price), book.title);
                       } else {
+                        localStorage.setItem(
+                          "bookRoute",
+                          `/provider/${providerName}/${examName}/${bookId}`
+                        );
                         navigate("/login");
                         toast.error("Please login to buy a book");
                       }
@@ -195,9 +199,7 @@ function Preview() {
       ) : (
         <img src={loader} alt="loading gif" />
       )}
-
-      <PageFooter />
-    </>
+    </PublicLayout>
   );
 }
 

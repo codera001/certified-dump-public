@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { AiOutlineSearch } from "react-icons/ai";
 
-const SearchBar = () => {
+const SearchBar = ({ text }) => {
   return (
-    <div>SearchBar</div>
-  )
-}
+    <div className="search-container mb-5">
+      <input placeholder={text} type="search" />
+      <AiOutlineSearch className="search-icon" />
+    </div>
+  );
+};
 
-export default SearchBar
+export default SearchBar;

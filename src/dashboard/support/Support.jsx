@@ -76,9 +76,15 @@ const Support = () => {
         <div>
           <h1>Support Ticket</h1>
         </div>
-        <div className="d-ticket-btn">
-          <button onClick={() => setModal(!modal)}>Add a support ticket</button>
-        </div>
+        {tickets ? (
+          ""
+        ) : (
+          <div className="d-ticket-btn">
+            <button onClick={() => setModal(!modal)}>
+              Add a support ticket
+            </button>
+          </div>
+        )}
         <div className="d-support-wrapper">
           {modal && (
             <div onClick={closeModal} className="d-modal-wrapper">

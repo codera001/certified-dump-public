@@ -18,6 +18,14 @@ const Sidebar = () => {
     navigate("/");
   };
 
+  const BookPreview = () => {
+    // if (
+      localStorage.getItem("bookRoute")
+    // ) {
+      navigate("bookRoute");
+    // }
+  };
+
   return (
     <>
       <aside
@@ -41,7 +49,10 @@ const Sidebar = () => {
             {sideMenu.map((menu, index) => {
               return (
                 <NavLink
-                  onClick={() => (menu.title === "Log out" ? signOut() : "")}
+                  onClick={() => {
+                    menu.title === "Log out" ? signOut() : "";
+                    menu.title === "Buy A Book" ? BookPreview() : "";
+                  }}
                   title={menu.title}
                   to={menu.path}
                   key={index}

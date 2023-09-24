@@ -1,8 +1,6 @@
 import React from "react";
-import NavigationBar from "../Navigation bar/NavigationBar";
-import Footer from "../Footer/Footer";
 import "./contact.css";
-import PublicLayout from "../PublicLayout";
+import PublicLayout from "../../component/PublicLayout";
 
 const Contact = () => {
   return (
