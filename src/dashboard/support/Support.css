@@ -1,28 +1,31 @@
 .d-support {
   margin: 0 10px;
   text-align: center;
+}
 
-  & h1 {
-    margin: 0 0 10px;
-  }
-  & .d-ticket-btn button,
-  .d-modal-btn {
-    all: unset;
-    cursor: pointer;
-    background-color: var(--secondary-color);
-    transition: all 0.5s ease-in-out;
-    color: var(--white);
+.d-support h1 {
+  margin: 20px 0 10px 20px;
+}
 
-    &:hover {
-      background-color: var(--primary-color);
-      color: var(--black);
-    }
-  }
+.d-support .d-ticket-btn button,
+.d-support .d-modal-btn {
+  all: unset;
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  transition: all 0.5s ease-in-out;
+  color: var(--white);
+}
 
-  & .d-ticket-btn button, form .d-modal-btn {
-    padding: 10px 20px;
-    border-radius: 20px;
-  }
+.d-support .d-ticket-btn button:hover,
+.d-support .d-modal-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--black);
+}
+
+.d-support .d-ticket-btn button,
+.d-support form .d-modal-btn {
+  padding: 10px 20px;
+  border-radius: 20px;
 }
 
 .d-support-wrapper {
@@ -32,46 +35,46 @@
   margin: 20px 0 0;
   box-shadow: var(--box-shadow);
   border-radius: 20px;
+}
 
-  & .d-modal-wrapper,
-  .d-modal-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.d-support-wrapper .d-modal-wrapper,
+.d-support-wrapper .d-modal-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  & .d-modal-wrapper {
-    position: fixed;
-    inset: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.45);
-    z-index: 400;
+.d-support-wrapper .d-modal-wrapper {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 400;
+}
 
-    & .d-modal-inner {
-      background: var(--white);
-      width: 100%;
-      margin: 0 5px;
-      flex-direction: column;
-      padding: 20px 10px;
+.d-modal-wrapper .d-modal-inner {
+  background: var(--white);
+  width: 100%;
+  margin: 0 5px;
+  flex-direction: column;
+  padding: 20px 10px;
+}
 
-      & > button {
-        all: unset;
-        cursor: pointer;
-        padding: 8px 16px;
-        border-radius: 50%;
-        background-color: var(--secondary-color);
-        place-self: end;
-        transition: all 0.5s ease-in-out;
-        color: var(--white);
+.d-modal-inner > button {
+  all: unset;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  place-self: end;
+  transition: all 0.5s ease-in-out;
+  color: var(--white);
+}
 
-        &:hover {
-          background-color: var(--primary-color);
-          color: var(--black);
-        }
-      }
-    }
-  }
+.d-modal-inner button:hover {
+  background-color: var(--primary-color);
+  color: var(--black);
 }
 
 .d-modal-inner form {
@@ -81,41 +84,42 @@
   width: 100%;
   max-width: 90%;
   gap: 20px;
+}
 
-  & input {
-    all: unset;
-    width: 100%;
-    border-radius: 6px;
-    padding: 8px;
-    border: 1px solid var(--green-500);
-    text-transform: uppercase;
-    outline: none;
+.d-modal-inner form input {
+  all: unset;
+  width: 100%;
+  border-radius: 6px;
+  padding: 8px;
+  border: 1px solid var(--green-500);
+  text-transform: uppercase;
+  outline: none;
+}
 
-    &::placeholder {
-      color: var(--green-500);
-      text-transform: capitalize;
-      text-align: left;
-    }
-  }
+.d-modal-inner form input::placeholder {
+  color: var(--green-500);
+  text-transform: capitalize;
+  text-align: left;
+}
 
-  & .d-message-area {
-    grid-column: span 2 / span 2;
-    & textarea {
-      width: 100%;
-      outline: none;
-      padding: 8px;
+.d-modal-inner form .d-message-area {
+  grid-column: span 2 / span 2;
+}
 
-      &::placeholder {
-        color: var(--green-500);
-        text-transform: capitalize;
-        text-align: left;
-      }
-    }
-  }
+.d-modal-inner form .d-message-area textarea {
+  width: 100%;
+  outline: none;
+  padding: 8px;
+}
 
-  & button {
-    grid-column: span 2 / span 2;
-  }
+.d-modal-inner form .d-message-area textarea::placeholder {
+  color: var(--green-500);
+  text-transform: capitalize;
+  text-align: left;
+}
+
+.d-modal-inner form button {
+  grid-column: span 2 / span 2;
 }
 
 @media screen and (min-width: 768px) {
@@ -124,14 +128,15 @@
   }
 
   .d-support-wrapper {
-    max-width: 70%;
-    margin: 20px auto 0;
+    max-width: 80%;
+    margin: 20px auto 0 10px;
   }
 
   .d-modal-inner {
     max-width: 60%;
-    & form button {
-      grid-column: span 1;
-    }
+  }
+
+  .d-modal-inner form button {
+    grid-column: span 1;
   }
 }

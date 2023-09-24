@@ -5,15 +5,15 @@ import Form from "react-bootstrap/Form";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
 import recaptcha from "../../static/recaptcha.png";
-import facebook from "../../static/facebook.png";
-import twitter from "../../static/twitter.png";
 import { FcGoogle } from "react-icons/fc";
-import { AiFillGithub } from "react-icons/ai";
+import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import Google from "../../ApiTesting/GoogleLogin";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+
+import { BsFacebook } from "react-icons/bs";
+import Google from "../../ApiTesting/GoogleLogin";
 
 function Login() {
   const navigate = useNavigate();
@@ -40,21 +40,24 @@ function Login() {
         "https://api.certifieddump.com/api/login",
         formData
       );
+      console.log(response.data);
       toast.success(response.data.msg);
       sessionStorage.setItem("token", response.data.token);
-      sessionStorage.setItem("userEmail", response.data.user.email);
       sessionStorage.setItem("userId", response.data.user.id);
-      // console.log("login Successful:", response.data);
+      sessionStorage.setItem("username", response.data.user.username);
+      sessionStorage.setItem("userFirstname", response.data.user.firstname);
+      sessionStorage.setItem("userLastname", response.data.user.lastname);
+      sessionStorage.setItem("userEmail", response.data.user.email);
+      sessionStorage.setItem("userPhone", response.data.user.phone_no);
       setTimeout(() => {
         navigate("/dashboard");
       }, 2000);
     } catch (error) {
-      // toast.error(error.response.data.msg)
-      console.log(error);
+      toast.error(error.response.data.msg);
+      // console.log(error);
       if (error.response.data.msg == "Unverified Email ") {
-        navigate("/confirm-email");
+        navigate("/verify-email");
       }
-      // console.log("login error:", error.response.data.msg);
     }
   };
 
@@ -62,16 +65,13 @@ function Login() {
     <>
       <section className="section">
         <NavigationBar />
-        <div className="signup container">
-          <div className="signup-form-wrap">
-            <Form className="signup-form" onSubmit={handleSubmit}>
+        <div className="login container">
+          <div className="login-form-wrap">
+            <Form className="login-form" onSubmit={handleSubmit}>
               <Form.Group className="mb-3 ">
-                <Form.Label className="my-2 form-title"> Log in</Form.Label>
+                <Form.Label className="my-4 form-title"> Log in</Form.Label>
               </Form.Group>
-              <Form.Group
-                className="mb-3 form-group-s"
-                style={{ border: "1px solid var(--green-500)" }}
-              >
+              <Form.Group className="mb-3 form-group-s">
                 <Form.Control
                   className="form-control-s"
                   type="text"
@@ -98,7 +98,7 @@ function Login() {
               </Form.Group>
 
               <Form.Group
-                className="mb-3 d-flex justify-content-between form-group-s"
+                className="mb-3 d-flex justify-content-around form-group-s recaptcha"
                 controlId="formBasicCheckbox"
               >
                 <Form.Check
@@ -124,11 +124,11 @@ function Login() {
                 </Form.Label>
               </Form.Group>
 
-              <Button variant="primary" type="submit" className="form-button-s">
+              <Button type="submit" className="form-button-s">
                 SIGN IN
               </Button>
               <Link
-                to="/reset-password"
+                to="/forgot-password"
                 style={{ color: "var(--green-600", fontWeight: "bolder" }}
               >
                 forgot password?
@@ -158,20 +158,28 @@ function Login() {
               >
                 Or log in with your social network
               </p>
-              <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com">
+              {/* <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com">
                 <Google />
-              </GoogleOAuthProvider>
+              </GoogleOAuthProvider> */}
               <div className="social-images d-flex">
-                <img src={facebook} alt="facebook" className="me-1"></img>
-                <img src={twitter} alt="twitter" className="me-1"></img>
-                <FcGoogle
-                  className="me-1"
-                  style={{ fontSize: "22px" }}
-                ></FcGoogle>
-                <AiFillGithub
-                  className="me-1"
-                  style={{ fontSize: "22px" }}
-                ></AiFillGithub>
+                <div className="social-images-wrap">
+                  <BsFacebook
+                    className="me-1"
+                    style={{ fontSize: "21px", color: "blue" }}
+                  ></BsFacebook>
+                  <AiFillTwitterCircle
+                    className="me-1"
+                    style={{ fontSize: "23px", color: "skyblue" }}
+                  ></AiFillTwitterCircle>
+                  <FcGoogle
+                    className="me-1"
+                    style={{ fontSize: "22px" }}
+                  ></FcGoogle>
+                  <AiFillGithub
+                    className="me-1"
+                    style={{ fontSize: "22px" }}
+                  ></AiFillGithub>
+                </div>
               </div>
             </Form>
           </div>

@@ -5,15 +5,14 @@ import Form from "react-bootstrap/Form";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
 import recaptcha from "../../static/recaptcha.png";
-import facebook from "../../static/facebook.png";
-import twitter from "../../static/twitter.png";
-import insta from "../../static/insta.png";
-import whatsapp from "../../static/whatsapp.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { AiFillGithub } from "react-icons/ai";
+import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
+import { BsFacebook } from "react-icons/bs";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import Google from "../../ApiTesting/GoogleLogin";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function Signup() {
   const navigate = useNavigate();
@@ -45,10 +44,12 @@ function Signup() {
       );
       // console.log("Signup Successful:", response.data);
       toast.success(response.data.msg);
-      navigate("/confirm-email");
+      localStorage.setItem("unverifiedMail", formData.email);
+      navigate("/verify-email");
     } catch (error) {
       // console.log("signup error:", error.response.data.msg);
       toast.error(error.response.data.msg);
+      console.log(error);
     }
   };
 
@@ -64,23 +65,6 @@ function Signup() {
             <Form className="signup-form" onSubmit={handleSubmit}>
               <Form.Group className="mb-3 ">
                 <Form.Label className="my-4  form-title"> Sign up</Form.Label>
-              </Form.Group>
-
-
-
-              <Form.Group className="mb-3 form-group-s">
-                <Form.Control
-                  className="form-control-s"
-                  type="text"
-                  placeholder="Enter your firstname"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3 form-group-s">
-                <Form.Control
-                  className="form-control-s"
-                  type="text"
-                  placeholder="Enter your lastname"
-                />
               </Form.Group>
               <Form.Group className="mb-3 form-group-s">
                 <Form.Control
@@ -123,9 +107,12 @@ function Signup() {
                    value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter your email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                 />
               </Form.Group>
-
               <Form.Group
                 className="mb-3 form-group-s"
                 controlId="formBasicPassword"
@@ -154,7 +141,7 @@ function Signup() {
               </Form.Group>
 
               <Form.Group
-                className="mb-3 d-flex justify-content-between form-group-s recaptcha"
+                className="mb-3 d-flex justify-content-around form-group-s recaptcha"
                 controlId="formBasicCheckbox"
               >
                 <Form.Check
@@ -193,7 +180,7 @@ function Signup() {
                 }}
               >
                 Already have an account yet?
-                <Link   
+                <Link
                   to="/login"
                   style={{ color: "var(--green-600", fontWeight: "light" }}
                   className="signin"
@@ -210,12 +197,27 @@ function Signup() {
               >
                 Or log in with your social network
               </p>
+              {/* <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com">
+                <Google />
+              </GoogleOAuthProvider> */}
               <div className="social-images d-flex">
                 <div className="social-images-wrap">
-                  <img src={facebook} alt="facebook" className="me-1"></img>
-                  <img src={twitter} alt="twitter" className="me-1"></img>
-                  <FcGoogle className="me-1" style={{ fontSize: "22px" }}></FcGoogle>
-                  <AiFillGithub className="me-1" style={{ fontSize: "22px" }}></AiFillGithub>
+                  <BsFacebook
+                    className="me-1"
+                    style={{ fontSize: "21px", color: "blue" }}
+                  ></BsFacebook>
+                  <AiFillTwitterCircle
+                    className="me-1"
+                    style={{ fontSize: "23px", color: "skyblue" }}
+                  ></AiFillTwitterCircle>
+                  <FcGoogle
+                    className="me-1"
+                    style={{ fontSize: "22px" }}
+                  ></FcGoogle>
+                  <AiFillGithub
+                    className="me-1"
+                    style={{ fontSize: "22px" }}
+                  ></AiFillGithub>
                 </div>
               </div>
             </Form>

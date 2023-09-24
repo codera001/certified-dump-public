@@ -1,46 +1,81 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Verify.css";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
-
-import { FcGoogle } from "react-icons/fc";
-import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
-import { BsFacebook } from "react-icons/bs";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function ForgotPass() {
+  const navigate = useNavigate();
+  const [userData, setUserData] = useState({
+  
+    email: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        `https://api.certifieddump.com/api/forgot-password`,
+        userData
+      );
+      // console.log("Email verification Successful:", response);
+      console.log(userData);
+      navigate("/verify-account");
+      toast.success(response.data.msg);
+    } catch (error) {
+      console.log("verification error:", error);
+      toast.error("Username or email is incorrect")
+    }
+  };
+
   return (
     <>
       <NavigationBar />
       <div className="confirmpass">
-        <h3 className="pt-5">Confirm Password to continue</h3>
+        <h3 className="pt-5">
+          Forgot your Password? No qualms! Fill the form below to retrieve your
+          account
+        </h3>
         <div className="confirmpass-wrap">
           <div className="confirmpass-text">
-
-            <div className="d-flex justify-content-between">
-              <label>Password</label>
-              <label className="" style={{ color: "var(--green-500)" }}>Forgot password?</label>
-            </div>
-            <input type="password">
-            </input>
-            <button className="py-2">Confirm Password</button>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                {/* <input
+                  type="text"
+                  placeholder="Enter your username"
+                  name="username"
+                  value={userData.username}
+                  onChange={handleChange}
+                  required
+                /> */}
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  name="email"
+                  value={userData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <button className="py-2" type="submit">
+                Get Reset link
+              </button>
+            </form>
           </div>
         </div>
-
-        <div className="forgot-social-images d-flex ">
-          <div className="forgot-social-images-wrap ">
-            <BsFacebook className="me-1" style={{ fontSize: "21px", color: "blue" }}></BsFacebook>
-            <AiFillTwitterCircle className="me-1" style={{ fontSize: "23px", color: "skyblue" }}></AiFillTwitterCircle>
-            <FcGoogle className="me-1" style={{ fontSize: "22px" }}></FcGoogle>
-            <AiFillGithub className="me-1" style={{ fontSize: "22px" }}></AiFillGithub>
-          </div>
-        </div>
-
-        <small>Tip: You are entering <span style={{ color: "var(--tertiary-color)" }}>sudo mode</span> we won't ask for your password again in few hours</small>
       </div>
 
-
       <PageFooter />
-
     </>
   );
 }

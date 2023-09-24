@@ -1,49 +1,103 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Verify.css";
-
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
-import { AiFillMessage , AiFillTwitterCircle } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
-import { AiFillGithub } from "react-icons/ai";
-import { BsFacebook } from "react-icons/bs";
+import { AiFillMessage } from "react-icons/ai";
+import toast from "react-hot-toast";
+
 function VerifyEmail() {
-    return (
-        <>
-            <NavigationBar />
-            <div className="verifyemail">
-                <div className="verifyemail-wrap">
+  const navigate = useNavigate();
+  const [pin, setPin] = useState("");
+  const [hidden, setHidden] = useState(false);
+  const handleChange = (e) => {
+    setPin(e.target.value);
+  };
 
-                    <div className="pass-text">
-                        <p>You are one step away</p>
-                        <h1 className="mb-3">Verify your Email</h1>
-                        <p className="mb-5"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <a href="/" className="px-4 py-2">VERIFY NOW</a>
-                    </div>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        `https://api.certifieddump.com/api/verify-email/${pin}`
+      );
+      // console.log("Email verification Successful:", response.data.msg);
+      toast.success(response.data.msg);
+      navigate("/success");
+    } catch (error) {
+      // console.log("verification error:", error.response.data.msg);
+    }
+  };
 
-                    <div className="help-text mt-5 d-flex justify-content-around mx-auto px-2 py-3">
-                        <AiFillMessage style={{ fontSize: "50px" }} className="" />
-                        <div className="">
+  const getVerificationCode = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "https://api.certifieddump.com/api/resend-verification-email",
+        localStorage.getItem("unverifiedMail")
+      );
+      // console.log("Verification Code sent:", response.data);
+      toast.success("Verification code has been sent to your mail");
+    } catch (error) {
+      // console.log("verification error:", error);
+      toast.success("Your account is already verified, please login")
+    }
+  };
 
-                            <h4>HAVE A QUESTION?</h4>
-                            <a style={{ fontSize: "14px", color: "var(--tertiary-color)", textDecoration: "underline" }}>Reach out to our team</a>
-                        </div>
-                    </div>
-                    <div className="forgot-social-images d-flex ">
-                        <div className="forgot-social-images-wrap ">
-                            <BsFacebook className="me-1" style={{ fontSize: "21px", color: "blue" }}></BsFacebook>
-                            <AiFillTwitterCircle className="me-1" style={{ fontSize: "23px", color: "skyblue" }}></AiFillTwitterCircle>
-                            <FcGoogle className="me-1" style={{ fontSize: "22px" }}></FcGoogle>
-                            <AiFillGithub className="me-1" style={{ fontSize: "22px" }}></AiFillGithub>
-                        </div>
-                    </div>
-                </div>
+  setTimeout(() => {
+    setHidden(!hidden);
+  }, 25000);
+  return (
+    <>
+      <NavigationBar />
+      <div className="verifyemail">
+        <div className="verifyemail-wrap">
+          <div className="pass-text">
+            <p>You are one step away!</p>
+            <h1 className="mb-3">Verify your Email</h1>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="pin">Enter verification code</label>
+                <input
+                  type="text"
+                  id="pin"
+                  name="pin"
+                  value={pin}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <button type="submit">Verify Your Email Address</button>
+            </form>
+            {hidden ? (
+              <button type="submit" onClick={ getVerificationCode}>
+                Resend verification code
+              </button>
+            ) : (
+              ""
+            )}
+          </div>
+          <div className="help-text mt-5 d-flex justify-content-around mx-auto px-2 py-3">
+            <AiFillMessage style={{ fontSize: "50px" }} className="" />
+            <div className="">
+              <h4>HAVE A QUESTION?</h4>
+              <a
+                style={{
+                  fontSize: "14px",
+                  color: "var(--tertiary-color)",
+                  textDecoration: "underline",
+                }}
+              >
+                Reach out to our team
+              </a>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <PageFooter />
-
-        </>
-    );
+      <PageFooter />
+    </>
+  );
 }
 
 export default VerifyEmail;

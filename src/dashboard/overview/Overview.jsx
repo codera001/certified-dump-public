@@ -45,7 +45,7 @@ const Overview = () => {
         <h2>Admin Message</h2>
         <div className="d-overview-wrapper">
           <h3>Admin Message Title</h3>
-          <div>Welcome to your library fam</div>
+          <div className="d-admin-msg">Welcome to your library fam</div>
         </div>
       </div>
     </Layout>
@@ -53,4 +53,3 @@ const Overview = () => {
 };
 
 export default Overview;
-//
