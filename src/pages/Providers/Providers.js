@@ -1,30 +1,12 @@
-import Container from "react-bootstrap/Container";
-import { AiOutlineSearch } from "react-icons/ai";
 import { TiArrowLeftThick } from "react-icons/ti";
-import amazon from "../../static/amazon.png";
-import microsoft from "../../static/microsoft.png";
-import juniper from "../../static/juniper.png";
-import vmare from "../../static/vmare.png";
-import isaca from "../../static/isaca.png";
-import salesforce from "../../static/salesforce.png";
-import cisco from "../../static/cisco.png";
-import google from "../../static/google.png";
-import alibaba from "../../static/alibaba.png";
-import blockchain from "../../static/blockchain.png";
-import cloudera from "../../static/cloudera.png";
-import fortnet from "../../static/fortnet.png";
-import huawei from "../../static/huawei.png";
-import netapp from "../../static/netapp.png";
-import nokia from "../../static/nokia.png";
-import redhat from "../../static/study.png";
 import "./Providers.css";
-import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import PageFooter from "../../component/PageFooter/PageFooter";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Provider from "../../component/Provider";
 import loader from "../../static/loader.gif";
 import { Link } from "react-router-dom";
+import SearchBar from "../../component/SearchBar";
+import PublicLayout from "../../component/PublicLayout";
 
 function Providers() {
   const [allProviders, setAllProviders] = useState(null);
@@ -34,7 +16,7 @@ function Providers() {
         "https://api.certifieddump.com/api-admin/getProviders"
       );
       // console.log(response);
-      console.log(response.data.providers.slice(0, 5));
+      // console.log(response.data.providers.slice(0, 5));
       setAllProviders(response.data.providers);
     } catch (error) {
       console.log(error);
@@ -46,8 +28,7 @@ function Providers() {
   }, []);
 
   return (
-    <>
-      <NavigationBar />
+    <PublicLayout>
       <section className="container section-providers">
         <div className="d-flex justify-content-between">
           <div className="mt-5">
@@ -58,10 +39,7 @@ function Providers() {
               Back
             </Link>
           </div>
-          <div className="search-container ">
-            <input placeholder="exam code or name" type="search" />
-            <AiOutlineSearch className="search-icon"></AiOutlineSearch>
-          </div>
+          <SearchBar text="Exam Code or Name" />
         </div>
         <h5
           className=" mt-5 mb-5"
@@ -70,27 +48,24 @@ function Providers() {
           All Providers
         </h5>
         <div className="container-fluid py-2 mb-5">
-          <div className="d-flex flex-row flex-nowrap card-section">
-            {allProviders ? (
-              <>
-                {allProviders.map((item, i) => (
-                  <Provider
-                    key={i}
-                    providerName={`/provider/${item.name}`}
-                    i={i}
-                    title={item.name}
-                    text="View More"
-                  />
-                ))}
-              </>
-            ) : (
-              <img src={loader} alt="loading gif" />
-            )}
-          </div>
+          {allProviders ? (
+            <div className="d-flex flex-row flex-nowrap card-section">
+              {allProviders.map((item, i) => (
+                <Provider
+                  key={i}
+                  providerName={`/provider/${item.name}`}
+                  i={i}
+                  title={item.name}
+                  text="View More"
+                />
+              ))}
+            </div>
+          ) : (
+            <img src={loader} alt="loading gif" />
+          )}
         </div>
       </section>
-      <PageFooter />
-    </>
+    </PublicLayout>
   );
 }
 

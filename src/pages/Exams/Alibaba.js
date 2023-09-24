@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import Footer from "../../component/Footer/Footer";
 import { TiArrowLeftThick } from "react-icons/ti";
-import { AiOutlineSearch } from "react-icons/ai";
 import "./Exams.css";
 import Provider from "../../component/Provider";
 import axios from "axios";
 import loader from "../../static/loader.gif";
 import { Link, useParams } from "react-router-dom";
+import PublicLayout from "../../component/PublicLayout";
+import SearchBar from "../../component/SearchBar";
 
 function Alibaba() {
   const [exams, setExams] = useState(null);
@@ -21,7 +20,7 @@ function Alibaba() {
         "https://api.certifieddump.com/api-admin/getExams"
       );
       // console.log(response);
-      console.log(response.data.exams);
+      // console.log(response.data.exams);
       //get all exams by the name of provider here
       setExams(response.data.exams);
     } catch (error) {
@@ -33,8 +32,7 @@ function Alibaba() {
     GetExams();
   }, []);
   return (
-    <>
-      <NavigationBar />
+    <PublicLayout>
       <div className="navigate container">
         <div className="d-flex justify-content-between arrow-text mt-3">
           <Link
@@ -46,10 +44,7 @@ function Alibaba() {
           </Link>
           <h6 className="ms-2"> All {providerName} Exams</h6>
         </div>
-        <div className="search-container mb-5">
-          <input placeholder="exam code or name" type="search" />
-          <AiOutlineSearch className="search-icon"></AiOutlineSearch>
-        </div>
+        <SearchBar text="Exam Code or Name" />
       </div>
       <div style={{ textAlign: "center" }} className="container-fluid py-2">
         {exams ? (
@@ -76,8 +71,7 @@ function Alibaba() {
           <img src={loader} alt="loading gif" />
         )}
       </div>
-      <Footer />
-    </>
+    </PublicLayout>
   );
 }
 export default Alibaba;

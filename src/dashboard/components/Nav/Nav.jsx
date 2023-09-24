@@ -27,6 +27,7 @@ const Nav = () => {
         }
       );
       setBalance(response.data.result[0].balance);
+      sessionStorage.setItem("balance", response.data.result[0].balance);
       // console.log(response);
     } catch (error) {
       setError(error.response.data.msg);
@@ -37,7 +38,6 @@ const Nav = () => {
 
   useEffect(() => {
     getUserBalance();
-    sessionStorage.setItem("balance", balance);
   }, []);
 
   return (

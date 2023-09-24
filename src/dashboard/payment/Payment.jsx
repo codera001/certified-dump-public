@@ -11,7 +11,7 @@ const Payment = () => {
   const handleClick = (amount) => {
     setAmt(amount);
   };
-  console.log(amt);
+  // console.log(amt);
   const navigate = useNavigate();
 
   // customerPhoneNumber: sessionStorage.getItem("userPhone"),

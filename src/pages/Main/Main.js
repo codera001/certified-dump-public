@@ -15,6 +15,7 @@ import Footer from "../../component/Footer/Footer";
 import Provider from "../../component/Provider";
 import axios from "axios";
 import loader from "../../static/loader.gif";
+import { Link } from "react-router-dom";
 
 function Main() {
   const [providers, setProviders] = useState(null);
@@ -65,8 +66,8 @@ function Main() {
           </p>
 
           <div className=" container  justify-content-around  text-align-center">
-            <a
-              href=""
+            <Link
+              to="/providers"
               className=" mt-1 button"
               style={{
                 borderColor: "var(--white)",
@@ -76,7 +77,7 @@ function Main() {
               }}
             >
               FIND YOUR EXAM NOW
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -95,26 +96,23 @@ function Main() {
           </p>
         </div>
         <div className="container-fluid py-2">
-          <div className="d-flex flex-row flex-nowrap card-section">
-            {providers ? (
-              <>
-                {providers.map((item, i) => (
-                  <Provider
-                    key={i}
-                    providerName={`/provider/${item.name}`}
-                    i={i}
-                    title={item.name}
-                    text="View More"
-                  />
-                ))}
-              </>
-            ) : (
-              <img src={loader} alt="loading gif" />
-            )}
-          </div>
+          {providers ? (
+            <div className="d-flex flex-row flex-nowrap card-section">
+              {providers.map((item, i) => (
+                <Provider
+                  key={i}
+                  providerName={`/provider/${item.name}`}
+                  i={i}
+                  title={item.name}
+                  text="View More"
+                />
+              ))}
+            </div>
+          ) : (
+            <img src={loader} alt="loading gif" />
+          )}
           <div className="button">
-            <a
-              href="providers"
+            <Link to="providers"
               className=" px-4 py-1"
               style={{
                 color: "var(--tertiary-color)",
@@ -125,7 +123,7 @@ function Main() {
               }}
             >
               VIEW ALL
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -182,8 +180,7 @@ function Main() {
             >
               Exam Code or Keyword
             </button>
-            <a
-              href="/"
+            <Link to="/"
               className="mx-md-3 button py-1"
               style={{
                 fontSize: "16px",
@@ -197,7 +194,7 @@ function Main() {
               }}
             >
               Search Exams
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -12,11 +12,12 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import "./About.css";
+import PublicLayout from "../../component/PublicLayout";
+import { Link } from "react-router-dom";
 
 function About() {
   return (
-    <>
-      <NavigationBar />
+    <PublicLayout>
       <section className=".section-one-about">
         <h1 className="text-white">ABOUT US</h1>
       </section>
@@ -62,7 +63,7 @@ function About() {
             <p>
               We also verify the Authenticity of the questions and seek
               permission to use them if necessary. Create content categorization
-              system to organize questions by subject, topic and year.{" "}
+              system to organize questions by subject, topic and year.
             </p>
             <br />
             <p>
@@ -116,10 +117,8 @@ function About() {
                 </div>
                 <Card.Text>
                   <strong>Extensive Exam Dumps </strong>
-                  <p>
-                    We cover an extensive wide range of subjects, ensuring you
-                    have access to the latest notes, practice question
-                  </p>
+                  We cover an extensive wide range of subjects, ensuring you
+                  have access to the latest notes, practice question
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -132,10 +131,8 @@ function About() {
                 </div>
                 <Card.Text>
                   <strong>Accurate/ Updated Contents </strong>
-                  <p>
-                    Discover a new level of exam preparation with our accurate
-                    and updated contants
-                  </p>
+                  Discover a new level of exam preparation with our accurate and
+                  updated contants
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -148,15 +145,13 @@ function About() {
                 </div>
                 <Card.Text>
                   <strong>User-Friendly Platform </strong>
-                  <p>
-                    Say goodbye to complexity and hello to simplicity.. Our site
-                    is here to streamline yor exam readiness.
-                  </p>
+                  Say goodbye to complexity and hello to simplicity.. Our site
+                  is here to streamline yor exam readiness.
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
-          <Col className="">
+          <Col>
             <Card className="card-wrap">
               <Card.Body>
                 <div className="image">
@@ -164,26 +159,22 @@ function About() {
                 </div>
                 <Card.Text>
                   <strong>Customer Support</strong>
-                  <p>
-                    Have questions and need guidiance in navigating the site?
-                    Our Support team is availaible for your convenience
-                  </p>
+                  Have questions and need guidiance in navigating the site? Our
+                  Support team is availaible for your convenience
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
         </Row>
 
-        <a href="/" className="text-center py-2 mb-2">
+        <Link to="/signup" className="text-center py-2 mb-2">
           GET STARTED
-        </a>
+        </Link>
         <small className="text-center d-block mt-2 mb-3">
           Begin your journey towards exam sucess with Certified Dump
         </small>
       </section>
-
-      <PageFooter />
-    </>
+    </PublicLayout>
   );
 }
 
