@@ -53,7 +53,12 @@ const Overview = () => {
           return b.id - a.id;
         })
       );
-      console.log(response);
+      // console.log(
+      //   response.data.Announcement.sort(function (a, b) {
+      //     return b.id - a.id;
+      //   })
+      // );
+      // console.log(response);
     } catch (error) {
       //  setError(error.response.data.msg);
       console.log(error);

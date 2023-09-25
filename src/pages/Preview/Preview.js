@@ -47,7 +47,8 @@ function Preview() {
           },
         }
       );
-      console.log(response);
+      // console.log(response);
+      toast.success(response.data.msg);
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.msg);
@@ -160,7 +161,8 @@ function Preview() {
                   <button
                     onClick={() => {
                       if (authToken) {
-                        BuyBook(book.id, Number(book.price), book.title);
+                        BuyBook(book.id, 20, book.title);
+                        // BuyBook(book.id, Number(book.price), book.title);
                       } else {
                         localStorage.setItem(
                           "bookRoute",

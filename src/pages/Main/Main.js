@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
+import amazon from "../../static/amazon.png";
+import microsoft from "../../static/microsoft.png";
+import juniper from "../../static/juniper.png";
+import vmare from "../../static/vmare.png";
+import isaca from "../../static/isaca.png";
+import salesforce from "../../static/salesforce.png";
+import cisco from "../../static/cisco.png";
+import google from "../../static/google.png";
 import study from "../../static/study.png";
 import { FaAngleDown } from "react-icons/fa";
 import "./Main.css";
@@ -87,9 +95,9 @@ function Main() {
             goal is to see you succeed.
           </p>
         </div>
-        <div className="py-2">
+        <div className="container-fluid py-2">
           {providers ? (
-            <div className="card-section">
+            <div className="d-flex flex-row flex-nowrap card-section">
               {providers.map((item, i) => (
                 <Provider
                   key={i}
@@ -104,7 +112,8 @@ function Main() {
             <img src={loader} alt="loading gif" />
           )}
           <div className="button">
-            <Link to="providers"
+            <Link
+              to="providers"
               className=" px-4 py-1"
               style={{
                 color: "var(--tertiary-color)",
@@ -172,7 +181,8 @@ function Main() {
             >
               Exam Code or Keyword
             </button>
-            <Link to="/"
+            <Link
+              to="/"
               className="mx-md-3 button py-1"
               style={{
                 fontSize: "16px",
