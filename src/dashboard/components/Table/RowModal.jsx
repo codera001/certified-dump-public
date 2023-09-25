@@ -7,14 +7,14 @@ const RowModal = ({ each, closeModal, modalRef }) => {
     <td onClick={closeModal} className="d-table-modal">
       <p ref={modalRef} className="d-modal-ticket">
         <span>Transaction ID: {each.trx_id}</span>
-        <span>Date: {each.date}</span>
+        <span>Date: {new Date(each.date).toDateString()}</span>
         <span>Type: {each.type}</span>
         <span>Amount: {each.amount}</span>
         <span>
           Status:{" "}
           {status === "successful" ? (
             <em className="d-mobile-success">Successful</em>
-          ) : status === "Pending" ? (
+          ) : status === "pending" ? (
             <em className="d-mobile-pend">Pending</em>
           ) : (
             <em className="d-mobile-fail">Failed</em>

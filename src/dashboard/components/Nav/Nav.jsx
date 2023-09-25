@@ -7,13 +7,14 @@ import { PiCaretDownLight } from "react-icons/pi";
 import { MdOutlinePayment } from "react-icons/md";
 import { Outlet, Link } from "react-router-dom";
 import axios from "axios";
-// import { Button } from "react-bootstrap";
+import loader from "../../../static/loader.gif";
 import { Button } from "../Button/Button";
 
 const Nav = () => {
   const email = sessionStorage.getItem("userEmail");
   const [balance, setBalance] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
   let userid = sessionStorage.getItem("userId");
 
   const getUserBalance = async () => {
@@ -38,6 +39,7 @@ const Nav = () => {
 
   useEffect(() => {
     getUserBalance();
+    setLoading(!loading);
   }, []);
 
   return (
@@ -60,7 +62,13 @@ const Nav = () => {
           <div className="d-nav-balance">
             <div className="d-price">
               <p className="d-bal">Balance:</p>
-              <p className="d-value">${Number(balance).toFixed(2)}</p>
+              {loading ? (
+                <div className="d-gif-div">
+                  <img src={loader} alt="loading-gif" className="d-gif" />
+                </div>
+              ) : (
+                <p className="d-value">${Number(balance).toFixed(2)}</p>
+              )}
             </div>
             <Link to="/payment">
               <span className="d-icon">

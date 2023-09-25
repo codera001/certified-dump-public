@@ -19,11 +19,9 @@ const Sidebar = () => {
   };
 
   const BookPreview = () => {
-    // if (
-      localStorage.getItem("bookRoute")
-    // ) {
+    if (localStorage.getItem("bookRoute")) {
       navigate("bookRoute");
-    // }
+    } else navigate("/providers");
   };
 
   return (
@@ -51,7 +49,7 @@ const Sidebar = () => {
                 <NavLink
                   onClick={() => {
                     menu.title === "Log out" ? signOut() : "";
-                    menu.title === "Buy A Book" ? BookPreview() : "";
+                    // menu.title === "Buy A Book" ? BookPreview() : "";
                   }}
                   title={menu.title}
                   to={menu.path}

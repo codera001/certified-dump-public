@@ -5,6 +5,7 @@ import Layout from "../components/Layout/Layout";
 import card from "../images/card.jpg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Payment = () => {
   const [amt, setAmt] = useState("");
@@ -20,9 +21,10 @@ const Payment = () => {
       const response = await axios.post(
         "https://api.certifieddump.com/api-wallet/payment",
         {
-          amount: "15000",
+          amount: Number(amt) * 100,
           userid: sessionStorage.getItem("userId"),
           callbackUrl: "http://localhost:3000/payment-verification",
+          // callbackUrl: "https://certifieddump.com/payment-verification",
           currency: "NGN",
           customerFirstName: sessionStorage.getItem("userFirstname"),
           customerLastName: sessionStorage.getItem("userLastname"),
@@ -67,7 +69,14 @@ const Payment = () => {
             />
           </div>
           <div className="d-payment-btn">
-            <button className="d-sec-btn" onClick={() => Deposit()}>
+            <button
+              className="d-sec-btn"
+              onClick={() => {
+                if (amt) {
+                  Deposit();
+                } else toast.error("Please enter an amount to pay");
+              }}
+            >
               Pay
             </button>
           </div>
