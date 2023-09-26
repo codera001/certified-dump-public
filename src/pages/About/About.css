@@ -37,14 +37,16 @@
   }
 
 
-  .section3.about {
+  .section3 {
     text-align:center;
+    padding: 0 0 40px;
   }
 
   .section3 .card-sections{
     width:80%;
     margin:0 auto;
   }
+
  .section3 .card-sections .card-wrap{
     border:  2px solid var(--tertiary-color);
     width:200px;

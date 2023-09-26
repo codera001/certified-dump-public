@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import study from "../../static/study.png";
-import { FaAngleDown } from "react-icons/fa";
 import "./Main.css";
 import Footer from "../../component/Footer/Footer";
 import Provider from "../../component/Provider";

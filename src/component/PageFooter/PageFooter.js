@@ -16,6 +16,7 @@ import {
 } from "react-icons/bi";
 import { TbEditCircle } from "react-icons/tb";
 import { RxEnvelopeClosed } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 function PageFooter() {
   const year = new Date().getFullYear();
@@ -27,20 +28,28 @@ function PageFooter() {
             <h6 style={{ fontWeight: "bolder" }}>CONNECT WITH US</h6>
             <div className="">
               <div className="icon-text">
-                <BiLogoFacebook className="icon me-2"></BiLogoFacebook>
-                <p>facebook</p>
+                <a href="/" target="_blank" rel="noreferrer">
+                  <BiLogoFacebook className="icon me-2" />
+                  <p>Facebook</p>
+                </a>
               </div>
               <div className="icon-text">
-                <BiLogoInstagram className="icon me-2"></BiLogoInstagram>
-                <p>Instagram</p>
+                <a href="/" target="_blank" rel="noreferrer">
+                  <BiLogoInstagram className="icon me-2" />
+                  <p>Instagram</p>
+                </a>
               </div>
               <div className="icon-text">
-                <BiLogoTwitter className="icon me-2"></BiLogoTwitter>
-                <p>Twitter</p>
+                <a href="/" target="_blank" rel="noreferrer">
+                  <BiLogoTwitter className="icon me-2" />
+                  <p>Twitter</p>
+                </a>
               </div>
               <div className="icon-text">
-                <RxEnvelopeClosed className="icon me-2"></RxEnvelopeClosed>
-                <p>Hello@certifieddump.com</p>
+                <a href="/" target="_blank" rel="noreferrer">
+                  <RxEnvelopeClosed className="icon me-2" />
+                  <p>Hello@certifieddump.com</p>
+                </a>
               </div>
             </div>
           </div>
@@ -50,24 +59,30 @@ function PageFooter() {
             </h6>
             <p className="line" />
             <div className="icons-icon">
-              <div className="">
-                <RiHome4Fill></RiHome4Fill>
-              </div>
-              <div>
-                <BiSolidMessageRoundedDetail></BiSolidMessageRoundedDetail>
-              </div>
-              <div>
-                <HiOutlineArrowCircleRight></HiOutlineArrowCircleRight>
-              </div>
-              <div>
-                <TbEditCircle></TbEditCircle>
-              </div>
-              <div>
-                <BiUserPin></BiUserPin>
-              </div>
-              <div>
-                <HiOutlineInformationCircle></HiOutlineInformationCircle>
-              </div>
+              <Link to="/">
+                <RiHome4Fill />
+                <p>Home</p>
+              </Link>
+              <Link to="/">
+                <BiSolidMessageRoundedDetail />
+                <p>Exams</p>
+              </Link>
+              <Link to="/">
+                <HiOutlineArrowCircleRight />
+                <p>Providers</p>
+              </Link>
+              <Link to="/">
+                <TbEditCircle />
+                <p>Support</p>
+              </Link>
+              <Link to="/">
+                <BiUserPin />
+                <p>Call us</p>
+              </Link>
+              <Link to="/">
+                <HiOutlineInformationCircle />
+                <p>More info</p>
+              </Link>
             </div>
           </div>
         </div>
