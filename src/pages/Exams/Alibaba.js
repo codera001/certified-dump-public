@@ -7,6 +7,7 @@ import loader from "../../static/loader.gif";
 import { Link, useParams } from "react-router-dom";
 import PublicLayout from "../../component/PublicLayout";
 import SearchBar from "../../component/SearchBar";
+import Back from "../../component/Back";
 
 function Alibaba() {
   const [exams, setExams] = useState(null);
@@ -33,23 +34,22 @@ function Alibaba() {
   }, []);
   return (
     <PublicLayout>
-      <div className="navigate container">
-        <div className="d-flex justify-content-between arrow-text mt-3">
-          <Link
-            to="/providers"
-            className="back ms-2"
-            style={{ fontWeight: "bolder" }}
-          >
-            <TiArrowLeftThick style={{ color: "black" }}></TiArrowLeftThick>Back
-          </Link>
-          <h6 className="ms-2"> All {providerName} Exams</h6>
-        </div>
+      <div className="navigate container mb-4">
+        <Back path="/providers" />
         <SearchBar text="Exam Code or Name" />
       </div>
       <div style={{ textAlign: "center" }} className="container-fluid py-2">
         {exams ? (
           <>
-            <h3 style={{ textAlign: "center" }}>{providerName} Exams</h3>
+            <h3
+              style={{
+                textAlign: "center",
+                fontWeight: "bold",
+                fontSize: "2.5rem",
+              }}
+            >
+              {providerName} Exams
+            </h3>
             <div className="d-flex flex-row flex-nowrap exam-card-section">
               {exams.filter(checkProvider).map((item, i) => (
                 <Provider

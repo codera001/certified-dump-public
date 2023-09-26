@@ -7,6 +7,8 @@ import axios from "axios";
 import Provider from "../../component/Provider";
 import loader from "../../static/loader.gif";
 import PublicLayout from "../../component/PublicLayout";
+import SearchBar from "../../component/SearchBar";
+import Back from "../../component/Back";
 
 function Blockchain() {
   const [books, setBooks] = useState(null);
@@ -31,23 +33,23 @@ function Blockchain() {
   }, []);
   return (
     <PublicLayout>
-      <div className="navigate container">
-        <div className="d-flex justify-content-between arrow-text mt-3">
-          <Link to={`/provider/${providerName}`} className="back ms-2" style={{ fontWeight: "bolder" }}>
-            <TiArrowLeftThick style={{ color: "black" }}></TiArrowLeftThick>Back
-          </Link>
-          <h6 className="ms-2"> All {examName} books</h6>
-        </div>
-        <div className="search-container mb-5">
-          <input placeholder="exam code or name" type="search" className="" />
-          <AiOutlineSearch className="search-icon"></AiOutlineSearch>
-        </div>
+      <div className="navigate container mb-4">
+        <Back path={`/provider/${providerName}`} />
+        <SearchBar text="Exam Name or Code" />
       </div>
       <div className="container-fluid py-2">
         {books ? (
           <>
-            <div className="d-flex flex-row flex-nowrap exam-card-section">
+            <h3
+              style={{
+                textAlign: "center",
+                fontWeight: "bold",
+                fontSize: "2.5rem",
+              }}
+            >
               {providerName} {examName} Books
+            </h3>
+            <div className="d-flex flex-row flex-nowrap exam-card-section">
               {books.filter(checkProvider).map((item, i) => (
                 <Provider
                   key={i}

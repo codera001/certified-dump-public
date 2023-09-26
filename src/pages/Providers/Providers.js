@@ -7,6 +7,7 @@ import loader from "../../static/loader.gif";
 import { Link } from "react-router-dom";
 import SearchBar from "../../component/SearchBar";
 import PublicLayout from "../../component/PublicLayout";
+import Back from "../../component/Back";
 
 function Providers() {
   const [allProviders, setAllProviders] = useState(null);
@@ -31,18 +32,11 @@ function Providers() {
     <PublicLayout>
       <section className="container section-providers">
         <div className="d-flex justify-content-between">
-          <div className="mt-5">
-            <Link to="/" className="back" style={{ fontWeight: "bolder" }}>
-              <TiArrowLeftThick
-                style={{ color: "black", marginRight: "0.5rem" }}
-              ></TiArrowLeftThick>
-              Back
-            </Link>
-          </div>
+          <Back path="/" />
           <SearchBar text="Exam Code or Name" />
         </div>
         <h5
-          className=" mt-5 mb-5"
+          className="mb-5"
           style={{ fontWeight: "bolder", color: "black", textAlign: "center" }}
         >
           All Providers

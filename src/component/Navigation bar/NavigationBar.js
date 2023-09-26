@@ -14,19 +14,19 @@ function NavigationBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
 
-   useEffect(() => {
-     function handleScroll() {
-       if (window.scrollY > 250) {
-         setIsScrolled(true);
-       } else {
-         setIsScrolled(false);
-       }
-     }
-     window.addEventListener("scroll", handleScroll);
-     return () => {
-       window.removeEventListener("scroll", handleScroll);
-     };
-   }, []);
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY > 200) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -64,9 +64,17 @@ function NavigationBar() {
                     fontWeight: "bolder",
                     display: "flex",
                     alignItems: "center",
+                    margin: "0 4px 0 0",
                   }}
                 >
-                  Balance: <span>{sessionStorage.getItem("balance")}</span>
+                  Balance:{" "}
+                  <span
+                    style={{
+                      margin: "0 0 0 4px",
+                    }}
+                  >
+                    {sessionStorage.getItem("balance")}
+                  </span>
                 </p>
               </>
             )}

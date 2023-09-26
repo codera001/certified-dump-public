@@ -21,19 +21,21 @@
   display: flex;
   /* width:80%; */
   margin: 2rem auto;
+  align-items: center;
 }
 
 .preview-auth {
-  background-color: var(--post-tertiary-color);
+  background-color: var(--black);
   width: 300px;
   height: 180px;
   color: white;
+  text-align: center;
 }
 
 .preview-auth a {
   color: var(--white);
-  margin-left: 1rem;
   align-items: center;
+  justify-content: center;
 }
 
 .peview-line {
