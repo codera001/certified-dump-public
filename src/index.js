@@ -23,7 +23,6 @@ import Preview from "./pages/Preview/Preview";
 import Blockchain from "./pages/Exams/Blockchain";
 import Support from "./dashboard/support/Support";
 import Chat from "./dashboard/chats/Chat";
-// import Contact from "./component/Contact/Contact";
 import Verify from "./ApiTesting/Verify";
 import PassReset from "./ApiTesting/PassReset";
 import { Toaster } from "react-hot-toast";

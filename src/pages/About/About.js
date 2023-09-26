@@ -113,41 +113,59 @@ function About() {
                   <img src={openbook}></img>
                 </div>
                 <Card.Text>
-                  <p style={{ fontWeight: "bold", margin: "0.5rem 0 0.5rem" }}>
+                  <span
+                    style={{
+                      fontWeight: "bold",
+                      margin: "0.5rem 0 0.5rem",
+                      display: "block",
+                    }}
+                  >
                     Extensive Exam Dumps
-                  </p>
+                  </span>
                   We cover an extensive wide range of subjects, ensuring you
                   have access to the latest notes, practice question
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
-          <Col className="">
+          <Col>
             <Card className="card-wrap">
               <Card.Body>
                 <div className="image">
                   <img src={writer}></img>
                 </div>
                 <Card.Text>
-                  <p style={{ fontWeight: "bold", margin: "0.5rem 0 0.5rem" }}>
+                  <span
+                    style={{
+                      fontWeight: "bold",
+                      margin: "0.5rem 0 0.5rem",
+                      display: "block",
+                    }}
+                  >
                     Accurate/ Updated Contents
-                  </p>
+                  </span>
                   Discover a new level of exam preparation with our accurate and
                   updated contants
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
-          <Col className="">
+          <Col>
             <Card className="card-wrap">
               <Card.Body>
                 <div className="image">
                   <img src={friends}></img>
                 </div>
                 <Card.Text>
-                  <p style={{ fontWeight: "bold", margin: "0.5rem 0 0.5rem" }}>
+                  <span
+                    style={{
+                      fontWeight: "bold",
+                      margin: "0.5rem 0 0.5rem",
+                      display: "block",
+                    }}
+                  >
                     User-Friendly Platform
-                  </p>
+                  </span>
                   Say goodbye to complexity and hello to simplicity.. Our site
                   is here to streamline yor exam readiness.
                 </Card.Text>
@@ -161,9 +179,15 @@ function About() {
                   <img src={support}></img>
                 </div>
                 <Card.Text>
-                  <p style={{ fontWeight: "bold", margin: "0.5rem 0 0.5rem" }}>
+                  <span
+                    style={{
+                      fontWeight: "bold",
+                      margin: "0.5rem 0 0.5rem",
+                      display: "block",
+                    }}
+                  >
                     Customer Support
-                  </p>
+                  </span>
                   Have questions and need guidiance in navigating the site? Our
                   Support team is availaible for your convenience
                 </Card.Text>
