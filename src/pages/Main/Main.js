@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from "react";
 import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import amazon from "../../static/amazon.png";
-import microsoft from "../../static/microsoft.png";
-import juniper from "../../static/juniper.png";
-import vmare from "../../static/vmare.png";
-import isaca from "../../static/isaca.png";
-import salesforce from "../../static/salesforce.png";
-import cisco from "../../static/cisco.png";
-import google from "../../static/google.png";
 import study from "../../static/study.png";
 import { FaAngleDown } from "react-icons/fa";
 import "./Main.css";
@@ -40,7 +32,7 @@ function Main() {
     <>
       <NavigationBar />
       <section className="section-one-main">
-        <div className="text my-auto" style={{}}>
+        <div className="text my-auto">
           <h1
             style={{
               fontWeight: "bolder",
@@ -49,12 +41,9 @@ function Main() {
           >
             WELCOME TO CERTIFIED DUMP
           </h1>
-          <h6 style={{ fontWeight: "bolder", marginBottom: "2rem" }}>
-            A COMMUNITY TO WHICH YOU CAN ASPIRE
-          </h6>
           <p
             className="text-align-center mx-auto p-text"
-            style={{ fontSize: "16px" }}
+            style={{ fontSize: "22px" }}
           >
             You'll discover that none of the suppliers of real exam materials
             are genuinely free when you search for them. We made the decision to
@@ -85,10 +74,13 @@ function Main() {
       {/* section-two */}
       <section className="container section-two-main">
         <div>
-          <h5 className="mt-5" style={{ fontWeight: "bolder", color: "black" }}>
+          <h5
+            className="mt-5 mb-4"
+            style={{ fontWeight: "bolder", color: "black" }}
+          >
             Our Top Providers
           </h5>
-          <p className="mb-5" style={{ fontSize: "16px" }}>
+          <p className="mb-5" style={{ fontSize: "22px" }}>
             Certified dump has one of the largest collection of professional
             certification and exam practice tests and online courses. Use <br />
             our study materials to pass your examinations on the first try! Our
@@ -155,48 +147,17 @@ function Main() {
             FIND EXAMS NOW
           </h2>
           <div className="exam-search-buttons">
-            <button
-              className="px-3 py-1 text-dark mx-3 "
-              style={{
-                backgroundColor: "white",
-                fontSize: "14px",
-                borderRadius: "5px",
-                border: "none",
-              }}
+            <select
+              className="px-4 py-1 mx-3"
             >
-              Select Provider
-              <FaAngleDown
-                className="ms-5 "
-                style={{ fontSize: "25px", color: "black" }}
-              ></FaAngleDown>
-            </button>
-            <button
-              className=" text-dark mx-3 py-2 keyword"
-              style={{
-                backgroundColor: "white",
-                fontSize: "14px",
-                borderRadius: "5px",
-                border: "none",
-              }}
-            >
-              Exam Code or Keyword
-            </button>
-            <Link
-              to="/"
-              className="mx-md-3 button py-1"
-              style={{
-                fontSize: "16px",
-                borderColor: "var(--green-500)",
-                borderStyle: "solid",
-                borderWidth: "1px",
-                borderRadius: "5px",
-                color: "var(--green-500)",
-                paddingLeft: "2rem",
-                paddingRight: "2rem",
-              }}
-            >
-              Search Exams
-            </Link>
+              <option value="">Select Provider</option>
+            </select>
+            <input
+              className="mx-3 py-2 keyword"
+              type="text"
+              placeholder="Exam Name or Code"
+            />
+            <button className="mx-md-3 button py-1">Search Exams</button>
           </div>
         </div>
       </section>

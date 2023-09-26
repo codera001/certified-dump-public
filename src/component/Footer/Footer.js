@@ -1,7 +1,6 @@
 import React from "react";
 import "./footer.css";
-// import footer from "../static/footer.png";
-import logo from "../../static/logo.png";
+import logo from "../../static/logow.png";
 import { RiHome4Fill } from "react-icons/ri";
 import {
   HiOutlineArrowCircleRight,
@@ -9,55 +8,58 @@ import {
 } from "react-icons/hi";
 import { BiSolidMessageRoundedDetail, BiUserPin } from "react-icons/bi";
 import { TbEditCircle } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 function Footer() {
   const year = new Date().getFullYear();
   return (
     <div className="footeer">
-      <div>
-        <div className="pu-footer d-md-flex justify-content-between container bg-none">
-          <div className="text">
-            <img src={logo} alt="logo" className="logo" />
-            <div>
-              <p className="text-start mt-5">
-                We are the largest and most curent website offering IT
-                certifications test materials.
-              </p>
-              <p className="text-start">
-                Our mission is to enhance the IT professionals community for
-                free by using our own resources
-              </p>
-            </div>
-          </div>
-          <div className="icons ">
-            <h6 className="" style={{ fontWeight: "bolder" }}>
-              SITEMAP
-            </h6>
-            <p className="line" />
-            <div className="icons-icon">
-              <div className=" ">
-                <RiHome4Fill></RiHome4Fill>
-              </div>
-              <div>
-                <BiSolidMessageRoundedDetail></BiSolidMessageRoundedDetail>
-              </div>
-              <div>
-                <HiOutlineArrowCircleRight></HiOutlineArrowCircleRight>
-              </div>
-              <div>
-                <TbEditCircle></TbEditCircle>
-              </div>
-              <div>
-                <BiUserPin></BiUserPin>
-              </div>
-              <div>
-                <HiOutlineInformationCircle></HiOutlineInformationCircle>
-              </div>
-            </div>
+      <div className="pu-footer d-md-flex justify-content-between container bg-none">
+        <div className="text">
+          <img src={logo} alt="logo" className="logo" />
+          <div>
+            <p className="text-start mt-5">
+              We are the largest and most curent website offering IT
+              certifications test materials.
+            </p>
+            <p className="text-start">
+              Our mission is to enhance the IT professionals community for free
+              by using our own resources
+            </p>
           </div>
         </div>
-        <small className="text-center text-white">{`Copyright © Certified dump ${year}`}</small>
+        <div className="icons">
+          <h6 style={{ fontWeight: "bolder" }}>SITEMAP</h6>
+          <p className="line" />
+          <div className="icons-icon">
+            <Link to="/">
+              <RiHome4Fill />
+              <p>Home</p>
+            </Link>
+            <Link to="/">
+              <BiSolidMessageRoundedDetail />
+              <p>Exams</p>
+            </Link>
+            <Link to="/">
+              <HiOutlineArrowCircleRight />
+              <p>Providers</p>
+            </Link>
+            <Link to="/">
+              <TbEditCircle />
+              <p>Support</p>
+            </Link>
+            <Link to="/">
+              <BiUserPin />
+              <p>Call us</p>
+            </Link>
+            <Link to="/">
+              <HiOutlineInformationCircle />
+              <p>More info</p>
+            </Link>
+          </div>
+        </div>
       </div>
+      <small className="text-center text-white">{`Copyright © Certified dump ${year}`}</small>
     </div>
   );
 }

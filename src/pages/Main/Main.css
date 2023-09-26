@@ -31,10 +31,10 @@
   width: 100%;
 }
 .section-one-main .text h1 {
-  font-size: 38px;
+  font-size: 4rem;
 }
 .section-one-main .p-text {
-  width: 40%;
+  width: 70%;
 }
 
 .section-one-main .button {
@@ -136,34 +136,61 @@ hr.section-three-main-line {
 }
 .section-three-main .text h4 {
   width: 80%;
-  font-size: 30px;
-  /* font-weight: bold; */
+  font-size: 36px;
   padding-top: 5rem;
-  /* padding-left: 4rem; */
   color: black;
   margin: 0 auto;
 }
+
 .section-three-main .text p {
   width: 80%;
   padding-top: 1rem;
-  /* padding-left: 4rem; */
-  /* font-weight: bold; */
   color: black;
   margin: 0 auto;
+  font-size: 21px;
 }
+
 .section-three-main .exam-search-buttons {
   margin-top: 4rem;
   padding-bottom: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exam-search-buttons select {
+  width: 34%;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
 }
 
 .section-three-main .exam-search-buttons .keyword {
   padding-left: 4rem;
   padding-right: 4rem;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
 }
 
-.section-three-main .search {
-  margin-top: 10rem;
+.exam-search-buttons input::placeholder{
+  color: var(--black);
 }
+
+.exam-search-buttons button {
+  border: 1px solid var(--green-500);
+  border-radius: 5px;
+  padding: 0 2rem;
+  color: white !important;
+  background-color: black;
+  transition: var(--transition-all);
+}
+
+.exam-search-buttons button:hover {
+  background-color: var(--green-500);
+}
+
+
 
 @media screen and (max-width: 767px) {
   .section-one-main {
