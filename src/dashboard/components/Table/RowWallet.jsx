@@ -7,13 +7,13 @@ const RowWallet = ({ each }) => {
     <>
       <td>
         <p>{each.type}</p>
-        <em>{each.date}</em>
+        <em>{new Date(each.date).toDateString()}</em>
       </td>
       <td>
         <p>{each.amount}</p>
         {status === "successful" ? (
           <em className="d-mobile-success">Successful</em>
-        ) : status === "Pending" ? (
+        ) : status === "pending" ? (
           <em className="d-mobile-pend">Pending</em>
         ) : (
           <em className="d-mobile-fail">Failed</em>

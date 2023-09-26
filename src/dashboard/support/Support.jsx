@@ -6,11 +6,15 @@ import Tickets from "../components/TicketList/Tickets";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
+import loader from "../../static/loader.gif";
+
 
 const Support = () => {
   const [tickets, setTickets] = useState(null);
   const userId = sessionStorage.getItem("userId");
   const [modal, setModal] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   const {
     register,
     handleSubmit,
@@ -68,6 +72,7 @@ const Support = () => {
   useEffect(() => {
     sessionStorage.removeItem("ticket-subject");
     GetTickets();
+    setLoading(!loading);
   }, []);
 
   return (
@@ -76,43 +81,51 @@ const Support = () => {
         <div>
           <h1>Support Ticket</h1>
         </div>
-        {tickets ? (
-          ""
-        ) : (
-          <div className="d-ticket-btn">
-            <button onClick={() => setModal(!modal)}>
-              Add a support ticket
-            </button>
+        {loading ? (
+          <div className="d-gif-div">
+            <img src={loader} alt="loading-gif" className="d-gif" />
           </div>
-        )}
-        <div className="d-support-wrapper">
-          {modal && (
-            <div onClick={closeModal} className="d-modal-wrapper">
-              <div ref={modalRef} className="d-modal-inner">
-                <button onClick={() => setModal(false)}>X</button>
-                <form onSubmit={handleSubmit(CreateTicket)}>
-                  <input
-                    type="text"
-                    placeholder="Enter a subject"
-                    {...register("subject", {
-                      required: true,
-                    })}
-                  />
-                  <div className="d-message-area">
-                    <textarea
-                      type="text"
-                      {...register("message", { required: true })}
-                      placeholder="Type your message"
-                      rows="5"
-                    />
-                  </div>
-                  <button className="d-modal-btn">Send</button>
-                </form>
+        ) : (
+          <>
+            {tickets ? (
+              ""
+            ) : (
+              <div className="d-ticket-btn">
+                <button onClick={() => setModal(!modal)}>
+                  Add a support ticket
+                </button>
               </div>
+            )}
+            <div className="d-support-wrapper">
+              {modal && (
+                <div onClick={closeModal} className="d-modal-wrapper">
+                  <div ref={modalRef} className="d-modal-inner">
+                    <button onClick={() => setModal(false)}>X</button>
+                    <form onSubmit={handleSubmit(CreateTicket)}>
+                      <input
+                        type="text"
+                        placeholder="Enter a subject"
+                        {...register("subject", {
+                          required: true,
+                        })}
+                      />
+                      <div className="d-message-area">
+                        <textarea
+                          type="text"
+                          {...register("message", { required: true })}
+                          placeholder="Type your message"
+                          rows="5"
+                        />
+                      </div>
+                      <button className="d-modal-btn">Send</button>
+                    </form>
+                  </div>
+                </div>
+              )}
+              <Tickets tickets={tickets} />
             </div>
-          )}
-          <Tickets tickets={tickets} />
-        </div>
+          </>
+        )}
       </section>
     </Layout>
   );

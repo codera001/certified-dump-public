@@ -12,7 +12,7 @@ export const sideMenu = [
     path: "/dashboard",
   },
   {
-    title: "Buy A Book",
+    title: "Buy An Exam",
     icon: <BsJournalBookmark />,
     path: "/providers",
   },

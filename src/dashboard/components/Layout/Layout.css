@@ -36,6 +36,15 @@
   overflow-y: scroll;
 }
 
+.d-gif-div {
+  text-align: center;
+}
+
+.d-gif {
+  max-width: 20%;
+}
+
+
 
 @media screen and (min-width: 1000px) {
   .d-children{

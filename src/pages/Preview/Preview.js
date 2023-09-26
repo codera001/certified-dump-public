@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 import loader from "../../static/loader.gif";
 import SearchBar from "../../component/SearchBar";
 import PublicLayout from "../../component/PublicLayout";
+import Back from "../../component/Back";
 
 function Preview() {
   const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
@@ -47,7 +48,8 @@ function Preview() {
           },
         }
       );
-      console.log(response);
+      // console.log(response);
+      toast.success(response.data.msg);
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.msg);
@@ -61,17 +63,8 @@ function Preview() {
   return (
     <PublicLayout>
       <div className="d-flex justify-content-between">
-        <div className="navigate container">
-          <div className="d-flex justify-content-between arrow-text">
-            <Link
-              to={`/provider/${providerName}/${examName}`}
-              className="back ms-2"
-              style={{ fontWeight: "bolder" }}
-            >
-              <TiArrowLeftThick style={{ color: "black" }}></TiArrowLeftThick>
-              Back
-            </Link>
-          </div>
+        <div className="navigate container mb-4">
+          <Back path={`/provider/${providerName}/${examName}`} />
           <SearchBar text="Exam Code or Name" />
         </div>
       </div>
@@ -135,7 +128,7 @@ function Preview() {
               </div>
             )}
             <div className="preview-purchase">
-              <h5 className="ps-2 mt-2">Buy exam</h5>
+              <h5 className="ps-2 mt-2">Buy Exam</h5>
               <div className="preview-purchase-text mx-2 my-2 px-2">
                 <h6 className="mt-2 mb-0" style={{ fontSize: "14px" }}>
                   PDF download + Online access
@@ -160,7 +153,8 @@ function Preview() {
                   <button
                     onClick={() => {
                       if (authToken) {
-                        BuyBook(book.id, Number(book.price), book.title);
+                        BuyBook(book.id, 20, book.title);
+                        // BuyBook(book.id, Number(book.price), book.title);
                       } else {
                         localStorage.setItem(
                           "bookRoute",
@@ -197,7 +191,9 @@ function Preview() {
           </div>
         </>
       ) : (
-        <img src={loader} alt="loading gif" />
+        <div className="d-gif-div">
+          <img src={loader} alt="loading-gif" className="d-gif" />
+        </div>
       )}
     </PublicLayout>
   );

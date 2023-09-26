@@ -1,6 +1,4 @@
 import React from "react";
-import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import PageFooter from "../../component/PageFooter/PageFooter";
 import signup from "../../static/signup.jpg";
 import about2 from "../../static/about2.png";
 import about3 from "../../static/about3.png";
@@ -18,7 +16,7 @@ import { Link } from "react-router-dom";
 function About() {
   return (
     <PublicLayout>
-      <section className=".section-one-about">
+      <section className="section-one-about">
         <h1 className="text-white">ABOUT US</h1>
       </section>
 
@@ -107,44 +105,67 @@ function About() {
 
       <section className="section3 container mt-4 about">
         <h1 className="text-center">Our Services</h1>
-
-        <Row xs={1} sm={1} md={2} lg={4} className=" card-sections mb-3">
-          <Col className="">
+        <Row xs={1} sm={1} md={2} lg={4} className="card-sections mb-3">
+          <Col>
             <Card className="card-wrap">
               <Card.Body>
                 <div className="image">
                   <img src={openbook}></img>
                 </div>
                 <Card.Text>
-                  <strong>Extensive Exam Dumps </strong>
+                  <span
+                    style={{
+                      fontWeight: "bold",
+                      margin: "0.5rem 0 0.5rem",
+                      display: "block",
+                    }}
+                  >
+                    Extensive Exam Dumps
+                  </span>
                   We cover an extensive wide range of subjects, ensuring you
                   have access to the latest notes, practice question
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
-          <Col className="">
+          <Col>
             <Card className="card-wrap">
               <Card.Body>
                 <div className="image">
                   <img src={writer}></img>
                 </div>
                 <Card.Text>
-                  <strong>Accurate/ Updated Contents </strong>
+                  <span
+                    style={{
+                      fontWeight: "bold",
+                      margin: "0.5rem 0 0.5rem",
+                      display: "block",
+                    }}
+                  >
+                    Accurate/ Updated Contents
+                  </span>
                   Discover a new level of exam preparation with our accurate and
                   updated contants
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
-          <Col className="">
+          <Col>
             <Card className="card-wrap">
               <Card.Body>
                 <div className="image">
                   <img src={friends}></img>
                 </div>
                 <Card.Text>
-                  <strong>User-Friendly Platform </strong>
+                  <span
+                    style={{
+                      fontWeight: "bold",
+                      margin: "0.5rem 0 0.5rem",
+                      display: "block",
+                    }}
+                  >
+                    User-Friendly Platform
+                  </span>
                   Say goodbye to complexity and hello to simplicity.. Our site
                   is here to streamline yor exam readiness.
                 </Card.Text>
@@ -158,7 +179,15 @@ function About() {
                   <img src={support}></img>
                 </div>
                 <Card.Text>
-                  <strong>Customer Support</strong>
+                  <span
+                    style={{
+                      fontWeight: "bold",
+                      margin: "0.5rem 0 0.5rem",
+                      display: "block",
+                    }}
+                  >
+                    Customer Support
+                  </span>
                   Have questions and need guidiance in navigating the site? Our
                   Support team is availaible for your convenience
                 </Card.Text>
@@ -166,13 +195,6 @@ function About() {
             </Card>
           </Col>
         </Row>
-
-        <Link to="/signup" className="text-center py-2 mb-2">
-          GET STARTED
-        </Link>
-        <small className="text-center d-block mt-2 mb-3">
-          Begin your journey towards exam sucess with Certified Dump
-        </small>
       </section>
     </PublicLayout>
   );

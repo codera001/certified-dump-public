@@ -28,7 +28,8 @@ const Wallet = () => {
           },
         }
       );
-      setSpent(response.data);
+      // console.log(response)
+      setSpent(response.data.result[0].total_amount);
     } catch (error) {
       // console.log(error);
     }
@@ -44,11 +45,15 @@ const Wallet = () => {
           },
         }
       );
-      setTransactions(response.data.result);
-      // console.log(response);
+      setTransactions(
+        response.data.result.sort(function (a, b) {
+          return new Date(b.date) - new Date(a.date);
+        })
+      );
+      // console.log(response.data.result);
     } catch (error) {
       setError(error.response.data.msg);
-      // console.log(error);
+      console.log(error.response);
     }
   };
 
@@ -64,12 +69,14 @@ const Wallet = () => {
         <div className="d-spent">
           <p>Total Spent</p>
           {loading ? (
-            <img src={loader} alt="loading-gif" />
-          ) : (spent ? (
-            <strong>{spent}</strong>
+            <div className="d-gif-div">
+              <img src={loader} alt="loading-gif" className="d-gif" />
+            </div>
+          ) : spent ? (
+            <strong>${spent}</strong>
           ) : (
             <strong>$0.00</strong>
-          ))}
+          )}
           <p>Total amount spent on Exam Purchase</p>
         </div>
         <div className="d-bal">
@@ -82,7 +89,11 @@ const Wallet = () => {
         <div className="d-table-header">
           <h3>Your transactions History</h3>
         </div>
-        {error ? (
+        {loading ? (
+          <div className="d-gif-div">
+            <img src={loader} alt="loading-gif" className="d-gif" />
+          </div>
+        ) : error ? (
           <div className="error">You have no transaction history</div>
         ) : (
           <>

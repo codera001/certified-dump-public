@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import "./Payment.css";
 import Layout from "../components/Layout/Layout";
-// import { Button } from "../components/Button/Button";
 import card from "../images/card.jpg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Payment = () => {
+  const [selectedButton, setSelectedButton] = useState(null);
   const [amt, setAmt] = useState("");
+
   const handleClick = (amount) => {
     setAmt(amount);
+    setSelectedButton(amount);
   };
+
   // console.log(amt);
   const navigate = useNavigate();
 
@@ -20,9 +24,10 @@ const Payment = () => {
       const response = await axios.post(
         "https://api.certifieddump.com/api-wallet/payment",
         {
-          amount: "15000",
+          amount: Number(amt) * 100,
           userid: sessionStorage.getItem("userId"),
           callbackUrl: "http://localhost:3000/payment-verification",
+          // callbackUrl: "https://certifieddump.com/payment-verification",
           currency: "NGN",
           customerFirstName: sessionStorage.getItem("userFirstname"),
           customerLastName: sessionStorage.getItem("userLastname"),
@@ -57,17 +62,43 @@ const Payment = () => {
           </div>
           <h4>2. Specify top up amount</h4>
           <div className="d-amounts">
-            <button onClick={() => handleClick("10")}>$10</button>
-            <button onClick={() => handleClick("50")}>$50</button>
-            <button onClick={() => handleClick("100")}>$100</button>
+            <button
+              className={selectedButton === "10" ? "selected" : ""}
+              onClick={() => handleClick("10")}
+            >
+              $10
+            </button>
+            <button
+              className={selectedButton === "50" ? "selected" : ""}
+              onClick={() => handleClick("50")}
+            >
+              $50
+            </button>
+            <button
+              className={selectedButton === "100" ? "selected" : ""}
+              onClick={() => handleClick("100")}
+            >
+              $100
+            </button>
             <input
               type="number"
-              onChange={(e) => setAmt(e.target.value)}
+              onChange={(e) => {
+                setAmt(e.target.value);
+                setSelectedButton(null);
+              }}
               placeholder="Other amount"
+              value={amt}
             />
           </div>
           <div className="d-payment-btn">
-            <button className="d-sec-btn" onClick={() => Deposit()}>
+            <button
+              className="d-sec-btn"
+              onClick={() => {
+                if (amt) {
+                  Deposit();
+                } else toast.error("Please enter an amount to pay");
+              }}
+            >
               Pay
             </button>
           </div>

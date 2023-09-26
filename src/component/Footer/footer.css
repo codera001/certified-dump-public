@@ -1,90 +1,95 @@
-.footeer{
-    background-image: url('../../static/footer.png');
-    width: 100%;
-    background-size: cover;
-    text-align: center;
+.footeer {
+  background-image: url("../../static/footer.png");
+  width: 100%;
+  background-size: cover;
+  text-align: center;
+}
 
+.pu-footer {
+  padding-top: 10rem;
 }
- .pu-footer{
-    padding-top: 10rem;
-}
+
 .pu-footer .text {
-    width: 25%;
-    color: var(--white);
-    font-weight: bold;
+  width: 25%;
+  color: var(--white);
 }
-/* 
-.pu-footer .text p{
-    width: 30%;
-    text-align: center;
-} */
-
 
 .pu-footer .logo {
-width: 260px;
-height: 80px;
-background-color: var(--white);
-border-radius: 10px;
-margin-right: 3rem;
-
+  width: 260px;
+  height: 80px;
+  margin-right: 3rem;
 }
-.pu-footer .icons-icon{
-    margin-top:1.5rem;
+
+.pu-footer .icons-icon {
+  margin-top: 1.5rem;
+  max-width: 25%;
+  margin: 1rem auto 0;
+}
+
+.pu-footer .icons-icon a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 0 1rem 1.8rem;
+  color: var(--white);
+  gap: 3px;
+  font-size: 1.1rem;
+  transition: var(--transition-all);
+}
+
+.pu-footer .icons-icon a:hover {
+  color: var(--primary-color);
+}
+
+.pu-footer .icons-icon a p {
+  margin-bottom: 0;
 }
 
 .pu-footer .icons {
-    width: 50%;
-    color: white;
-    display: block;
-    font-size: 30px;
+  width: 50%;
+  color: white;
+  display: block;
+  font-size: 30px;
 }
 
 .pu-footer .line {
-    border-bottom: 3px solid var(--secondary-color);
-    z-index: 1;
-    width: 15%;
-    text-align: center;
-    margin: 0 auto;
+  border-bottom: 3px solid var(--secondary-color);
+  z-index: 1;
+  width: 15%;
+  text-align: center;
+  margin: 0 auto;
 }
 
-
-
-
-@media screen and (max-width:767px) {
-
-    
-    .pu-footer{
+@media screen and (max-width: 767px) {
+  .pu-footer {
     padding-top: 4rem;
-display:block;
-width:80%;
- 
-    }
+    display: block;
+    width: 80%;
+  }
 
-    .pu-footer .logo {
-        width: 200px;
-        margin-right: 0;
-        
-        }
-    .pu-footer .text{
-        width: 100%;
-       
-    }
+  .pu-footer .logo {
+    width: 200px;
+    margin-right: 0;
+  }
+  .pu-footer .text {
+    width: 100%;
+  }
 
-    .pu-footer .text .text-start{
-        font-size:14px;
-    }
+  .pu-footer .text .text-start {
+    font-size: 14px;
+  }
 
-    .pu-footer .icons {
-        margin-top:1rem;
-    }
+  .pu-footer .icons {
+    margin-top: 1rem;
+  }
 
-    .pu-footer .icons-icon{
-        width:90%;
-        display:flex;
-        margin-top:0.5rem
-    }
+  .pu-footer .icons-icon {
+    width: 90%;
+    display: flex;
+    margin-top: 0.5rem;
+  }
 
-    .pu-footer .line{
-        width:50%;
-    }
+  .pu-footer .line {
+    width: 50%;
+  }
 }
