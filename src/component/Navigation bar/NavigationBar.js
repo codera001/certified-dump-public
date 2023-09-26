@@ -6,12 +6,27 @@ import { RiFacebookFill, RiMailSendLine } from "react-icons/ri";
 import { TbBrandTwitterFilled } from "react-icons/tb";
 import "./NavigationBar.css";
 import logo from "../../static/logo.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BsInstagram } from "react-icons/bs";
 
 function NavigationBar() {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
+
+   useEffect(() => {
+     function handleScroll() {
+       if (window.scrollY > 250) {
+         setIsScrolled(true);
+       } else {
+         setIsScrolled(false);
+       }
+     }
+     window.addEventListener("scroll", handleScroll);
+     return () => {
+       window.removeEventListener("scroll", handleScroll);
+     };
+   }, []);
 
   return (
     <>
@@ -105,7 +120,9 @@ function NavigationBar() {
       <Navbar
         collapseOnSelect
         expand="lg"
-        className="second-nav mx-0 nav-toogle my-0"
+        className={`second-nav mx-0 nav-toogle my-0 ${
+          isScrolled ? "p-navbar-scroll" : ""
+        }`}
       >
         <Container fluid>
           <Navbar.Toggle

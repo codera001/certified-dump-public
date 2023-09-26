@@ -76,6 +76,7 @@
 
 .second-nav {
   background-color: var(--green-500);
+  transition: all 0.3s ease;
 }
 
 .second-nav .button {
@@ -111,6 +112,14 @@
   padding-right: 2rem;
   padding-left: 2rem;
   margin-right: 2rem;
+}
+
+.p-navbar-scroll {
+  position: fixed;
+  z-index: 10;
+  /* inset: 0; */
+  top: 0;
+  width: 100%;
 }
 
 @media screen and (max-width: 767px) {
