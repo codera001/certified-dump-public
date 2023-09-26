@@ -7,10 +7,15 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Payment = () => {
-  const [amt, setAmt] = useState("");
-  const handleClick = (amount) => {
-    setAmt(amount);
-  };
+ const [selectedButton, setSelectedButton] = useState(null);
+ const [amt, setAmt] = useState("");
+
+ const handleClick = (amount) => {
+       if (selectedButton !== amount) {
+         setAmt(amount);
+         setSelectedButton(amount);
+       }
+ };
   // console.log(amt);
   const navigate = useNavigate();
 
@@ -58,13 +63,38 @@ const Payment = () => {
           </div>
           <h4>2. Specify top up amount</h4>
           <div className="d-amounts">
-            <button onClick={() => handleClick("10")}>$10</button>
-            <button onClick={() => handleClick("50")}>$50</button>
-            <button onClick={() => handleClick("100")}>$100</button>
+            <button
+              onClick={() => handleClick("10")}
+              style={{
+                borderColor: selectedButton === "10" ? "blue" : "initial",
+              }}
+            >
+              $10
+            </button>
+            <button
+              onClick={() => handleClick("50")}
+              style={{
+                borderColor: selectedButton === "50" ? "blue" : "initial",
+              }}
+            >
+              $50
+            </button>
+            <button
+              onClick={() => handleClick("100")}
+              style={{
+                borderColor: selectedButton === "100" ? "blue" : "initial",
+              }}
+            >
+              $100
+            </button>
             <input
               type="number"
-              onChange={(e) => setAmt(e.target.value)}
+              onChange={(e) => {
+                setAmt(e.target.value);
+                setSelectedButton(null); // Reset selected button when input changes
+              }}
               placeholder="Other amount"
+              value={amt}
             />
           </div>
           <div className="d-payment-btn">
