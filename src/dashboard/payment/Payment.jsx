@@ -7,15 +7,14 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Payment = () => {
- const [selectedButton, setSelectedButton] = useState(null);
- const [amt, setAmt] = useState("");
+  const [selectedButton, setSelectedButton] = useState(null);
+  const [amt, setAmt] = useState("");
 
- const handleClick = (amount) => {
-       if (selectedButton !== amount) {
-         setAmt(amount);
-         setSelectedButton(amount);
-       }
- };
+  const handleClick = (amount) => {
+    setAmt(amount);
+    setSelectedButton(amount);
+  };
+
   // console.log(amt);
   const navigate = useNavigate();
 
@@ -64,26 +63,20 @@ const Payment = () => {
           <h4>2. Specify top up amount</h4>
           <div className="d-amounts">
             <button
+              className={selectedButton === "10" ? "selected" : ""}
               onClick={() => handleClick("10")}
-              style={{
-                borderColor: selectedButton === "10" ? "blue" : "initial",
-              }}
             >
               $10
             </button>
             <button
+              className={selectedButton === "50" ? "selected" : ""}
               onClick={() => handleClick("50")}
-              style={{
-                borderColor: selectedButton === "50" ? "blue" : "initial",
-              }}
             >
               $50
             </button>
             <button
+              className={selectedButton === "100" ? "selected" : ""}
               onClick={() => handleClick("100")}
-              style={{
-                borderColor: selectedButton === "100" ? "blue" : "initial",
-              }}
             >
               $100
             </button>
@@ -91,7 +84,7 @@ const Payment = () => {
               type="number"
               onChange={(e) => {
                 setAmt(e.target.value);
-                setSelectedButton(null); // Reset selected button when input changes
+                setSelectedButton(null);
               }}
               placeholder="Other amount"
               value={amt}
