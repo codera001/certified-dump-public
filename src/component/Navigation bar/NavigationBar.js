@@ -4,12 +4,11 @@ import Navbar from "react-bootstrap/Navbar";
 import { AiFillHome } from "react-icons/ai";
 import { RiFacebookFill, RiMailSendLine } from "react-icons/ri";
 import { TbBrandTwitterFilled } from "react-icons/tb";
-import { FaUser } from "react-icons/fa";
 import "./NavigationBar.css";
 import logo from "../../static/logo.png";
-import instagram from "../../static/instagram.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { BsInstagram } from "react-icons/bs";
 
 function NavigationBar() {
   const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
@@ -26,24 +25,25 @@ function NavigationBar() {
             </a>
           </div>
 
-          <div className=" item-list">
+          <div className="item-list">
             {!authToken && (
               <>
-                <Link to="/login" className=" nav-list ">
+                <Link to="/login" className="nav-list">
                   Login
                 </Link>
-                <Link to="/" className=" nav-list  border-left"></Link>
-                <Link to="/signup" className=" nav-list  ">
+                <Link to="/" className="nav-list border-left"></Link>
+                <Link to="/signup" className="nav-list">
                   Sign up
                 </Link>
               </>
             )}
             {authToken && (
               <>
-                <Link to="/dashboard" className="to-dash">
-                  Go back to dashboard
+                <Link to="/dashboard" className="nav-list to-dash">
+                  Logged in
                 </Link>
                 <p
+                  className="nav-list"
                   style={{
                     color: "white",
                     fontWeight: "bolder",
@@ -56,10 +56,14 @@ function NavigationBar() {
               </>
             )}
             <div className="icon">
-              <RiFacebookFill color="blue" className="me-2" />
-              <TbBrandTwitterFilled color="blue" />
-              <a>
-                <img src={instagram} className="icon image" alt="instagram" />
+              <a href="/" target="_blank">
+                <RiFacebookFill color="white" />
+              </a>
+              <a href="/" target="_blank">
+                <TbBrandTwitterFilled color="white" />
+              </a>
+              <a href="/" target="_blank">
+                <BsInstagram color="white" />
               </a>
             </div>
           </div>
@@ -101,7 +105,7 @@ function NavigationBar() {
       <Navbar
         collapseOnSelect
         expand="lg"
-        className="second-nav mx-0 nav-toogle my-0 "
+        className="second-nav mx-0 nav-toogle my-0"
       >
         <Container fluid>
           <Navbar.Toggle
@@ -109,8 +113,7 @@ function NavigationBar() {
             className="toggle"
           />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto"></Nav>
-            <Nav className="me-auto text-center nav-items">
+            <Nav className="mx-auto text-center nav-items">
               <Link to="/" className="nav-links">
                 HOME
               </Link>

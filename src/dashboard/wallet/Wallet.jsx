@@ -73,7 +73,7 @@ const Wallet = () => {
               <img src={loader} alt="loading-gif" className="d-gif" />
             </div>
           ) : spent ? (
-            <strong>{spent}</strong>
+            <strong>${spent}</strong>
           ) : (
             <strong>$0.00</strong>
           )}
