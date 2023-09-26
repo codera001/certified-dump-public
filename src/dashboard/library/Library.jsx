@@ -53,7 +53,7 @@ const Library = () => {
           <>
             <SearchBar title="Search Books" setSearchTerm={setSearchTerm} />
             <div className="d-lib-cards">
-              {books
+              {boughtBooks
                 .filter((book) => {
                   if (searchTerm == "") return book;
                   else if (
@@ -76,7 +76,7 @@ const Library = () => {
           </>
         )}
         {searchTerm !== "" &&
-          books.filter((book) => {
+          boughtBooks.filter((book) => {
             return book.title.toLowerCase().includes(searchTerm.toLowerCase());
           }).length === 0 && (
             <div className="d-lib-no-books">No Books Found</div>

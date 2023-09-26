@@ -15,7 +15,7 @@ const Sidebar = () => {
 
   const signOut = async () => {
     sessionStorage.clear();
-    navigate("/");
+    navigate("/login");
   };
 
   const BookPreview = () => {

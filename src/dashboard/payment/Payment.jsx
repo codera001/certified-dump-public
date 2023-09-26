@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Payment.css";
 import Layout from "../components/Layout/Layout";
-// import { Button } from "../components/Button/Button";
 import card from "../images/card.jpg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
