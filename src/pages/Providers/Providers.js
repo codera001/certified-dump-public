@@ -55,7 +55,9 @@ function Providers() {
               ))}
             </div>
           ) : (
-            <img src={loader} alt="loading gif" />
+            <div className="d-gif-div">
+              <img src={loader} alt="loading-gif" className="d-gif" />
+            </div>
           )}
         </div>
       </section>

@@ -38,17 +38,17 @@ function Blockchain() {
         <SearchBar text="Exam Name or Code" />
       </div>
       <div className="container-fluid py-2">
+        <h3
+          style={{
+            textAlign: "center",
+            fontWeight: "bold",
+            fontSize: "2.5rem",
+          }}
+        >
+          {providerName} {examName} Books
+        </h3>
         {books ? (
           <>
-            <h3
-              style={{
-                textAlign: "center",
-                fontWeight: "bold",
-                fontSize: "2.5rem",
-              }}
-            >
-              {providerName} {examName} Books
-            </h3>
             <div className="d-flex flex-row flex-nowrap exam-card-section">
               {books.filter(checkProvider).map((item, i) => (
                 <Provider
@@ -68,7 +68,9 @@ function Blockchain() {
             )}
           </>
         ) : (
-          <img src={loader} alt="loading gif" />
+          <div className="d-gif-div">
+            <img src={loader} alt="loading-gif" className="d-gif" />
+          </div>
         )}
       </div>
     </PublicLayout>

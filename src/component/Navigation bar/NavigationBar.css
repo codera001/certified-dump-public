@@ -62,9 +62,7 @@
   border: 1px solid var(--white);
   background-color: var(--green-500);
   padding: 4px 10px;
-  /* border-radius: 20px; */
   margin: 0 10px 0 0;
-  font-weight: bold;
   transition: var(--transition-all);
 }
 

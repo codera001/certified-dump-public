@@ -38,18 +38,18 @@ function Alibaba() {
         <Back path="/providers" />
         <SearchBar text="Exam Code or Name" />
       </div>
-      <div style={{ textAlign: "center" }} className="container-fluid py-2">
+      <div className="container-fluid py-2">
+        <h3
+          style={{
+            textAlign: "center",
+            fontWeight: "bold",
+            fontSize: "2.5rem",
+          }}
+        >
+          {providerName} Exams
+        </h3>
         {exams ? (
           <>
-            <h3
-              style={{
-                textAlign: "center",
-                fontWeight: "bold",
-                fontSize: "2.5rem",
-              }}
-            >
-              {providerName} Exams
-            </h3>
             <div className="d-flex flex-row flex-nowrap exam-card-section">
               {exams.filter(checkProvider).map((item, i) => (
                 <Provider
@@ -62,13 +62,15 @@ function Alibaba() {
               ))}
             </div>
             {exams.filter(checkProvider).length === 0 ? (
-              <div style={{ textAlign: "center" }}>No exams found</div>
+              <div style={{ textAlign: "center" }}>No Exams found</div>
             ) : (
               ""
             )}
           </>
         ) : (
-          <img src={loader} alt="loading gif" />
+          <div className="d-gif-div">
+            <img src={loader} alt="loading-gif" className="d-gif" />
+          </div>
         )}
       </div>
     </PublicLayout>

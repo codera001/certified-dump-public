@@ -89,7 +89,11 @@ const Wallet = () => {
         <div className="d-table-header">
           <h3>Your transactions History</h3>
         </div>
-        {error ? (
+        {loading ? (
+          <div className="d-gif-div">
+            <img src={loader} alt="loading-gif" className="d-gif" />
+          </div>
+        ) : error ? (
           <div className="error">You have no transaction history</div>
         ) : (
           <>

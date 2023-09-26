@@ -54,14 +54,20 @@ function NavigationBar() {
             )}
             {authToken && (
               <>
-                <Link to="/dashboard" className="nav-list to-dash">
+                <Link
+                  to="/dashboard"
+                  style={{
+                    fontSize: "12px",
+                  }}
+                  className="nav-list to-dash"
+                >
                   Logged in
                 </Link>
                 <p
                   className="nav-list"
                   style={{
                     color: "white",
-                    fontWeight: "bolder",
+                    // fontWeight: "bolder",
                     display: "flex",
                     alignItems: "center",
                     margin: "0 4px 0 0",
