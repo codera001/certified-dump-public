@@ -46,7 +46,7 @@ function Login() {
         "https://api.certifieddump.com/api/login",
         formData
       );
-      // console.log(response.data);
+      console.log(response.data);
       toast.success(response.data.msg);
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.setItem("userId", response.data.user.id);
@@ -55,6 +55,9 @@ function Login() {
       sessionStorage.setItem("userLastname", response.data.user.lastname);
       sessionStorage.setItem("userEmail", response.data.user.email);
       sessionStorage.setItem("userPhone", response.data.user.phone_no);
+      sessionStorage.setItem("country", response.data.user.country);
+      sessionStorage.setItem("dob", response.data.user.dob);
+      sessionStorage.setItem("gender", response.data.user.gender);
       setTimeout(() => {
         navigate("/dashboard");
       }, 2000);

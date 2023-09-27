@@ -15,6 +15,10 @@ const Profile = () => {
   const fname = sessionStorage.getItem("userFirstname");
   const lname = sessionStorage.getItem("userLastname");
   const email = sessionStorage.getItem("userEmail");
+  const origin = sessionStorage.getItem("country");
+  const userDob = sessionStorage.getItem("dob");
+  const userGender = sessionStorage.getItem("gender");
+  const userPhone = sessionStorage.getItem("userPhone");
   let balance = sessionStorage.getItem("balance");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [gender, setGender] = useState("");
@@ -89,11 +93,12 @@ const Profile = () => {
             </div>
           </div>
           <div className="d-profile-info d-profile-info-xtra">
-            <Countries />
+            <Countries origin={origin} />
             <div className="d-input-box d-phone-box">
               <Phone />
               <input
                 type="number"
+                value={phoneNumber || userPhone || ""}
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 required
               />
@@ -101,7 +106,7 @@ const Profile = () => {
             <div className="d-input-box">
               <input
                 type="date"
-                value={birthday}
+                value={birthday || userDob || ""}
                 onChange={(e) => setBirthday(e.target.value)}
               />
             </div>
@@ -112,6 +117,7 @@ const Profile = () => {
                 e.preventDefault();
                 setGender("Male");
               }}
+              className={userGender == "Male" ? "male-gender" : ""}
             >
               <BsGenderMale />
               <p>Male</p>
@@ -121,6 +127,7 @@ const Profile = () => {
                 e.preventDefault();
                 setGender("Female");
               }}
+              className={userGender == "Female" ? "female-gender" : ""}
             >
               <BsGenderFemale />
               <p>Female</p>

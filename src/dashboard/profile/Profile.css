@@ -76,9 +76,9 @@
 }
 
 .d-phone-box input {
-border-top-left-radius: 0 !important;
-border-bottom-left-radius: 0 !important;
-border: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border: 0 !important;
 }
 
 .d-input-box {
@@ -132,9 +132,11 @@ border: 0 !important;
   box-shadow: var(--box-shadow);
 }
 
-.d-gender-button button:hover {
-  border: 1px solid var(--hover-color);
-  background-color: var(--hover-color);
+.d-gender-button button:hover,
+.male-gender,
+.female-gender {
+  border: 1px solid var(--hover-color) !important;
+  background-color: var(--hover-color) !important;
   transition: var(--transition-all);
   color: var(--white);
 }
@@ -220,8 +222,8 @@ border: 0 !important;
     padding: 20px;
   }
 
-  .d-profile-info-xtra{
-    gap: 20px ;
+  .d-profile-info-xtra {
+    gap: 20px;
   }
 
   .d-profile-info-xtra .d-countries {
@@ -259,5 +261,12 @@ border: 0 !important;
 
   #email {
     width: 100%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .d-profile-wrapper form {
+    max-width: 90%;
+    margin: 0 auto;
   }
 }
