@@ -14,8 +14,14 @@ import { toast } from "react-hot-toast";
 
 import { BsFacebook } from "react-icons/bs";
 import Google from "../../ApiTesting/GoogleLogin";
+import ReCAPTCHA from "react-google-recaptcha";
 
 function Login() {
+  const [isVerified, setIsVerified] = useState(false);
+  const [show, setShow] = useState(false);
+  function onChange() {
+    setIsVerified(!isVerified);
+  }
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -33,8 +39,8 @@ function Login() {
   let date = new Date();
   let currentTime = date.getTime();
   // console.log(currentTime);
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
     try {
       const response = await axios.post(
         "https://api.certifieddump.com/api/login",
@@ -67,7 +73,13 @@ function Login() {
         <NavigationBar />
         <div className="login container">
           <div className="login-form-wrap">
-            <Form className="login-form" onSubmit={handleSubmit}>
+            <Form
+              className="login-form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                isVerified ? handleSubmit() : setShow(!show);
+              }}
+            >
               <Form.Group className="mb-3 ">
                 <Form.Label className="my-4 form-title"> Log in</Form.Label>
               </Form.Group>
@@ -83,7 +95,6 @@ function Login() {
                   required
                 />
               </Form.Group>
-
               <Form.Group className="mb-3 form-group-s">
                 <Form.Control
                   className="form-control-s"
@@ -96,33 +107,20 @@ function Login() {
                   required
                 />
               </Form.Group>
-
-              <Form.Group
-                className="mb-3 d-flex justify-content-around form-group-s recaptcha"
-                controlId="formBasicCheckbox"
-              >
-                <Form.Check
-                  type="checkbox"
-                  label="I'm not a robot"
-                  style={{ fontWeight: "bold" }}
-                ></Form.Check>
-                <Form.Label>
-                  <div>
-                    <img
-                      src={recaptcha}
-                      alt="recaptcha"
-                      className="d-block"
-                    ></img>
-                    <small style={{ fontSize: "10px" }} className="d-block">
-                      reCAPTCHA
-                    </small>
-                    <small style={{ fontSize: "10px" }} className="d-block">
-                      {" "}
-                      Privacy-Terms
-                    </small>
-                  </div>
-                </Form.Label>
-              </Form.Group>
+              <ReCAPTCHA
+                sitekey="6LeublgoAAAAAJcgjbrXDIOqr3839Npd0g-sE8Pd"
+                onChange={onChange}
+              />
+              {show && (
+                <small
+                  style={{
+                    color: "red",
+                    fontSize: "14px",
+                  }}
+                >
+                  Please solve recapcha puzzle
+                </small>
+              )}
 
               <Button type="submit" className="form-button-s">
                 SIGN IN

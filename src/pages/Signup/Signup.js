@@ -13,8 +13,14 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import Google from "../../ApiTesting/GoogleLogin";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import ReCAPTCHA from "react-google-recaptcha";
 
 function Signup() {
+  const [isVerified, setIsVerified] = useState(false);
+  const [show, setShow] = useState(false);
+  function onChange() {
+    setIsVerified(!isVerified);
+  }
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstname: "",
@@ -62,7 +68,13 @@ function Signup() {
         <NavigationBar />
         <div className="signup container">
           <div className="signup-form-wrap">
-            <Form className="signup-form" onSubmit={handleSubmit}>
+            <Form
+              className="signup-form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                isVerified ? handleSubmit() : setShow(!show);
+              }}
+            >
               <Form.Group className="mb-3 ">
                 <Form.Label className="my-4  form-title"> Sign up</Form.Label>
               </Form.Group>
@@ -139,33 +151,20 @@ function Signup() {
                   required
                 />
               </Form.Group>
-
-              <Form.Group
-                className="mb-3 d-flex justify-content-around form-group-s recaptcha"
-                controlId="formBasicCheckbox"
-              >
-                <Form.Check
-                  type="checkbox"
-                  label="I'm not a robot"
-                  style={{ fontWeight: "bold" }}
-                ></Form.Check>
-                <Form.Label>
-                  <div className="me-2">
-                    <img
-                      src={recaptcha}
-                      alt="recaptcha"
-                      className="d-block"
-                    ></img>
-                    <small style={{ fontSize: "10px" }} className="d-block">
-                      reCAPTCHA
-                    </small>
-                    <small style={{ fontSize: "10px" }} className="d-block">
-                      {" "}
-                      Privacy-Terms
-                    </small>
-                  </div>
-                </Form.Label>
-              </Form.Group>
+              <ReCAPTCHA
+                sitekey="6LeublgoAAAAAJcgjbrXDIOqr3839Npd0g-sE8Pd"
+                onChange={onChange}
+              />
+              {show && (
+                <small
+                  style={{
+                    color: "red",
+                    fontSize: "14px",
+                  }}
+                >
+                  Please solve recapcha puzzle
+                </small>
+              )}
 
               <Button type="submit" className="form-button-s">
                 SIGN UP

@@ -87,7 +87,7 @@ const Nav = () => {
                   <BiUserCheck />
                   <span>Profile</span>
                 </Link>
-                <Link to="/" onClick={() => sessionStorage.clear()}>
+                <Link to="/login" onClick={() => sessionStorage.clear()}>
                   <BiLogOutCircle /> <span>Logout</span>
                 </Link>
               </div>
