@@ -12,7 +12,8 @@ import { Button } from "../Button/Button";
 
 const Nav = () => {
   const email = sessionStorage.getItem("userEmail");
-  const [balance, setBalance] = useState("");
+  // const [balance, setBalance] = useState("");
+  const balance = sessionStorage.getItem("balance")
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   let userid = sessionStorage.getItem("userId");
@@ -27,7 +28,7 @@ const Nav = () => {
           },
         }
       );
-      setBalance(response.data.result[0].balance);
+      // setBalance(response.data.result[0].balance);
       sessionStorage.setItem("balance", response.data.result[0].balance);
       // console.log(response);
     } catch (error) {

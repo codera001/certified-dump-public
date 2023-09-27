@@ -12,19 +12,21 @@
 .d-card-img {
   position: relative;
   width: 90%;
-  aspect-ratio: 0.69;
+  aspect-ratio: 1;
   overflow: hidden;
   border-radius: 5px;
   margin: 0 auto;
   border: 1px solid var(--primary-color);
 }
 
-.d-card-img a {
+.d-card-img button {
   position: absolute;
   right: 10px;
   top: 5px;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-size: 1.5rem;
+  border: none;
+  background-color: var(--white);
   display: none;
 }
 
@@ -32,7 +34,7 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.d-card:hover .d-card-img a {
+.d-card:hover .d-card-img button {
   display: block;
 }
 

@@ -34,7 +34,7 @@ const Overview = () => {
       // console.log(response);
     } catch (error) {
       //  setError(error.response.data.msg);
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -53,15 +53,9 @@ const Overview = () => {
           return b.id - a.id;
         })
       );
-      // console.log(
-      //   response.data.Announcement.sort(function (a, b) {
-      //     return b.id - a.id;
-      //   })
-      // );
-      // console.log(response);
     } catch (error) {
       //  setError(error.response.data.msg);
-      console.log(error);
+      // console.log(error);
     }
   };
 
