@@ -38,7 +38,7 @@ function Alibaba() {
         <Back path="/providers" />
         <SearchBar text="Exam Code or Name" />
       </div>
-      <div className="container-fluid py-2">
+      <div className="p-exams py-2">
         <h3
           style={{
             textAlign: "center",
@@ -50,7 +50,7 @@ function Alibaba() {
         </h3>
         {exams ? (
           <>
-            <div className="d-flex flex-row flex-nowrap exam-card-section">
+            <div className="exam-card-section">
               {exams.filter(checkProvider).map((item, i) => (
                 <Provider
                   key={i}

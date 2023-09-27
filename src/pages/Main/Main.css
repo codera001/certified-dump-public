@@ -200,6 +200,30 @@ hr.section-three-main-line {
   background-color: var(--green-500);
 }
 
+@media screen and (min-width: 375px) {
+  .p-providers .card-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .p-providers .card-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .p-providers .card-section {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .p-providers .card-section {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
 @media screen and (max-width: 767px) {
   .section-one-main {
     height: 650px;
@@ -285,29 +309,5 @@ hr.section-three-main-line {
 
   .section-three-main .mx-md-3 {
     margin-top: 1rem;
-  }
-}
-
-@media screen and (min-width: 375px) {
-  .p-providers .card-section {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (min-width: 750px) {
-  .p-providers .card-section {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media screen and (min-width: 850px) {
-  .p-providers .card-section {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .p-providers .card-section {
-    grid-template-columns: repeat(5, 1fr);
   }
 }
