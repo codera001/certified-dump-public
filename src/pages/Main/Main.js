@@ -16,8 +16,8 @@ function Main() {
         "https://api.certifieddump.com/api-admin/getProviders"
       );
       // console.log(response);
-      // console.log(response.data.providers.slice(0, 5));
-      setProviders(response.data.providers.slice(0, 5));
+      // console.log(response.data.providers.slice(0, 10));
+      setProviders(response.data.providers.slice(0, 10));
     } catch (error) {
       console.log(error);
     }
@@ -71,7 +71,7 @@ function Main() {
       </section>
 
       {/* section-two */}
-      <section className="container section-two-main">
+      <section className="section-two-main">
         <div>
           <h5
             className="mt-5 mb-4"
@@ -86,15 +86,16 @@ function Main() {
             goal is to see you succeed.
           </p>
         </div>
-        <div className="container-fluid py-2">
+        <div className="p-providers py-2">
           {providers ? (
-            <div className="d-flex flex-row flex-nowrap card-section">
+            <div className="card-section">
               {providers.map((item, i) => (
                 <Provider
                   key={i}
                   providerName={`/provider/${item.name}`}
                   i={i}
                   title={item.name}
+                  // image={item.url}
                   text="View More"
                 />
               ))}

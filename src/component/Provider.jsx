@@ -2,9 +2,9 @@ import React from "react";
 import cisco from "../static/cisco.png";
 import { Link } from "react-router-dom";
 
-const Provider = ({title, providerName, i, text, price }) => {
+const Provider = ({title, providerName, image, i, text, price }) => {
   return (
-    <div key={i} className="card card-body">
+    <div key={i} className="card-body">
       <div className="card-image">
         <img src={cisco} alt="" />
       </div>
