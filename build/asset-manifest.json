@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.08911006.css",
+    "main.js": "/static/js/main.901282d5.js",
+    "static/media/footer.png": "/static/media/footer.f672256cc7836083c1b6.png",
+    "static/media/study.png": "/static/media/study.c7068c74463d0dabcf8c.png",
+    "static/media/signup.jpg": "/static/media/signup.35d5b34dc1e446b377f7.jpg",
+    "static/media/02.jpg": "/static/media/02.11c42a46087004ca7490.jpg",
+    "static/media/pagefooter.png": "/static/media/pagefooter.a3ce657aea639faeff45.png",
+    "static/media/aboutUs.png": "/static/media/aboutUs.1a4eb657ec9e291ba07b.png",
+    "static/media/about2.png": "/static/media/about2.4c2beee1380e55ba0227.png",
+    "static/media/about3.png": "/static/media/about3.a065b2043154b2787f11.png",
+    "static/media/logo.png": "/static/media/logo.7fb0ea1323f07b777e1c.png",
+    "static/media/logow.png": "/static/media/logow.f54b4b265f73cfcf1361.png",
+    "static/media/loader.gif": "/static/media/loader.f480bc22fa458c319849.gif",
+    "static/media/cisco.png": "/static/media/cisco.bbbfefcb50be8733dff6.png",
+    "static/media/card.jpg": "/static/media/card.353347b592ec8ade76af.jpg",
+    "static/media/windows.png": "/static/media/windows.9201e0e28a13642673b4.png",
+    "index.html": "/index.html",
+    "main.08911006.css.map": "/static/css/main.08911006.css.map",
+    "main.901282d5.js.map": "/static/js/main.901282d5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.08911006.css",
+    "static/js/main.901282d5.js"
+  ]
+}
