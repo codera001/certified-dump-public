@@ -82,6 +82,15 @@
   text-align: center;
 }
 
+.section-two-main .card-body .card-image{
+  padding: 0.5rem;
+}
+
+.section-two-main .card-body img{
+  width: 100%;
+  aspect-ratio: 1.5;
+}
+
 .section-two-main .card-footer {
   border-top: 1px solid var(--tertiary-color);
   background-color: white;
