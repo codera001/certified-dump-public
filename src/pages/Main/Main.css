@@ -50,7 +50,7 @@
 
 /* section-two */
 .section-two-main h5 {
-  font-size: 3rem;
+  font-size: 1.5rem;
 }
 
 .section-two-main hr {
@@ -80,11 +80,14 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16), 0 4px 10px rgba(0, 0, 0, 0.23);
   border: 5px solid whitesmoke;
   text-align: center;
-  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  /* max-height: 300px; */
 }
 
 .section-two-main .card-body .card-image {
   padding: 0.5rem;
+  /* width: 30%; */
 }
 
 .section-two-main .card-body img {

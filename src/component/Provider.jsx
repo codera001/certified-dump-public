@@ -8,9 +8,9 @@ const Provider = ({title, providerName, image, i, text, price }) => {
       <div className="card-image">
         <img src={cisco} alt="" />
       </div>
-      <h4>{title}</h4>
+      <h5>{title}</h5>
       <h6>{price}</h6>
-      <div className="card-footer py-0">
+      <div className="card-footer py-2">
         <Link to={providerName} className="card-text">
           {text}
         </Link>
