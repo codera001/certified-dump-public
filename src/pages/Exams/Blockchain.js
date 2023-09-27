@@ -37,7 +37,7 @@ function Blockchain() {
         <Back path={`/provider/${providerName}`} />
         <SearchBar text="Exam Name or Code" />
       </div>
-      <div className="container-fluid py-2">
+      <div className="p-exams py-2">
         <h3
           style={{
             textAlign: "center",
@@ -49,7 +49,7 @@ function Blockchain() {
         </h3>
         {books ? (
           <>
-            <div className="d-flex flex-row flex-nowrap exam-card-section">
+            <div className="exam-card-section">
               {books.filter(checkProvider).map((item, i) => (
                 <Provider
                   key={i}

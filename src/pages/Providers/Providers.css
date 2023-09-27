@@ -57,6 +57,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16), 0 4px 10px rgba(0, 0, 0, 0.23);
   border: 5px solid whitesmoke;
   text-align: center;
+  max-height: 200px;
 }
 
 .section-providers .card-body .card-image {
