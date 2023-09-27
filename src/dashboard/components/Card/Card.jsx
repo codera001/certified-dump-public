@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "./Card.css";
 import { BsDownload } from "react-icons/bs";
-import { Link } from "react-router-dom";
 const Card = ({ image, title, provider, cost, date }) => {
   const getImage = async () => {
     try {
