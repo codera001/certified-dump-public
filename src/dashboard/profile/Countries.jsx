@@ -7,7 +7,7 @@ const Countries = () => {
 
   return (
     <select
-      className="form-select"
+      className="form-select d-countries"
       id="country"
       name="country"
       onChange={handleCountryChange}

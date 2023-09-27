@@ -51,6 +51,34 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  align-items: center;
+}
+
+.d-profile-wrapper form .form-select {
+  max-width: 90%;
+  margin: 0 auto;
+}
+/*  */
+
+.d-profile-info-xtra .d-input-box {
+  padding: 0 0.5rem;
+}
+
+.d-phone-box {
+  display: flex;
+}
+
+.d-phone-box .phone {
+  max-width: 80px !important;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.d-phone-box input {
+border-top-left-radius: 0 !important;
+border-bottom-left-radius: 0 !important;
+border: 0 !important;
 }
 
 .d-input-box {
@@ -172,7 +200,6 @@
 }
 
 @media screen and (min-width: 375px) {
-
   .d-input-box {
     position: relative;
     width: 280px;
@@ -183,14 +210,24 @@
   .d-profile-heading p {
     padding: 0 70px;
   }
+
   .d-profile-info {
     flex-direction: row;
   }
+
   .d-profile-wrapper form {
     align-items: flex-start;
-    padding: 20px 80px;
+    padding: 20px;
   }
-  
+
+  .d-profile-info-xtra{
+    gap: 20px ;
+  }
+
+  .d-profile-info-xtra .d-countries {
+    max-width: 20% !important;
+  }
+
   .d-button-row {
     flex-direction: row;
     justify-content: space-between;
@@ -211,6 +248,10 @@
     display: flex;
     width: 100%;
   }
+
+  /* .d-profile-info-xtra{
+    flex-direction: ;
+  } */
 
   .d-input-box {
     width: 100%;

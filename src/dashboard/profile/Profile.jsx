@@ -88,9 +88,9 @@ const Profile = () => {
               <input type="text" value={uname} required readOnly />
             </div>
           </div>
-          <div className="d-profile-info">
-          <Countries />
-            <div className="d-input-box">
+          <div className="d-profile-info d-profile-info-xtra">
+            <Countries />
+            <div className="d-input-box d-phone-box">
               <Phone />
               <input
                 type="number"
