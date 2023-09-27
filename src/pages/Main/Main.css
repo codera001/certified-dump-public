@@ -82,11 +82,11 @@
   text-align: center;
 }
 
-.section-two-main .card-body .card-image{
+.section-two-main .card-body .card-image {
   padding: 0.5rem;
 }
 
-.section-two-main .card-body img{
+.section-two-main .card-body img {
   width: 100%;
   aspect-ratio: 1.5;
 }
