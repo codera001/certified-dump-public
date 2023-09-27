@@ -20,19 +20,21 @@
   opacity: 0.85;
   background-color: var(--black);
 }
+
 .section-one-main .text {
   color: var(--white);
   font-size: 1em;
   text-align: center;
-  /* top: 50%; */
   margin: 0 auto;
   z-index: 1;
   position: absolute;
   width: 100%;
 }
+
 .section-one-main .text h1 {
   font-size: 4rem;
 }
+
 .section-one-main .p-text {
   width: 70%;
 }
@@ -50,37 +52,34 @@
 .section-two-main h5 {
   font-size: 3rem;
 }
+
 .section-two-main hr {
   color: var(--tertiary-color);
   font-weight: bolder;
 }
+
 .section-two-main img {
   padding: 0;
   margin: 0;
   width: 100px;
   min-height: 100px;
 }
-/* .section-two-main .card-wrap {
-    margin: 0 25px;
-    
-} */
 
-.section-two-main .card-section {
-  width: 80%;
+.p-providers .card-section {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  place-items: center;
+  gap: 1.5rem;
+  padding: 0 0.9rem;
+  max-width: 90%;
   margin: 0 auto;
 }
+
 .section-two-main .card-body {
-  min-width: 20%;
-  min-height: 30%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  width: 100%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16), 0 4px 10px rgba(0, 0, 0, 0.23);
   border: 5px solid whitesmoke;
-  margin: 1rem auto;
   text-align: center;
-  flex: 0 1;
-  padding: 0;
 }
 
 .section-two-main .card-footer {
@@ -102,11 +101,11 @@
   align-items: start;
   margin-top: 5rem;
 }
+
 .section-two-main .button:hover {
   color: var(--green-500);
 }
 
-/* #4b5320 */
 /* section-three-main */
 .section-three-main {
   background-color: var(--green-100);
@@ -120,20 +119,22 @@
 }
 
 hr.section-three-main-line {
-  /* border: 3px solid var(--post-tertiary-color); */
   border: 3px solid var(--secondary-color);
   z-index: 1;
   width: 15%;
   z-index: 1;
   margin-left: 5rem;
 }
+
 .section-three-main .image {
   width: 50%;
 }
+
 .section-three-main .text {
   width: 50%;
   margin: 0 auto;
 }
+
 .section-three-main .text h4 {
   width: 80%;
   font-size: 36px;
@@ -173,7 +174,7 @@ hr.section-three-main-line {
   border: none;
 }
 
-.exam-search-buttons input::placeholder{
+.exam-search-buttons input::placeholder {
   color: var(--black);
 }
 
@@ -190,20 +191,21 @@ hr.section-three-main-line {
   background-color: var(--green-500);
 }
 
-
-
 @media screen and (max-width: 767px) {
   .section-one-main {
     height: 650px;
   }
+
   .section-one-main .text {
     margin-top: 14rem !important;
     padding-bottom: 14rem;
     width: 90%;
   }
+
   .section-one-main .text h1 {
     font-size: 25px;
   }
+
   .section-one-main h1 {
     font-size: 18px;
   }
@@ -219,26 +221,35 @@ hr.section-three-main-line {
   .section-two-main h5 {
     font-size: 2rem;
   }
-  .section-two-main .card-section {
-    margin: 0;
-    overflow-x: scroll;
-  }
+
+  /* .section-two-main .card-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 0 0.9rem;
+  } */
 
   .section-two-main .card-body {
-    min-width: 70%;
-    margin-right: 1rem;
+    min-width: 30%;
   }
+
   .section-two-main .button {
     width: 100%;
     margin-top: 2rem;
   }
+
   .section-three-main {
     margin-top: 2rem;
   }
+
   .section-three-main .image {
     width: 100%;
     height: 0;
   }
+
   .section-three-main .text {
     width: 100%;
     margin-top: 6rem;
@@ -269,6 +280,7 @@ hr.section-three-main-line {
 
   .section-three-main .exam-search-buttons {
     margin-top: 2rem;
+    flex-direction: column;
   }
 
   .section-three-main .exam-search-buttons .keyword {
@@ -278,5 +290,29 @@ hr.section-three-main-line {
 
   .section-three-main .mx-md-3 {
     margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .p-providers .card-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .p-providers .card-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .p-providers .card-section {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .p-providers .card-section {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
