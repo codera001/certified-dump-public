@@ -1,12 +1,11 @@
 import React from "react";
-import cisco from "../static/cisco.png";
 import { Link } from "react-router-dom";
 
 const Provider = ({title, providerName, image, i, text, price }) => {
   return (
     <div key={i} className="card-body">
       <div className="card-image">
-        <img src={cisco} alt="" />
+        <img src={image} alt="" />
       </div>
       <h5>{title}</h5>
       <h6>{price}</h6>

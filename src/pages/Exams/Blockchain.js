@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
-import { TiArrowLeftThick } from "react-icons/ti";
 import "./Exams.css";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import Provider from "../../component/Provider";
 import loader from "../../static/loader.gif";
@@ -24,7 +22,7 @@ function Blockchain() {
       //get all exams by the name of provider here
       setBooks(response.data.books);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -53,6 +51,7 @@ function Blockchain() {
               {books.filter(checkProvider).map((item, i) => (
                 <Provider
                   key={i}
+                  image={item.image}
                   title={item.title}
                   providerName={`/provider/${providerName}/${examName}/${item.id}`}
                   i={i}

@@ -46,11 +46,12 @@ const Profile = () => {
         }
       );
       // console.log(response);
-      toast.success("Profile update is successful!")
+      toast.success("Profile update is successful!");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
+
   return (
     <Layout>
       <div className="d-profile-wrapper">
@@ -69,17 +70,14 @@ const Profile = () => {
             {fname} {lname}
           </h2>
           <p>Balance: ${Number(balance).toFixed(2)}</p>
-          {/* <p>Balance</p> */}
         </div>
         <form action="">
           <div className="d-profile-info">
             <div className="d-input-box">
               <input type="text" required value={fname} readOnly />
-              {/* <span>First Name</span> */}
             </div>
             <div className="d-input-box">
               <input type="text" value={lname} required readOnly />
-              {/* <span>Last Name</span> */}
             </div>
           </div>
           <div className="d-profile-info">
@@ -90,8 +88,8 @@ const Profile = () => {
               <input type="text" value={uname} required readOnly />
             </div>
           </div>
-          <Countries />
           <div className="d-profile-info">
+          <Countries />
             <div className="d-input-box">
               <Phone />
               <input

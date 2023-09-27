@@ -6,6 +6,7 @@ import Footer from "../../component/Footer/Footer";
 import Provider from "../../component/Provider";
 import axios from "axios";
 import loader from "../../static/loader.gif";
+import cisco from "../../static/cisco.png";
 import { Link } from "react-router-dom";
 
 function Main() {
@@ -19,7 +20,7 @@ function Main() {
       // console.log(response.data.providers.slice(0, 10));
       setProviders(response.data.providers.slice(0, 10));
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -92,6 +93,7 @@ function Main() {
               {providers.map((item, i) => (
                 <Provider
                   key={i}
+                  image={cisco}
                   providerName={`/provider/${item.name}`}
                   i={i}
                   title={item.name}
@@ -147,9 +149,7 @@ function Main() {
             FIND EXAMS NOW
           </h2>
           <div className="exam-search-buttons">
-            <select
-              className="px-4 py-1 mx-3"
-            >
+            <select className="px-4 py-1 mx-3">
               <option value="">Select Provider</option>
             </select>
             <input
