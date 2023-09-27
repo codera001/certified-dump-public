@@ -41,6 +41,7 @@ function Signup() {
   };
 
   const handleSubmit = async (e) => {
+    console.log(formData)
     e.preventDefault();
     try {
       const response = await axios.post(
@@ -114,6 +115,9 @@ function Signup() {
                 <Form.Control
                   className="form-control-s"
                   type="email"
+                  name="email"
+                   value={formData.email}
+                  onChange={handleChange}
                   placeholder="Enter your email"
                   name="email"
                   value={formData.email}
