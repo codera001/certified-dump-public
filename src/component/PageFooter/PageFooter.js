@@ -1,7 +1,5 @@
 import React from "react";
 import "./PageFooter.css";
-// import footer from "../static/footer.png";
-import logo from "../../static/logo.png";
 import { RiHome4Fill } from "react-icons/ri";
 import {
   HiOutlineArrowCircleRight,
@@ -63,25 +61,25 @@ function PageFooter() {
                 <RiHome4Fill />
                 <p>Home</p>
               </Link>
-              <Link to="/">
+              <Link to="/about">
                 <BiSolidMessageRoundedDetail />
-                <p>Exams</p>
+                <p>About</p>
               </Link>
-              <Link to="/">
+              <Link to="/blog">
+                <BiUserPin />
+                <p>Blogs</p>
+              </Link>
+              <Link to="/providers">
                 <HiOutlineArrowCircleRight />
                 <p>Providers</p>
               </Link>
-              <Link to="/">
+              <Link to="/contact">
                 <TbEditCircle />
                 <p>Support</p>
               </Link>
-              <Link to="/">
-                <BiUserPin />
-                <p>Call us</p>
-              </Link>
-              <Link to="/">
+              <Link to="/login">
                 <HiOutlineInformationCircle />
-                <p>More info</p>
+                <p>Login</p>
               </Link>
             </div>
           </div>
