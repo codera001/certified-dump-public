@@ -41,9 +41,9 @@ function Providers() {
         >
           All Providers
         </h5>
-        <div className="container-fluid py-2 mb-5">
+        <div className="p-providers py-2 mb-5">
           {allProviders ? (
-            <div className="d-flex flex-row flex-nowrap card-section">
+            <div className="card-section">
               {allProviders.map((item, i) => (
                 <Provider
                   key={i}

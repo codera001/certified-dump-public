@@ -222,20 +222,6 @@ hr.section-three-main-line {
     font-size: 2rem;
   }
 
-  /* .section-two-main .card-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    padding: 0 0.9rem;
-  } */
-
-  .section-two-main .card-body {
-    min-width: 30%;
-  }
-
   .section-two-main .button {
     width: 100%;
     margin-top: 2rem;
