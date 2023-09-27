@@ -42,13 +42,13 @@ function About() {
             </p>
           </div>
           <div className="image">
-            <img src={signup}></img>
+            <img loading="lazy" src={signup} />
           </div>
         </div>
 
         <div className="text-image index">
           <div className="image">
-            <img src={about2}></img>
+            <img loading="lazy" src={about2} />
           </div>
           <div className="text">
             <h5 style={{ fontWeight: "bolder" }}>Our Process</h5>
@@ -98,7 +98,7 @@ function About() {
             </p>
           </div>
           <div className="image">
-            <img src={about3}></img>
+            <img loading="lazy" src={about3} />
           </div>
         </div>
       </section>
@@ -110,7 +110,7 @@ function About() {
             <Card className="card-wrap">
               <Card.Body>
                 <div className="image">
-                  <img src={openbook}></img>
+                  <img loading="lazy" src={openbook} />
                 </div>
                 <Card.Text>
                   <span
@@ -132,7 +132,7 @@ function About() {
             <Card className="card-wrap">
               <Card.Body>
                 <div className="image">
-                  <img src={writer}></img>
+                  <img loading="lazy" src={writer} />
                 </div>
                 <Card.Text>
                   <span
@@ -154,7 +154,7 @@ function About() {
             <Card className="card-wrap">
               <Card.Body>
                 <div className="image">
-                  <img src={friends}></img>
+                  <img loading="lazy" src={friends} />
                 </div>
                 <Card.Text>
                   <span
@@ -176,7 +176,7 @@ function About() {
             <Card className="card-wrap">
               <Card.Body>
                 <div className="image">
-                  <img src={support}></img>
+                  <img loading="lazy" src={support} />
                 </div>
                 <Card.Text>
                   <span

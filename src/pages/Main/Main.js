@@ -103,7 +103,7 @@ function Main() {
               ))}
             </div>
           ) : (
-            <img src={loader} alt="loading gif" />
+            <img loading="lazy" src={loader} alt="loading gif" />
           )}
           <div className="button">
             <Link
@@ -127,7 +127,7 @@ function Main() {
       <section className="section-three-main">
         <div className="d-md-flex justify-content-between">
           <div className="image ">
-            <img alt="" width="100%" src={study} />
+            <img loading="lazy" alt="" width="100%" src={study} />
           </div>
 
           <div className="text ">

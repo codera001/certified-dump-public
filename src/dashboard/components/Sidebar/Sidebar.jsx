@@ -33,7 +33,7 @@ const Sidebar = () => {
       >
         <div className="d-sidebar-inner">
           <div className="d-sidebar-logo">
-            <img src={logo} alt="logo" />
+            <img loading="lazy" src={logo} alt="logo" />
           </div>
           <span
             className={`${"d-side-handle"} ${

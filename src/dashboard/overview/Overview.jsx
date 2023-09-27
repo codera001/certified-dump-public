@@ -72,7 +72,12 @@ const Overview = () => {
         <div className="d-overview-wrapper">
           {loading ? (
             <div className="d-gif-div">
-              <img src={loader} alt="loading-gif" className="d-gif" />
+              <img
+                loading="lazy"
+                src={loader}
+                alt="loading-gif"
+                className="d-gif"
+              />
             </div>
           ) : boughtBooks.length === 0 ? (
             <div className="d-overview-no-books">You have no Exams yet</div>

@@ -55,7 +55,7 @@ function Signup() {
     } catch (error) {
       // console.log("signup error:", error.response.data.msg);
       toast.error(error.response.data.msg);
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -119,10 +119,6 @@ function Signup() {
                    value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter your email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
                 />
               </Form.Group>
               <Form.Group

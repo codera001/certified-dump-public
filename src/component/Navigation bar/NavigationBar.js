@@ -102,7 +102,7 @@ function NavigationBar() {
       {/* secon-nav */}
       <div className="container d-flex justify-content-between align-items-center nav-logo">
         <div className="p-nav-logo">
-          <img alt="logo" src={logo} />
+          <img loading="lazy" alt="logo" src={logo} />
         </div>
         <div className="d-flex ">
           <div className="mx-1">

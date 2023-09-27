@@ -83,7 +83,7 @@ const Support = () => {
         </div>
         {loading ? (
           <div className="d-gif-div">
-            <img src={loader} alt="loading-gif" className="d-gif" />
+            <img loading="lazy" src={loader} alt="loading-gif" className="d-gif" />
           </div>
         ) : (
           <>

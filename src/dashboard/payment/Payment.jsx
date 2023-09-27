@@ -57,7 +57,7 @@ const Payment = () => {
           <h4>1. Choose a payment method</h4>
           <div className="d-payment-modes">
             <div className="payment-mode">
-              <img src={card} alt="card payment method" />
+              <img loading="lazy" src={card} alt="card payment method" />
             </div>
           </div>
           <h4>2. Specify top up amount</h4>

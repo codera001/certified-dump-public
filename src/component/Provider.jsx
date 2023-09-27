@@ -5,7 +5,7 @@ const Provider = ({title, providerName, image, i, text, price }) => {
   return (
     <div key={i} className="card-body">
       <div className="card-image">
-        <img src={image} alt="" />
+        <img loading="lazy" src={image} alt="" />
       </div>
       <h5>{title}</h5>
       <h6>{price}</h6>

@@ -28,7 +28,7 @@ const Card = ({ image, title, provider, cost, date }) => {
         >
           <BsDownload />
         </button>
-        <img src={image} alt={title} />
+        <img loading="lazy" src={image} alt={title} />
       </div>
       <div className="d-card-details">
         <p className="d-title">{title}</p>

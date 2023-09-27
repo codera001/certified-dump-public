@@ -48,11 +48,11 @@ const Nav = () => {
       <nav className="d-user-nav">
         <div className="d-user-nav-items">
           <div className="d-nav-logo">
-            <img src={logo} alt="logo" className="" />
+            <img loading="lazy" src={logo} alt="logo" className="" />
           </div>
           <div className="d-nav-cta">
             <div className="d-windows-img">
-              <img src={windows} alt="windows" />
+              <img loading="lazy" src={windows} alt="windows" />
             </div>
             <div>
               <p>Use PC application</p>
@@ -65,7 +65,7 @@ const Nav = () => {
               <p className="d-bal">Balance:</p>
               {loading ? (
                 <div className="d-gif-div">
-                  <img src={loader} alt="loading-gif" className="d-gif" />
+                  <img loading="lazy" src={loader} alt="loading-gif" className="d-gif" />
                 </div>
               ) : (
                 <p className="d-value">${Number(balance).toFixed(2)}</p>

@@ -15,7 +15,7 @@ function Blog() {
         <div className="left-blog-area">
           <div className="blog-image-text mb-3">
             <div className="blog-image">
-              <img src={image}></img>
+              <img loading="lazy" src={image}/>
             </div>
             <div className="blog-text">
               <p className="blog-text-head">Category</p>
@@ -57,7 +57,7 @@ function Blog() {
           <hr />
           <div className="blog-image-text mb-2">
             <div className="blog-image">
-              <img src={image}></img>
+              <img loading="lazy" src={image}/>
             </div>
             <div className="blog-text">
               <p className="blog-text-head">Category</p>
@@ -99,7 +99,7 @@ function Blog() {
           <hr />
           <div className="blog-image-text">
             <div className="blog-image">
-              <img src={image}></img>
+              <img loading="lazy" src={image}/>
             </div>
             <div className="blog-text">
               <p className="blog-text-head">Category</p>

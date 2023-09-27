@@ -16,7 +16,7 @@ function Footer() {
     <div className="footeer">
       <div className="pu-footer d-md-flex justify-content-between container bg-none">
         <div className="text">
-          <img src={logo} alt="logo" className="logo" />
+          <img loading="lazy" src={logo} alt="logo" className="logo" />
           <div>
             <p className="text-start mt-5">
               We are the largest and most curent website offering IT
