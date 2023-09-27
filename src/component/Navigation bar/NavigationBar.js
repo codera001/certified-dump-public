@@ -7,8 +7,9 @@ import { TbBrandTwitterFilled } from "react-icons/tb";
 import "./NavigationBar.css";
 import logo from "../../static/logo.png";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { BsInstagram } from "react-icons/bs";
+import { navlist } from "./Navlists";
 
 function NavigationBar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,7 +68,6 @@ function NavigationBar() {
                   className="nav-list"
                   style={{
                     color: "white",
-                    // fontWeight: "bolder",
                     display: "flex",
                     alignItems: "center",
                     margin: "0 4px 0 0",
@@ -100,8 +100,8 @@ function NavigationBar() {
       </div>
 
       {/* secon-nav */}
-      <div className="container d-flex justify-content-between align-items-center mt-3 nav-logo">
-        <div>
+      <div className="container d-flex justify-content-between align-items-center nav-logo">
+        <div className="p-nav-logo">
           <img alt="logo" src={logo} />
         </div>
         <div className="d-flex ">
@@ -145,26 +145,25 @@ function NavigationBar() {
           />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto text-center nav-items">
-              <Link to="/" className="nav-links">
-                HOME
-              </Link>
-              <Link to="/about" className="nav-links ">
-                ABOUT US
-              </Link>
-              <Link to="/blog" className="nav-links ">
-                BLOG AREA
-              </Link>
-              <Link to="/contact" className="nav-links ">
-                CONTACT US
-              </Link>
+              {navlist.map((list, i) => (
+                <NavLink
+                  key={i}
+                  to={list.path}
+                  className={({ isActive }) =>
+                    isActive ? "nav-change" : "nav-links"
+                  }
+                >
+                  {list.title}
+                </NavLink>
+              ))}
               {!authToken && (
                 <>
-                  <Link to="/login" className="button">
+                  <NavLink to="/login" className="button">
                     SIGN IN
-                  </Link>
-                  <Link to="/signup" className="button">
+                  </NavLink>
+                  <NavLink to="/signup" className="button">
                     JOIN NOW
-                  </Link>
+                  </NavLink>
                 </>
               )}
             </Nav>

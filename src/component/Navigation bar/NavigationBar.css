@@ -3,6 +3,7 @@
   margin-top: 0;
   padding: 0.5rem 0;
 }
+
 .first-nav a {
   color: white;
 }
@@ -15,6 +16,7 @@
 .first-nav .brand {
   font-size: 16px;
 }
+
 .first-nav .brand-icon {
   font-size: 22px;
 }
@@ -50,8 +52,12 @@
   height: 3vh;
 }
 
-.nav-logo img {
-  width: 280px;
+.p-nav-logo{
+  width: 20%;
+}
+
+.p-nav-logo img {
+  width: 100%;
 }
 
 .nav-logo .mail-icon {
@@ -75,13 +81,13 @@
 .second-nav {
   background-color: var(--green-500);
   transition: all 0.3s ease;
-  height: 70px;
+  height: 55px;
 }
 
 .second-nav .button {
   border: 1px solid #dedede;
   border-radius: 1px;
-  padding: 0.5rem 2.5rem;
+  padding: 0.2rem 2.2rem;
   font-size: 18px;
   color: var(--white);
   background-color: none;
@@ -97,12 +103,14 @@
   align-items: center;
 }
 
-.second-nav .nav-links {
+.second-nav .nav-links,
+.second-nav .nav-change {
   font-size: 18px;
   color: var(--white);
   margin-right: 2rem;
 }
 
+.second-nav .nav-change,
 .second-nav .nav-links:hover {
   color: var(--tertiary-color);
 }
@@ -114,7 +122,6 @@
 }
 
 .p-navbar-scroll {
-  /* position: fixed; */
   position: sticky;
   z-index: 10;
   top: 0;
