@@ -4,7 +4,7 @@ import "./Card.css";
 const Announcement = ({ image, title, body, date }) => {
   return (
     <div className="d-card">
-      <div className="d-card-img">
+      <div className="d-card-img d-admin-card">
         <img loading="lazy" src={image} alt={title} />
       </div>
       <div className="d-card-details">
