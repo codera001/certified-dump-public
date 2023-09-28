@@ -9,6 +9,7 @@ import Countries from "./Countries";
 import Phone from "./Phone";
 import axios from "axios";
 import toast from "react-hot-toast";
+import Delete from "./change_password/Delete";
 
 const Profile = () => {
   const uname = sessionStorage.getItem("username");
@@ -24,12 +25,15 @@ const Profile = () => {
   const [gender, setGender] = useState("");
   const [birthday, setBirthday] = useState("");
   const [changePass, setChangePass] = useState(false);
+  const [del, setDel] = useState(false);
 
   const ShowChangePass = () => {
     setChangePass(true);
   };
+
   const HideChangePass = () => {
     setChangePass(false);
+    setDel(false);
   };
 
   const updateData = async () => {
@@ -160,11 +164,20 @@ const Profile = () => {
               <button className="d-cancel-button">Cancel</button>
             </div>
             <div className="d-delete-button">
-              <button>Delete Account</button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setDel(!del);
+                }}
+                style={{ color: "red", fontWeight: "bold" }}
+              >
+                Delete Account
+              </button>
             </div>
           </div>
         </form>
         {changePass && <ChangePassword HideChangePass={HideChangePass} />}
+        {del && <Delete HideChangePass={HideChangePass} />}
       </div>
     </Layout>
   );
