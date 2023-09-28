@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./Verify.css";
-import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import PageFooter from "../../component/PageFooter/PageFooter";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -49,14 +47,6 @@ function ForgotPass() {
           <div className="confirmpass-text">
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                {/* <input
-                  type="text"
-                  placeholder="Enter your username"
-                  name="username"
-                  value={userData.username}
-                  onChange={handleChange}
-                  required
-                /> */}
                 <input
                   type="email"
                   placeholder="Enter your email address"

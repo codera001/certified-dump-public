@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import ModalLayout from "../../../component/ModalLayout";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Delete = (props) => {
   const { HideChangePass } = props;
-  const [removeAcc, setRemoveAcc] = useState(false);
+  const navigate = useNavigate();
+  // const [removeAcc, setRemoveAcc] = useState(false);
   const [loading, setLoading] = useState(false);
   const userid = sessionStorage.getItem("userId");
 
@@ -21,7 +23,7 @@ const Delete = (props) => {
         }
       );
       console.log(response);
-      setRemoveAcc(true);
+      // setRemoveAcc(true);
       setLoading(!loading);
       toast.success("Your account no longer exist");
       navigate("/signup");
