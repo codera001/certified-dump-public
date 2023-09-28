@@ -29,7 +29,7 @@ const VerifyForgotPass = () => {
         }
       );
       toast.success(response.data.msg);
-      navigate("/success");
+      navigate("/success2");
     } catch (error) {
       toast.error(error.response.data.msg);
     }

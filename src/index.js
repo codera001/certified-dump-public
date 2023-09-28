@@ -15,7 +15,6 @@ import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import ForgotPass from "./pages/Verify/ForgotPass";
 import VerifyEmail from "./pages/Verify/VerifyEmail";
-import Success from "./pages/Verify/Success";
 import Providers from "./pages/Providers/Providers";
 import About from "./pages/About/About";
 import Alibaba from "./pages/Exams/Alibaba";
@@ -32,6 +31,8 @@ import VerifyForgotPass from "./pages/Verify/VerifyForgotPass";
 import Blog from "./pages/Blog/Blog";
 import VerifyPayment from "./dashboard/payment/Verify";
 import Contact from "./pages/Contact/Contact";
+import SuccessEmail from "./pages/Verify/SuccessEmail";
+import SuccessPass from "./pages/Verify/SuccessPass";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -42,7 +43,7 @@ const router = createBrowserRouter(
       <Route path="verify-account" element={<VerifyForgotPass />}></Route>
       <Route path="forgot-password" element={<ForgotPass />}></Route>
       <Route path="verify-email" element={<VerifyEmail />}></Route>
-      <Route path="success" element={<Success />}></Route>
+      <Route path="success" element={<SuccessEmail />}></Route>
       <Route path="providers" element={<Providers />} />
       <Route path="about" element={<About />} />
       <Route path="provider/:providerName" element={<Alibaba />} />
@@ -52,6 +53,7 @@ const router = createBrowserRouter(
       <Route path="contact" element={<Contact />} />
       <Route path="confirm-email" element={<Verify />} />
       <Route path="reset-password" element={<PassReset />} />
+      <Route path="success2" element={<SuccessPass />} />
       <Route element={<ProtectedRoute />}>
         <Route path="dashboard" element={<Overview />} />
         <Route path="profile" element={<Profile />} />
