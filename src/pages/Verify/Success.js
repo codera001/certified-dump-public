@@ -4,11 +4,11 @@ import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
 import { AiFillMessage } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import PublicLayout from "../../component/PublicLayout";
 
 function Success() {
   return (
-    <>
-      <NavigationBar />
+    <PublicLayout>
       <div className="success-mail">
         <div className="success-wrap">
           <div className="pass-text">
@@ -35,9 +35,7 @@ function Success() {
           </div>
         </div>
       </div>
-
-      <PageFooter />
-    </>
+    </PublicLayout>
   );
 }
 

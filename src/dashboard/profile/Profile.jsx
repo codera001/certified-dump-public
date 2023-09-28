@@ -37,6 +37,8 @@ const Profile = () => {
       const response = await axios.post(
         "https://api.certifieddump.com/api/edituser",
         {
+          firstname: sessionStorage.getItem("userFirstname"),
+          lastname: sessionStorage.getItem("userLastname"),
           phone_no: `${localStorage.getItem("userCode")}${phoneNumber}`,
           dob: birthday,
           country: localStorage.getItem("userCountry"),

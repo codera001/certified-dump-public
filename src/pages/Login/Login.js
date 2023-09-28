@@ -46,7 +46,7 @@ function Login() {
         "https://api.certifieddump.com/api/login",
         formData
       );
-      console.log(response.data);
+      // console.log(response.data);
       toast.success(response.data.msg);
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.setItem("userId", response.data.user.id);

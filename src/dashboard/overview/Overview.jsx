@@ -5,6 +5,7 @@ import Card from "../components/Card/Card";
 import SearchBar from "../components/SearchBar.jsx/SearchBar";
 import loader from "../../static/loader.gif";
 import axios from "axios";
+import Announcement from "../components/Card/Announcement";
 
 const Overview = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -48,6 +49,8 @@ const Overview = () => {
           },
         }
       );
+
+      console.log(response.data.Announcement);
       setAdminMessage(
         response.data.Announcement.sort(function (a, b) {
           return b.id - a.id;
@@ -118,8 +121,31 @@ const Overview = () => {
         </div>
         <h2>Admin Message</h2>
         <div className="d-overview-wrapper">
-          <h3>Admin Message Title</h3>
-          <div className="d-admin-msg">Welcome to your library fam</div>
+          {/* <h3>Admin Message Title</h3> */}
+          {loading ? (
+            <div className="d-gif-div">
+              <img
+                loading="lazy"
+                src={loader}
+                alt="loading-gif"
+                className="d-gif"
+              />
+            </div>
+          ) : adminMessage.length === 0 ? (
+            <div className="d-overview-no-books">No announcement</div>
+          ) : (
+            <div className="d-overview-cards d-admin-cards">
+              {adminMessage.map((message, i) => (
+                <Announcement
+                  key={i}
+                  title={message.title}
+                  body={message.body}
+                  date={new Date(message.send_date).toDateString()}
+                  image={message.image_url}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </Layout>

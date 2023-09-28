@@ -1,11 +1,10 @@
 import axios from "axios";
 import React from "react";
-import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import PageFooter from "../../component/PageFooter/PageFooter";
 import "./Verify.css";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import PublicLayout from "../../component/PublicLayout";
 
 const VerifyForgotPass = () => {
   const navigate = useNavigate();
@@ -26,16 +25,15 @@ const VerifyForgotPass = () => {
       );
       // console.log("Verification Successful:", response);
       toast.success(response.data.msg);
-      navigate("/success")
+      navigate("/success");
     } catch (error) {
-      toast.error(response.data.msg)
+      toast.error(response.data.msg);
       // console.log("verification error:", error);
     }
   };
 
   return (
-    <>
-      <NavigationBar />
+    <PublicLayout>
       <div className="confirmpass">
         <h3 className="pt-5">Retrieve your account now!</h3>
         <div className="confirmpass-wrap">
@@ -71,9 +69,7 @@ const VerifyForgotPass = () => {
           </div>
         </div>
       </div>
-
-      <PageFooter />
-    </>
+    </PublicLayout>
   );
 };
 

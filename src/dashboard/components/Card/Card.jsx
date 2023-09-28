@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Card.css";
 import { BsDownload } from "react-icons/bs";
+
 const Card = ({ image, title, provider, cost, date }) => {
   const getImage = async () => {
     try {
