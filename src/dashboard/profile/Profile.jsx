@@ -112,7 +112,7 @@ const Profile = () => {
             <div className="d-input-box">
               <input
                 type="date"
-                value={birthday || userDob || ""}
+                value={birthday ? birthday : userDob}
                 onChange={(e) => setBirthday(e.target.value)}
               />
             </div>

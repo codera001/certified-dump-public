@@ -39,9 +39,9 @@ function Signup() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async () => {
     console.log(formData)
-    e.preventDefault();
+    // e.preventDefault();
     try {
       const response = await axios.post(
         "https://api.certifieddump.com/api/signup",

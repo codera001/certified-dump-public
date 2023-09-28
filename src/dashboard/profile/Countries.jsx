@@ -1,8 +1,8 @@
 import React from "react";
 
-const Countries = ({origin}) => {
+const Countries = ({ origin }) => {
   const handleCountryChange = (e) => {
-    localStorage.setItem("userCountry", (e.target.value));
+    localStorage.setItem("userCountry", e.target.value);
   };
 
   return (
@@ -12,7 +12,7 @@ const Countries = ({origin}) => {
       name="country"
       onChange={handleCountryChange}
     >
-      <option value="">{origin || "Country" }</option>
+      <option value="">{origin ? origin : "Country"}</option>
       <option value="Afghanistan">Afghanistan</option>
       <option value="Aland Islands">Aland Islands</option>
       <option value="Albania">Albania</option>
