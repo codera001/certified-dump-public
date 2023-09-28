@@ -28,7 +28,7 @@ const ChangePassword = (props) => {
         }
       );
       toast.success(response.data.msg);
-      navigate("/success");
+      navigate("/success2");
       sessionStorage.clear();
     } catch (error) {
       toast.error(error.response.data.msg);

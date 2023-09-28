@@ -50,7 +50,7 @@ const Overview = () => {
         }
       );
 
-      console.log(response.data.Announcement);
+      // console.log(response.data.Announcement);
       setAdminMessage(
         response.data.Announcement.sort(function (a, b) {
           return b.id - a.id;
