@@ -16,9 +16,11 @@ function Footer() {
     <div className="footeer">
       <div className="pu-footer d-md-flex justify-content-between container bg-none">
         <div className="text">
-          <img loading="lazy" src={logo} alt="logo" className="logo" />
+          <div className="logo">
+            <img loading="lazy" src={logo} alt="logo" />
+          </div>
           <div>
-            <p className="text-start mt-5">
+            <p className="text-start mt-3">
               We are the largest and most curent website offering IT
               certifications test materials.
             </p>

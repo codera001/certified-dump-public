@@ -1,6 +1,5 @@
 .footeer {
   background-image: url("../../static/footer.png");
-  width: 100%;
   background-size: cover;
   text-align: center;
 }
@@ -14,10 +13,8 @@
   color: var(--white);
 }
 
-.pu-footer .logo {
-  width: 260px;
-  height: 80px;
-  margin-right: 3rem;
+.pu-footer .logo img {
+  width: 100%;
 }
 
 .pu-footer .icons-icon {
@@ -62,9 +59,7 @@
 
 @media screen and (max-width: 767px) {
   .pu-footer {
-    padding-top: 4rem;
-    display: block;
-    width: 80%;
+    padding-top: 2rem;
   }
 
   .pu-footer .logo {
@@ -86,12 +81,19 @@
 
   .pu-footer .icons-icon {
     width: 90%;
+    max-width: 100%;
     display: flex;
     margin-top: 0.5rem;
     flex-direction: column;
   }
 
   .pu-footer .line {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 767px){
+   .pu-footer .text {
     width: 50%;
   }
 }
