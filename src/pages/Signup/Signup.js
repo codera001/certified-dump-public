@@ -40,7 +40,7 @@ function Signup() {
   };
 
   const handleSubmit = async () => {
-    console.log(formData)
+    console.log(formData);
     // e.preventDefault();
     try {
       const response = await axios.post(
@@ -115,7 +115,7 @@ function Signup() {
                   className="form-control-s"
                   type="email"
                   name="email"
-                   value={formData.email}
+                  value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter your email"
                 />
@@ -146,10 +146,12 @@ function Signup() {
                   required
                 />
               </Form.Group>
-              <ReCAPTCHA
-                sitekey="6LeublgoAAAAAJcgjbrXDIOqr3839Npd0g-sE8Pd"
-                onChange={onChange}
-              />
+              <div className="login-capcha">
+                <ReCAPTCHA
+                  sitekey="6LeublgoAAAAAJcgjbrXDIOqr3839Npd0g-sE8Pd"
+                  onChange={onChange}
+                />
+              </div>
               {show && (
                 <small
                   style={{

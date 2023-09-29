@@ -110,10 +110,12 @@ function Login() {
                   required
                 />
               </Form.Group>
-              <ReCAPTCHA
-                sitekey="6LeublgoAAAAAJcgjbrXDIOqr3839Npd0g-sE8Pd"
-                onChange={onChange}
-              />
+              <div className="login-capcha">
+                <ReCAPTCHA
+                  sitekey="6LeublgoAAAAAJcgjbrXDIOqr3839Npd0g-sE8Pd"
+                  onChange={onChange}
+                />
+              </div>
               {show && (
                 <small
                   style={{
