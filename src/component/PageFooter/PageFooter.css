@@ -1,9 +1,9 @@
 .pa-footeer {
   background-image: url("../../static/pagefooter.png");
-  width: 100%;
   background-size: cover;
   text-align: center;
 }
+
 .pa-footer {
   padding-top: 10rem;
 }
@@ -76,7 +76,6 @@
   .pa-footer {
     padding-top: 4rem;
     display: block;
-    width: 80%;
   }
 
   .pa-footer .logo {
@@ -93,6 +92,7 @@
 
   .pa-footer .icons-icon {
     width: 90%;
+    max-width: 100%;
     display: flex;
     margin-top: 0.5rem;
     flex-direction: column;
