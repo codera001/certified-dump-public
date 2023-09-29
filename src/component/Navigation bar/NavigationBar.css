@@ -52,7 +52,7 @@
   height: 3vh;
 }
 
-.p-nav-logo{
+.p-nav-logo {
   width: 20%;
 }
 
@@ -193,13 +193,18 @@
     border: 1px solid var(--white);
     color: var(--white);
     background-color: white;
-    margin-left: 1rem;
+    margin-left: auto;
+  }
+
+  .second-nav .container-fluid {
+    background-color: var(--green-500);
+    z-index: 2;
   }
 
   .second-nav .nav-items {
-    background-color: none;
     align-items: start;
-    margin-left: 1rem;
+    gap: 10px;
+    padding: 0 0 20px;
   }
 
   .second-nav .nav-links {
