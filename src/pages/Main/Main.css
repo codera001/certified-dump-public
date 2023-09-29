@@ -228,17 +228,30 @@ hr.section-three-main-line {
   }
 }
 
-@media screen and (max-width: 767px) {
-  .section-one-main {
-    height: 650px;
+@media screen and (max-width: 500px) {
+  .section-one-main .p-text {
+    width: 95% !important;
+    text-align: justify;
+    font-size: 1rem !important;
   }
 
   .section-one-main .text {
-    margin-top: 14rem !important;
-    padding-bottom: 14rem;
-    width: 90%;
+    margin-top: 0;
+    padding-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .section-one-main {
+    height: 550px;
   }
 
+  .section-one-main .text {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 767px) {
   .section-one-main .text h1 {
     font-size: 25px;
   }

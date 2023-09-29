@@ -181,30 +181,13 @@
   .nav-logo span {
     font-size: 11px;
   }
+  
   .second-nav.nav-toogle {
     width: 100%;
     border: none;
     margin: 0;
     align-items: left;
     padding: 5px 0;
-  }
-
-  .second-nav .toggle {
-    border: 1px solid var(--white);
-    color: var(--white);
-    background-color: white;
-    margin-left: auto;
-  }
-
-  .second-nav .container-fluid {
-    background-color: var(--green-500);
-    z-index: 2;
-  }
-
-  .second-nav .nav-items {
-    align-items: start;
-    gap: 10px;
-    padding: 0 0 20px;
   }
 
   .second-nav .nav-links {
@@ -214,6 +197,26 @@
 
   .second-nav .nav-links:hover {
     color: var(--tertiary-color);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .second-nav .container-fluid {
+    background-color: var(--green-500);
+    z-index: 2;
+  }
+
+  .second-nav .toggle {
+    border: 1px solid var(--white);
+    color: var(--white);
+    background-color: white;
+    margin-left: auto;
+  }
+
+  .second-nav .nav-items {
+    align-items: start;
+    gap: 10px;
+    padding: 0 0 20px;
   }
 }
 
