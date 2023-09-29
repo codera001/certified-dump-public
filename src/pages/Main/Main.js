@@ -125,12 +125,12 @@ function Main() {
 
       {/* section-three */}
       <section className="section-three-main">
-        <div className="d-md-flex justify-content-between">
-          <div className="image ">
-            <img loading="lazy" alt="" width="100%" src={study} />
+        <div className="p-study">
+          <div className="image">
+            <img loading="lazy" alt="study" width="100%" src={study} />
           </div>
 
-          <div className="text ">
+          <div className="text">
             <h4 className="text-start">
               FREE AND REVISED ACTUAL EXAM SUPPLEMENTALS
             </h4>
@@ -161,7 +161,6 @@ function Main() {
           </div>
         </div>
       </section>
-
       <Footer />
     </>
   );
