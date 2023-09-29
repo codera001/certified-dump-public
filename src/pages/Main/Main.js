@@ -37,6 +37,7 @@ function Main() {
             style={{
               fontWeight: "bolder",
               marginBottom: "2rem",
+              padding: "0 0.5rem"
             }}
           >
             WELCOME TO CERTIFIED DUMP
@@ -73,17 +74,16 @@ function Main() {
 
       {/* section-two */}
       <section className="section-two-main">
-        <div>
-          <h5
+        <div className="section-two-main-text">
+          <h4
             className="mt-5 mb-4"
             style={{ fontWeight: "bolder", color: "black" }}
           >
             Our Top Providers
-          </h5>
-          <p className="mb-5" style={{ fontSize: "22px" }}>
+          </h4>
+          <p className="mb-5">
             Certified dump has one of the largest collection of professional
-            certification and exam practice tests and online courses. Use <br />
-            our study materials to pass your examinations on the first try! Our
+            certification and exam practice tests and online courses. Use our study materials to pass your examinations on the first try! Our
             goal is to see you succeed.
           </p>
         </div>
