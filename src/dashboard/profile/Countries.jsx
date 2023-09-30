@@ -7,7 +7,7 @@ const Countries = ({ origin }) => {
 
   return (
     <select
-      className="form-select d-countries"
+      className="form-select d-countries p-custom-select"
       id="country"
       name="country"
       onChange={handleCountryChange}
