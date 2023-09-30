@@ -79,7 +79,7 @@
 }
 
 .second-nav {
-  background-color: var(--green-500);
+  /* background-color: var(--green-500); */
   transition: all 0.3s ease;
   height: 55px;
 }
@@ -181,7 +181,7 @@
   .nav-logo span {
     font-size: 11px;
   }
-  
+
   .second-nav.nav-toogle {
     width: 100%;
     border: none;
@@ -202,14 +202,32 @@
 
 @media screen and (max-width: 992px) {
   .second-nav .container-fluid {
-    background-color: var(--green-500);
+    padding: 0;
     z-index: 2;
   }
 
   .second-nav .toggle {
-    border: 1px solid var(--white);
+    margin: 0.5rem 1rem;
+  }
+
+  .navbar-collapse {
+    /* background-color: var(--green-500); */
+    background-color: var(--black);
+    padding: 1rem;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("./ham.png");
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.03rem;
+  }
+
+  .second-nav .toggle {
+    border: 0;
     color: var(--white);
-    background-color: white;
+    /* background-color: white; */
     margin-left: auto;
   }
 

@@ -19,7 +19,7 @@ function Footer() {
           <div className="logo">
             <img loading="lazy" src={logo} alt="logo" />
           </div>
-          <div>
+          <div className="f-desc">
             <p className="text-start mt-3">
               We are the largest and most curent website offering IT
               certifications test materials.

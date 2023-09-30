@@ -13,6 +13,10 @@
   color: var(--white);
 }
 
+.pu-footer .logo {
+  width: 50%;
+}
+
 .pu-footer .logo img {
   width: 100%;
 }
@@ -66,7 +70,7 @@
     width: 200px;
     margin-right: 0;
   }
-  
+
   .pu-footer .text {
     width: 100%;
   }
@@ -92,8 +96,12 @@
   }
 }
 
-@media screen and (min-width: 767px){
-   .pu-footer .text {
+@media screen and (min-width: 767px) {
+  .pu-footer .text {
     width: 50%;
   }
+
+  .f-desc {
+  max-width: 50%;
+}
 }

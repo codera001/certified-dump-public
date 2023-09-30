@@ -50,18 +50,18 @@
 
 /* section-two */
 .section-two-main-text {
-  padding: 0 9px;
+  padding: 0 0.9rem;
 }
 
 .section-two-main h4 {
   font-size: 2rem;
 }
 
-.section-two-main-text p {
+/* .section-two-main-text p {
   text-align: justify;
   max-width: 90%;
   margin: 0 auto;
-}
+} */
 
 .section-two-main hr {
   color: var(--tertiary-color);
@@ -77,11 +77,11 @@
 
 .p-providers .card-section {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   place-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   padding: 0 0.4rem;
-  max-width: 90%;
+  max-width: 95%;
   margin: 0 auto;
 }
 
@@ -164,7 +164,7 @@ hr.section-three-main-line {
   padding-top: 1rem;
   color: black;
   margin: 0 auto;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
 }
 
 .section-three-main .exam-search-buttons {
@@ -234,7 +234,7 @@ hr.section-three-main-line {
 @media screen and (max-width: 500px) {
   .section-one-main .p-text {
     width: 90% !important;
-    text-align: justify;
+    /* text-align: justify; */
     font-size: 1rem !important;
   }
 
@@ -278,7 +278,7 @@ hr.section-three-main-line {
 
 @media screen and (max-width: 767px) {
   .section-one-main .text h1 {
-    font-size: 25px;
+    font-size: 2rem;
   }
 
   .section-one-main h1 {
@@ -301,13 +301,17 @@ hr.section-three-main-line {
   .section-three-main {
     margin-top: 2rem;
   }
-
+  
   .section-three-main .text {
     width: 100%;
   }
-
+  
   .section-three-main .text h4 {
-    font-size: 20px;
+    font-size: 1.5rem;
+  }
+  
+  .section-three-main .text p{
+    font-size: 1.2rem;
   }
 
   hr.section-three-main-line {
@@ -339,6 +343,12 @@ hr.section-three-main-line {
 
   .section-three-main .mx-md-3 {
     margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .section-one-main{
+    top: -55px;
   }
 }
 
