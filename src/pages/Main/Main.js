@@ -149,7 +149,7 @@ function Main() {
             FIND EXAMS NOW
           </h2>
           <div className="exam-search-buttons">
-            <select className="px-4 py-1 mx-3">
+            <select className="px-4 py-1 mx-3 p-custom-select">
               <option value="">Select Provider</option>
             </select>
             <p className="mb-0">OR</p>
