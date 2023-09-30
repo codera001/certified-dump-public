@@ -4,34 +4,52 @@ import ModalLayout from "../../../component/ModalLayout";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const ChangePassword = (props) => {
   const { HideChangePass } = props;
+  // const [newPass, setNewPass] = useState("");
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const resetPassword = async ({ code, password, confirmPassword }) => {
-    if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
+  const updatePassword = async ({
+    password,
+    newpassword,
+    confirm_newpassword,
+  }) => {
+    if (newpassword !== confirm_newpassword) {
+      toast.error("New passwords do not match");
       return;
     }
-
     try {
       const response = await axios.post(
-        "https://api.certifieddump.com/api/verify-forgot-password",
+        `https://api.certifieddump.com/api/change-password?userid=${sessionStorage.getItem(
+          "userId"
+        )}`,
         {
-          code: code,
-          newpass: password,
+          password: password,
+          newpassword: newpassword,
+          confirm_newpassword: confirm_newpassword,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
         }
       );
-      toast.success(response.data.msg);
-      navigate("/success2");
-      sessionStorage.clear();
+      // console.log(response);
+      toast.success(
+        response.data.msg ||
+          "Password update is successful. Please login again!"
+      );
+      navigate("/login");
     } catch (error) {
       toast.error(error.response.data.msg);
+      // console.log(error);
     }
   };
 
@@ -40,14 +58,14 @@ const ChangePassword = (props) => {
       <div>
         <h1>Change Password</h1>
       </div>
-      <form onSubmit={handleSubmit(resetPassword)}>
+      <form onSubmit={handleSubmit(updatePassword)}>
         <div className="pass-form">
           <div>
             <label htmlFor="current password">Current Password</label>
             <input
               type="text"
               placeholder="Current Password"
-              {...register("code", {
+              {...register("password", {
                 required: true,
               })}
               required
@@ -58,7 +76,7 @@ const ChangePassword = (props) => {
             <input
               type="text"
               placeholder="New Password"
-              {...register("password", {
+              {...register("newpassword", {
                 required: true,
               })}
               required
@@ -69,7 +87,7 @@ const ChangePassword = (props) => {
             <input
               type="text"
               placeholder="Confirm New Password"
-              {...register("confirmPassword", {
+              {...register("confirm_newpassword", {
                 required: true,
               })}
               required
