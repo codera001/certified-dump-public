@@ -152,8 +152,9 @@ function Main() {
             <select className="px-4 py-1 mx-3">
               <option value="">Select Provider</option>
             </select>
+            <p className="mb-0">OR</p>
             <input
-              className="mx-3 py-2 keyword"
+              className="py-2 keyword"
               type="text"
               placeholder="Exam Name or Code"
             />

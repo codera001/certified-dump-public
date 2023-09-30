@@ -163,22 +163,25 @@ hr.section-three-main-line {
 
 .section-three-main .exam-search-buttons {
   margin-top: 4rem;
-  padding-bottom: 5rem;
+  padding: 0 1rem 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.8rem;
 }
 
 .exam-search-buttons select {
-  width: 34%;
+  width: 33%;
+  height: 3.5rem;
   font-size: 20px;
   border-radius: 5px;
   border: none;
 }
 
 .section-three-main .exam-search-buttons .keyword {
-  padding-left: 4rem;
-  padding-right: 4rem;
+  width: 33%;
+  height: 3.5rem;
+  padding: 0 2rem;
   font-size: 20px;
   border-radius: 5px;
   border: none;
@@ -195,6 +198,8 @@ hr.section-three-main-line {
   color: white !important;
   background-color: black;
   transition: var(--transition-all);
+  height: 3.5rem;
+  width: 33%;
 }
 
 .exam-search-buttons button:hover {
@@ -324,15 +329,20 @@ hr.section-three-main-line {
     margin-top: 2rem;
     flex-direction: column;
     gap: 20px;
+    padding: 0 1rem;
   }
 
   .exam-search-buttons select {
-    width: 80%;
+    width: 100%;
   }
 
   .section-three-main .exam-search-buttons .keyword {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 0 2rem;
+    width: 100%;
+  }
+
+  .section-three-main .exam-search-buttons .button {
+    width: 100%;
   }
 
   .section-three-main .mx-md-3 {
