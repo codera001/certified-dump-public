@@ -79,7 +79,7 @@
 }
 
 .second-nav {
-  /* background-color: var(--green-500); */
+  background-color: var(--green-500);
   transition: all 0.3s ease;
   height: 55px;
 }
@@ -211,7 +211,6 @@
   }
 
   .navbar-collapse {
-    /* background-color: var(--green-500); */
     background-color: var(--black);
     padding: 1rem;
   }
@@ -227,7 +226,6 @@
   .second-nav .toggle {
     border: 0;
     color: var(--white);
-    /* background-color: white; */
     margin-left: auto;
   }
 
@@ -241,5 +239,14 @@
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-nav {
     align-items: center;
+  }
+
+  .navbar-collapse {
+    background-color: var(--green-500);
+    padding: 0.5rem 0;
+  }
+
+  .second-nav .nav-items {
+    padding-bottom: 0;
   }
 }

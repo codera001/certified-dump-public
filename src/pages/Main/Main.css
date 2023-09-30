@@ -57,12 +57,6 @@
   font-size: 2rem;
 }
 
-/* .section-two-main-text p {
-  text-align: justify;
-  max-width: 90%;
-  margin: 0 auto;
-} */
-
 .section-two-main hr {
   color: var(--tertiary-color);
   font-weight: bolder;
@@ -257,7 +251,7 @@ hr.section-three-main-line {
     font-size: 2rem;
   }
 
-  .section-two-main-text p{
+  .section-two-main-text p {
     text-align: center;
   }
 
@@ -267,11 +261,11 @@ hr.section-three-main-line {
     place-items: center;
   }
 
-  .p-study .image img{
+  .p-study .image img {
     aspect-ratio: 1.5;
   }
 
- .section-three-main .text h4{
+  .section-three-main .text h4 {
     padding-top: 0;
   }
 }
@@ -301,16 +295,16 @@ hr.section-three-main-line {
   .section-three-main {
     margin-top: 2rem;
   }
-  
+
   .section-three-main .text {
     width: 100%;
   }
-  
+
   .section-three-main .text h4 {
     font-size: 1.5rem;
   }
-  
-  .section-three-main .text p{
+
+  .section-three-main .text p {
     font-size: 1.2rem;
   }
 
@@ -347,17 +341,27 @@ hr.section-three-main-line {
 }
 
 @media screen and (max-width: 992px) {
-  .section-one-main{
+  .section-one-main {
     top: -55px;
+  }
+
+  .section-two-main h4 {
+    margin-top: 0 !important;
   }
 }
 
-@media screen and (min-width: 1000px){
-   .section-two-main h4 {
+@media screen and (min-width: 992px) {
+  .section-one-main {
+    top: 0;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .section-two-main h4 {
     font-size: 3rem;
   }
 
   .section-two-main-text p {
-   font-size: 1.5rem;
-}
+    font-size: 1.5rem;
+  }
 }
