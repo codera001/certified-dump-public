@@ -6,6 +6,7 @@ import { RiFacebookFill, RiMailSendLine } from "react-icons/ri";
 import { TbBrandTwitterFilled } from "react-icons/tb";
 import "./NavigationBar.css";
 import logo from "../../static/logo.png";
+import scrolllogo from "../../static/logow.png";
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { BsInstagram } from "react-icons/bs";
@@ -13,12 +14,14 @@ import { navlist } from "./Navlists";
 
 function NavigationBar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showLogo, setShowLogo] = useState(false);
   const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
 
   useEffect(() => {
     function handleScroll() {
       if (window.scrollY > 200) {
         setIsScrolled(true);
+        setShowLogo(true);
       } else {
         setIsScrolled(false);
       }
@@ -139,10 +142,17 @@ function NavigationBar() {
         }`}
       >
         <Container fluid>
-          <Navbar.Toggle
-            aria-controls="responsive-navbar-nav"
-            className="toggle"
-          />
+          {/* <div className="nav-scroll">
+            {showLogo && (
+              <div className="logo">
+                <img loading="lazy" src={scrolllogo} alt="logo" />
+              </div>
+            )}*/}
+            <Navbar.Toggle
+              aria-controls="responsive-navbar-nav"
+              className="toggle"
+            />
+          {/* </div>  */}
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto text-center nav-items">
               {navlist.map((list, i) => (

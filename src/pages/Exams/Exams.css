@@ -48,7 +48,7 @@
 
 .exam-card-section {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   place-items: center;
   gap: 1.5rem;
   padding: 0 0.9rem;
@@ -91,25 +91,13 @@
   color: var(--green-500);
 }
 
-@media screen and (min-width: 375px) {
-  .exam-card-section {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media screen and (min-width: 750px) {
-  .exam-card-section {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media screen and (min-width: 850px) {
   .exam-card-section {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1000px) {
   .exam-card-section {
     grid-template-columns: repeat(5, 1fr);
   }

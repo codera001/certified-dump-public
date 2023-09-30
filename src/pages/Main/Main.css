@@ -233,19 +233,13 @@ hr.section-three-main-line {
 
 @media screen and (min-width: 750px) {
   .p-providers .card-section {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media screen and (min-width: 850px) {
-  .p-providers .card-section {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media screen and (min-width: 1000px) {
   .p-providers .card-section {
-    grid-template-columns: repeat(5, 1fr) !important;
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
