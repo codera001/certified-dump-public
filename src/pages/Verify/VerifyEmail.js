@@ -23,19 +23,21 @@ function VerifyEmail() {
       // console.log("Email verification Successful:", response.data.msg);
       toast.success(response.data.msg);
       navigate("/success");
+      localStorage.removeItem("unverifiedMail");
     } catch (error) {
-      // console.log("verification error:", error.response.data.msg);
+     toast.error("verification error:", error.response.data.msg);
     }
   };
 
-  console.log(localStorage.getItem("unverifiedMail"));
 
   const getVerificationCode = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
         "https://api.certifieddump.com/api/resend-verification-email",
-        localStorage.getItem("unverifiedMail")
+        {
+          email: localStorage.getItem("unverifiedMail"),
+        }
       );
       console.log("Verification Code sent:", response.data);
       toast.success("Verification code has been sent to your mail");
