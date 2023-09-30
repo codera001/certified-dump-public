@@ -28,6 +28,8 @@ function VerifyEmail() {
     }
   };
 
+  console.log(localStorage.getItem("unverifiedMail"));
+
   const getVerificationCode = async (e) => {
     e.preventDefault();
     try {
@@ -35,11 +37,11 @@ function VerifyEmail() {
         "https://api.certifieddump.com/api/resend-verification-email",
         localStorage.getItem("unverifiedMail")
       );
-      // console.log("Verification Code sent:", response.data);
+      console.log("Verification Code sent:", response.data);
       toast.success("Verification code has been sent to your mail");
     } catch (error) {
-      // console.log("verification error:", error);
-      toast.success("Your account is already verified, please login");
+      console.log("verification error:", error);
+      // toast.success("Your account is already verified, please login");
     }
   };
 
