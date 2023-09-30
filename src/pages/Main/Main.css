@@ -181,7 +181,6 @@ hr.section-three-main-line {
 .p-custom-select {
   appearance: none;
   background-color: #ffffff;
-  padding: 4px;
   background-image: url("caret.png");
   background-repeat: no-repeat;
   background-position: 250px center;
@@ -244,9 +243,9 @@ hr.section-three-main-line {
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1000px) {
   .p-providers .card-section {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr) !important;
   }
 }
 
