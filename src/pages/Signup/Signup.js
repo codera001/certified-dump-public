@@ -6,7 +6,12 @@ import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
+import {
+  AiFillGithub,
+  AiFillTwitterCircle,
+  AiOutlineEye,
+  AiOutlineEyeInvisible,
+} from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import axios from "axios";
 import { toast } from "react-hot-toast";
@@ -16,6 +21,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 function Signup() {
   const [isVerified, setIsVerified] = useState(false);
+  const [viewPassword, setViewPassword] = useState(false);
   const [show, setShow] = useState(false);
   function onChange() {
     setIsVerified(!isVerified);
@@ -123,16 +129,23 @@ function Signup() {
               <Form.Group
                 className="mb-3 form-group-s"
                 controlId="formBasicPassword"
+                style={{ position: "relative" }}
               >
                 <Form.Control
                   className="form-control-s"
-                  type="password"
+                  type={viewPassword ? "text" : "password"}
                   placeholder="Create password"
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
                   required
                 />
+                <span
+                  className="password-toggle-icon"
+                  onClick={() => setViewPassword(!viewPassword)}
+                >
+                  {viewPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                </span>
               </Form.Group>
 
               <Form.Group className="mb-3 form-group-s">

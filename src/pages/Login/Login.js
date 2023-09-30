@@ -6,7 +6,12 @@ import NavigationBar from "../../component/Navigation bar/NavigationBar";
 import PageFooter from "../../component/PageFooter/PageFooter";
 import recaptcha from "../../static/recaptcha.png";
 import { FcGoogle } from "react-icons/fc";
-import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
+import {
+  AiFillGithub,
+  AiFillTwitterCircle,
+  AiOutlineEye,
+  AiOutlineEyeInvisible,
+} from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import axios from "axios";
@@ -18,6 +23,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 function Login() {
   const [isVerified, setIsVerified] = useState(false);
+  const [viewPassword, setViewPassword] = useState(false);
   const [show, setShow] = useState(false);
   function onChange() {
     setIsVerified(!isVerified);
@@ -98,10 +104,13 @@ function Login() {
                   required
                 />
               </Form.Group>
-              <Form.Group className="mb-3 form-group-s">
+              <Form.Group
+                className="mb-3 form-group-s"
+                style={{ position: "relative" }}
+              >
                 <Form.Control
                   className="form-control-s"
-                  type="password"
+                  type={viewPassword ? "text" : "password"}
                   placeholder="Enter your password"
                   name="password"
                   value={formData.password}
@@ -109,6 +118,12 @@ function Login() {
                   autoComplete="true"
                   required
                 />
+                <span
+                  className="password-toggle-icon"
+                  onClick={() => setViewPassword(!viewPassword)}
+                >
+                  {viewPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                </span>
               </Form.Group>
               <div className="login-capcha">
                 <ReCAPTCHA
