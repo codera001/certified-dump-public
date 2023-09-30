@@ -7,9 +7,10 @@ import Provider from "../../component/Provider";
 import axios from "axios";
 import loader from "../../static/loader.gif";
 import cisco from "../../static/cisco.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Main() {
+  const navigate = useNavigate();
   const [providers, setProviders] = useState(null);
   const GetProviders = async () => {
     try {
@@ -18,7 +19,7 @@ function Main() {
       );
       // console.log(response);
       // console.log(response.data.providers.slice(0, 10));
-      setProviders(response.data.providers.slice(0, 10));
+      setProviders(response.data.providers);
     } catch (error) {
       // console.log(error);
     }
@@ -27,6 +28,13 @@ function Main() {
   useEffect(() => {
     GetProviders();
   }, []);
+
+  const providerChange = (e) => {
+    const selectedProvider = e.target.value;
+    if (selectedProvider) {
+      navigate(`/provider/${selectedProvider}`);
+    }
+  };
 
   return (
     <>
@@ -37,7 +45,7 @@ function Main() {
             style={{
               fontWeight: "bolder",
               marginBottom: "2rem",
-              padding: "0 0.5rem"
+              padding: "0 0.5rem",
             }}
           >
             WELCOME TO CERTIFIED DUMP
@@ -83,14 +91,15 @@ function Main() {
           </h4>
           <p className="mb-5">
             Certified dump has one of the largest collection of professional
-            certification and exam practice tests and online courses. Use our study materials to pass your examinations on the first try! Our
-            goal is to see you succeed.
+            certification and exam practice tests and online courses. Use our
+            study materials to pass your examinations on the first try! Our goal
+            is to see you succeed.
           </p>
         </div>
         <div className="p-providers py-2">
           {providers ? (
             <div className="card-section">
-              {providers.map((item, i) => (
+              {providers.slice(0, 10).map((item, i) => (
                 <Provider
                   key={i}
                   image={cisco}
@@ -149,8 +158,17 @@ function Main() {
             FIND EXAMS NOW
           </h2>
           <div className="exam-search-buttons">
-            <select className="px-4 py-1 mx-3 p-custom-select">
+            <select
+              className="px-4 py-1 p-custom-select"
+              onChange={providerChange}
+            >
               <option value="">Select Provider</option>
+              {providers &&
+                providers.map((provider, i) => (
+                  <option key={i} value={provider.name}>
+                    {provider.name}
+                  </option>
+                ))}
             </select>
             <p className="mb-0">OR</p>
             <input
