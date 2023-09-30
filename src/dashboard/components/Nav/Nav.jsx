@@ -84,7 +84,7 @@ const Nav = () => {
             <div className="d-dropdown-inner">
               <div>
                 <p>{email}</p>
-                <Link to="/profile" onClick={() => sessionStorage.clear()}>
+                <Link to="/profile">
                   <BiUserCheck />
                   <span>Profile</span>
                 </Link>
