@@ -33,7 +33,7 @@ function Blockchain() {
     <PublicLayout>
       <div className="navigate container mb-4">
         <Back path={`/provider/${providerName}`} />
-        <SearchBar text="Exam Name or Code" />
+        <SearchBar text="Book Name or Code" />
       </div>
       <div className="p-exams py-2">
         <h3

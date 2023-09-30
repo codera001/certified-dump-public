@@ -65,7 +65,7 @@ function Preview() {
       <div className="d-flex justify-content-between">
         <div className="navigate container mb-4">
           <Back path={`/provider/${providerName}/${examName}`} />
-          <SearchBar text="Exam Code or Name" />
+          <SearchBar text="Keyword" />
         </div>
       </div>
       {book ? (

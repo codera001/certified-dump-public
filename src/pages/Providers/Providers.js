@@ -32,7 +32,7 @@ function Providers() {
       <section className="container section-providers">
         <div className="d-flex justify-content-between">
           <Back path="/" />
-          <SearchBar text="Exam Code or Name" />
+          <SearchBar text="Provider Name" />
         </div>
         <h5
           className="mb-5"
