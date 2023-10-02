@@ -86,6 +86,10 @@
   .p-providers .card-section {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  .providers-title {
+    font-size: 2.5rem !important;
+  }
 }
 
 @media screen and (min-width: 1000px) {

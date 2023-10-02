@@ -8,7 +8,7 @@ const Provider = ({title, providerName, image, i, text, price }) => {
         <img loading="lazy" src={image} alt="" />
       </div>
       <h5>{title}</h5>
-      <h6>{price}</h6>
+      <h6>${price}</h6>
       <div className="card-footer py-2">
         <Link to={providerName} className="card-text">
           {text}

@@ -35,7 +35,7 @@ function Providers() {
           <SearchBar text="Provider Name" />
         </div>
         <h5
-          className="mb-5"
+          className="mb-5 providers-title"
           style={{ fontWeight: "bolder", color: "black", textAlign: "center" }}
         >
           All Providers

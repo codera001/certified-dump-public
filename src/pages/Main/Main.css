@@ -269,6 +269,11 @@ hr.section-three-main-line {
     font-size: 2rem;
   }
 
+   .section-two-main-text{
+    max-width: 80%;
+    margin: 0 auto;
+   }
+
   .section-two-main-text p {
     text-align: center;
   }
@@ -376,6 +381,16 @@ hr.section-three-main-line {
 @media screen and (min-width: 992px) {
   .section-one-main {
     top: 0;
+  }
+
+  .p-providers .card-section{
+    max-width: 80%;
+  }
+
+  .section-three-main .exam-search-buttons{
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 1.2rem;
   }
 }
 

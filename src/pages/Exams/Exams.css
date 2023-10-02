@@ -101,6 +101,11 @@
   .exam-card-section {
     grid-template-columns: repeat(5, 1fr);
   }
+
+   .exam-card-section {
+    max-width: 80%;
+    margin: 0 auto;
+   }
 }
 
 @media screen and (max-width: 767px) {
