@@ -28,13 +28,12 @@ import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./dashboard/ProtectedRoutes";
 import Payment from "./dashboard/payment/Payment";
 import VerifyForgotPass from "./pages/Verify/VerifyForgotPass";
-// import Blog from "./pages/Blog/Blogs";
 import VerifyPayment from "./dashboard/payment/Verify";
 import Contact from "./pages/Contact/Contact";
 import SuccessEmail from "./pages/Verify/SuccessEmail";
 import SuccessPass from "./pages/Verify/SuccessPass";
-// import Blogs from "./pages/Blog/Blogs";
 import Blog from "./pages/Blog/Blog";
+import SingleBlog from "./pages/BlogDetails/SingleBlog";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -52,6 +51,7 @@ const router = createBrowserRouter(
       <Route path="provider/:providerName/:examName" element={<Blockchain />} />
       <Route path="provider/:providerName/:examName/:bookId" element={<Preview />} />
       <Route path="blog" element={<Blog />} />
+      <Route path="blogid" element={<SingleBlog />} />
       <Route path="contact" element={<Contact />} />
       <Route path="confirm-email" element={<Verify />} />
       <Route path="reset-password" element={<PassReset />} />

@@ -58,7 +58,7 @@ const BlogComponent = () => {
             <AiFillTwitterCircle />
           </div>
         </div>
-        <Link to="/blog" className="read-more">
+        <Link to="/blogid" className="read-more">
           <span className="me-2">Read More</span>
           <BsArrowRight />
         </Link>
