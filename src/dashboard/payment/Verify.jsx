@@ -47,7 +47,6 @@ const VerifyPayment = () => {
               <p
                 className="mb-5"
                 style={{
-                  color: "var(--green-200)",
                   fontSize: "24px",
                   fontWeight: "bold",
                 }}

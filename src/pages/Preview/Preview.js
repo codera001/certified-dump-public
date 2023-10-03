@@ -153,10 +153,9 @@ function Preview() {
                   <button
                     onClick={() => {
                       if (authToken) {
-                        BuyBook(book.id, 20, book.title);
-                        // BuyBook(book.id, Number(book.price), book.title);
+                        BuyBook(book.id, Number(book.price), book.title);
                       } else {
-                        localStorage.setItem(
+                        sessionStorage.setItem(
                           "bookRoute",
                           `/provider/${providerName}/${examName}/${bookId}`
                         );

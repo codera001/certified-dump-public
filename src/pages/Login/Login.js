@@ -64,9 +64,14 @@ function Login() {
       sessionStorage.setItem("country", response.data.user.country);
       sessionStorage.setItem("dob", response.data.user.dob);
       sessionStorage.setItem("gender", response.data.user.gender);
-      setTimeout(() => {
-        navigate("/dashboard");
-      }, 2000);
+      if (sessionStorage.getItem("bookRoute") !== undefined) {
+        navigate(sessionStorage.getItem("bookRoute"));
+        sessionStorage.removeItem("bookRoute");
+      } else {
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 2000);
+      }
     } catch (error) {
       toast.error(error.response.data.msg);
       // console.log(error);
