@@ -1,7 +1,8 @@
 .pa-footeer {
   background-color: #000000de;
-  background-image: url("../../static/pagefooter.png");
+  background-image: url("../../static/pagefooter-foot.png");
   background-size: cover;
+  background-repeat: no-repeat;
   text-align: center;
 }
 

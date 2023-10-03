@@ -1,8 +1,9 @@
 .footeer {
   background-color: #000000de;
-  /* background-image: url("../../static/footer.png"); */
+  background-image: url("../../static/footer-foot.png");
   background-size: cover;
   text-align: center;
+  background-repeat: no-repeat;
 }
 
 .pu-footer {
@@ -103,6 +104,6 @@
   }
 
   .f-desc {
-  max-width: 50%;
-}
+    max-width: 50%;
+  }
 }
