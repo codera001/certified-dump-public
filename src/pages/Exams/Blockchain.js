@@ -56,7 +56,7 @@ function Blockchain() {
                   providerName={`/provider/${providerName}/${examName}/${item.id}`}
                   i={i}
                   text="Preview Book"
-                  price={item.price}
+                  price={`$${item.price}`}
                 />
               ))}
             </div>

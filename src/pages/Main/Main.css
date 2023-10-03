@@ -181,21 +181,21 @@ hr.section-three-main-line {
 .p-custom-select {
   appearance: none;
   background-color: #ffffff;
-  background-image: url("caret.png");
+  /* background-image: url("caret.png");
   background-repeat: no-repeat;
-  background-position: 320px center;
+  background-position: 320px center; */
 }
 
 /* Style the arrow icon when the select is open */
-.custom-select::-ms-expand {
+/* .custom-select::-ms-expand {
   display: none;
-}
+} */
 
 /* Style for Firefox */
-.custom-select:-moz-focusring {
+/* .custom-select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
-}
+} */
 
 .section-three-main .exam-search-buttons .keyword {
   width: 33%;
@@ -335,9 +335,9 @@ hr.section-three-main-line {
     margin-left: 2rem;
   }
 
-  .section-three-main .search-main {
+  /* .section-three-main .search-main {
     margin-top: 3rem;
-  }
+  } */
 
   .section-three-main .search-main button {
     margin-bottom: 1rem;

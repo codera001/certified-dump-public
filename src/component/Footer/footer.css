@@ -1,4 +1,5 @@
 .footeer {
+  background-color: #000000de;
   background-image: url("../../static/footer.png");
   background-size: cover;
   text-align: center;
