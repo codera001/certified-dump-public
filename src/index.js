@@ -33,7 +33,8 @@ import VerifyPayment from "./dashboard/payment/Verify";
 import Contact from "./pages/Contact/Contact";
 import SuccessEmail from "./pages/Verify/SuccessEmail";
 import SuccessPass from "./pages/Verify/SuccessPass";
-import Blogs from "./pages/Blog/Blogs";
+// import Blogs from "./pages/Blog/Blogs";
+import Blog from "./pages/Blog/Blog";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -50,7 +51,7 @@ const router = createBrowserRouter(
       <Route path="provider/:providerName" element={<Alibaba />} />
       <Route path="provider/:providerName/:examName" element={<Blockchain />} />
       <Route path="provider/:providerName/:examName/:bookId" element={<Preview />} />
-      <Route path="blogs" element={<Blogs />} />
+      <Route path="blog" element={<Blog />} />
       <Route path="contact" element={<Contact />} />
       <Route path="confirm-email" element={<Verify />} />
       <Route path="reset-password" element={<PassReset />} />
