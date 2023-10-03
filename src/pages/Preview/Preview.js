@@ -93,8 +93,8 @@ function Preview() {
             <h5>Abstract</h5>
             <p>{book.description}</p>
           </div>
-          <div className="container preview-keyword">
-            <div className="d-flex">
+          <div className="preview-keyword">
+            <div className="d-flex align-items-center mb-2">
               <AiOutlineSearch
                 className="me-2"
                 style={{ fontWeight: "bolder", fontSize: "18px" }}
@@ -102,14 +102,14 @@ function Preview() {
               <p style={{ fontWeight: "bolder" }}>Keywords: </p>
             </div>
             <div className="keyword ms-2">
-              <Link to="/">Keyword</Link>
-              <Link to="/">Keyword</Link>
-              <Link to="/">Keyword</Link>
-              <Link to="/">Keyword</Link>
+              <p>Keyword</p>
+              <p>Keyword</p>
+              <p>Keyword</p>
+              <p>Keyword</p>
             </div>
           </div>
 
-          <div className="preview-auth-buy container">
+          <div className="preview-auth-buy">
             {!authToken && (
               <div className="preview-auth">
                 <Link to="/login" className="d-flex py-3">
