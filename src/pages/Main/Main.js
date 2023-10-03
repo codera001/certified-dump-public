@@ -126,7 +126,7 @@ function Main() {
                 borderRadius: "1px",
               }}
             >
-              VIEW ALL
+              VIEW PROVIDERS
             </Link>
           </div>
         </div>

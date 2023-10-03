@@ -38,10 +38,10 @@ function NavigationBar() {
       <div className="container-fluid first-nav">
         <div className="container d-flex justify-content-between  nav">
           <div className="d-flex my-0 item-head">
-            <a href="#home" className=" text-white brand ">
-              <AiFillHome color="orange" className="brand-icon  me-1" />
+            <Link to="/" className="text-white brand ">
+              <AiFillHome color="orange" className="brand-icon me-1" />
               Welcome to Certified Dump
-            </a>
+            </Link>
           </div>
 
           <div className="item-list">
@@ -142,17 +142,10 @@ function NavigationBar() {
         }`}
       >
         <Container fluid>
-          {/* <div className="nav-scroll">
-            {showLogo && (
-              <div className="logo">
-                <img loading="lazy" src={scrolllogo} alt="logo" />
-              </div>
-            )}*/}
-            <Navbar.Toggle
-              aria-controls="responsive-navbar-nav"
-              className="toggle"
-            />
-          {/* </div>  */}
+          <Navbar.Toggle
+            aria-controls="responsive-navbar-nav"
+            className="toggle"
+          />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto text-center nav-items">
               {navlist.map((list, i) => (
@@ -173,6 +166,13 @@ function NavigationBar() {
                   </NavLink>
                   <NavLink to="/signup" className="button">
                     JOIN NOW
+                  </NavLink>
+                </>
+              )}
+              {authToken && (
+                <>
+                  <NavLink to="/dashboard" className="button n-mobile-btn">
+                    SIGNED IN
                   </NavLink>
                 </>
               )}

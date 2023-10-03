@@ -8,6 +8,10 @@ export const navlist = [
     path: "/about",
   },
   {
+    title: "PROVIDERS",
+    path: "/providers",
+  },
+  {
     title: "BLOG AREA",
     path: "/blog",
   },

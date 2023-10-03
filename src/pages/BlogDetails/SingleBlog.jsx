@@ -71,6 +71,7 @@ const SingleBlog = () => {
             </div>
             {/* Impleent pagination here */}
             <div className="b-comment-section">
+              <h3>1 comment</h3>
               <h3>Leave a Reply</h3>
               <p>
                 You must be <Link to="/login">logged in</Link> to post a comment.

@@ -129,6 +129,10 @@
   transition: all 0.5s ease-in-out;
 }
 
+.n-mobile-btn{
+  display: none;
+}
+
 @keyframes sticky {
   0% {
     opacity: 0;
@@ -144,8 +148,13 @@
   .first-nav .brand {
     font-size: 14px;
   }
+
   .first-nav .item-list {
     display: none;
+  }
+
+  .n-mobile-btn{
+    display: block;
   }
 
   .first-nav .user-auth {

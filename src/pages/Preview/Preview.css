@@ -42,6 +42,9 @@
   width: 100%;
   color: white;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .preview-auth a {
@@ -50,8 +53,11 @@
   justify-content: center;
 }
 
-.peview-line {
-  color: var(--tertiary-color);
+.preview-line {
+  color: white;
+  height: 1px;
+  width: 55px;
+  transform: rotate(90deg);
 }
 
 .preview-purchase {
@@ -81,6 +87,16 @@
     align-items: inherit;
     flex-direction: row;
   }
+
+  .preview-auth{
+    display: block;
+  }
+
+  .preview-line {
+  color: white;
+  width: 100%;
+  transform: rotate(180deg);
+}
 }
 
 @media screen and (min-width: 800px) {

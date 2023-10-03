@@ -1,13 +1,14 @@
+.section-providers{
+  padding: 0 .5rem;
+}
+
 .section-providers .back {
   color: var(--black);
 }
 
+
 .section-providers .back:hover {
   color: var(--tertiary-color);
-}
-
-.section-providers h5 {
-  font-size: 1.5rem;
 }
 
 .section-providers .search-container {
@@ -47,8 +48,6 @@
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
   gap: 1.5rem;
-  padding: 0 0.9rem;
-  max-width: 90%;
   margin: 0 auto;
 }
 
@@ -99,10 +98,6 @@
 }
 
 @media screen and (max-width: 767px) {
-  .section-providers h5 {
-    font-size: 1rem;
-  }
-
   .section-providers .search-container input {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -111,5 +106,12 @@
 
   .section-providers .search-container input::placeholder {
     font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1400px){
+  .section-providers{
+max-width: 90%;
+margin: 0 auto;
   }
 }

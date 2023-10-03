@@ -28,7 +28,7 @@ const Payment = () => {
           userid: sessionStorage.getItem("userId"),
           // callbackUrl: "http://localhost:3000/payment-verification",
           callbackUrl: "https://certifieddump.com/payment-verification",
-          currency: "USD",
+          currency: "NGN",
           customerFirstName: sessionStorage.getItem("userFirstname"),
           customerLastName: sessionStorage.getItem("userLastname"),
           customerPhoneNumber: "2348032132100",

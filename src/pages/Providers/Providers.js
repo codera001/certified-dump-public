@@ -29,18 +29,18 @@ function Providers() {
 
   return (
     <PublicLayout>
-      <section className="container section-providers">
+      <section className="section-providers">
         <div className="d-flex justify-content-between">
           <Back path="/" />
           <SearchBar text="Provider Name" />
         </div>
         <h5
-          className="mb-5 providers-title"
-          style={{ fontWeight: "bolder", color: "black", textAlign: "center" }}
+          className="my-3 providers-title"
+          style={{ fontWeight: "bolder", color: "black", textAlign: "center", fontSize: "2.5rem", margin: "1rem 0" }}
         >
           All Providers
         </h5>
-        <div className="p-providers py-2 mb-5">
+        <div className="p-providers py-2 mb-5 mt-4">
           {allProviders ? (
             <div className="card-section">
               {allProviders.map((item, i) => (
