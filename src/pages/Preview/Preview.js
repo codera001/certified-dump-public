@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Preview.css";
 import { AiOutlineLogin, AiOutlineSearch } from "react-icons/ai";
 import { TbEditCircle } from "react-icons/tb";
-import { TiArrowLeftThick } from "react-icons/ti";
 import { BsDot } from "react-icons/bs";
 import { HiShoppingCart } from "react-icons/hi";
 import axios from "axios";

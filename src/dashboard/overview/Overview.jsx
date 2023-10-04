@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Layout from "../components/Layout/Layout";
 import "./Overview.css";
 import Card from "../components/Card/Card";
@@ -6,6 +6,7 @@ import SearchBar from "../components/SearchBar.jsx/SearchBar";
 import loader from "../../static/loader.gif";
 import axios from "axios";
 import Announcement from "../components/Card/Announcement";
+import ModalLayout from "../../component/ModalLayout";
 
 const Overview = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,6 +15,29 @@ const Overview = () => {
   const token = sessionStorage.getItem("token");
   const [loading, setLoading] = useState(true);
   let userid = sessionStorage.getItem("userId");
+  const [show, setHide] = useState(false);
+  const [modalIndex, setModalIndex] = useState(-1);
+  const openModal = (index) => {
+    setModalIndex(index);
+  };
+
+  const closeModal = () => {
+    setModalIndex(-1);
+  };
+
+  let modalRef = useRef();
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        closeModal();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const GetBoughtBooks = async () => {
     try {
@@ -136,13 +160,41 @@ const Overview = () => {
           ) : (
             <div className="d-overview-cards d-admin-cards">
               {adminMessage.map((message, i) => (
-                <Announcement
+                <div
                   key={i}
-                  title={message.title}
-                  body={message.body}
-                  date={new Date(message.send_date).toDateString()}
-                  image={message.image_url}
-                />
+                  onClick={() => {
+                    openModal(i);
+                  }}
+                  className="d-card"
+                >
+                  <Announcement
+                    title={message.title}
+                    body={message.body}
+                    date={new Date(message.send_date).toDateString()}
+                    image={message.image_url}
+                  />
+                  {modalIndex === i && (
+                    <div onClick={closeModal} className="change-pass-page">
+                      <div
+                        ref={modalRef}
+                        className="change-password book-modal"
+                      >
+                        <h3 style={{ textAlign: "center" }}>{message.title}</h3>
+                        <div className="container preview-text mt-3 mb-3">
+                          <div className="p-book-img">
+                            <img src={message.image_url} alt={message.title} />
+                          </div>
+                          <div className="p-book-deet">
+                            <p>{message.body}</p>
+                          </div>
+                        </div>
+                        <div className="submit-cancel-Btn">
+                          <button onClick={closeModal}>OK</button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           )}

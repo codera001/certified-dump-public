@@ -52,3 +52,16 @@
   font-size: 1.2rem;
   font-weight: 600;
 }
+
+.d-card .book-modal{
+  color: var(--black);
+}
+
+.d-card .p-book-deet{
+  margin-top: .4rem;
+  text-align: left;
+}
+.d-card .submit-cancel-Btn{
+  margin-top: .8rem;
+  justify-content: center;
+}
