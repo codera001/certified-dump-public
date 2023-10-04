@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import "./Login.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import PageFooter from "../../component/PageFooter/PageFooter";
-import recaptcha from "../../static/recaptcha.png";
 import { FcGoogle } from "react-icons/fc";
 import {
   AiFillGithub,
@@ -20,6 +17,7 @@ import { toast } from "react-hot-toast";
 import { BsFacebook } from "react-icons/bs";
 import Google from "../../ApiTesting/GoogleLogin";
 import ReCAPTCHA from "react-google-recaptcha";
+import PublicLayout from "../../component/PublicLayout";
 
 function Login() {
   const [isVerified, setIsVerified] = useState(false);
@@ -80,130 +78,134 @@ function Login() {
   return (
     <>
       <section className="section">
-        <NavigationBar />
-        <div className="login container">
-          <div className="login-form-wrap">
-            <Form
-              className="login-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                isVerified ? handleSubmit() : setShow(!show);
-              }}
-            >
-              <Form.Group className="mb-3 ">
-                <Form.Label className="my-4 form-title"> Log in</Form.Label>
-              </Form.Group>
-              <Form.Group className="mb-3 form-group-s">
-                <Form.Control
-                  className="form-control-s"
-                  type="text"
-                  placeholder="Enter your username"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  autoComplete="true"
-                  required
-                />
-              </Form.Group>
-              <Form.Group
-                className="mb-3 form-group-s"
-                style={{ position: "relative" }}
+        <PublicLayout>
+          <div className="login container">
+            <div className="login-form-wrap">
+              <Form
+                className="login-form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  isVerified ? handleSubmit() : setShow(!show);
+                }}
               >
-                <Form.Control
-                  className="form-control-s"
-                  type={viewPassword ? "text" : "password"}
-                  placeholder="Enter your password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  autoComplete="true"
-                  required
-                />
-                <span
-                  className="password-toggle-icon"
-                  onClick={() => setViewPassword(!viewPassword)}
+                <Form.Group className="mb-3 ">
+                  <Form.Label className="my-4 form-title"> Log in</Form.Label>
+                </Form.Group>
+                <Form.Group className="mb-3 form-group-s">
+                  <Form.Control
+                    className="form-control-s"
+                    type="text"
+                    placeholder="Enter your username"
+                    name="username"
+                    value={formData.username}
+                    onChange={handleChange}
+                    autoComplete="true"
+                    required
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3 form-group-s"
+                  style={{ position: "relative" }}
                 >
-                  {viewPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
-                </span>
-              </Form.Group>
-              <div className="login-capcha">
-                <ReCAPTCHA
-                  sitekey="6LeublgoAAAAAJcgjbrXDIOqr3839Npd0g-sE8Pd"
-                  onChange={onChange}
-                />
-              </div>
-              {show && (
-                <small
+                  <Form.Control
+                    className="form-control-s"
+                    type={viewPassword ? "text" : "password"}
+                    placeholder="Enter your password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    autoComplete="true"
+                    required
+                  />
+                  <span
+                    className="password-toggle-icon"
+                    onClick={() => setViewPassword(!viewPassword)}
+                  >
+                    {viewPassword ? (
+                      <AiOutlineEyeInvisible />
+                    ) : (
+                      <AiOutlineEye />
+                    )}
+                  </span>
+                </Form.Group>
+                <div className="login-capcha">
+                  <ReCAPTCHA
+                    sitekey="6LeublgoAAAAAJcgjbrXDIOqr3839Npd0g-sE8Pd"
+                    onChange={onChange}
+                  />
+                </div>
+                {show && (
+                  <small
+                    style={{
+                      color: "red",
+                      fontSize: "14px",
+                    }}
+                  >
+                    Please solve recapcha puzzle
+                  </small>
+                )}
+
+                <Button type="submit" className="form-button-s">
+                  SIGN IN
+                </Button>
+                <Link
+                  to="/forgot-password"
+                  style={{ color: "var(--green-600", fontWeight: "bolder" }}
+                >
+                  forgot password?
+                </Link>
+                <p
+                  className=""
                   style={{
-                    color: "red",
-                    fontSize: "14px",
+                    fontWeight: "bolder",
+                    color: "black",
+                    fontSize: "12px",
                   }}
                 >
-                  Please solve recapcha puzzle
-                </small>
-              )}
-
-              <Button type="submit" className="form-button-s">
-                SIGN IN
-              </Button>
-              <Link
-                to="/forgot-password"
-                style={{ color: "var(--green-600", fontWeight: "bolder" }}
-              >
-                forgot password?
-              </Link>
-              <p
-                className=""
-                style={{
-                  fontWeight: "bolder",
-                  color: "black",
-                  fontSize: "12px",
-                }}
-              >
-                Don&apos;t have an account yet?
-                <Link
-                  to="/signup"
-                  style={{ color: "var(--green-600", fontWeight: "light" }}
+                  Don&apos;t have an account yet?
+                  <Link
+                    to="/signup"
+                    style={{ color: "var(--green-600", fontWeight: "light" }}
+                  >
+                    Sign up
+                  </Link>
+                </p>
+                <p
+                  style={{
+                    fontWeight: "bolder",
+                    color: "black",
+                    fontSize: "12px",
+                  }}
                 >
-                  Sign up
-                </Link>
-              </p>
-              <p
-                style={{
-                  fontWeight: "bolder",
-                  color: "black",
-                  fontSize: "12px",
-                }}
-              >
-                Or log in with your social network
-              </p>
-              {/* <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com">
+                  Or log in with your social network
+                </p>
+                {/* <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com">
                 <Google />
               </GoogleOAuthProvider> */}
-              <div className="social-images d-flex">
-                <div className="social-images-wrap">
-                  <BsFacebook
-                    className="me-1"
-                    style={{ fontSize: "21px", color: "blue" }}
-                  ></BsFacebook>
-                  <AiFillTwitterCircle
-                    className="me-1"
-                    style={{ fontSize: "23px", color: "skyblue" }}
-                  ></AiFillTwitterCircle>
-                  <FcGoogle
-                    className="me-1"
-                    style={{ fontSize: "22px" }}
-                  ></FcGoogle>
-                  <AiFillGithub
-                    className="me-1"
-                    style={{ fontSize: "22px" }}
-                  ></AiFillGithub>
+                <div className="social-images d-flex">
+                  <div className="social-images-wrap">
+                    <BsFacebook
+                      className="me-1"
+                      style={{ fontSize: "21px", color: "blue" }}
+                    ></BsFacebook>
+                    <AiFillTwitterCircle
+                      className="me-1"
+                      style={{ fontSize: "23px", color: "skyblue" }}
+                    ></AiFillTwitterCircle>
+                    <FcGoogle
+                      className="me-1"
+                      style={{ fontSize: "22px" }}
+                    ></FcGoogle>
+                    <AiFillGithub
+                      className="me-1"
+                      style={{ fontSize: "22px" }}
+                    ></AiFillGithub>
+                  </div>
                 </div>
-              </div>
-            </Form>
+              </Form>
+            </div>
           </div>
-        </div>
-        <PageFooter />
+        </PublicLayout>
       </section>
     </>
   );

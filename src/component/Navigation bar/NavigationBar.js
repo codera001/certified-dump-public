@@ -16,6 +16,7 @@ function NavigationBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showLogo, setShowLogo] = useState(false);
   const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
+  const user = sessionStorage.getItem("username");
 
   useEffect(() => {
     function handleScroll() {
@@ -65,7 +66,7 @@ function NavigationBar() {
                   }}
                   className="nav-list to-dash"
                 >
-                  Logged in
+                  {user}
                 </Link>
                 <p
                   className="nav-list"
@@ -73,7 +74,7 @@ function NavigationBar() {
                     color: "white",
                     display: "flex",
                     alignItems: "center",
-                    margin: "0 4px 0 0",
+                    margin: "0 .5rem 0 0",
                   }}
                 >
                   Balance:{" "}
@@ -172,7 +173,7 @@ function NavigationBar() {
               {authToken && (
                 <>
                   <NavLink to="/dashboard" className="button n-mobile-btn">
-                    SIGNED IN
+                    {user}
                   </NavLink>
                 </>
               )}
