@@ -11,9 +11,11 @@ import {
 } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import image from "../../static/image.png";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const SingleBlog = () => {
+  const { blogId } = useParams();
+
   return (
     <PublicLayout>
       <section className="mt-5 mb-5">

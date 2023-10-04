@@ -4,27 +4,49 @@ import PublicLayout from "../../component/PublicLayout";
 import BlogComponent from "../../component/Blog";
 import LatestBlogs from "../../component/Latests";
 import axios from "axios";
+import loader from "../../static/loader.gif";
 
 function Blog() {
-  const [blogs, setBlogs] = useState(null);
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const GetBlogs = async () => {
     try {
-      const res = await axios.get(
+      const res = await axios.post(
         "https://api.certifieddump.com/api-blog/getAllBlogPosts"
       );
-      console.log(res);
+      console.log(res.data.post);
+      setBlogs(res.data.post);
     } catch (error) {
       console.log(error);
     }
   };
-  // useEffect(() => GetBlogs(), []);
+  useEffect(() => {
+    GetBlogs();
+    setLoading(!loading);
+  }, []);
 
   return (
     <PublicLayout>
       <section className="mt-5 mb-5">
         <div className="blog-area">
           <div className="left-blog-area">
-            <BlogComponent />
+            {loading ? (
+              <div className="d-gif-div">
+                <img
+                  loading="lazy"
+                  src={loader}
+                  alt="loading-gif"
+                  className="d-gif"
+                />
+              </div>
+            ) : blogs.length <= 0 ? (
+              <div className="error">There are no blog posts yet</div>
+            ) : (
+              blogs.map((blog, i) => 
+              (  <BlogComponent blog={blog} i={i} key={i} />)
+              )
+            )}
           </div>
 
           <aside className="side-post">

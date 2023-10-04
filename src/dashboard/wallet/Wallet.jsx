@@ -53,7 +53,7 @@ const Wallet = () => {
       // console.log(response.data.result);
     } catch (error) {
       setError(error.response.data.msg);
-      console.log(error.response);
+      // console.log(error.response);
     }
   };
 

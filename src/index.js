@@ -51,7 +51,7 @@ const router = createBrowserRouter(
       <Route path="provider/:providerName/:examName" element={<Blockchain />} />
       <Route path="provider/:providerName/:examName/:bookId" element={<Preview />} />
       <Route path="blog" element={<Blog />} />
-      <Route path="blogid" element={<SingleBlog />} />
+      <Route path="blog/:blogId" element={<SingleBlog />} />
       <Route path="contact" element={<Contact />} />
       <Route path="confirm-email" element={<Verify />} />
       <Route path="reset-password" element={<PassReset />} />
