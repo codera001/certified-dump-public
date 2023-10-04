@@ -64,14 +64,10 @@ function Login() {
       sessionStorage.setItem("country", response.data.user.country);
       sessionStorage.setItem("dob", response.data.user.dob);
       sessionStorage.setItem("gender", response.data.user.gender);
-      if (sessionStorage.getItem("bookRoute") !== undefined) {
+      if (sessionStorage.getItem("bookRoute")) {
         navigate(sessionStorage.getItem("bookRoute"));
         sessionStorage.removeItem("bookRoute");
-      } else {
-        setTimeout(() => {
-          navigate("/dashboard");
-        }, 2000);
-      }
+      } else navigate("/dashboard");
     } catch (error) {
       toast.error(error.response.data.msg);
       // console.log(error);
