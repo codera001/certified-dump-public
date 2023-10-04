@@ -188,9 +188,11 @@ const Overview = () => {
                             <p>{message.body}</p>
                           </div>
                         </div>
-                        <div className="submit-cancel-Btn">
-                          <button onClick={closeModal}>OK</button>
-                        </div>
+                        {/* <div className="submit-cancel-Btn">
+                          <button onClick={() => {
+                            closeModal()
+                          console.log("please close");}}>OK</button>
+                        </div> */}
                       </div>
                     </div>
                   )}
