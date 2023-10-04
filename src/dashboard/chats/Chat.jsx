@@ -25,7 +25,7 @@ const Chat = () => {
       // console.log(response.data.result);
       setMessages(response.data.result);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

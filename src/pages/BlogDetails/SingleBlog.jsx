@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PublicLayout from "../../component/PublicLayout";
 import "./Single.css";
 import "../Blog/Blog.css";
@@ -12,9 +12,70 @@ import {
 import { FaUserCircle } from "react-icons/fa";
 import image from "../../static/image.png";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const SingleBlog = () => {
   const { blogId } = useParams();
+  const [blog, setBlog] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [comments, setComment] = useState([]);
+  const [totalComments, setTotalComments] = useState("");
+  const[ authToken, setAuthToken ]= useState(sessionStorage.getItem("token"));
+  const [userComment, setUserComment] = useState("");
+  const userId = sessionStorage.getItem("userId");
+
+  const GetBlog = async () => {
+    try {
+      const res = await axios.post(
+        `https://api.certifieddump.com/api-blog/getSingleBlogPost?post_id=${blogId}`
+      );
+      // console.log(res.data);
+      setBlog(res.data.post[0]);
+    } catch (error) {
+      // console.log(error);
+    }
+  };
+
+  const GetComments = async () => {
+    try {
+      const res = await axios.post(
+        `https://api.certifieddump.com/api-blog/getSingleBlogPost?post_id=${blogId}`
+      );
+      // console.log(res.data);
+      setComment(res.data.comments);
+      setTotalComments(res.data.total_comments);
+    } catch (error) {
+      // console.log(error);
+    }
+  };
+
+  const SendComment = async () => {
+    try {
+      const response = await axios.post(
+        `https://api.certifieddump.com/api-blog/sendComment?postid=${blogId}&userid=${userId}`,
+        {
+          comment: userComment,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+        }
+      );
+      GetComments();
+      setUserComment("");
+      toast.success("comment posted");
+      // console.log(response.data.msg);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    GetBlog();
+    GetComments();
+    setLoading(!loading);
+  }, []);
 
   return (
     <PublicLayout>
@@ -23,41 +84,29 @@ const SingleBlog = () => {
           <div className="left-blog-area">
             <div className="blog-body-text mb-3">
               <h6 style={{ fontWeight: "bolder", fontSize: "1.5rem" }}>
-                Lorem ipsum dolor sit amet, consecteteur adipiscing elit
+                {blog.title}
               </h6>
               <div className="span-user">
                 <div className="span-user-text">
                   <FaUserCircle />
-                  <span>Author</span>
+                  <span>{blog.author}</span>
                 </div>
                 <div className="span-user-text">
                   <AiOutlineClockCircle />
-                  <span>Date</span>
+                  <span>
+                    {new Date(blog.date_created).toLocaleDateString()}
+                  </span>
                 </div>
                 <div className="span-user-text">
                   <AiOutlineComment />
-                  <span>3 Comments</span>
+                  <span>{totalComments} Comments</span>
                 </div>
               </div>
               <div className="blog-image">
                 <img loading="lazy" width={216} src={image} />
               </div>
               <div className="blog-text">
-                <p className="blog-body">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-                  ex voluptas eos labore alias nostrum doloribus similique hic
-                  sit. Quo, debitis tempora non odio ab corporis labore ut ad
-                  consectetur. Quis deserunt repellendus perferendis. Libero
-                  sint sunt pariatur illo temporibus a! Fugiat totam pariatur
-                  laborum corrupti maxime voluptatum! Dignissimos, neque
-                  quisquam explicabo dolorum iusto sapiente ipsa obcaecati vel
-                  earum amet quasi consequatur voluptates. Consectetur placeat
-                  veniam velit officiis exercitationem dicta expedita laboriosam
-                  nam, doloribus quia corporis a error sed omnis nemo suscipit
-                  ad officia! Sint quas asperiores laborum nisi blanditiis esse,
-                  illum earum corporis architecto, dolorum et odio laudantium
-                  dolores!
-                </p>
+                <p className="blog-body">{blog.content}</p>
                 <div className="blog-social-icons">
                   <div className="blog-social-icon">
                     <BsInstagram />
@@ -71,13 +120,56 @@ const SingleBlog = () => {
                 </div>
               </div>
             </div>
-            {/* Impleent pagination here */}
+            {/* Implement pagination here */}
             <div className="b-comment-section">
-              <h3>1 comment</h3>
+              {totalComments !== 0 && <h3>{totalComments} comments</h3>}
               <h3>Leave a Reply</h3>
-              <p>
-                You must be <Link to="/login">logged in</Link> to post a comment.
-              </p>
+              {!authToken && (
+                <p>
+                  You must be <Link to="/login">logged in</Link> to post a
+                  comment.
+                </p>
+              )}
+
+              {authToken && <p>Online</p>}
+              <div className="blog">
+                <div className="blog-text-container">
+                  <textarea
+                    value={userComment}
+                    rows={1}
+                    cols={40}
+                    onChange={(e) => {
+                      setUserComment(e.currentTarget.value);
+                    }}
+                  />
+                </div>
+                <button
+                  onClick={() => {
+                    if (userComment.trim() !== "") SendComment();
+                  }}
+                >
+                  Send
+                </button>
+              </div>
+
+              {comments.length !== 0 &&
+                comments
+                  .sort(function (a, b) {
+                    return b.id - a.id;
+                  })
+                  .map((comment, index) => {
+                    return (
+                      <ul key={index} className="list-disc px-3 text-lg">
+                        <li>
+                          {comment.comment}{" "}
+                          {new Date(
+                            comment.date_commented
+                          ).toLocaleDateString()}
+                          {comment.userid}
+                        </li>
+                      </ul>
+                    );
+                  })}
             </div>
           </div>
 
