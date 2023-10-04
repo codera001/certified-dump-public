@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Layout from "../components/Layout/Layout";
 import ChangePassword from "./change_password/ChangePassword";
 import "./Profile.css";
@@ -26,6 +26,8 @@ const Profile = () => {
   const [birthday, setBirthday] = useState("");
   const [changePass, setChangePass] = useState(false);
   const [del, setDel] = useState(false);
+  const [profileImage, setProfileImage] = useState(null);
+   const fileInputRef = useRef(null);
 
   const ShowChangePass = () => {
     setChangePass(true);
@@ -48,6 +50,7 @@ const Profile = () => {
           country: localStorage.getItem("userCountry"),
           userid: sessionStorage.getItem("userId"),
           gender: gender,
+          image: profileImage,
         },
         {
           headers: {
@@ -62,6 +65,18 @@ const Profile = () => {
     }
   };
 
+  const handleImageChange = (e) => {
+    const image = e.target.files[0];
+    if (image && image.type.startsWith("image/")) {
+      setProfileImage(image);
+    } else {
+      toast.error("Please select a valid image file.");
+    }
+  };
+
+   const handleEditClick = () => {
+     fileInputRef.current.click();
+   };
 
   return (
     <Layout>
@@ -74,7 +89,26 @@ const Profile = () => {
           </p>
         </div>
         <div className="d-profile-pic">
-          <BiUserCircle className="d-profile-image" />
+          {profileImage ? (
+            <div>
+              <img
+                src={URL.createObjectURL(profileImage)}
+                alt="Profile"
+                className="d-profile-image"
+              />
+            </div>
+          ) : (
+            <div className="d-profile-image" onClick={handleEditClick}>
+              <BiUserCircle />
+              <input
+                type="file"
+                accept="image/*"
+                ref={fileInputRef}
+                style={{ display: "none" }}
+                onChange={handleImageChange}
+              />
+            </div>
+          )}
         </div>
         <div className="d-account-details">
           <h2>
