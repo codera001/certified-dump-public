@@ -68,7 +68,12 @@ function Alibaba() {
           </>
         ) : (
           <div className="d-gif-div">
-            <img loading="lazy" src={loader} alt="loading-gif" className="d-gif" />
+            <img
+              loading="lazy"
+              src={loader}
+              alt="loading-gif"
+              className="d-gif"
+            />
           </div>
         )}
       </div>
