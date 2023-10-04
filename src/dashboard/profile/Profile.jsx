@@ -27,7 +27,7 @@ const Profile = () => {
   const [changePass, setChangePass] = useState(false);
   const [del, setDel] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
-   const fileInputRef = useRef(null);
+  const fileInputRef = useRef(null);
 
   const ShowChangePass = () => {
     setChangePass(true);
@@ -74,9 +74,13 @@ const Profile = () => {
     }
   };
 
-   const handleEditClick = () => {
-     fileInputRef.current.click();
-   };
+  const handleEditClick = () => {
+    fileInputRef.current.click();
+  };
+
+    const handleEditCancel = () => {
+      setProfileImage(null);
+    };
 
   return (
     <Layout>
@@ -90,25 +94,22 @@ const Profile = () => {
         </div>
         <div className="d-profile-pic">
           {profileImage ? (
-            <div>
-              <img
-                src={URL.createObjectURL(profileImage)}
-                alt="Profile"
-                className="d-profile-image"
-              />
+            <div className="d-profile-image">
+              <img src={URL.createObjectURL(profileImage)} alt="Profile" />
+              <button onClick={handleEditCancel}>Cancel</button>
             </div>
           ) : (
             <div className="d-profile-image" onClick={handleEditClick}>
               <BiUserCircle />
-              <input
-                type="file"
-                accept="image/*"
-                ref={fileInputRef}
-                style={{ display: "none" }}
-                onChange={handleImageChange}
-              />
             </div>
           )}
+          <input
+            type="file"
+            accept="image/*"
+            ref={fileInputRef}
+            style={{ display: "none" }}
+            onChange={handleImageChange}
+          />
         </div>
         <div className="d-account-details">
           <h2>

@@ -43,9 +43,14 @@ function Blog() {
             ) : blogs.length <= 0 ? (
               <div className="error">There are no blog posts yet</div>
             ) : (
-              blogs.map((blog, i) => 
-              (  <BlogComponent blog={blog} i={i} key={i} />)
-              )
+              blogs.map((blog, i) => (
+                <BlogComponent
+                  blog={blog}
+                  i={i}
+                  key={i}
+                  description="Take a look at this blog post"
+                />
+              ))
             )}
           </div>
 

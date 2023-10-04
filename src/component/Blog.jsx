@@ -1,5 +1,5 @@
 import React from "react";
-import { BsArrowRight, BsFacebook, BsInstagram } from "react-icons/bs";
+import { BsArrowRight, BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
 import {
   AiFillTwitterCircle,
   AiOutlineClockCircle,
@@ -9,7 +9,8 @@ import { FaUserCircle } from "react-icons/fa";
 import image from "../static/image.png";
 import { Link } from "react-router-dom";
 
-const BlogComponent = ({ blog, i }) => {
+const BlogComponent = ({ blog, i, description }) => {
+  const url = window.location.href;
   return (
     <div key={i} className="blog-image-text mb-4 pb-3">
       <div className="blog-image">
@@ -35,15 +36,32 @@ const BlogComponent = ({ blog, i }) => {
         </div>
         <p className="blog-description">{blog.content}</p>
         <div className="blog-social-icons">
-          <div className="blog-social-icon">
-            <BsInstagram />
-          </div>
-          <div className="blog-social-icon">
+          <a
+            href={`https://www.linkedin.com/shareArticle?url=${url}/${blog.id}`}
+            target="_blank"
+            rel="noreferrer"
+            className="blog-social-icon"
+          >
+            <BsLinkedin />
+          </a>
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${url}/${blog.id}`}
+            target="_blank"
+            rel="noreferrer"
+            className="blog-social-icon"
+          >
             <BsFacebook />
-          </div>
-          <div className="blog-social-icon">
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?url=${url}/${
+              blog.id
+            }&text=${encodeURI(description)}`}
+            target="_blank"
+            rel="noreferrer"
+            className="blog-social-icon"
+          >
             <AiFillTwitterCircle />
-          </div>
+          </a>
         </div>
         <Link to={`/blog/${blog.id}`} className="read-more">
           <span className="me-2">Read More</span>
