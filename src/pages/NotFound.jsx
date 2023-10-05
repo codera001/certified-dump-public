@@ -1,8 +1,12 @@
 import React from 'react'
+import PublicLayout from '../component/PublicLayout'
 
 const NotFound = () => {
   return (
-    <div>NotFound</div>
+    <PublicLayout>
+
+      <div>NotFound</div>
+    </PublicLayout>
   )
 }
 

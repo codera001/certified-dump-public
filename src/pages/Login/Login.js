@@ -172,12 +172,12 @@ function Login() {
                 fontSize: "12px",
               }}
             >
-              Or log in with your social network
+              Or log in with Google
             </p>
             {/* <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com"> */}
             <Google />
             {/* </GoogleOAuthProvider> */}
-            <div className="social-images d-flex">
+            {/* <div className="social-images d-flex">
               <div className="social-images-wrap">
                 <BsFacebook
                   className="me-1"
@@ -196,7 +196,7 @@ function Login() {
                   style={{ fontSize: "22px" }}
                 ></AiFillGithub>
               </div>
-            </div>
+            </div> */}
           </Form>
         </div>
       </div>

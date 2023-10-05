@@ -207,10 +207,10 @@ function Signup() {
                     fontSize: "12px",
                   }}
                 >
-                  Or log in with your social network
+                  Or sign up with google
                 </p>
                 <Google />
-                <div className="social-images d-flex">
+                {/* <div className="social-images d-flex">
                   <div className="social-images-wrap">
                     <BsFacebook
                       className="me-1"
@@ -229,7 +229,7 @@ function Signup() {
                       style={{ fontSize: "22px" }}
                     ></AiFillGithub>
                   </div>
-                </div>
+                </div> */}
               </Form>
             </div>
           </div>

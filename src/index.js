@@ -1,12 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-// import {
-//   createBrowserRouter,
-//   createRoutesFromElements,
-//   Route,
-//   RouterProvider,
-// } from "react-router-dom";
 import Overview from "./dashboard/overview/Overview";
 import Profile from "./dashboard/profile/Profile";
 import Library from "./dashboard/library/Library";
