@@ -20,26 +20,23 @@ const Google = () => {
       );
       // console.log(response);
       toast.success(response.data.msg);
-      if (response.data.user.id == undefined) {
-        navigate("/login");
-      } else {
-        sessionStorage.setItem("token", response.data.token);
-        sessionStorage.setItem("userId", response.data.user.id);
-        sessionStorage.setItem("username", response.data.user.username);
-        sessionStorage.setItem("userFirstname", response.data.user.firstname);
-        sessionStorage.setItem("userLastname", response.data.user.lastname);
-        sessionStorage.setItem("userEmail", response.data.user.email);
-        sessionStorage.setItem("userPhone", response.data.user.phone_no);
-        sessionStorage.setItem("country", response.data.user.country);
-        sessionStorage.setItem("dob", response.data.user.dob);
-        sessionStorage.setItem("gender", response.data.user.gender);
-        if (sessionStorage.getItem("bookRoute")) {
-          navigate(sessionStorage.getItem("bookRoute"));
-          sessionStorage.removeItem("bookRoute");
-        } else navigate("/dashboard");
-      }
+      sessionStorage.setItem("token", response.data.token);
+      sessionStorage.setItem("userId", response.data.user.id);
+      sessionStorage.setItem("username", response.data.user.username);
+      sessionStorage.setItem("userFirstname", response.data.user.firstname);
+      sessionStorage.setItem("userLastname", response.data.user.lastname);
+      sessionStorage.setItem("userEmail", response.data.user.email);
+      sessionStorage.setItem("userPhone", response.data.user.phone_no);
+      sessionStorage.setItem("country", response.data.user.country);
+      sessionStorage.setItem("dob", response.data.user.dob);
+      sessionStorage.setItem("gender", response.data.user.gender);
+      if (sessionStorage.getItem("bookRoute")) {
+        navigate(sessionStorage.getItem("bookRoute"));
+        sessionStorage.removeItem("bookRoute");
+      } else navigate("/dashboard");
     } catch (error) {
-      console.log(error);
+      navigate("/login");
+      // console.log(error);
     }
   };
   return (
