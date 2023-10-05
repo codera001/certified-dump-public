@@ -83,7 +83,7 @@ function NavigationBar() {
                       margin: "0 0 0 4px",
                     }}
                   >
-                    {sessionStorage.getItem("balance")}
+                    ${sessionStorage.getItem("balance")}
                   </span>
                 </p>
               </>
@@ -173,7 +173,7 @@ function NavigationBar() {
               {authToken && (
                 <>
                   <NavLink to="/dashboard" className="button n-mobile-btn">
-                    {user}
+                    {user}: ${sessionStorage.getItem("balance")}
                   </NavLink>
                 </>
               )}
