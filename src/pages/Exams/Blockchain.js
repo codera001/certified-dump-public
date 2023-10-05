@@ -10,6 +10,7 @@ import Back from "../../component/Back";
 
 function Blockchain() {
   const [books, setBooks] = useState(null);
+  const [search, setSearch] = useState("");
   const { providerName, examName } = useParams();
   const checkProvider = (name) => name.providerid == providerName;
   const GetBooks = async () => {
@@ -33,7 +34,7 @@ function Blockchain() {
     <PublicLayout>
       <div className="navigate container mb-4">
         <Back path={`/provider/${providerName}`} />
-        <SearchBar text="Book Name or Code" />
+        <SearchBar setSearch={setSearch} text="Book Name or Code" />
       </div>
       <div className="p-exams py-2">
         <h3
@@ -48,17 +49,25 @@ function Blockchain() {
         {books ? (
           <>
             <div className="exam-card-section mt-4">
-              {books.filter(checkProvider).map((item, i) => (
-                <Provider
-                  key={i}
-                  image={item.image}
-                  title={item.title}
-                  providerName={`/provider/${providerName}/${examName}/${item.id}`}
-                  i={i}
-                  text="Preview Book"
-                  price={`$${item.price}`}
-                />
-              ))}
+              {books
+                .filter(checkProvider)
+                .filter((book) => {
+                  if (search == "") return book;
+                  else if (book.title.toLowerCase().includes(search)) {
+                    return book;
+                  } else return null;
+                })
+                .map((item, i) => (
+                  <Provider
+                    key={i}
+                    image={item.image}
+                    title={item.title}
+                    providerName={`/provider/${providerName}/${examName}/${item.id}`}
+                    i={i}
+                    text="Preview Book"
+                    price={`$${item.price}`}
+                  />
+                ))}
             </div>
             {books.filter(checkProvider).length === 0 ? (
               <div style={{ textAlign: "center" }}>No book found</div>
@@ -76,6 +85,13 @@ function Blockchain() {
             />
           </div>
         )}
+
+        {search !== "" &&
+          books.filter((book) => {
+            return book.title.toLowerCase().includes(search);
+          }).length === 0 && (
+            <div className="d-overview-no-books">No Book Found</div>
+          )}
       </div>
     </PublicLayout>
   );
