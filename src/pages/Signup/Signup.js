@@ -63,9 +63,6 @@ function Signup() {
     }
   };
 
-  // 808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com
-  // 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
-
   return (
     <>
       <section className="section">
