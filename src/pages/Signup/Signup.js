@@ -2,21 +2,25 @@ import React, { useState } from "react";
 import "./Signup.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import PageFooter from "../../component/PageFooter/PageFooter";
-import recaptcha from "../../static/recaptcha.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
+import {
+  AiFillGithub,
+  AiFillTwitterCircle,
+  AiOutlineEye,
+  AiOutlineEyeInvisible,
+} from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import Google from "../../ApiTesting/GoogleLogin";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import ReCAPTCHA from "react-google-recaptcha";
+import PublicLayout from "../../component/PublicLayout";
 
 function Signup() {
   const [isVerified, setIsVerified] = useState(false);
+  const [viewPassword, setViewPassword] = useState(false);
   const [show, setShow] = useState(false);
   function onChange() {
     setIsVerified(!isVerified);
@@ -40,9 +44,9 @@ function Signup() {
     });
   };
 
-  const handleSubmit = async (e) => {
-    console.log(formData)
-    e.preventDefault();
+  const handleSubmit = async () => {
+    console.log(formData);
+    // e.preventDefault();
     try {
       const response = await axios.post(
         "https://api.certifieddump.com/api/signup",
@@ -55,7 +59,7 @@ function Signup() {
     } catch (error) {
       // console.log("signup error:", error.response.data.msg);
       toast.error(error.response.data.msg);
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -65,164 +69,173 @@ function Signup() {
   return (
     <>
       <section className="section">
-        <NavigationBar />
-        <div className="signup container">
-          <div className="signup-form-wrap">
-            <Form
-              className="signup-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                isVerified ? handleSubmit() : setShow(!show);
-              }}
-            >
-              <Form.Group className="mb-3 ">
-                <Form.Label className="my-4  form-title"> Sign up</Form.Label>
-              </Form.Group>
-              <Form.Group className="mb-3 form-group-s">
-                <Form.Control
-                  className="form-control-s"
-                  type="text"
-                  placeholder="Enter your firstname"
-                  name="firstname"
-                  value={formData.firstname}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-              <Form.Group className="mb-3 form-group-s">
-                <Form.Control
-                  className="form-control-s"
-                  type="text"
-                  placeholder="Enter your lastname"
-                  name="lastname"
-                  value={formData.lastname}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-              <Form.Group className="mb-3 form-group-s">
-                <Form.Control
-                  className="form-control-s"
-                  type="text"
-                  placeholder="Enter your username"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-              <Form.Group className="mb-3 form-group-s">
-                <Form.Control
-                  className="form-control-s"
-                  type="email"
-                  name="email"
-                   value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-              <Form.Group
-                className="mb-3 form-group-s"
-                controlId="formBasicPassword"
+        <PublicLayout>
+          <div className="signup container">
+            <div className="signup-form-wrap">
+              <Form
+                className="signup-form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  isVerified ? handleSubmit() : setShow(!show);
+                }}
               >
-                <Form.Control
-                  className="form-control-s"
-                  type="password"
-                  placeholder="Create password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
+                <Form.Group className="mb-3 ">
+                  <Form.Label className="my-4  form-title"> Sign up</Form.Label>
+                </Form.Group>
+                <Form.Group className="mb-3 form-group-s">
+                  <Form.Control
+                    className="form-control-s"
+                    type="text"
+                    placeholder="Enter your firstname"
+                    name="firstname"
+                    value={formData.firstname}
+                    onChange={handleChange}
+                    required
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3 form-group-s">
+                  <Form.Control
+                    className="form-control-s"
+                    type="text"
+                    placeholder="Enter your lastname"
+                    name="lastname"
+                    value={formData.lastname}
+                    onChange={handleChange}
+                    required
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3 form-group-s">
+                  <Form.Control
+                    className="form-control-s"
+                    type="text"
+                    placeholder="Enter your username"
+                    name="username"
+                    value={formData.username}
+                    onChange={handleChange}
+                    required
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3 form-group-s">
+                  <Form.Control
+                    className="form-control-s"
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Enter your email"
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3 form-group-s"
+                  controlId="formBasicPassword"
+                  style={{ position: "relative" }}
+                >
+                  <Form.Control
+                    className="form-control-s"
+                    type={viewPassword ? "text" : "password"}
+                    placeholder="Create password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    required
+                  />
+                  <span
+                    className="password-toggle-icon"
+                    onClick={() => setViewPassword(!viewPassword)}
+                  >
+                    {viewPassword ? (
+                      <AiOutlineEyeInvisible />
+                    ) : (
+                      <AiOutlineEye />
+                    )}
+                  </span>
+                </Form.Group>
 
-              <Form.Group className="mb-3 form-group-s">
-                <Form.Control
-                  className="form-control-s"
-                  type="password"
-                  placeholder="Confirm password"
-                  name="password_repeat"
-                  value={formData.password_repeat}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-              <ReCAPTCHA
-                sitekey="6LeublgoAAAAAJcgjbrXDIOqr3839Npd0g-sE8Pd"
-                onChange={onChange}
-              />
-              {show && (
-                <small
+                <Form.Group className="mb-3 form-group-s">
+                  <Form.Control
+                    className="form-control-s"
+                    type="password"
+                    placeholder="Confirm password"
+                    name="password_repeat"
+                    value={formData.password_repeat}
+                    onChange={handleChange}
+                    required
+                  />
+                </Form.Group>
+                <div className="login-capcha">
+                  <ReCAPTCHA
+                    sitekey="6LeublgoAAAAAJcgjbrXDIOqr3839Npd0g-sE8Pd"
+                    onChange={onChange}
+                  />
+                </div>
+                {show && (
+                  <small
+                    style={{
+                      color: "red",
+                      fontSize: "14px",
+                    }}
+                  >
+                    Please solve recapcha puzzle
+                  </small>
+                )}
+
+                <Button type="submit" className="form-button-s">
+                  SIGN UP
+                </Button>
+
+                <p
+                  className=""
                   style={{
-                    color: "red",
-                    fontSize: "14px",
+                    fontWeight: "bolder",
+                    color: "black",
+                    fontSize: "12px",
                   }}
                 >
-                  Please solve recapcha puzzle
-                </small>
-              )}
-
-              <Button type="submit" className="form-button-s">
-                SIGN UP
-              </Button>
-
-              <p
-                className=""
-                style={{
-                  fontWeight: "bolder",
-                  color: "black",
-                  fontSize: "12px",
-                }}
-              >
-                Already have an account yet?
-                <Link
-                  to="/login"
-                  style={{ color: "var(--green-600", fontWeight: "light" }}
-                  className="signin"
+                  Already have an account yet?
+                  <Link
+                    to="/login"
+                    style={{ color: "var(--green-600", fontWeight: "light" }}
+                    className="signin"
+                  >
+                    Sign in
+                  </Link>
+                </p>
+                <p
+                  style={{
+                    fontWeight: "bolder",
+                    color: "black",
+                    fontSize: "12px",
+                  }}
                 >
-                  Sign in
-                </Link>
-              </p>
-              <p
-                style={{
-                  fontWeight: "bolder",
-                  color: "black",
-                  fontSize: "12px",
-                }}
-              >
-                Or log in with your social network
-              </p>
-              {/* <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com">
+                  Or log in with your social network
+                </p>
+                {/* <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com">
                 <Google />
               </GoogleOAuthProvider> */}
-              <div className="social-images d-flex">
-                <div className="social-images-wrap">
-                  <BsFacebook
-                    className="me-1"
-                    style={{ fontSize: "21px", color: "blue" }}
-                  ></BsFacebook>
-                  <AiFillTwitterCircle
-                    className="me-1"
-                    style={{ fontSize: "23px", color: "skyblue" }}
-                  ></AiFillTwitterCircle>
-                  <FcGoogle
-                    className="me-1"
-                    style={{ fontSize: "22px" }}
-                  ></FcGoogle>
-                  <AiFillGithub
-                    className="me-1"
-                    style={{ fontSize: "22px" }}
-                  ></AiFillGithub>
+                <div className="social-images d-flex">
+                  <div className="social-images-wrap">
+                    <BsFacebook
+                      className="me-1"
+                      style={{ fontSize: "21px", color: "blue" }}
+                    ></BsFacebook>
+                    <AiFillTwitterCircle
+                      className="me-1"
+                      style={{ fontSize: "23px", color: "skyblue" }}
+                    ></AiFillTwitterCircle>
+                    <FcGoogle
+                      className="me-1"
+                      style={{ fontSize: "22px" }}
+                    ></FcGoogle>
+                    <AiFillGithub
+                      className="me-1"
+                      style={{ fontSize: "22px" }}
+                    ></AiFillGithub>
+                  </div>
                 </div>
-              </div>
-            </Form>
+              </Form>
+            </div>
           </div>
-        </div>
-        <PageFooter />
+        </PublicLayout>
       </section>
     </>
   );

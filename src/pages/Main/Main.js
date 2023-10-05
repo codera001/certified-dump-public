@@ -6,9 +6,11 @@ import Footer from "../../component/Footer/Footer";
 import Provider from "../../component/Provider";
 import axios from "axios";
 import loader from "../../static/loader.gif";
-import { Link } from "react-router-dom";
+import cisco from "../../static/cisco.png";
+import { Link, useNavigate } from "react-router-dom";
 
 function Main() {
+  const navigate = useNavigate();
   const [providers, setProviders] = useState(null);
   const GetProviders = async () => {
     try {
@@ -17,15 +19,22 @@ function Main() {
       );
       // console.log(response);
       // console.log(response.data.providers.slice(0, 10));
-      setProviders(response.data.providers.slice(0, 10));
+      setProviders(response.data.providers);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
   useEffect(() => {
     GetProviders();
   }, []);
+
+  const providerChange = (e) => {
+    const selectedProvider = e.target.value;
+    if (selectedProvider) {
+      navigate(`/provider/${selectedProvider}`);
+    }
+  };
 
   return (
     <>
@@ -36,6 +45,7 @@ function Main() {
             style={{
               fontWeight: "bolder",
               marginBottom: "2rem",
+              padding: "0 0.5rem",
             }}
           >
             WELCOME TO CERTIFIED DUMP
@@ -72,26 +82,27 @@ function Main() {
 
       {/* section-two */}
       <section className="section-two-main">
-        <div>
-          <h5
+        <div className="section-two-main-text">
+          <h4
             className="mt-5 mb-4"
             style={{ fontWeight: "bolder", color: "black" }}
           >
             Our Top Providers
-          </h5>
-          <p className="mb-5" style={{ fontSize: "22px" }}>
+          </h4>
+          <p className="mb-5">
             Certified dump has one of the largest collection of professional
-            certification and exam practice tests and online courses. Use <br />
-            our study materials to pass your examinations on the first try! Our
-            goal is to see you succeed.
+            certification and exam practice tests and online courses. Use our
+            study materials to pass your examinations on the first try! Our goal
+            is to see you succeed.
           </p>
         </div>
         <div className="p-providers py-2">
           {providers ? (
             <div className="card-section">
-              {providers.map((item, i) => (
+              {providers.slice(0, 10).map((item, i) => (
                 <Provider
                   key={i}
+                  image={cisco}
                   providerName={`/provider/${item.name}`}
                   i={i}
                   title={item.name}
@@ -101,7 +112,7 @@ function Main() {
               ))}
             </div>
           ) : (
-            <img src={loader} alt="loading gif" />
+            <img loading="lazy" src={loader} alt="loading gif" />
           )}
           <div className="button">
             <Link
@@ -115,7 +126,7 @@ function Main() {
                 borderRadius: "1px",
               }}
             >
-              VIEW ALL
+              VIEW PROVIDERS
             </Link>
           </div>
         </div>
@@ -123,12 +134,12 @@ function Main() {
 
       {/* section-three */}
       <section className="section-three-main">
-        <div className="d-md-flex justify-content-between">
-          <div className="image ">
-            <img alt="" width="100%" src={study} />
+        <div className="p-study">
+          <div className="image">
+            <img loading="lazy" alt="study" width="100%" src={study} />
           </div>
 
-          <div className="text ">
+          <div className="text">
             <h4 className="text-start">
               FREE AND REVISED ACTUAL EXAM SUPPLEMENTALS
             </h4>
@@ -148,12 +159,20 @@ function Main() {
           </h2>
           <div className="exam-search-buttons">
             <select
-              className="px-4 py-1 mx-3"
+              className="px-4 py-1 p-custom-select"
+              onChange={providerChange}
             >
               <option value="">Select Provider</option>
+              {providers &&
+                providers.map((provider, i) => (
+                  <option key={i} value={provider.name}>
+                    {provider.name}
+                  </option>
+                ))}
             </select>
+            <p className="mb-0">OR</p>
             <input
-              className="mx-3 py-2 keyword"
+              className="py-2 keyword"
               type="text"
               placeholder="Exam Name or Code"
             />
@@ -161,7 +180,6 @@ function Main() {
           </div>
         </div>
       </section>
-
       <Footer />
     </>
   );

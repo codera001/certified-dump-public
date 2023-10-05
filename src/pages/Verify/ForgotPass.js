@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import "./Verify.css";
-import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import PageFooter from "../../component/PageFooter/PageFooter";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import PublicLayout from "../../component/PublicLayout";
 
 function ForgotPass() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
-  
     email: "",
   });
 
@@ -34,13 +32,12 @@ function ForgotPass() {
       toast.success(response.data.msg);
     } catch (error) {
       console.log("verification error:", error);
-      toast.error("Username or email is incorrect")
+      toast.error("Username or email is incorrect");
     }
   };
 
   return (
-    <>
-      <NavigationBar />
+    <PublicLayout>
       <div className="confirmpass">
         <h3 className="pt-5">
           Forgot your Password? No qualms! Fill the form below to retrieve your
@@ -50,14 +47,6 @@ function ForgotPass() {
           <div className="confirmpass-text">
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                {/* <input
-                  type="text"
-                  placeholder="Enter your username"
-                  name="username"
-                  value={userData.username}
-                  onChange={handleChange}
-                  required
-                /> */}
                 <input
                   type="email"
                   placeholder="Enter your email address"
@@ -74,9 +63,7 @@ function ForgotPass() {
           </div>
         </div>
       </div>
-
-      <PageFooter />
-    </>
+    </PublicLayout>
   );
 }
 

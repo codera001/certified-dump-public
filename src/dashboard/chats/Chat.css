@@ -24,7 +24,8 @@
 .d-messages {
   flex: 1 1 0%;
   overflow: auto;
-  background-color: var(--green-400);
+  background-color: var(--white);
+  border: 1px solid var(--green-500);
   padding: 8px 12px;
 }
 

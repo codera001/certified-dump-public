@@ -1,184 +1,65 @@
-import React from "react";
-import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import PageFooter from "../../component/PageFooter/PageFooter";
-import { BsFacebook, BsInstagram } from "react-icons/bs";
-import { AiFillTwitterCircle } from "react-icons/ai";
-import { FaUserCircle } from "react-icons/fa";
-import image from "../../static/image.png";
+import React, { useEffect, useState } from "react";
 import "./Blog.css";
 import PublicLayout from "../../component/PublicLayout";
-import { Link } from "react-router-dom";
+import BlogComponent from "../../component/Blog";
+import LatestBlogs from "../../component/Latests";
+import axios from "axios";
+import loader from "../../static/loader.gif";
+
 function Blog() {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const GetBlogs = async () => {
+    try {
+      const res = await axios.post(
+        "https://api.certifieddump.com/api-blog/getAllBlogPosts"
+      );
+      // console.log(res.data.post);
+      setBlogs(res.data.post);
+    } catch (error) {
+      // console.log(error);
+    }
+  };
+  useEffect(() => {
+    GetBlogs();
+    setLoading(!loading);
+  }, []);
+
   return (
     <PublicLayout>
-      <section className="blog-area mt-5 mb-5">
-        <div className="left-blog-area">
-          <div className="blog-image-text mb-3">
-            <div className="blog-image">
-              <img src={image}></img>
-            </div>
-            <div className="blog-text">
-              <p className="blog-text-head">Category</p>
-              <h6 style={{ fontWeight: "bolder" }}>
-                Lorem ipsum dolor sit amet, consecteteur adipiscing elit
-              </h6>
-              <p style={{ fontSize: "14px" }}>
-                Aenan massa, Cum solicis natoquo <br /> mus....
-                <Link to="/blog" style={{ color: "var(--tertiary-color)" }}>
-                  Read More
-                </Link>
-              </p>
-              <div className="blog-social-icons">
-                <div className="blog-social-icon me-2">
-                  <BsInstagram />
-                </div>
-                <div className="blog-social-icon me-2">
-                  <BsFacebook />
-                </div>
-                <div className="blog-social-icon">
-                  <AiFillTwitterCircle />
-                </div>
+      <section className="mt-5 mb-5">
+        <div className="blog-area">
+          <div className="left-blog-area">
+            {loading ? (
+              <div className="d-gif-div">
+                <img
+                  loading="lazy"
+                  src={loader}
+                  alt="loading-gif"
+                  className="d-gif"
+                />
               </div>
-              <div className="span-user">
-                <div className="">
-                  <FaUserCircle className="span-user-image" />
-                </div>
-
-                <div className="span-user-text">
-                  <span className="" style={{ fontSize: "14px" }}>
-                    Author
-                  </span>
-                  <span className="d-block">Mon Sept 11 2023</span>
-                </div>
-              </div>
-            </div>
+            ) : blogs.length <= 0 ? (
+              <div className="error">There are no blog posts yet</div>
+            ) : (
+              blogs.map((blog, i) => (
+                <BlogComponent
+                  blog={blog}
+                  i={i}
+                  key={i}
+                  description="Take a look at this blog post"
+                />
+              ))
+            )}
           </div>
 
-          <hr />
-          <div className="blog-image-text mb-2">
-            <div className="blog-image">
-              <img src={image}></img>
+          <aside className="side-post">
+            <div className="side-post-wrap">
+              <h6 className="side-post-head mb-4"> LATEST POSTS</h6>
+              <LatestBlogs />
             </div>
-            <div className="blog-text">
-              <p className="blog-text-head">Category</p>
-              <h6 style={{ fontWeight: "bolder" }}>
-                Lorem ipsum dolor sit amet, consecteteur adipiscing elit
-              </h6>
-              <p style={{ fontSize: "14px" }}>
-                Aenan massa, Cum solicis natoquo <br /> mus....
-                <Link to="/blog" style={{ color: "var(--tertiary-color)" }}>
-                  Read More
-                </Link>
-              </p>
-              <div className="blog-social-icons">
-                <div className="blog-social-icon me-2">
-                  <BsInstagram />
-                </div>
-                <div className="blog-social-icon me-2">
-                  <BsFacebook />
-                </div>
-                <div className="blog-social-icon">
-                  <AiFillTwitterCircle />
-                </div>
-              </div>
-              <div className="span-user">
-                <div className="">
-                  <FaUserCircle className="span-user-image" />
-                </div>
-
-                <div className="span-user-text">
-                  <span className="" style={{ fontSize: "14px" }}>
-                    Author
-                  </span>
-                  <span className="d-block">Mon Sept 11 2023</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <hr />
-          <div className="blog-image-text">
-            <div className="blog-image">
-              <img src={image}></img>
-            </div>
-            <div className="blog-text">
-              <p className="blog-text-head">Category</p>
-              <h6 style={{ fontWeight: "bolder" }}>
-                Lorem ipsum dolor sit amet, consecteteur adipiscing elit
-              </h6>
-              <p style={{ fontSize: "14px" }}>
-                Aenan massa, Cum solicis natoquo <br /> mus....
-                <Link to="/blog" style={{ color: "var(--tertiary-color)" }}>
-                  Read More
-                </Link>
-              </p>
-              <div className="blog-social-icons">
-                <div className="blog-social-icon me-2">
-                  <BsInstagram />
-                </div>
-                <div className="blog-social-icon me-2">
-                  <BsFacebook />
-                </div>
-                <div className="blog-social-icon">
-                  <AiFillTwitterCircle />
-                </div>
-              </div>
-              <div className="span-user">
-                <div className="">
-                  <FaUserCircle className="span-user-image" />
-                </div>
-
-                <div className="span-user-text">
-                  <span className="" style={{ fontSize: "14px" }}>
-                    Author
-                  </span>
-                  <span className="d-block">Mon Sept 11 2023</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="side-post">
-          <div className="side-post-wrap">
-            <h6 className="side-post-head"> LATEST POSTS</h6>
-            <hr />
-            <div>
-              <p className="side-post-date  mb-0"> Mon Sept 11 2023</p>
-              <span className="side-post-span d-block ">
-                Lorem ipsum dolor sit amet
-              </span>
-            </div>
-            <hr />
-            <div>
-              <p className="side-post-date  mb-0"> Mon Sept 11 2023</p>
-              <span className="side-post-span d-block ">
-                Lorem ipsum dolor sit amet
-              </span>
-            </div>
-            <hr />
-            <div>
-              <p className="side-post-date  mb-0"> Mon Sept 11 2023</p>
-              <span className="side-post-span d-block ">
-                Lorem ipsum dolor sit amet
-              </span>
-            </div>
-            <hr />
-            <div>
-              <p className="side-post-date  mb-0"> Mon Sept 11 2023</p>
-              <span className="side-post-span d-block ">
-                Lorem ipsum dolor sit amet
-              </span>
-            </div>
-            <hr />
-            <div>
-              <p className="side-post-date  mb-0"> Mon Sept 11 2023</p>
-              <span className="side-post-span d-block ">
-                Lorem ipsum dolor sit amet
-              </span>
-            </div>
-            <hr />
-          </div>
+          </aside>
         </div>
       </section>
     </PublicLayout>

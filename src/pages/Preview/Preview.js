@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Preview.css";
 import { AiOutlineLogin, AiOutlineSearch } from "react-icons/ai";
 import { TbEditCircle } from "react-icons/tb";
-import { TiArrowLeftThick } from "react-icons/ti";
 import { BsDot } from "react-icons/bs";
 import { HiShoppingCart } from "react-icons/hi";
 import axios from "axios";
@@ -18,13 +17,21 @@ function Preview() {
   const navigate = useNavigate();
   const { providerName, examName, bookId } = useParams();
   const [book, setBook] = useState(null);
-  //  const { providerName, examName } = useParams();
+  const [show, setHide] = useState(false);
+
+  let modalRef = useRef();
+  const closeModal = (e) => {
+    if (!modalRef.current.contains(e.target)) {
+      setHide(false);
+    }
+  };
+
   const GetBook = async () => {
     try {
       const response = await axios.get(
         `https://api.certifieddump.com/api-admin/getBook/${bookId}`
       );
-      // console.log(response);
+      // console.log(response.data.book);
       setBook(response.data.book);
     } catch (error) {
       console.log(error);
@@ -65,7 +72,7 @@ function Preview() {
       <div className="d-flex justify-content-between">
         <div className="navigate container mb-4">
           <Back path={`/provider/${providerName}/${examName}`} />
-          <SearchBar text="Exam Code or Name" />
+          <SearchBar text="Keyword" />
         </div>
       </div>
       {book ? (
@@ -89,12 +96,17 @@ function Preview() {
             </div>
           </div>
 
-          <div className="container preview-text mt-5">
-            <h5>Abstract</h5>
-            <p>{book.description}</p>
+          <div className="container preview-text mt-5 mb-3">
+            <div className="p-book-img">
+              <img src={book.image} alt={book.title} />
+            </div>
+            <div className="p-book-deet">
+              <h5>Abstract</h5>
+              <p>{book.description}</p>
+            </div>
           </div>
-          <div className="container preview-keyword">
-            <div className="d-flex">
+          <div className="preview-keyword">
+            <div className="d-flex align-items-center mb-2">
               <AiOutlineSearch
                 className="me-2"
                 style={{ fontWeight: "bolder", fontSize: "18px" }}
@@ -102,14 +114,14 @@ function Preview() {
               <p style={{ fontWeight: "bolder" }}>Keywords: </p>
             </div>
             <div className="keyword ms-2">
-              <Link to="/">Keyword</Link>
-              <Link to="/">Keyword</Link>
-              <Link to="/">Keyword</Link>
-              <Link to="/">Keyword</Link>
+              <p>Keyword</p>
+              <p>Keyword</p>
+              <p>Keyword</p>
+              <p>Keyword</p>
             </div>
           </div>
 
-          <div className="preview-auth-buy container">
+          <div className="preview-auth-buy">
             {!authToken && (
               <div className="preview-auth">
                 <Link to="/login" className="d-flex py-3">
@@ -123,7 +135,7 @@ function Preview() {
                   <TbEditCircle
                     style={{ fontSize: "25px", marginRight: "1rem" }}
                   ></TbEditCircle>
-                  <h6 className="mt-2"> Create an account</h6>
+                  <h6 className="mt-2">Sign Up</h6>
                 </Link>
               </div>
             )}
@@ -153,10 +165,9 @@ function Preview() {
                   <button
                     onClick={() => {
                       if (authToken) {
-                        BuyBook(book.id, 20, book.title);
-                        // BuyBook(book.id, Number(book.price), book.title);
+                        setHide(!show);
                       } else {
-                        localStorage.setItem(
+                        sessionStorage.setItem(
                           "bookRoute",
                           `/provider/${providerName}/${examName}/${bookId}`
                         );
@@ -188,11 +199,47 @@ function Preview() {
                 </div>
               </div>
             </div>
+            {show && (
+              <div onClick={closeModal} className="change-pass-page">
+                <div ref={modalRef} className="change-password book-modal">
+                  <h3 style={{ textAlign: "center" }}>
+                    Do you want to buy this book?
+                  </h3>
+                  <div className="container preview-text mt-5 mb-3">
+                    <div className="p-book-img">
+                      <img src={book.image} alt={book.title} />
+                    </div>
+                    <div className="p-book-deet">
+                      <h5>Abstract</h5>
+                      <p>{book.description}</p>
+                    </div>
+                  </div>
+                  <div className="submit-cancel-Btn">
+                    <button
+                      onClick={() => {
+                        BuyBook(book.id, Number(book.price), book.title);
+                        setTimeout(() => {
+                          setHide(false);
+                        }, 3000);
+                      }}
+                    >
+                      YES
+                    </button>
+                    <button onClick={() => setHide(false)}>NO</button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </>
       ) : (
         <div className="d-gif-div">
-          <img src={loader} alt="loading-gif" className="d-gif" />
+          <img
+            loading="lazy"
+            src={loader}
+            alt="loading-gif"
+            className="d-gif"
+          />
         </div>
       )}
     </PublicLayout>

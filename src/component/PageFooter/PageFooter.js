@@ -84,7 +84,17 @@ function PageFooter() {
             </div>
           </div>
         </div>
-        <small className="text-center text-white">{`Copyright © Certified dump ${year}`}</small>
+        <small className="text-center text-white">
+          {`Copyright © ${year} Managed by `}
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://jamfortetech.com/"
+            style={{ color: "var(--tertiary-color)" }}
+          >
+            JAM-Forte Technologies Ltd
+          </a>
+        </small>
       </div>
     </div>
   );

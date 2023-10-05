@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import "./Verify.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import PageFooter from "../../component/PageFooter/PageFooter";
 import { AiFillMessage } from "react-icons/ai";
 import toast from "react-hot-toast";
+import PublicLayout from "../../component/PublicLayout";
 
 function VerifyEmail() {
   const navigate = useNavigate();
@@ -24,23 +23,27 @@ function VerifyEmail() {
       // console.log("Email verification Successful:", response.data.msg);
       toast.success(response.data.msg);
       navigate("/success");
+      localStorage.removeItem("unverifiedMail");
     } catch (error) {
-      // console.log("verification error:", error.response.data.msg);
+     toast.error("verification error:", error.response.data.msg);
     }
   };
+
 
   const getVerificationCode = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
         "https://api.certifieddump.com/api/resend-verification-email",
-        localStorage.getItem("unverifiedMail")
+        {
+          email: localStorage.getItem("unverifiedMail"),
+        }
       );
-      // console.log("Verification Code sent:", response.data);
+      console.log("Verification Code sent:", response.data);
       toast.success("Verification code has been sent to your mail");
     } catch (error) {
-      // console.log("verification error:", error);
-      toast.success("Your account is already verified, please login")
+      console.log("verification error:", error);
+      // toast.success("Your account is already verified, please login");
     }
   };
 
@@ -48,8 +51,7 @@ function VerifyEmail() {
     setHidden(!hidden);
   }, 25000);
   return (
-    <>
-      <NavigationBar />
+    <PublicLayout>
       <div className="verifyemail">
         <div className="verifyemail-wrap">
           <div className="pass-text">
@@ -70,7 +72,7 @@ function VerifyEmail() {
               <button type="submit">Verify Your Email Address</button>
             </form>
             {hidden ? (
-              <button type="submit" onClick={ getVerificationCode}>
+              <button type="submit" onClick={getVerificationCode}>
                 Resend verification code
               </button>
             ) : (
@@ -94,9 +96,7 @@ function VerifyEmail() {
           </div>
         </div>
       </div>
-
-      <PageFooter />
-    </>
+    </PublicLayout>
   );
 }
 

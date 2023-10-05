@@ -12,19 +12,25 @@
 .d-card-img {
   position: relative;
   width: 90%;
-  aspect-ratio: 0.69;
+  aspect-ratio: 1;
   overflow: hidden;
   border-radius: 5px;
   margin: 0 auto;
   border: 1px solid var(--primary-color);
 }
 
-.d-card-img a {
+.d-admin-card{
+  aspect-ratio: 1.5;
+}
+
+.d-card-img button {
   position: absolute;
   right: 10px;
   top: 5px;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-size: 1.5rem;
+  border: none;
+  background-color: var(--white);
   display: none;
 }
 
@@ -32,7 +38,7 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.d-card:hover .d-card-img a {
+.d-card:hover .d-card-img button {
   display: block;
 }
 
@@ -45,4 +51,17 @@
 .d-card-details .cost {
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+.d-card .book-modal{
+  color: var(--black);
+}
+
+.d-card .p-book-deet{
+  margin-top: .4rem;
+  text-align: left;
+}
+.d-card .submit-cancel-Btn{
+  margin-top: .8rem;
+  justify-content: center;
 }

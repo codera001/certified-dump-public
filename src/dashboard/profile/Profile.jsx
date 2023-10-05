@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Layout from "../components/Layout/Layout";
 import ChangePassword from "./change_password/ChangePassword";
 import "./Profile.css";
@@ -9,23 +9,33 @@ import Countries from "./Countries";
 import Phone from "./Phone";
 import axios from "axios";
 import toast from "react-hot-toast";
+import Delete from "./change_password/Delete";
 
 const Profile = () => {
   const uname = sessionStorage.getItem("username");
   const fname = sessionStorage.getItem("userFirstname");
   const lname = sessionStorage.getItem("userLastname");
   const email = sessionStorage.getItem("userEmail");
+  const origin = sessionStorage.getItem("country");
+  const userDob = sessionStorage.getItem("dob");
+  const userGender = sessionStorage.getItem("gender");
+  const userPhone = sessionStorage.getItem("userPhone");
   let balance = sessionStorage.getItem("balance");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [gender, setGender] = useState("");
   const [birthday, setBirthday] = useState("");
   const [changePass, setChangePass] = useState(false);
+  const [del, setDel] = useState(false);
+  const [profileImage, setProfileImage] = useState(null);
+  const fileInputRef = useRef(null);
 
   const ShowChangePass = () => {
     setChangePass(true);
   };
+
   const HideChangePass = () => {
     setChangePass(false);
+    setDel(false);
   };
 
   const updateData = async () => {
@@ -33,11 +43,14 @@ const Profile = () => {
       const response = await axios.post(
         "https://api.certifieddump.com/api/edituser",
         {
+          firstname: sessionStorage.getItem("userFirstname"),
+          lastname: sessionStorage.getItem("userLastname"),
           phone_no: `${localStorage.getItem("userCode")}${phoneNumber}`,
           dob: birthday,
           country: localStorage.getItem("userCountry"),
           userid: sessionStorage.getItem("userId"),
           gender: gender,
+          image: profileImage,
         },
         {
           headers: {
@@ -46,11 +59,29 @@ const Profile = () => {
         }
       );
       // console.log(response);
-      toast.success("Profile update is successful!")
+      toast.success("Profile update is successful!");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
+
+  const handleImageChange = (e) => {
+    const image = e.target.files[0];
+    if (image && image.type.startsWith("image/")) {
+      setProfileImage(image);
+    } else {
+      toast.error("Please select a valid image file.");
+    }
+  };
+
+  const handleEditClick = () => {
+    fileInputRef.current.click();
+  };
+
+    const handleEditCancel = () => {
+      setProfileImage(null);
+    };
+
   return (
     <Layout>
       <div className="d-profile-wrapper">
@@ -62,24 +93,37 @@ const Profile = () => {
           </p>
         </div>
         <div className="d-profile-pic">
-          <BiUserCircle className="d-profile-image" />
+          {profileImage ? (
+            <div className="d-profile-image">
+              <img src={URL.createObjectURL(profileImage)} alt="Profile" />
+              <button onClick={handleEditCancel}>Cancel</button>
+            </div>
+          ) : (
+            <div className="d-profile-image" onClick={handleEditClick}>
+              <BiUserCircle />
+            </div>
+          )}
+          <input
+            type="file"
+            accept="image/*"
+            ref={fileInputRef}
+            style={{ display: "none" }}
+            onChange={handleImageChange}
+          />
         </div>
         <div className="d-account-details">
           <h2>
             {fname} {lname}
           </h2>
           <p>Balance: ${Number(balance).toFixed(2)}</p>
-          {/* <p>Balance</p> */}
         </div>
         <form action="">
           <div className="d-profile-info">
             <div className="d-input-box">
               <input type="text" required value={fname} readOnly />
-              {/* <span>First Name</span> */}
             </div>
             <div className="d-input-box">
               <input type="text" value={lname} required readOnly />
-              {/* <span>Last Name</span> */}
             </div>
           </div>
           <div className="d-profile-info">
@@ -90,12 +134,13 @@ const Profile = () => {
               <input type="text" value={uname} required readOnly />
             </div>
           </div>
-          <Countries />
-          <div className="d-profile-info">
-            <div className="d-input-box">
+          <div className="d-profile-info d-profile-info-xtra">
+            <Countries origin={origin} />
+            <div className="d-input-box d-phone-box">
               <Phone />
               <input
                 type="number"
+                value={phoneNumber || userPhone || ""}
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 required
               />
@@ -103,7 +148,7 @@ const Profile = () => {
             <div className="d-input-box">
               <input
                 type="date"
-                value={birthday}
+                value={birthday ? birthday : userDob}
                 onChange={(e) => setBirthday(e.target.value)}
               />
             </div>
@@ -114,6 +159,7 @@ const Profile = () => {
                 e.preventDefault();
                 setGender("Male");
               }}
+              className={userGender == "Male" ? "male-gender" : ""}
             >
               <BsGenderMale />
               <p>Male</p>
@@ -123,6 +169,7 @@ const Profile = () => {
                 e.preventDefault();
                 setGender("Female");
               }}
+              className={userGender == "Female" ? "female-gender" : ""}
             >
               <BsGenderFemale />
               <p>Female</p>
@@ -153,11 +200,20 @@ const Profile = () => {
               <button className="d-cancel-button">Cancel</button>
             </div>
             <div className="d-delete-button">
-              <button>Delete Account</button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setDel(!del);
+                }}
+                style={{ color: "red", fontWeight: "bold" }}
+              >
+                Delete Account
+              </button>
             </div>
           </div>
         </form>
         {changePass && <ChangePassword HideChangePass={HideChangePass} />}
+        {del && <Delete HideChangePass={HideChangePass} />}
       </div>
     </Layout>
   );

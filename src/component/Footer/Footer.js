@@ -16,9 +16,11 @@ function Footer() {
     <div className="footeer">
       <div className="pu-footer d-md-flex justify-content-between container bg-none">
         <div className="text">
-          <img src={logo} alt="logo" className="logo" />
-          <div>
-            <p className="text-start mt-5">
+          <div className="logo">
+            <img loading="lazy" src={logo} alt="logo" />
+          </div>
+          <div className="f-desc">
+            <p className="text-start mt-3">
               We are the largest and most curent website offering IT
               certifications test materials.
             </p>
@@ -59,7 +61,17 @@ function Footer() {
           </div>
         </div>
       </div>
-      <small className="text-center text-white">{`Copyright © Certified dump ${year}`}</small>
+      <small className="text-center text-white">
+        {`Copyright © ${year} Managed by `}
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://jamfortetech.com/"
+          style={{ color: "var(--tertiary-color)" }}
+        >
+          JAM-Forte Technologies Ltd
+        </a>
+      </small>
     </div>
   );
 }

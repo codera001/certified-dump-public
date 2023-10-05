@@ -1,18 +1,18 @@
 import React from "react";
 
-const Countries = () => {
+const Countries = ({ origin }) => {
   const handleCountryChange = (e) => {
-    localStorage.setItem("userCountry", (e.target.value));
+    localStorage.setItem("userCountry", e.target.value);
   };
 
   return (
     <select
-      className="form-select"
+      className="form-select d-countries p-custom-select"
       id="country"
       name="country"
       onChange={handleCountryChange}
     >
-      <option value="">country</option>
+      <option value="">{origin ? origin : "Country"}</option>
       <option value="Afghanistan">Afghanistan</option>
       <option value="Aland Islands">Aland Islands</option>
       <option value="Albania">Albania</option>

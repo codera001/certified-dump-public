@@ -40,14 +40,13 @@ const VerifyPayment = () => {
           <div className="pass-text">
             {verified ? (
               <>
-                <img src={loader} width={20} alt="loading-gif" />
+                <img loading="lazy" src={loader} width={20} alt="loading-gif" />
                 <p className="mb-5">Please wait...</p>
               </>
             ) : (
               <p
                 className="mb-5"
                 style={{
-                  color: "var(--green-200)",
                   fontSize: "24px",
                   fontWeight: "bold",
                 }}

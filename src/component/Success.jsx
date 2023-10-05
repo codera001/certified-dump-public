@@ -1,19 +1,17 @@
 import React from "react";
-import "./Verify.css";
-import NavigationBar from "../../component/Navigation bar/NavigationBar";
-import PageFooter from "../../component/PageFooter/PageFooter";
+import "../pages/Verify/Verify.css";
 import { AiFillMessage } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import PublicLayout from "./PublicLayout";
 
-function Success() {
+function Success({ text }) {
   return (
-    <>
-      <NavigationBar />
+    <PublicLayout>
       <div className="success-mail">
         <div className="success-wrap">
           <div className="pass-text">
             <h1 className="mb-3">Welcome!</h1>
-            <p className="mb-5"> Your Email has been verified successfully</p>
+            <p className="mb-5">{text}</p>
             <Link to="/login" className="px-4 py-2">
               SIGN IN NOW
             </Link>
@@ -35,9 +33,7 @@ function Success() {
           </div>
         </div>
       </div>
-
-      <PageFooter />
-    </>
+    </PublicLayout>
   );
 }
 

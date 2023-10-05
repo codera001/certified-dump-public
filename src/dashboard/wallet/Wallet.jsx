@@ -53,7 +53,7 @@ const Wallet = () => {
       // console.log(response.data.result);
     } catch (error) {
       setError(error.response.data.msg);
-      console.log(error.response);
+      // console.log(error.response);
     }
   };
 
@@ -70,7 +70,7 @@ const Wallet = () => {
           <p>Total Spent</p>
           {loading ? (
             <div className="d-gif-div">
-              <img src={loader} alt="loading-gif" className="d-gif" />
+              <img loading="lazy" src={loader} alt="loading-gif" className="d-gif" />
             </div>
           ) : spent ? (
             <strong>${spent}</strong>
@@ -91,7 +91,7 @@ const Wallet = () => {
         </div>
         {loading ? (
           <div className="d-gif-div">
-            <img src={loader} alt="loading-gif" className="d-gif" />
+            <img loading="lazy" src={loader} alt="loading-gif" className="d-gif" />
           </div>
         ) : error ? (
           <div className="error">You have no transaction history</div>

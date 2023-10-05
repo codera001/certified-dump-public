@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { TiArrowLeftThick } from "react-icons/ti";
 import "./Exams.css";
 import Provider from "../../component/Provider";
 import axios from "axios";
 import loader from "../../static/loader.gif";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import PublicLayout from "../../component/PublicLayout";
 import SearchBar from "../../component/SearchBar";
 import Back from "../../component/Back";
@@ -12,7 +11,6 @@ import Back from "../../component/Back";
 function Alibaba() {
   const [exams, setExams] = useState(null);
   const { providerName } = useParams();
-  // console.log(providerName);
   const checkProvider = (name) => name.providerid == providerName;
 
   const GetExams = async () => {
@@ -20,12 +18,12 @@ function Alibaba() {
       const response = await axios.get(
         "https://api.certifieddump.com/api-admin/getExams"
       );
+      setExams(response.data.exams);
       // console.log(response);
       // console.log(response.data.exams);
       //get all exams by the name of provider here
-      setExams(response.data.exams);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -38,7 +36,7 @@ function Alibaba() {
         <Back path="/providers" />
         <SearchBar text="Exam Code or Name" />
       </div>
-      <div className="container-fluid py-2">
+      <div className="p-exams py-2">
         <h3
           style={{
             textAlign: "center",
@@ -50,10 +48,11 @@ function Alibaba() {
         </h3>
         {exams ? (
           <>
-            <div className="d-flex flex-row flex-nowrap exam-card-section">
+            <div className="exam-card-section mt-4">
               {exams.filter(checkProvider).map((item, i) => (
                 <Provider
                   key={i}
+                  image={item.image}
                   title={item.title}
                   providerName={`/provider/${providerName}/${item.title}`}
                   i={i}
@@ -69,7 +68,12 @@ function Alibaba() {
           </>
         ) : (
           <div className="d-gif-div">
-            <img src={loader} alt="loading-gif" className="d-gif" />
+            <img
+              loading="lazy"
+              src={loader}
+              alt="loading-gif"
+              className="d-gif"
+            />
           </div>
         )}
       </div>

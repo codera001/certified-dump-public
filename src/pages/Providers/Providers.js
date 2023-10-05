@@ -1,13 +1,12 @@
-import { TiArrowLeftThick } from "react-icons/ti";
 import "./Providers.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Provider from "../../component/Provider";
 import loader from "../../static/loader.gif";
-import { Link } from "react-router-dom";
 import SearchBar from "../../component/SearchBar";
 import PublicLayout from "../../component/PublicLayout";
 import Back from "../../component/Back";
+import cisco from "../../static/cisco.png";
 
 function Providers() {
   const [allProviders, setAllProviders] = useState(null);
@@ -20,7 +19,7 @@ function Providers() {
       // console.log(response.data.providers.slice(0, 5));
       setAllProviders(response.data.providers);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -30,23 +29,24 @@ function Providers() {
 
   return (
     <PublicLayout>
-      <section className="container section-providers">
+      <section className="section-providers">
         <div className="d-flex justify-content-between">
           <Back path="/" />
-          <SearchBar text="Exam Code or Name" />
+          <SearchBar text="Provider Name" />
         </div>
         <h5
-          className="mb-5"
-          style={{ fontWeight: "bolder", color: "black", textAlign: "center" }}
+          className="my-3 providers-title"
+          style={{ fontWeight: "bolder", color: "black", textAlign: "center", fontSize: "2.5rem", margin: "1rem 0" }}
         >
           All Providers
         </h5>
-        <div className="container-fluid py-2 mb-5">
+        <div className="p-providers py-2 mb-5 mt-4">
           {allProviders ? (
-            <div className="d-flex flex-row flex-nowrap card-section">
+            <div className="card-section">
               {allProviders.map((item, i) => (
                 <Provider
                   key={i}
+                  image={cisco}
                   providerName={`/provider/${item.name}`}
                   i={i}
                   title={item.name}

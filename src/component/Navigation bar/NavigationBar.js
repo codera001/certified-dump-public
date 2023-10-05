@@ -6,18 +6,23 @@ import { RiFacebookFill, RiMailSendLine } from "react-icons/ri";
 import { TbBrandTwitterFilled } from "react-icons/tb";
 import "./NavigationBar.css";
 import logo from "../../static/logo.png";
+import scrolllogo from "../../static/logow.png";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { BsInstagram } from "react-icons/bs";
+import { navlist } from "./Navlists";
 
 function NavigationBar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showLogo, setShowLogo] = useState(false);
   const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
+  const user = sessionStorage.getItem("username");
 
   useEffect(() => {
     function handleScroll() {
       if (window.scrollY > 200) {
         setIsScrolled(true);
+        setShowLogo(true);
       } else {
         setIsScrolled(false);
       }
@@ -34,10 +39,10 @@ function NavigationBar() {
       <div className="container-fluid first-nav">
         <div className="container d-flex justify-content-between  nav">
           <div className="d-flex my-0 item-head">
-            <a href="#home" className=" text-white brand ">
-              <AiFillHome color="orange" className="brand-icon  me-1" />
+            <Link to="/" className="text-white brand ">
+              <AiFillHome color="orange" className="brand-icon me-1" />
               Welcome to Certified Dump
-            </a>
+            </Link>
           </div>
 
           <div className="item-list">
@@ -61,16 +66,15 @@ function NavigationBar() {
                   }}
                   className="nav-list to-dash"
                 >
-                  Logged in
+                  {user}
                 </Link>
                 <p
                   className="nav-list"
                   style={{
                     color: "white",
-                    // fontWeight: "bolder",
                     display: "flex",
                     alignItems: "center",
-                    margin: "0 4px 0 0",
+                    margin: "0 .5rem 0 0",
                   }}
                 >
                   Balance:{" "}
@@ -100,9 +104,9 @@ function NavigationBar() {
       </div>
 
       {/* secon-nav */}
-      <div className="container d-flex justify-content-between align-items-center mt-3 nav-logo">
-        <div>
-          <img alt="logo" src={logo} />
+      <div className="container d-flex justify-content-between align-items-center nav-logo">
+        <div className="p-nav-logo">
+          <img loading="lazy" alt="logo" src={logo} />
         </div>
         <div className="d-flex ">
           <div className="mx-1">
@@ -145,26 +149,32 @@ function NavigationBar() {
           />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto text-center nav-items">
-              <Link to="/" className="nav-links">
-                HOME
-              </Link>
-              <Link to="/about" className="nav-links ">
-                ABOUT US
-              </Link>
-              <Link to="/blog" className="nav-links ">
-                BLOG AREA
-              </Link>
-              <Link to="/contact" className="nav-links ">
-                CONTACT US
-              </Link>
+              {navlist.map((list, i) => (
+                <NavLink
+                  key={i}
+                  to={list.path}
+                  className={({ isActive }) =>
+                    isActive ? "nav-change" : "nav-links"
+                  }
+                >
+                  {list.title}
+                </NavLink>
+              ))}
               {!authToken && (
                 <>
-                  <Link to="/login" className="button">
+                  <NavLink to="/login" className="button">
                     SIGN IN
-                  </Link>
-                  <Link to="/signup" className="button">
+                  </NavLink>
+                  <NavLink to="/signup" className="button">
                     JOIN NOW
-                  </Link>
+                  </NavLink>
+                </>
+              )}
+              {authToken && (
+                <>
+                  <NavLink to="/dashboard" className="button n-mobile-btn">
+                    {user}
+                  </NavLink>
                 </>
               )}
             </Nav>

@@ -6,12 +6,12 @@ const Phone = () => {
   };
   return (
     <select
-      className="form-select"
+      className="form-select phone"
       id="phone"
       name="phone"
       onChange={handleNumberChange}
     >
-      <option value="">phone</option>
+      <option value="">code</option>
       <option data-countrycode="AF" value="93">
         Afghanistan +93
       </option>

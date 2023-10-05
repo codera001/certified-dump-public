@@ -28,7 +28,8 @@ const Payment = () => {
           userid: sessionStorage.getItem("userId"),
           // callbackUrl: "http://localhost:3000/payment-verification",
           callbackUrl: "https://certifieddump.com/payment-verification",
-          currency: "NGN",
+          // currency: "NGN",
+          currency: "USD",
           customerFirstName: sessionStorage.getItem("userFirstname"),
           customerLastName: sessionStorage.getItem("userLastname"),
           customerPhoneNumber: "2348032132100",
@@ -45,7 +46,7 @@ const Payment = () => {
       sessionStorage.setItem("paymentRef", response.data.reference);
       window.location.href = response.data.authorizationUrl;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -57,7 +58,7 @@ const Payment = () => {
           <h4>1. Choose a payment method</h4>
           <div className="d-payment-modes">
             <div className="payment-mode">
-              <img src={card} alt="card payment method" />
+              <img loading="lazy" src={card} alt="card payment method" />
             </div>
           </div>
           <h4>2. Specify top up amount</h4>

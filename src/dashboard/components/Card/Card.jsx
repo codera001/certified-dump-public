@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Card.css";
 import { BsDownload } from "react-icons/bs";
+
 const Card = ({ image, title, provider, cost, date }) => {
   const getImage = async () => {
     try {
@@ -28,7 +29,7 @@ const Card = ({ image, title, provider, cost, date }) => {
         >
           <BsDownload />
         </button>
-        <img src={image} alt={title} />
+        <img loading="lazy" src={image} alt={title} />
       </div>
       <div className="d-card-details">
         <p className="d-title">{title}</p>
