@@ -4,7 +4,7 @@ import ChangePassword from "./change_password/ChangePassword";
 import "./Profile.css";
 import { BsGenderMale, BsGenderFemale } from "react-icons/bs";
 import { useState } from "react";
-import { BiUserCircle } from "react-icons/bi";
+import { BiEdit, BiUserCircle } from "react-icons/bi";
 import Countries from "./Countries";
 import Phone from "./Phone";
 import axios from "axios";
@@ -37,6 +37,22 @@ const Profile = () => {
     setChangePass(false);
     setDel(false);
   };
+  
+  const handleEditClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleImageChange = (e) => {
+    const image = e.target.files[0];
+    if (image && image.type.startsWith("image/")) {
+      setProfileImage(image);
+    } else {
+      toast.error("Please select a valid image file.");
+    }
+  };
+
+  const formData = new FormData();
+  formData.append("file", profileImage);
 
   const updateData = async () => {
     try {
@@ -50,37 +66,22 @@ const Profile = () => {
           country: localStorage.getItem("userCountry"),
           userid: sessionStorage.getItem("userId"),
           gender: gender,
-          image: profileImage,
+          image: formData,
         },
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            "Content-Type": "multipart/form-data", // Set the content type to multipart/form-data
           },
         }
       );
       // console.log(response);
-      toast.success("Profile update is successful!");
+      console.log(formData);
+      toast.success("Profile update is successful!" || response.data.msg);
     } catch (error) {
       // console.log(error);
     }
   };
-
-  const handleImageChange = (e) => {
-    const image = e.target.files[0];
-    if (image && image.type.startsWith("image/")) {
-      setProfileImage(image);
-    } else {
-      toast.error("Please select a valid image file.");
-    }
-  };
-
-  const handleEditClick = () => {
-    fileInputRef.current.click();
-  };
-
-    const handleEditCancel = () => {
-      setProfileImage(null);
-    };
 
   return (
     <Layout>
@@ -95,12 +96,29 @@ const Profile = () => {
         <div className="d-profile-pic">
           {profileImage ? (
             <div className="d-profile-image">
+              <BiEdit
+                onClick={handleEditClick}
+                style={{
+                  color: "black",
+                  fontSize: "2rem",
+                  position: "absolute",
+                  right: "5px",
+                }}
+              />
               <img src={URL.createObjectURL(profileImage)} alt="Profile" />
-              <button onClick={handleEditCancel}>Cancel</button>
             </div>
           ) : (
-            <div className="d-profile-image" onClick={handleEditClick}>
+            <div className="d-profile-image pic">
               <BiUserCircle />
+              <BiEdit
+                onClick={handleEditClick}
+                style={{
+                  color: "var(--light-text-color)",
+                  fontSize: "2rem",
+                  position: "absolute",
+                  right: "5px",
+                }}
+              />
             </div>
           )}
           <input
