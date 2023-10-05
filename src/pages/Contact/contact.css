@@ -10,6 +10,7 @@
 .contact-logo-div {
   width: 200px;
 }
+
 .c-contact-top-section header {
   display: flex;
   position: relative;
@@ -20,9 +21,11 @@
   align-items: center;
   justify-content: space-between;
 }
+
 .contact-logo-div img {
   width: 100%;
 }
+
 .c-contact-top-section header nav {
   background-color: var(--white);
   position: absolute;
@@ -113,6 +116,7 @@
 }
 .contact-address form textarea {
   width: 90%;
+  padding: 5px;
 }
 .contact-footer {
   background-color: var(--green-600);
@@ -187,7 +191,7 @@
   .c-contact-top-section {
     display: none;
   }
-  
+
   .desktop-top-bar {
     display: flex;
     align-items: center;
