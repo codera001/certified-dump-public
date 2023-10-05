@@ -10,6 +10,7 @@ import Back from "../../component/Back";
 
 function Alibaba() {
   const [exams, setExams] = useState(null);
+  const [search, setSearch] = useState("");
   const { providerName } = useParams();
   const checkProvider = (name) => name.providerid == providerName;
 
@@ -34,7 +35,7 @@ function Alibaba() {
     <PublicLayout>
       <div className="navigate container mb-4">
         <Back path="/providers" />
-        <SearchBar text="Exam Code or Name" />
+        <SearchBar setSearch={setSearch} text="Exam Code or Name" />
       </div>
       <div className="p-exams py-2">
         <h3
@@ -49,16 +50,24 @@ function Alibaba() {
         {exams ? (
           <>
             <div className="exam-card-section mt-4">
-              {exams.filter(checkProvider).map((item, i) => (
-                <Provider
-                  key={i}
-                  image={item.image}
-                  title={item.title}
-                  providerName={`/provider/${providerName}/${item.title}`}
-                  i={i}
-                  text="View Books"
-                />
-              ))}
+              {exams
+                .filter(checkProvider)
+                .filter((exam) => {
+                  if (search == "") return exam;
+                  else if (exam.title.toLowerCase().includes(search)) {
+                    return exam;
+                  } else return null;
+                })
+                .map((item, i) => (
+                  <Provider
+                    key={i}
+                    image={item.image}
+                    title={item.title}
+                    providerName={`/provider/${providerName}/${item.title}`}
+                    i={i}
+                    text="View Books"
+                  />
+                ))}
             </div>
             {exams.filter(checkProvider).length === 0 ? (
               <div style={{ textAlign: "center" }}>No Exams found</div>
@@ -76,6 +85,13 @@ function Alibaba() {
             />
           </div>
         )}
+
+        {search !== "" &&
+          exams.filter((exam) => {
+            return exam.title.toLowerCase().includes(search);
+          }).length === 0 && (
+            <div className="d-overview-no-books">No Exam Found</div>
+          )}
       </div>
     </PublicLayout>
   );
