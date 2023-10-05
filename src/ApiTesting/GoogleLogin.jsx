@@ -19,7 +19,7 @@ const Google = () => {
         }
       );
       // console.log(response);
-      toast.success(response.data.msg)
+      toast.success(response.data.msg);
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.setItem("userId", response.data.user.id);
       sessionStorage.setItem("username", response.data.user.username);
@@ -42,12 +42,12 @@ const Google = () => {
     <GoogleLogin
       onSuccess={(credentialResponse) => {
         const googleData = jwt_decode(credentialResponse.credential);
-        console.log(googleData)
-        postData(googleData)
+        // console.log(googleData)
+        postData(googleData);
         toast.success("You are logged in successfully");
       }}
       onError={() => {
-        console.log("Login Failed");
+        // console.log("Login Failed");
         toast.error("Login Failed");
       }}
     />

@@ -44,6 +44,6 @@ export const sideMenu = [
   {
     title: "Log out",
     icon: <MdOutlineSettingsPower />,
-    path: "/",
+    path: "/login",
   },
 ];
