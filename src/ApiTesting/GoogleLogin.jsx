@@ -20,20 +20,24 @@ const Google = () => {
       );
       // console.log(response);
       toast.success(response.data.msg);
-      sessionStorage.setItem("token", response.data.token);
-      sessionStorage.setItem("userId", response.data.user.id);
-      sessionStorage.setItem("username", response.data.user.username);
-      sessionStorage.setItem("userFirstname", response.data.user.firstname);
-      sessionStorage.setItem("userLastname", response.data.user.lastname);
-      sessionStorage.setItem("userEmail", response.data.user.email);
-      sessionStorage.setItem("userPhone", response.data.user.phone_no);
-      sessionStorage.setItem("country", response.data.user.country);
-      sessionStorage.setItem("dob", response.data.user.dob);
-      sessionStorage.setItem("gender", response.data.user.gender);
-      if (sessionStorage.getItem("bookRoute")) {
-        navigate(sessionStorage.getItem("bookRoute"));
-        sessionStorage.removeItem("bookRoute");
-      } else navigate("/dashboard");
+      if (response.data.user.id == undefined) {
+        navigate("/login");
+      } else {
+        sessionStorage.setItem("token", response.data.token);
+        sessionStorage.setItem("userId", response.data.user.id);
+        sessionStorage.setItem("username", response.data.user.username);
+        sessionStorage.setItem("userFirstname", response.data.user.firstname);
+        sessionStorage.setItem("userLastname", response.data.user.lastname);
+        sessionStorage.setItem("userEmail", response.data.user.email);
+        sessionStorage.setItem("userPhone", response.data.user.phone_no);
+        sessionStorage.setItem("country", response.data.user.country);
+        sessionStorage.setItem("dob", response.data.user.dob);
+        sessionStorage.setItem("gender", response.data.user.gender);
+        if (sessionStorage.getItem("bookRoute")) {
+          navigate(sessionStorage.getItem("bookRoute"));
+          sessionStorage.removeItem("bookRoute");
+        } else navigate("/dashboard");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -44,7 +48,7 @@ const Google = () => {
         const googleData = jwt_decode(credentialResponse.credential);
         // console.log(googleData)
         postData(googleData);
-        toast.success("You are logged in successfully");
+        // toast.success("You are logged in successfully");
       }}
       onError={() => {
         // console.log("Login Failed");

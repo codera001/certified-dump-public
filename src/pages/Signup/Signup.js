@@ -191,7 +191,7 @@ function Signup() {
                     fontSize: "12px",
                   }}
                 >
-                  Already have an account yet?
+                  Already have an account?
                   <Link
                     to="/login"
                     style={{ color: "var(--green-600", fontWeight: "light" }}
