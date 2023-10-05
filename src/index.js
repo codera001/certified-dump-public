@@ -37,11 +37,12 @@ import SingleBlog from "./pages/BlogDetails/SingleBlog";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import NotFound from "./pages/NotFound";
 export default function Application() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="*" element={<NoPage />} /> */}
+        <Route path="*" element={<NotFound/>} />
         <Route path="/" element={<App />}></Route>
         <Route path="login" element={<Login />}></Route>
         <Route path="signup" element={<Signup />}></Route>
@@ -90,11 +91,3 @@ root.render(
     </GoogleOAuthProvider>
   </React.StrictMode>
 );
-
-// const router = createBrowserRouter(createRoutesFromElements());
-
-// ReactDOM.createRoot(document.getElementById("root")).render(
-// <React.StrictMode>
-//   <Toaster position="top-center" />
-//   <Application />
-// </React.StrictMode>
