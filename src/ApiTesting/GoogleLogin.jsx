@@ -30,6 +30,7 @@ const Google = () => {
       sessionStorage.setItem("country", response.data.user.country);
       sessionStorage.setItem("dob", response.data.user.dob);
       sessionStorage.setItem("gender", response.data.user.gender);
+      sessionStorage.setItem("userImg", response.data.user.image_path);
       if (sessionStorage.getItem("bookRoute")) {
         navigate(sessionStorage.getItem("bookRoute"));
         sessionStorage.removeItem("bookRoute");

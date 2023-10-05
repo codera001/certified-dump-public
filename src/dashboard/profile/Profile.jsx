@@ -26,8 +26,10 @@ const Profile = () => {
   const [birthday, setBirthday] = useState("");
   const [changePass, setChangePass] = useState(false);
   const [del, setDel] = useState(false);
-  const [profileImage, setProfileImage] = useState(null);
+  const [profileImage, setProfileImage] = useState(sessionStorage.getItem("userImg"));
+  const [editImage, setEditImage] = useState(false)
   const fileInputRef = useRef(null);
+  const formData = new FormData();
 
   const ShowChangePass = () => {
     setChangePass(true);
@@ -37,7 +39,7 @@ const Profile = () => {
     setChangePass(false);
     setDel(false);
   };
-  
+
   const handleEditClick = () => {
     fileInputRef.current.click();
   };
@@ -45,18 +47,31 @@ const Profile = () => {
   const handleImageChange = (e) => {
     const image = e.target.files[0];
     if (image && image.type.startsWith("image/")) {
-      setProfileImage(image);
+      setProfileImage(URL.createObjectURL(image));
     } else {
       toast.error("Please select a valid image file.");
     }
   };
 
-  const formData = new FormData();
-  formData.append("file", profileImage);
-
   const updateData = async () => {
     try {
-      const response = await axios.post(
+      let response;
+      if (profileImage) {
+        formData.append("file", profileImage);
+        response = await axios.post(
+          "https://api.certifieddump.com/upload",
+          formData,
+
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            },
+          }
+        );
+        console.log(response);
+      }
+      await axios.post(
         "https://api.certifieddump.com/api/edituser",
         {
           firstname: sessionStorage.getItem("userFirstname"),
@@ -66,20 +81,19 @@ const Profile = () => {
           country: localStorage.getItem("userCountry"),
           userid: sessionStorage.getItem("userId"),
           gender: gender,
-          image: formData,
+          image: response.data.path,
         },
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-            "Content-Type": "multipart/form-data", // Set the content type to multipart/form-data
           },
         }
       );
-      // console.log(response);
-      console.log(formData);
+      console.log(response);
+      // console.log(formData);
       toast.success("Profile update is successful!" || response.data.msg);
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   };
 
@@ -105,7 +119,9 @@ const Profile = () => {
                   right: "5px",
                 }}
               />
-              <img src={URL.createObjectURL(profileImage)} alt="Profile" />
+              <img src={profileImage} alt="Profile" />
+              {/* <img src={URL.createObjectURL(profileImage)} alt="Profile" /> */}
+              {/* <img src={URL.createObjectURL(profileImage)} alt="Profile" /> */}
             </div>
           ) : (
             <div className="d-profile-image pic">

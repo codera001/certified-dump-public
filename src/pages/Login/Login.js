@@ -61,6 +61,7 @@ function Login() {
       sessionStorage.setItem("country", response.data.user.country);
       sessionStorage.setItem("dob", response.data.user.dob);
       sessionStorage.setItem("gender", response.data.user.gender);
+      sessionStorage.setItem("userImg", response.data.user.image_path);
       toast.success(response.data.msg);
       if (sessionStorage.getItem("bookRoute")) {
         navigate(sessionStorage.getItem("bookRoute"));
@@ -76,138 +77,130 @@ function Login() {
   };
 
   return (
-    <>
-      <section className="section">
-        <PublicLayout>
-          <div className="login container">
-            <div className="login-form-wrap">
-              <Form
-                className="login-form"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  isVerified ? handleSubmit() : setShow(!show);
+    <PublicLayout>
+      <div className="login container">
+        <div className="login-form-wrap">
+          <Form
+            className="login-form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              isVerified ? handleSubmit() : setShow(!show);
+            }}
+          >
+            <Form.Group className="mb-3 ">
+              <Form.Label className="my-4 form-title"> Log in</Form.Label>
+            </Form.Group>
+            <Form.Group className="mb-3 form-group-s">
+              <Form.Control
+                className="form-control-s"
+                type="text"
+                placeholder="Enter your username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                autoComplete="true"
+                required
+              />
+            </Form.Group>
+            <Form.Group
+              className="mb-3 form-group-s"
+              style={{ position: "relative" }}
+            >
+              <Form.Control
+                className="form-control-s"
+                type={viewPassword ? "text" : "password"}
+                placeholder="Enter your password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                autoComplete="true"
+                required
+              />
+              <span
+                className="password-toggle-icon"
+                onClick={() => setViewPassword(!viewPassword)}
+              >
+                {viewPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+              </span>
+            </Form.Group>
+            <div className="login-capcha">
+              <ReCAPTCHA
+                sitekey="6LeublgoAAAAAJcgjbrXDIOqr3839Npd0g-sE8Pd"
+                onChange={onChange}
+              />
+            </div>
+            {show && (
+              <small
+                style={{
+                  color: "red",
+                  fontSize: "14px",
                 }}
               >
-                <Form.Group className="mb-3 ">
-                  <Form.Label className="my-4 form-title"> Log in</Form.Label>
-                </Form.Group>
-                <Form.Group className="mb-3 form-group-s">
-                  <Form.Control
-                    className="form-control-s"
-                    type="text"
-                    placeholder="Enter your username"
-                    name="username"
-                    value={formData.username}
-                    onChange={handleChange}
-                    autoComplete="true"
-                    required
-                  />
-                </Form.Group>
-                <Form.Group
-                  className="mb-3 form-group-s"
-                  style={{ position: "relative" }}
-                >
-                  <Form.Control
-                    className="form-control-s"
-                    type={viewPassword ? "text" : "password"}
-                    placeholder="Enter your password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    autoComplete="true"
-                    required
-                  />
-                  <span
-                    className="password-toggle-icon"
-                    onClick={() => setViewPassword(!viewPassword)}
-                  >
-                    {viewPassword ? (
-                      <AiOutlineEyeInvisible />
-                    ) : (
-                      <AiOutlineEye />
-                    )}
-                  </span>
-                </Form.Group>
-                <div className="login-capcha">
-                  <ReCAPTCHA
-                    sitekey="6LeublgoAAAAAJcgjbrXDIOqr3839Npd0g-sE8Pd"
-                    onChange={onChange}
-                  />
-                </div>
-                {show && (
-                  <small
-                    style={{
-                      color: "red",
-                      fontSize: "14px",
-                    }}
-                  >
-                    Please solve recapcha puzzle
-                  </small>
-                )}
+                Please solve recapcha puzzle
+              </small>
+            )}
 
-                <Button type="submit" className="form-button-s">
-                  SIGN IN
-                </Button>
-                <Link
-                  to="/forgot-password"
-                  style={{ color: "var(--green-600", fontWeight: "bolder" }}
-                >
-                  forgot password?
-                </Link>
-                <p
-                  className=""
-                  style={{
-                    fontWeight: "bolder",
-                    color: "black",
-                    fontSize: "12px",
-                  }}
-                >
-                  Don&apos;t have an account yet?
-                  <Link
-                    to="/signup"
-                    style={{ color: "var(--green-600", fontWeight: "light" }}
-                  >
-                    Sign up
-                  </Link>
-                </p>
-                <p
-                  style={{
-                    fontWeight: "bolder",
-                    color: "black",
-                    fontSize: "12px",
-                  }}
-                >
-                  Or log in with your social network
-                </p>
-                {/* <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com"> */}
-                <Google />
-              {/* </GoogleOAuthProvider> */}
-                <div className="social-images d-flex">
-                  <div className="social-images-wrap">
-                    <BsFacebook
-                      className="me-1"
-                      style={{ fontSize: "21px", color: "blue" }}
-                    ></BsFacebook>
-                    <AiFillTwitterCircle
-                      className="me-1"
-                      style={{ fontSize: "23px", color: "skyblue" }}
-                    ></AiFillTwitterCircle>
-                    <FcGoogle
-                      className="me-1"
-                      style={{ fontSize: "22px" }}
-                    ></FcGoogle>
-                    <AiFillGithub
-                      className="me-1"
-                      style={{ fontSize: "22px" }}
-                    ></AiFillGithub>
-                  </div>
-                </div>
-              </Form>
+            <Button type="submit" className="form-button-s">
+              SIGN IN
+            </Button>
+            <Link
+              to="/forgot-password"
+              style={{ color: "var(--green-600", fontWeight: "bolder" }}
+            >
+              forgot password?
+            </Link>
+            <p
+              className=""
+              style={{
+                fontWeight: "bolder",
+                color: "black",
+                fontSize: "12px",
+              }}
+            >
+              Don&apos;t have an account yet?
+              <Link
+                to="/signup"
+                style={{ color: "var(--green-600", fontWeight: "light" }}
+              >
+                Sign up
+              </Link>
+            </p>
+            <p
+              style={{
+                fontWeight: "bolder",
+                color: "black",
+                fontSize: "12px",
+              }}
+            >
+              Or log in with your social network
+            </p>
+            {/* <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com"> */}
+            <Google />
+            {/* </GoogleOAuthProvider> */}
+            <div className="social-images d-flex">
+              <div className="social-images-wrap">
+                <BsFacebook
+                  className="me-1"
+                  style={{ fontSize: "21px", color: "blue" }}
+                ></BsFacebook>
+                <AiFillTwitterCircle
+                  className="me-1"
+                  style={{ fontSize: "23px", color: "skyblue" }}
+                ></AiFillTwitterCircle>
+                <FcGoogle
+                  className="me-1"
+                  style={{ fontSize: "22px" }}
+                ></FcGoogle>
+                <AiFillGithub
+                  className="me-1"
+                  style={{ fontSize: "22px" }}
+                ></AiFillGithub>
+              </div>
             </div>
-          </div>
-        </PublicLayout>
-      </section>
-    </>
+          </Form>
+        </div>
+      </div>
+    </PublicLayout>
   );
 }
 
