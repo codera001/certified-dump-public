@@ -22,7 +22,7 @@ const SingleBlog = () => {
   const [loading, setLoading] = useState(true);
   const [comments, setComment] = useState([]);
   const [totalComments, setTotalComments] = useState("");
-  const[ authToken, setAuthToken ]= useState(sessionStorage.getItem("token"));
+  const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
   const [userComment, setUserComment] = useState("");
   const userId = sessionStorage.getItem("userId");
 
@@ -131,26 +131,27 @@ const SingleBlog = () => {
                 </p>
               )}
 
-              {authToken && <p>Online</p>}
-              <div className="blog">
-                <div className="blog-text-container">
-                  <textarea
-                    value={userComment}
-                    rows={1}
-                    cols={40}
-                    onChange={(e) => {
-                      setUserComment(e.currentTarget.value);
+              {authToken && (
+                <div className="blog">
+                  <div className="blog-text-container">
+                    <textarea
+                      value={userComment}
+                      rows={1}
+                      cols={40}
+                      onChange={(e) => {
+                        setUserComment(e.currentTarget.value);
+                      }}
+                    />
+                  </div>
+                  <button
+                    onClick={() => {
+                      if (userComment.trim() !== "") SendComment();
                     }}
-                  />
+                  >
+                    Send
+                  </button>
                 </div>
-                <button
-                  onClick={() => {
-                    if (userComment.trim() !== "") SendComment();
-                  }}
-                >
-                  Send
-                </button>
-              </div>
+              )}
 
               {comments.length !== 0 &&
                 comments

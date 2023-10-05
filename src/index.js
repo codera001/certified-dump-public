@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
+// import {
+//   createBrowserRouter,
+//   createRoutesFromElements,
+//   Route,
+//   RouterProvider,
+// } from "react-router-dom";
 import Overview from "./dashboard/overview/Overview";
 import Profile from "./dashboard/profile/Profile";
 import Library from "./dashboard/library/Library";
@@ -35,44 +35,66 @@ import SuccessPass from "./pages/Verify/SuccessPass";
 import Blog from "./pages/Blog/Blog";
 import SingleBlog from "./pages/BlogDetails/SingleBlog";
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <>
-      <Route path="/" element={<App />}></Route>
-      <Route path="login" element={<Login />}></Route>
-      <Route path="signup" element={<Signup />}></Route>
-      <Route path="verify-account" element={<VerifyForgotPass />}></Route>
-      <Route path="forgot-password" element={<ForgotPass />}></Route>
-      <Route path="verify-email" element={<VerifyEmail />}></Route>
-      <Route path="success" element={<SuccessEmail />}></Route>
-      <Route path="providers" element={<Providers />} />
-      <Route path="about" element={<About />} />
-      <Route path="provider/:providerName" element={<Alibaba />} />
-      <Route path="provider/:providerName/:examName" element={<Blockchain />} />
-      <Route path="provider/:providerName/:examName/:bookId" element={<Preview />} />
-      <Route path="blog" element={<Blog />} />
-      <Route path="blog/:blogId" element={<SingleBlog />} />
-      <Route path="contact" element={<Contact />} />
-      <Route path="confirm-email" element={<Verify />} />
-      <Route path="reset-password" element={<PassReset />} />
-      <Route path="success2" element={<SuccessPass />} />
-      <Route element={<ProtectedRoute />}>
-        <Route path="dashboard" element={<Overview />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="library" element={<Library />} />
-        <Route path="wallet" element={<Wallet />} />
-        <Route path="payment" element={<Payment />} />
-        <Route path="payment-verification" element={<VerifyPayment />} />
-        <Route path="support" element={<Support />} />
-        <Route path="chat/:ticketId" element={<Chat />} />
-      </Route>
-    </>
-  )
-);
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+export default function Application() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* <Route path="*" element={<NoPage />} /> */}
+        <Route path="/" element={<App />}></Route>
+        <Route path="login" element={<Login />}></Route>
+        <Route path="signup" element={<Signup />}></Route>
+        <Route path="verify-account" element={<VerifyForgotPass />}></Route>
+        <Route path="forgot-password" element={<ForgotPass />}></Route>
+        <Route path="verify-email" element={<VerifyEmail />}></Route>
+        <Route path="success" element={<SuccessEmail />}></Route>
+        <Route path="providers" element={<Providers />} />
+        <Route path="about" element={<About />} />
+        <Route path="provider/:providerName" element={<Alibaba />} />
+        <Route
+          path="provider/:providerName/:examName"
+          element={<Blockchain />}
+        />
+        <Route
+          path="provider/:providerName/:examName/:bookId"
+          element={<Preview />}
+        />
+        <Route path="blog" element={<Blog />} />
+        <Route path="blog/:blogId" element={<SingleBlog />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="confirm-email" element={<Verify />} />
+        <Route path="reset-password" element={<PassReset />} />
+        <Route path="success2" element={<SuccessPass />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="dashboard" element={<Overview />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="library" element={<Library />} />
+          <Route path="wallet" element={<Wallet />} />
+          <Route path="payment" element={<Payment />} />
+          <Route path="payment-verification" element={<VerifyPayment />} />
+          <Route path="support" element={<Support />} />
+          <Route path="chat/:ticketId" element={<Chat />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
     <Toaster position="top-center" />
-    <RouterProvider router={router} />
+    <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com">
+      <Application />
+    </GoogleOAuthProvider>
   </React.StrictMode>
 );
+
+// const router = createBrowserRouter(createRoutesFromElements());
+
+// ReactDOM.createRoot(document.getElementById("root")).render(
+// <React.StrictMode>
+//   <Toaster position="top-center" />
+//   <Application />
+// </React.StrictMode>
