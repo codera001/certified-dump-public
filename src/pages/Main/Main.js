@@ -8,6 +8,7 @@ import axios from "axios";
 import loader from "../../static/loader.gif";
 import cisco from "../../static/cisco.png";
 import { Link, useNavigate } from "react-router-dom";
+import ScrollToTop from "../../component/ScrollToTop";
 
 function Main() {
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ function Main() {
   };
 
   return (
-    <>
+    <div style={{ textAlign: "center" }}>
       <NavigationBar />
       <section className="section-one-main">
         <div className="text my-auto">
@@ -225,8 +226,9 @@ function Main() {
           </div>
         </div>
       </section>
+      <ScrollToTop />
       <Footer />
-    </>
+    </div>
   );
 }
 
