@@ -62,7 +62,7 @@ const Profile = () => {
           },
         }
       );
-      console.log(response.data[0]);
+      // console.log(response.data[0]);
       setOrigin(response.data[0].country);
       setBirthday(response.data[0].dob);
       setGender(response.data[0].gender);
@@ -87,7 +87,7 @@ const Profile = () => {
           }
         );
       }
-      console.log(response);
+      // console.log(response);
       await axios.post(
         "https://api.certifieddump.com/api/edituser",
         {
@@ -108,8 +108,8 @@ const Profile = () => {
       );
 
       GetProfile();
-      console.log(response);
-      // toast.success("Profile update is successful!" || response.data.msg);
+      // console.log(response);
+      toast.success("Profile update is successful!" || response.data.msg);
     } catch (error) {
       console.log(error);
       // toast.error(error.response.data.msg);
