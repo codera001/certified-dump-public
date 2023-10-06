@@ -34,7 +34,7 @@ function Preview() {
       // console.log(response.data.book);
       setBook(response.data.book);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -58,7 +58,7 @@ function Preview() {
       // console.log(response);
       toast.success(response.data.msg);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.response.data.msg);
     }
   };

@@ -76,7 +76,6 @@
 
 .d-nav-balance a:hover {
   background-color: var(--primary-color);
-  color: white;
 }
 
 .d-user-dropdown {
@@ -140,7 +139,6 @@
 
 .d-user-dropdown .d-dropdown-inner a:hover {
   background-color: var(--green-100);
-  color: var(--white);
   border-radius: 10px;
 }
 
