@@ -172,6 +172,9 @@ function NavigationBar() {
               )}
               {authToken && (
                 <>
+                  <NavLink to="/dashboard" className="nav-links">
+                    DASHBOARD
+                  </NavLink>
                   <NavLink to="/dashboard" className="button n-mobile-btn">
                     {user}: ${sessionStorage.getItem("balance")}
                   </NavLink>
