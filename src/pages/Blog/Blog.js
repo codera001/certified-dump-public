@@ -21,6 +21,27 @@ function Blog() {
       // console.log(error);
     }
   };
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const blogsPerPage = 5;
+
+    // Assuming 'blogs' is your array of blogs
+    const totalBlogs = blogs.length;
+    useEffect(() => {
+      setTotalPages(Math.ceil(totalBlogs / blogsPerPage));
+    }, [totalBlogs]);
+
+    // Calculate the range of blogs to display on the current page
+    const startIndex = (currentPage - 1) * blogsPerPage;
+    const endIndex = Math.min(startIndex + blogsPerPage, totalBlogs);
+    const displayedBlogs = blogs.slice(startIndex, endIndex);
+
+    // Function to handle pagination click
+    const handlePageClick = (page) => {
+      setCurrentPage(page);
+  };
+  
   useEffect(() => {
     GetBlogs();
     setLoading(!loading);
@@ -40,10 +61,10 @@ function Blog() {
                   className="d-gif"
                 />
               </div>
-            ) : blogs.length <= 0 ? (
+            ) : totalBlogs <= 0 ? (
               <div className="error">There are no blog posts yet</div>
             ) : (
-              blogs.map((blog, i) => (
+              displayedBlogs.map((blog, i) => (
                 <BlogComponent
                   blog={blog}
                   i={i}
@@ -52,6 +73,47 @@ function Blog() {
                 />
               ))
             )}
+
+            {/* Pagination Buttons */}
+            <div className="pagination">
+              {/* Previous Button */}
+              <button
+                disabled={currentPage === 1}
+                onClick={() => handlePageClick(currentPage - 1)}
+              >
+                Previous
+              </button>
+
+              {/* Page Numbers */}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => {
+                  if (page === currentPage) {
+                    return <span key={page}>{page}</span>;
+                  } else if (
+                    page === 1 ||
+                    page === totalPages ||
+                    Math.abs(page - currentPage) <= 2
+                  ) {
+                    return (
+                      <button key={page} onClick={() => handlePageClick(page)}>
+                        {page}
+                      </button>
+                    );
+                  } else if (Math.abs(page - currentPage) === 3) {
+                    return <span key={page}>...</span>;
+                  }
+                  return null;
+                }
+              )}
+
+              {/* Next Button */}
+              <button
+                disabled={currentPage === totalPages}
+                onClick={() => handlePageClick(currentPage + 1)}
+              >
+                Next
+              </button>
+            </div>
           </div>
 
           <aside className="side-post">
