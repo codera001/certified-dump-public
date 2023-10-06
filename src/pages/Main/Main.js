@@ -12,21 +12,48 @@ import { Link, useNavigate } from "react-router-dom";
 function Main() {
   const navigate = useNavigate();
   const [providers, setProviders] = useState(null);
+  const [exams, setExams] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredExams, setFilteredExams] = useState([]);
+
+  const GetExams = async () => {
+    try {
+      const response = await axios.get(
+        "https://api.certifieddump.com/api-admin/getExams"
+      );
+      setExams(response.data.exams);
+      //  console.log(response.data.exams);
+    } catch (error) {
+      // console.log(error);
+    }
+  };
+
   const GetProviders = async () => {
     try {
       const response = await axios.get(
         "https://api.certifieddump.com/api-admin/getProviders"
       );
-      // console.log(response);
-      // console.log(response.data.providers.slice(0, 10));
       setProviders(response.data.providers);
     } catch (error) {
       // console.log(error);
     }
   };
 
+   const handleSearch = () => {
+     const filteredExams = exams.filter(
+       (exam) =>
+         exam.title.includes(searchTerm) || exam.codeName.includes(searchTerm)
+     );
+     setFilteredExams(filteredExams);
+   };
+
+   const handleSelect = (exam) => {
+     // Do something with the selected exam, e.g., display it in a separate section
+   };
+
   useEffect(() => {
     GetProviders();
+    GetExams();
   }, []);
 
   const providerChange = (e) => {
@@ -175,8 +202,26 @@ function Main() {
               className="py-2 keyword"
               type="text"
               placeholder="Exam Name or Code"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <button className="mx-md-3 button py-1">Search Exams</button>
+            <button className="mx-md-3 button py-1" onClick={handleSearch}>
+              Search Exams
+            </button>
+
+            {filteredExams.length > 0 && (
+              <div className="dropdown">
+                {filteredExams.map((exam, index) => (
+                  <div
+                    key={index}
+                    className="dropdown-option"
+                    onClick={() => handleSelect(exam)}
+                  >
+                    {exam.title} - {exam.codeName}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>

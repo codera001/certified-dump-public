@@ -40,7 +40,7 @@ const Support = () => {
       // console.log(response);
       setTickets(response.data.result);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
