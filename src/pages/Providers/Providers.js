@@ -31,7 +31,7 @@ function Providers() {
   return (
     <PublicLayout>
       <section className="section-providers">
-        <div className="d-flex justify-content-between">
+        <div className="navigate container mb-4">
           <Back path="/" />
           <SearchBar setSearch={setSearch} text="Provider Name" />
         </div>
