@@ -32,7 +32,7 @@ const Payment = () => {
           currency: "USD",
           customerFirstName: sessionStorage.getItem("userFirstname"),
           customerLastName: sessionStorage.getItem("userLastname"),
-          customerPhoneNumber: "2348032132100",
+          customerPhoneNumber: "+2348032132100",
           email: sessionStorage.getItem("userEmail"),
         },
         {

@@ -18,19 +18,16 @@ const Profile = () => {
   const email = sessionStorage.getItem("userEmail");
   let balance = sessionStorage.getItem("balance");
   const [origin, setOrigin] = useState(sessionStorage.getItem("country"));
-  const [phoneNumber, setPhoneNumber] = useState(
-    sessionStorage.getItem("userPhone")
-    );
-    const [birthday, setBirthday] = useState(sessionStorage.getItem("dob"));
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [birthday, setBirthday] = useState("");
   const [gender, setGender] = useState(sessionStorage.getItem("gender"));
-  const [profileImage, setProfileImage] = useState(
-    sessionStorage.getItem("userImg")
-  );
-
+  const [profileImage, setProfileImage] = useState();
+  const [displayImg, setDisplayImg] = useState(null);
   const [changePass, setChangePass] = useState(false);
   const [del, setDel] = useState(false);
   const fileInputRef = useRef(null);
   const formData = new FormData();
+  const userCode = sessionStorage.getItem("userCode");
 
   const ShowChangePass = () => {
     setChangePass(true);
@@ -48,7 +45,8 @@ const Profile = () => {
   const handleImageChange = (e) => {
     const image = e.target.files[0];
     if (image && image.type.startsWith("image/")) {
-      setProfileImage(URL.createObjectURL(image));
+      setProfileImage(image);
+      setDisplayImg(URL.createObjectURL(image));
     } else {
       toast.error("Please select a valid image file.");
     }
@@ -64,15 +62,13 @@ const Profile = () => {
           },
         }
       );
-      console.log(response.data);
-      setOrigin(response.data.country);
-      setBirthday(response.data.dob);
-      setGender(response.data.gender);
-      setProfileImage(response.data.image_path);
-      setPhoneNumber(response.data.phone_no);
-      // setTickets(response.data.result);
+      // console.log(response.data[0]);
+      setOrigin(response.data[0].country);
+      setBirthday(response.data[0].dob);
+      setGender(response.data[0].gender);
+      setDisplayImg(response.data[0].image_path);
+      setPhoneNumber(response.data[0].phone_no);
     } catch (error) {
-      // console.log(error);
     }
   };
 
@@ -84,7 +80,6 @@ const Profile = () => {
         response = await axios.post(
           "https://api.certifieddump.com/upload",
           formData,
-
           {
             headers: {
               "Content-Type": "multipart/form-data",
@@ -92,19 +87,21 @@ const Profile = () => {
             },
           }
         );
-        // console.log(response);
       }
+      // console.log(response);
       await axios.post(
         "https://api.certifieddump.com/api/edituser",
         {
           firstname: sessionStorage.getItem("userFirstname"),
           lastname: sessionStorage.getItem("userLastname"),
-          phone_no: `${phoneNumber}`,
-          dob: birthday,
-          country: localStorage.getItem("userCountry"),
           userid: sessionStorage.getItem("userId"),
+          country: localStorage.getItem("userCountry"),
+          phone_no: `${
+            userCode !== null ? parseInt(userCode) : ""
+          }${phoneNumber}`,
+          dob: birthday,
           gender: gender,
-          image: response.data.path,
+          image: response.data.path ? response.data.path : displayImg,
         },
         {
           headers: {
@@ -112,18 +109,19 @@ const Profile = () => {
           },
         }
       );
+
       GetProfile();
       // console.log(response);
-      // console.log(formData);
       toast.success("Profile update is successful!" || response.data.msg);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      toast.error(error.response.data);
     }
   };
 
   useEffect(() => {
     GetProfile();
-    //  setLoading(!loading);
+    // console.log(displayImg);
   }, []);
 
   return (
@@ -137,7 +135,7 @@ const Profile = () => {
           </p>
         </div>
         <div className="d-profile-pic">
-          {profileImage ? (
+          {displayImg ? (
             <div className="d-profile-image">
               <BiEdit
                 onClick={handleEditClick}
@@ -148,7 +146,7 @@ const Profile = () => {
                   right: "5px",
                 }}
               />
-              <img src={profileImage} alt="Profile" />
+              <img src={displayImg} alt="Profile" />
             </div>
           ) : (
             <div className="d-profile-image pic">
@@ -201,21 +199,19 @@ const Profile = () => {
               <Phone />
               <input
                 type="number"
-                value={phoneNumber}
-                onChange={(e) =>{
-                  setPhoneNumber(
-                    `${parseInt(localStorage.getItem("userCode"))}${
-                      e.target.value
-                    }`
-                  )}
+                value={
+                  phoneNumber
+                    ? phoneNumber
+                    : sessionStorage.getItem("userPhone")
                 }
+                onChange={(e) => setPhoneNumber(e.target.value)}
                 required
               />
             </div>
             <div className="d-input-box">
               <input
                 type="date"
-                value={birthday}
+                value={birthday ? birthday : sessionStorage.getItem("dob")}
                 onChange={(e) => setBirthday(e.target.value)}
               />
             </div>

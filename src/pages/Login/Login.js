@@ -174,29 +174,7 @@ function Login() {
             >
               Or log in with Google
             </p>
-            {/* <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com"> */}
             <Google />
-            {/* </GoogleOAuthProvider> */}
-            {/* <div className="social-images d-flex">
-              <div className="social-images-wrap">
-                <BsFacebook
-                  className="me-1"
-                  style={{ fontSize: "21px", color: "blue" }}
-                ></BsFacebook>
-                <AiFillTwitterCircle
-                  className="me-1"
-                  style={{ fontSize: "23px", color: "skyblue" }}
-                ></AiFillTwitterCircle>
-                <FcGoogle
-                  className="me-1"
-                  style={{ fontSize: "22px" }}
-                ></FcGoogle>
-                <AiFillGithub
-                  className="me-1"
-                  style={{ fontSize: "22px" }}
-                ></AiFillGithub>
-              </div>
-            </div> */}
           </Form>
         </div>
       </div>

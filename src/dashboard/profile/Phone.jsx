@@ -2,7 +2,7 @@ import React from "react";
 
 const Phone = () => {
   const handleNumberChange = (e) => {
-    localStorage.setItem("userCode", `+${e.target.value}`);
+    sessionStorage.setItem("userCode", `+${e.target.value}`);
   };
   return (
     <select
