@@ -64,10 +64,10 @@ const Profile = () => {
           },
         }
       );
-      console.log(response);
+      // console.log(response);
       // setTickets(response.data.result);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -87,7 +87,7 @@ const Profile = () => {
             },
           }
         );
-        console.log(response);
+        // console.log(response);
       }
       await axios.post(
         "https://api.certifieddump.com/api/edituser",
@@ -108,7 +108,7 @@ const Profile = () => {
         }
       );
       GetProfile();
-      console.log(response);
+      // console.log(response);
       // console.log(formData);
       toast.success("Profile update is successful!" || response.data.msg);
     } catch (error) {
