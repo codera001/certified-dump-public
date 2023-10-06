@@ -68,6 +68,7 @@ const Profile = () => {
       setGender(response.data[0].gender);
       setDisplayImg(response.data[0].image_path);
       setPhoneNumber(response.data[0].phone_no);
+      sessionStorage.setItem("userNo", response.data[0].phone_no);
     } catch (error) {}
   };
 

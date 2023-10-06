@@ -8,14 +8,14 @@ import loader from "../../static/loader.gif";
 
 const VerifyPayment = () => {
   const ref = sessionStorage.getItem("paymentRef");
-  const [verified, setVerified] = useState(true);
+  const [verified, setVerified] = useState(false);
 
   const VerifyPayment = async () => {
     try {
       const response = await axios.get(
         `https://api.certifieddump.com/api/getSupportChat?senderId=${ref}`
       );
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -23,9 +23,6 @@ const VerifyPayment = () => {
 
   useEffect(() => {
     VerifyPayment();
-    setTimeout(() => {
-      setVerified(false);
-    }, 5000);
   }, []);
 
   return (

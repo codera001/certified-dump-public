@@ -14,11 +14,7 @@ const Payment = () => {
     setAmt(amount);
     setSelectedButton(amount);
   };
-
-  // console.log(amt);
   const navigate = useNavigate();
-
-  // customerPhoneNumber: sessionStorage.getItem("userPhone"),
   const Deposit = async () => {
     try {
       const response = await axios.post(
@@ -26,13 +22,11 @@ const Payment = () => {
         {
           amount: Number(amt) * 100,
           userid: sessionStorage.getItem("userId"),
-          // callbackUrl: "http://localhost:3000/payment-verification",
           callbackUrl: "https://certifieddump.com/payment-verification",
-          // currency: "NGN",
           currency: "USD",
           customerFirstName: sessionStorage.getItem("userFirstname"),
           customerLastName: sessionStorage.getItem("userLastname"),
-          customerPhoneNumber: "+2348032132100",
+          customerPhoneNumber: sessionStorage.getItem("userNo"),
           email: sessionStorage.getItem("userEmail"),
         },
         {
@@ -41,7 +35,7 @@ const Payment = () => {
           },
         }
       );
-      console.log(response);
+      // console.log(response);
       // navigate(response.data.authorizationUrl);
       sessionStorage.setItem("paymentRef", response.data.reference);
       window.location.href = response.data.authorizationUrl;
