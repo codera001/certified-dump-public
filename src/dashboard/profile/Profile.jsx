@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Layout from "../components/Layout/Layout";
 import ChangePassword from "./change_password/ChangePassword";
 import "./Profile.css";
@@ -26,8 +26,9 @@ const Profile = () => {
   const [birthday, setBirthday] = useState("");
   const [changePass, setChangePass] = useState(false);
   const [del, setDel] = useState(false);
-  const [profileImage, setProfileImage] = useState(sessionStorage.getItem("userImg"));
-  const [editImage, setEditImage] = useState(false)
+  const [profileImage, setProfileImage] = useState(
+    sessionStorage.getItem("userImg")
+  );
   const fileInputRef = useRef(null);
   const formData = new FormData();
 
@@ -50,6 +51,23 @@ const Profile = () => {
       setProfileImage(URL.createObjectURL(image));
     } else {
       toast.error("Please select a valid image file.");
+    }
+  };
+
+  const GetProfile = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.certifieddump.com/api/profile`,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+        }
+      );
+      console.log(response);
+      // setTickets(response.data.result);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -89,6 +107,7 @@ const Profile = () => {
           },
         }
       );
+      GetProfile();
       console.log(response);
       // console.log(formData);
       toast.success("Profile update is successful!" || response.data.msg);
@@ -96,6 +115,11 @@ const Profile = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    GetProfile();
+    //  setLoading(!loading);
+  }, []);
 
   return (
     <Layout>
