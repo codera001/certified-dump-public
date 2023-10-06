@@ -62,14 +62,13 @@ const Profile = () => {
           },
         }
       );
-      // console.log(response.data[0]);
+      console.log(response.data[0]);
       setOrigin(response.data[0].country);
       setBirthday(response.data[0].dob);
       setGender(response.data[0].gender);
       setDisplayImg(response.data[0].image_path);
       setPhoneNumber(response.data[0].phone_no);
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   const updateData = async () => {
@@ -88,7 +87,7 @@ const Profile = () => {
           }
         );
       }
-      // console.log(response);
+      console.log(response);
       await axios.post(
         "https://api.certifieddump.com/api/edituser",
         {
@@ -96,12 +95,10 @@ const Profile = () => {
           lastname: sessionStorage.getItem("userLastname"),
           userid: sessionStorage.getItem("userId"),
           country: localStorage.getItem("userCountry"),
-          phone_no: `${
-            userCode !== null ? parseInt(userCode) : ""
-          }${phoneNumber}`,
+          phone_no: `${userCode}${phoneNumber}`,
           dob: birthday,
           gender: gender,
-          image: response.data.path ? response.data.path : displayImg,
+          image: response ? response.data.path : displayImg,
         },
         {
           headers: {
@@ -111,17 +108,16 @@ const Profile = () => {
       );
 
       GetProfile();
-      // console.log(response);
-      toast.success("Profile update is successful!" || response.data.msg);
+      console.log(response);
+      // toast.success("Profile update is successful!" || response.data.msg);
     } catch (error) {
-      // console.log(error);
-      toast.error(error.response.data);
+      console.log(error);
+      // toast.error(error.response.data.msg);
     }
   };
 
   useEffect(() => {
     GetProfile();
-    // console.log(displayImg);
   }, []);
 
   return (
@@ -198,13 +194,11 @@ const Profile = () => {
             <div className="d-input-box d-phone-box">
               <Phone />
               <input
-                type="number"
-                value={
-                  phoneNumber
-                    ? phoneNumber
-                    : sessionStorage.getItem("userPhone")
-                }
-                onChange={(e) => setPhoneNumber(e.target.value)}
+                type="text"
+                value={phoneNumber}
+                onChange={(e) => {
+                  setPhoneNumber(e.target.value);
+                }}
                 required
               />
             </div>
