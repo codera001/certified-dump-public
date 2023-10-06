@@ -11,7 +11,7 @@ const Phone = () => {
       name="phone"
       onChange={handleNumberChange}
     >
-      <option value="">code</option>
+      <option value="">{sessionStorage.getItem("userCode") || "code"}</option>
       <option data-countrycode="AF" value="+93">
         Afghanistan +93
       </option>
