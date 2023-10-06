@@ -16,19 +16,19 @@ const Profile = () => {
   const fname = sessionStorage.getItem("userFirstname");
   const lname = sessionStorage.getItem("userLastname");
   const email = sessionStorage.getItem("userEmail");
-  const origin = sessionStorage.getItem("country");
-  const userDob = sessionStorage.getItem("dob");
-  const userGender = sessionStorage.getItem("gender");
-  const userPhone = sessionStorage.getItem("userPhone");
   let balance = sessionStorage.getItem("balance");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [gender, setGender] = useState("");
-  const [birthday, setBirthday] = useState("");
-  const [changePass, setChangePass] = useState(false);
-  const [del, setDel] = useState(false);
+  const [origin, setOrigin] = useState(sessionStorage.getItem("country"));
+  const [phoneNumber, setPhoneNumber] = useState(
+    sessionStorage.getItem("userPhone")
+    );
+    const [birthday, setBirthday] = useState(sessionStorage.getItem("dob"));
+  const [gender, setGender] = useState(sessionStorage.getItem("gender"));
   const [profileImage, setProfileImage] = useState(
     sessionStorage.getItem("userImg")
   );
+
+  const [changePass, setChangePass] = useState(false);
+  const [del, setDel] = useState(false);
   const fileInputRef = useRef(null);
   const formData = new FormData();
 
@@ -64,7 +64,12 @@ const Profile = () => {
           },
         }
       );
-      // console.log(response);
+      console.log(response.data);
+      setOrigin(response.data.country);
+      setBirthday(response.data.dob);
+      setGender(response.data.gender);
+      setProfileImage(response.data.image_path);
+      setPhoneNumber(response.data.phone_no);
       // setTickets(response.data.result);
     } catch (error) {
       // console.log(error);
@@ -94,7 +99,7 @@ const Profile = () => {
         {
           firstname: sessionStorage.getItem("userFirstname"),
           lastname: sessionStorage.getItem("userLastname"),
-          phone_no: `${localStorage.getItem("userCode")}${phoneNumber}`,
+          phone_no: `${phoneNumber}`,
           dob: birthday,
           country: localStorage.getItem("userCountry"),
           userid: sessionStorage.getItem("userId"),
@@ -144,8 +149,6 @@ const Profile = () => {
                 }}
               />
               <img src={profileImage} alt="Profile" />
-              {/* <img src={URL.createObjectURL(profileImage)} alt="Profile" /> */}
-              {/* <img src={URL.createObjectURL(profileImage)} alt="Profile" /> */}
             </div>
           ) : (
             <div className="d-profile-image pic">
@@ -198,15 +201,21 @@ const Profile = () => {
               <Phone />
               <input
                 type="number"
-                value={phoneNumber || userPhone || ""}
-                onChange={(e) => setPhoneNumber(e.target.value)}
+                value={phoneNumber}
+                onChange={(e) =>{
+                  setPhoneNumber(
+                    `${parseInt(localStorage.getItem("userCode"))}${
+                      e.target.value
+                    }`
+                  )}
+                }
                 required
               />
             </div>
             <div className="d-input-box">
               <input
                 type="date"
-                value={birthday ? birthday : userDob}
+                value={birthday}
                 onChange={(e) => setBirthday(e.target.value)}
               />
             </div>
@@ -217,7 +226,7 @@ const Profile = () => {
                 e.preventDefault();
                 setGender("Male");
               }}
-              className={userGender == "Male" ? "male-gender" : ""}
+              className={gender == "Male" ? "male-gender" : ""}
             >
               <BsGenderMale />
               <p>Male</p>
@@ -227,7 +236,7 @@ const Profile = () => {
                 e.preventDefault();
                 setGender("Female");
               }}
-              className={userGender == "Female" ? "female-gender" : ""}
+              className={gender == "Female" ? "female-gender" : ""}
             >
               <BsGenderFemale />
               <p>Female</p>
