@@ -153,24 +153,25 @@ const SingleBlog = () => {
                 </div>
               )}
 
-              {comments.length !== 0 &&
-                comments
-                  .sort(function (a, b) {
-                    return b.id - a.id;
-                  })
-                  .map((comment, index) => {
-                    return (
-                      <ul key={index} className="list-disc px-3 text-lg">
-                        <li>
-                          {comment.comment}{" "}
-                          {new Date(
-                            comment.date_commented
-                          ).toLocaleDateString()}
-                          {comment.userid}
+              <ol>
+                {comments.length !== 0 &&
+                  comments
+                    .sort(function (a, b) {
+                      return b.id - a.id;
+                    })
+                    .map((comment, index) => {
+                      return (
+                      <li key={index} style={{marginBottom: ".5rem"}}>
+                          {comment.userid}: {comment.comment}
+                          <small style={{ marginLeft: "4px" }}>
+                            {new Date(
+                              comment.date_commented
+                            ).toLocaleDateString()}
+                          </small>
                         </li>
-                      </ul>
-                    );
-                  })}
+                      );
+                    })}
+              </ol>
             </div>
           </div>
 
