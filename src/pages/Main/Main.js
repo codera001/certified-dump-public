@@ -24,9 +24,7 @@ function Main() {
       );
       setExams(response.data.exams);
       //  console.log(response.data.exams);
-    } catch (error) {
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 
   const GetProviders = async () => {
@@ -35,22 +33,25 @@ function Main() {
         "https://api.certifieddump.com/api-admin/getProviders"
       );
       setProviders(response.data.providers);
-    } catch (error) {
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 
-   const handleSearch = () => {
-     const filteredExams = exams.filter(
-       (exam) =>
-         exam.title.includes(searchTerm) || exam.codeName.includes(searchTerm)
-     );
-     setFilteredExams(filteredExams);
-   };
+  const handleSearch = () => {
+    const examMatch = exams.filter((exam) =>
+      exam.title.toLowerCase().includes(searchTerm)
+    );
+    setFilteredExams(examMatch);
+    // console.log(exams);
+    // console.log(filteredExams);
+    // console.log(examMatch);
+  };
 
-   const handleSelect = (exam) => {
-     // Do something with the selected exam, e.g., display it in a separate section
-   };
+  const handleSelect = (exam) => {
+    if (exam) {
+      navigate(`/provider/${exam.providerid}`);
+    }
+    // Do something with the selected exam, e.g., display it in a separate section
+  };
 
   useEffect(() => {
     GetProviders();
@@ -199,30 +200,35 @@ function Main() {
                 ))}
             </select>
             <p className="mb-0">OR</p>
-            <input
-              className="py-2 keyword"
-              type="text"
-              placeholder="Exam Name or Code"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
+            <div className="filter-drop">
+              <input
+                className="py-2 keyword"
+                type="text"
+                placeholder="Exam Name or Code"
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value.toLowerCase());
+                  // console.log(searchTerm);
+                }}
+              />
+              {filteredExams.length > 0 && (
+                <div className="p-dropdown">
+                  {console.log(filteredExams)}
+                  {filteredExams.map((exam, index) => (
+                    <div
+                      key={index}
+                      className="p-dropdown-option"
+                      onClick={() => handleSelect(exam)}
+                    >
+                      {exam.title}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
             <button className="mx-md-3 button py-1" onClick={handleSearch}>
               Search Exams
             </button>
-
-            {filteredExams.length > 0 && (
-              <div className="dropdown">
-                {filteredExams.map((exam, index) => (
-                  <div
-                    key={index}
-                    className="dropdown-option"
-                    onClick={() => handleSelect(exam)}
-                  >
-                    {exam.title} - {exam.codeName}
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
         </div>
       </section>
