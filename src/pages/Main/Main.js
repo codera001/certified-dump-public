@@ -36,16 +36,16 @@ function Main() {
     } catch (error) {}
   };
 
- const handleSearch = () => {
-  const examMatch = exams.filter((exam) => {
-    if (searchTerm === "") {
-      return false;
-    } else {
-      return exam.title.toLowerCase().includes(searchTerm);
-    }
-  });
-  setFilteredExams(examMatch);
-};
+  const handleSearch = () => {
+    const examMatch = exams.filter((exam) => {
+      if (searchTerm === "") {
+        return false;
+      } else {
+        return exam.title.toLowerCase().includes(searchTerm);
+      }
+    });
+    setFilteredExams(examMatch);
+  };
 
   const handleSelect = (exam) => {
     if (exam) {
