@@ -36,19 +36,16 @@ function Main() {
     } catch (error) {}
   };
 
-  const handleSearch = () => {
-    const examMatch = exams.filter((exam) => {
-      if (searchTerm == "") return exam;
-      else if (exam.title.toLowerCase().includes(searchTerm)) {
-        return exam;
-        // exam.title.toLowerCase().includes(searchTerm)
-      } else return null;
-    });
-    setFilteredExams(examMatch);
-    // console.log(exams);
-    // console.log(filteredExams);
-    // console.log(examMatch);
-  };
+ const handleSearch = () => {
+  const examMatch = exams.filter((exam) => {
+    if (searchTerm === "") {
+      return false;
+    } else {
+      return exam.title.toLowerCase().includes(searchTerm);
+    }
+  });
+  setFilteredExams(examMatch);
+};
 
   const handleSelect = (exam) => {
     if (exam) {
@@ -211,13 +208,15 @@ function Main() {
                 value={searchTerm}
                 onChange={(e) => {
                   setSearchTerm(e.target.value.toLowerCase());
-                  handleSearch();
-                  // console.log(searchTerm);
+                  if (e.target.value === "") {
+                    setFilteredExams([]);
+                  } else {
+                    handleSearch();
+                  }
                 }}
               />
               {filteredExams && (
                 <div className="p-dropdown">
-                  {console.log(filteredExams)}
                   {filteredExams.map((exam, index) => (
                     <div
                       key={index}
