@@ -37,9 +37,13 @@ function Main() {
   };
 
   const handleSearch = () => {
-    const examMatch = exams.filter((exam) =>
-      exam.title.toLowerCase().includes(searchTerm)
-    );
+    const examMatch = exams.filter((exam) => {
+      if (searchTerm == "") return exam;
+      else if (exam.title.toLowerCase().includes(searchTerm)) {
+        return exam;
+        // exam.title.toLowerCase().includes(searchTerm)
+      } else return null;
+    });
     setFilteredExams(examMatch);
     // console.log(exams);
     // console.log(filteredExams);
@@ -50,7 +54,6 @@ function Main() {
     if (exam) {
       navigate(`/provider/${exam.providerid}`);
     }
-    // Do something with the selected exam, e.g., display it in a separate section
   };
 
   useEffect(() => {
@@ -208,10 +211,11 @@ function Main() {
                 value={searchTerm}
                 onChange={(e) => {
                   setSearchTerm(e.target.value.toLowerCase());
+                  handleSearch();
                   // console.log(searchTerm);
                 }}
               />
-              {filteredExams.length > 0 && (
+              {filteredExams && (
                 <div className="p-dropdown">
                   {console.log(filteredExams)}
                   {filteredExams.map((exam, index) => (
