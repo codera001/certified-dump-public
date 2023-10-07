@@ -13,7 +13,6 @@ import { googleLogout } from "@react-oauth/google";
 
 const Nav = () => {
   const email = sessionStorage.getItem("userEmail");
-  // const [balance, setBalance] = useState("");
   const balance = sessionStorage.getItem("balance");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -34,12 +33,18 @@ const Nav = () => {
       // console.log(response);
     } catch (error) {
       setError(error.response.data.msg);
-      // setError(error.response.data.msg);
-      // console.log(error);
     }
   };
 
+ function getLocation(){
+    navigator.geolocation.getCurrentPosition(location => {
+      console.log(location)
+    })
+  }
+
+
   useEffect(() => {
+    getLocation();
     getUserBalance();
     setLoading(!loading);
   }, []);
