@@ -13,7 +13,6 @@ import { FaUserCircle } from "react-icons/fa";
 import image from "../../static/image.png";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 const SingleBlog = () => {

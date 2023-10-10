@@ -20,12 +20,6 @@ const Sidebar = () => {
     navigate("/login");
   };
 
-  const BookPreview = () => {
-    if (localStorage.getItem("bookRoute")) {
-      navigate("bookRoute");
-    } else navigate("/providers");
-  };
-
   return (
     <>
       <aside

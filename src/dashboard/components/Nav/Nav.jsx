@@ -41,10 +41,8 @@ const Nav = () => {
       console.log(location)
     })
   }
-
-
   useEffect(() => {
-    getLocation();
+    // getLocation();
     getUserBalance();
     setLoading(!loading);
   }, []);
