@@ -67,7 +67,6 @@ const SingleBlog = () => {
       GetComments();
       setUserComment("");
       toast.success("comment posted");
-      // console.log(response.data.msg);
     } catch (error) {}
   };
 
@@ -152,7 +151,6 @@ const SingleBlog = () => {
                   </button>
                 </div>
               )}
-
               <ol>
                 {comments.length !== 0 &&
                   comments
@@ -161,8 +159,9 @@ const SingleBlog = () => {
                     })
                     .map((comment, index) => {
                       return (
-                      <li key={index} style={{marginBottom: ".5rem"}}>
-                          {comment.userid}: {comment.comment}
+                        <li key={index} style={{ marginBottom: ".5rem" }}>
+                          {sessionStorage.getItem("userFirstname")}
+                          {comment.comment}
                           <small style={{ marginLeft: "4px" }}>
                             {new Date(
                               comment.date_commented
@@ -174,7 +173,6 @@ const SingleBlog = () => {
               </ol>
             </div>
           </div>
-
           <aside className="side-post">
             <div className="side-post-wrap">
               <h6 className="side-post-head mb-4"> LATEST POSTS</h6>
