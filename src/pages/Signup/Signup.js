@@ -45,7 +45,7 @@ function Signup() {
   };
 
   const handleSubmit = async () => {
-    console.log(formData);
+    // console.log(formData);
     // e.preventDefault();
     try {
       const response = await axios.post(

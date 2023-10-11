@@ -112,7 +112,7 @@ const Profile = () => {
       // console.log(response);
       toast.success("Profile update is successful!" || response.data.msg);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       // toast.error(error.response.data.msg);
     }
   };

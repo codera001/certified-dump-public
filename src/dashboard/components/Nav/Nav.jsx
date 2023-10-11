@@ -38,7 +38,7 @@ const Nav = () => {
 
  function getLocation(){
     navigator.geolocation.getCurrentPosition(location => {
-      console.log(location)
+      // console.log(location)
     })
   }
   useEffect(() => {

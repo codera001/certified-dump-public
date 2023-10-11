@@ -17,7 +17,7 @@ const VerifyPayment = () => {
       );
       // console.log(response);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

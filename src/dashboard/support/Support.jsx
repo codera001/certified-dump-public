@@ -65,7 +65,7 @@ const Support = () => {
       GetTickets();
     } catch (error) {
       // toast.error(error.response.data.msg);
-      console.log(error);
+      // console.log(error);
     }
   };
 

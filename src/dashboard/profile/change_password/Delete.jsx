@@ -28,7 +28,7 @@ const Delete = (props) => {
       toast.success(response.data.msg || "Your account no longer exist");
       navigate("/signup");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

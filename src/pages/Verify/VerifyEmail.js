@@ -39,10 +39,10 @@ function VerifyEmail() {
           email: localStorage.getItem("unverifiedMail"),
         }
       );
-      console.log("Verification Code sent:", response.data);
+      // console.log("Verification Code sent:", response.data);
       toast.success("Verification code has been sent to your mail");
     } catch (error) {
-      console.log("verification error:", error);
+      // console.log("verification error:", error);
       // toast.success("Your account is already verified, please login");
     }
   };
