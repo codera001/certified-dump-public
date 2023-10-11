@@ -11,7 +11,9 @@ const Chat = () => {
   const [textMessage, setTextMessage] = useState("");
   const ticketSubject = sessionStorage.getItem("ticket-subject");
   const userId = sessionStorage.getItem("userId");
-
+  const preprocessMessage = (message) => {
+    return message.replace(/'/g, "&apos;");
+  };
   const GetTicketMessages = async () => {
     try {
       const response = await axios.get(
@@ -36,7 +38,7 @@ const Chat = () => {
         {
           subject: ticketSubject,
           subjectId: ticketId,
-          message: textMessage,
+          message: preprocessMessage(textMessage),
           senderId: userId,
         },
         {
