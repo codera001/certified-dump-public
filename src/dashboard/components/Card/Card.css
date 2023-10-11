@@ -19,7 +19,7 @@
   border: 1px solid var(--primary-color);
 }
 
-.d-admin-card{
+.d-admin-card {
   aspect-ratio: 1.5;
 }
 
@@ -47,21 +47,23 @@
   padding: 10px 5px;
 }
 
-.d-card-details .title,
-.d-card-details .cost {
-  font-size: 1.2rem;
-  font-weight: 600;
+.info-deet {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 0;
 }
 
-.d-card .book-modal{
+.d-card .book-modal {
   color: var(--black);
 }
 
-.d-card .p-book-deet{
-  margin-top: .4rem;
+.d-card .p-book-deet {
+  margin-top: 0.4rem;
   text-align: left;
 }
-.d-card .submit-cancel-Btn{
-  margin-top: .8rem;
+.d-card .submit-cancel-Btn {
+  margin-top: 0.8rem;
   justify-content: center;
 }
