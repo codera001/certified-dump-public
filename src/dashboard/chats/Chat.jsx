@@ -65,7 +65,7 @@ const Chat = () => {
         <div className="d-chatbox-inner">
           {/* <!-- Header --> */}
           <h3>
-            Subject for {ticketSubject} {ticketId}
+            Subject for {ticketSubject}
           </h3>
           {/* <!-- Messages --> */}
           <div className="d-messages">
