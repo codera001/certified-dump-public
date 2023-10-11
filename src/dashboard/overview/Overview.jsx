@@ -128,6 +128,7 @@ const Overview = () => {
                       key={index}
                       image={book.image}
                       title={book.title}
+                      file={book.file}
                       provider={book.providerid}
                     />
                   ))}
