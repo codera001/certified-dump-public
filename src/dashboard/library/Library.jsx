@@ -66,6 +66,7 @@ const Library = () => {
                   <Card
                     key={index}
                     image={book.image}
+                    file={book.file}
                     title={book.title}
                     cost={book.cost}
                     date={book.date}

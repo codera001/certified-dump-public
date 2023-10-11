@@ -16,16 +16,16 @@ const Card = ({ image, title, file, provider, cost, date }) => {
           "Content-Type": "application/pdf",
           Authorization: `Bearer ${token}`,
         },
-        responseType: "blob", // Set responseType to 'blob'
+        responseType: "blob",
       });
       const link = document.createElement("a");
-      link.href = URL.createObjectURL(res.data); // Use res.data as the blob
+      link.href = URL.createObjectURL(res.data);
       link.download = `${title}.pdf`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     } catch (error) {
-      setError(error);
+      // setError(error);
     } finally {
       setLoading(false);
     }
@@ -45,7 +45,7 @@ const Card = ({ image, title, file, provider, cost, date }) => {
         <p>{date}</p>
         <p>{provider}</p>
         {loading && <p>Loading...</p>}
-        {error && <p style={{ color: "red" }}>{error.message}</p>}
+        {/* {error && <p style={{ color: "red" }}>{error.message}</p>} */}
       </div>
     </div>
   );
