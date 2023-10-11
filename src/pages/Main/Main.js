@@ -44,6 +44,7 @@ function Main() {
         "https://api.certifieddump.com/api-admin/getProviders"
       );
       setProviders(response.data.providers);
+      // console.log(response.data.providers);
     } catch (error) {}
   };
 
@@ -156,11 +157,11 @@ function Main() {
               {providers.slice(0, 10).map((item, i) => (
                 <Provider
                   key={i}
-                  image={cisco}
+                  // image={cisco}
                   providerName={`/provider/${item.name}`}
                   i={i}
                   title={item.name}
-                  // image={item.url}
+                  image={item.url}
                   text="View More"
                 />
               ))}
