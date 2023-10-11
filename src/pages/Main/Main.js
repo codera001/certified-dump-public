@@ -16,6 +16,17 @@ function Main() {
   const [exams, setExams] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredExams, setFilteredExams] = useState([]);
+  const [images, setImages] = useState([]);
+  const [curImg, setCurImg] = useState(0);
+  const GetImages = async () => {
+    // Fetch images from your endpoint
+    try {
+      const res = await axios.get(
+        "https://api.certifieddump.com/api-admin/getImageHeader"
+      );
+      setImages(res.data.ImageHeader.map(item => item.image_url));
+    } catch (error) {}
+  };
 
   const GetExams = async () => {
     try {
@@ -53,11 +64,6 @@ function Main() {
     }
   };
 
-  useEffect(() => {
-    GetProviders();
-    GetExams();
-  }, []);
-
   const providerChange = (e) => {
     const selectedProvider = e.target.value;
     if (selectedProvider) {
@@ -65,10 +71,29 @@ function Main() {
     }
   };
 
+  useEffect(() => {
+    GetImages();
+    GetProviders();
+    GetExams();
+  }, []);
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurImg((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [images]);
+
   return (
     <div style={{ textAlign: "center" }}>
       <NavigationBar />
-      <section className="section-one-main">
+      <section
+        className="section-one-main"
+        style={{
+          backgroundImage: `url(${images[curImg]})`,
+        }}
+      >
         <div className="text my-auto">
           <h1
             style={{
