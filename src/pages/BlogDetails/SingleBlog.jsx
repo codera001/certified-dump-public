@@ -101,7 +101,7 @@ const SingleBlog = () => {
                 </div>
               </div>
               <div className="blog-image">
-                <img loading="lazy" width={216} src={image} />
+                <img loading="lazy" width={216} src={blog.image} />
               </div>
               <div className="blog-text">
                 <p className="blog-body">{blog.content}</p>

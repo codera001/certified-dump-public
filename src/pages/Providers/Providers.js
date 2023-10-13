@@ -60,7 +60,7 @@ function Providers() {
                 .map((item, i) => (
                   <Provider
                     key={i}
-                    image={cisco}
+                    image={item.url}
                     providerName={`/provider/${item.name}`}
                     i={i}
                     title={item.name}

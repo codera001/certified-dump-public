@@ -15,33 +15,33 @@ function Blog() {
       const res = await axios.post(
         "https://api.certifieddump.com/api-blog/getAllBlogPosts"
       );
-      console.log(res.data.post);
+      // console.log(res.data.post);
       setBlogs(res.data.post);
     } catch (error) {
       // console.log(error);
     }
   };
 
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
-    const blogsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const blogsPerPage = 5;
 
-    // Assuming 'blogs' is your array of blogs
-    const totalBlogs = blogs.length;
-    useEffect(() => {
-      setTotalPages(Math.ceil(totalBlogs / blogsPerPage));
-    }, [totalBlogs]);
+  // Assuming 'blogs' is your array of blogs
+  const totalBlogs = blogs.length;
+  useEffect(() => {
+    setTotalPages(Math.ceil(totalBlogs / blogsPerPage));
+  }, [totalBlogs]);
 
-    // Calculate the range of blogs to display on the current page
-    const startIndex = (currentPage - 1) * blogsPerPage;
-    const endIndex = Math.min(startIndex + blogsPerPage, totalBlogs);
-    const displayedBlogs = blogs.slice(startIndex, endIndex);
+  // Calculate the range of blogs to display on the current page
+  const startIndex = (currentPage - 1) * blogsPerPage;
+  const endIndex = Math.min(startIndex + blogsPerPage, totalBlogs);
+  const displayedBlogs = blogs.slice(startIndex, endIndex);
 
-    // Function to handle pagination click
-    const handlePageClick = (page) => {
-      setCurrentPage(page);
+  // Function to handle pagination click
+  const handlePageClick = (page) => {
+    setCurrentPage(page);
   };
-  
+
   useEffect(() => {
     GetBlogs();
     setLoading(!loading);
