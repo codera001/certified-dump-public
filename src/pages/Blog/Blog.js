@@ -15,7 +15,7 @@ function Blog() {
       const res = await axios.post(
         "https://api.certifieddump.com/api-blog/getAllBlogPosts"
       );
-      // console.log(res.data.post);
+      console.log(res.data.post);
       setBlogs(res.data.post);
     } catch (error) {
       // console.log(error);
