@@ -6,7 +6,6 @@ import SearchBar from "../components/SearchBar.jsx/SearchBar";
 import loader from "../../static/loader.gif";
 import axios from "axios";
 import Announcement from "../components/Card/Announcement";
-import ModalLayout from "../../component/ModalLayout";
 
 const Overview = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -58,7 +57,7 @@ const Overview = () => {
       );
       // console.log(response);
     } catch (error) {
-      //  setError(error.response.data.msg);
+       setError(error.response.data.msg);
       // console.log(error);
     }
   };
