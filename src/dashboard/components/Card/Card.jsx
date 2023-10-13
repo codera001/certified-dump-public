@@ -9,6 +9,10 @@ const Card = ({ image, title, file, provider, cost, date }) => {
   const [error, setError] = useState(null);
 
   const getFile = async () => {
+    if (!file) {
+      setError("No file specified.");
+      return;
+    }
     setLoading(true);
     try {
       const res = await axios.get(file, {
@@ -25,7 +29,8 @@ const Card = ({ image, title, file, provider, cost, date }) => {
       link.click();
       document.body.removeChild(link);
     } catch (error) {
-      // setError(error);
+      console.log(error);
+      setError(error);
     } finally {
       setLoading(false);
     }
@@ -34,7 +39,7 @@ const Card = ({ image, title, file, provider, cost, date }) => {
   return (
     <div className="d-card">
       <div className="d-card-img">
-        <button onClick={getFile} disabled={loading}>
+        <button onClick={getFile} disabled={loading} aria-label="Download File">
           <BsDownload />
         </button>
         <img loading="lazy" src={image} alt={title} />
@@ -45,12 +50,10 @@ const Card = ({ image, title, file, provider, cost, date }) => {
         <p>{date}</p>
         <p>{provider}</p>
         {loading && <p>Loading...</p>}
-        {/* {error && <p style={{ color: "red" }}>{error.message}</p>} */}
+        {error && <p style={{ color: "red" }}>{error.message}</p>}
       </div>
     </div>
   );
 };
-
-
 
 export default Card;
