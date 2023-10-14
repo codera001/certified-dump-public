@@ -74,10 +74,10 @@ function NavigationBar() {
                     color: "white",
                     display: "flex",
                     alignItems: "center",
-                    margin: "0 .5rem 0 0",
+                    margin: "0 4.5rem 0 0",
                   }}
                 >
-                  Balance:{" "}
+                  Balance:
                   <span
                     style={{
                       margin: "0 0 0 4px",
@@ -103,7 +103,7 @@ function NavigationBar() {
         </div>
       </div>
 
-      {/* secon-nav */}
+      {/* second-nav */}
       <div className="container d-flex justify-content-between align-items-center nav-logo">
         <div className="p-nav-logo">
           <img loading="lazy" alt="logo" src={logo} />
@@ -135,6 +135,7 @@ function NavigationBar() {
         </div>
       </div>
 
+      {/*Third nav  */}
       <Navbar
         collapseOnSelect
         expand="lg"
