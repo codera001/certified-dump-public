@@ -18,13 +18,6 @@ const Overview = () => {
   let userid = sessionStorage.getItem("userId");
   let modalRef = useRef();
   const [modalIndex, setModalIndex] = useState(-1);
-  const [activeCurrency, setActiveCurrency] = useState(null);
-  let curr = sessionStorage.getItem("currency");
-  const [open, setOpen] = useState(true);
-  // console.log(curr);
-  const handleSelect = (currency) => {
-    setActiveCurrency(currency);
-  };
   const openModal = (index) => {
     setModalIndex(index);
   };
@@ -85,7 +78,6 @@ const Overview = () => {
   };
 
   useEffect(() => {
-    setOpen(true);
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         closeModal();
@@ -212,46 +204,7 @@ const Overview = () => {
         </div>
 
         {/* Currency pop up */}
-        {open ? (
-          <ModalLayout>
-            <>
-              <h3 style={{ color: "black" }}>
-                Please select a currency option for transactions
-              </h3>
-              <h5 style={{ color: "red" }}>
-                Kindly note that this decision cannot be reversed!
-              </h5>
-              <div className="submit-cancel-Btn">
-                <button
-                  className={`curr ${activeCurrency === "USD" ? "active" : ""}`}
-                  onClick={() => {
-                    handleSelect("USD");
-                    sessionStorage.setItem("currency", "USD");
-                  }}
-                >
-                  USD
-                </button>
-                <button
-                  className={`curr ${activeCurrency === "NGN" ? "active" : ""}`}
-                  onClick={() => {
-                    handleSelect("NGN");
-                    sessionStorage.setItem("currency", "NGN");
-                  }}
-                >
-                  Naira
-                </button>
-              </div>
-              <button
-                style={{ margin: "1rem 0 0" }}
-                onClick={() => setOpen(!open)}
-              >
-                I will do that later
-              </button>
-            </>
-          </ModalLayout>
-        ) : (
-          ""
-        )}
+        <CurrencyUpdate />
       </div>
     </Layout>
   );

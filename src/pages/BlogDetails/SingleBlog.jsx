@@ -104,7 +104,10 @@ const SingleBlog = () => {
                 <img loading="lazy" width={216} src={blog.image} />
               </div>
               <div className="blog-text">
-                <p className="blog-body">{blog.content}</p>
+                <div
+                  className="blog-body"
+                  dangerouslySetInnerHTML={{ __html: blog.content }}
+                />
                 <div className="blog-social-icons">
                   <div className="blog-social-icon">
                     <BsInstagram />

@@ -8,23 +8,14 @@ import { MdOutlinePayment } from "react-icons/md";
 import { Outlet, Link } from "react-router-dom";
 import axios from "axios";
 import loader from "../../../static/loader.gif";
-import { Button } from "../Button/Button";
 import { googleLogout } from "@react-oauth/google";
 
 const Nav = () => {
   const email = sessionStorage.getItem("userEmail");
   const balance = sessionStorage.getItem("balance");
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  const currency = sessionStorage.getItem("currency");
-  const [sign, setSign] = useState("");
-  if (currency === "USD") {
-    setSign("$");
-  } else if (currency === "NGN") {
-    setSign("NGN");
-  }
   let userid = sessionStorage.getItem("userId");
-
+  const currency = sessionStorage.getItem("currency");
   const getUserBalance = async () => {
     try {
       const response = await axios.get(
@@ -38,9 +29,7 @@ const Nav = () => {
       // setBalance(response.data.result[0].balance);
       sessionStorage.setItem("balance", response.data.result[0].balance);
       // console.log(response);
-    } catch (error) {
-      setError(error.response.data.msg);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -79,7 +68,7 @@ const Nav = () => {
                 </div>
               ) : (
                 <p className="d-value">
-                  {sign}
+                  {currency === "NGN" ? "NGN" : "$"}
                   {Number(balance).toFixed(2)}
                 </p>
               )}

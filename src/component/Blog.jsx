@@ -1,12 +1,11 @@
 import React from "react";
-import { BsArrowRight, BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { BsArrowRight, BsFacebook, BsLinkedin } from "react-icons/bs";
 import {
   AiFillTwitterCircle,
   AiOutlineClockCircle,
   AiOutlineComment,
 } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
-import image from "../static/image.png";
 import { Link } from "react-router-dom";
 
 const BlogComponent = ({ blog, i, description }) => {
@@ -34,7 +33,10 @@ const BlogComponent = ({ blog, i, description }) => {
             <span>3 Comments</span>
           </div> */}
         </div>
-        <p className="blog-description">{blog.content}</p>
+          <div
+            className="blog-description"
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          />
         <div className="blog-social-icons">
           <a
             href={`https://www.linkedin.com/shareArticle?url=${url}/${blog.id}`}

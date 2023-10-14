@@ -55,7 +55,7 @@
   border: none;
   border-radius: 10px;
   transition: var(--transition-all);
-  /* color: var(--white); */
+  padding: 5px 0;
 }
 
 .d-payment .d-amounts .selected,
