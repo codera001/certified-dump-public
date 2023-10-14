@@ -21,7 +21,7 @@ const SingleBlog = () => {
   const [loading, setLoading] = useState(true);
   const [comments, setComment] = useState([]);
   const [totalComments, setTotalComments] = useState("");
-  const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
+  const authToken = sessionStorage.getItem("token");
   const [userComment, setUserComment] = useState("");
   const userId = sessionStorage.getItem("userId");
 
