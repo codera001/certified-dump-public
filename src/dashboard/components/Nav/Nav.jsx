@@ -16,6 +16,13 @@ const Nav = () => {
   const balance = sessionStorage.getItem("balance");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  const currency = sessionStorage.getItem("currency");
+  const [sign, setSign] = useState("");
+  if (currency === "USD") {
+    setSign("$");
+  } else if (currency === "NGN") {
+    setSign("NGN");
+  }
   let userid = sessionStorage.getItem("userId");
 
   const getUserBalance = async () => {
@@ -36,13 +43,7 @@ const Nav = () => {
     }
   };
 
- function getLocation(){
-    navigator.geolocation.getCurrentPosition(location => {
-      // console.log(location)
-    })
-  }
   useEffect(() => {
-    // getLocation();
     getUserBalance();
     setLoading(!loading);
   }, []);
@@ -77,7 +78,10 @@ const Nav = () => {
                   />
                 </div>
               ) : (
-                <p className="d-value">${Number(balance).toFixed(2)}</p>
+                <p className="d-value">
+                  {sign}
+                  {Number(balance).toFixed(2)}
+                </p>
               )}
             </div>
             <Link to="/payment">

@@ -1,20 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Payment.css";
 import Layout from "../components/Layout/Layout";
 import card from "../images/card.jpg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import ModalLayout from "../../component/ModalLayout";
 
 const Payment = () => {
   const [selectedButton, setSelectedButton] = useState(null);
   const [amt, setAmt] = useState("");
+  const currency = sessionStorage.getItem("currency");
+  const [activeCurrency, setActiveCurrency] = useState(null);
+  const [open, setOpen] = useState(true);
+  // console.log(curr);
+  useEffect(() => {
+    if (currency === null) setOpen(true);
+  }, []);
+
+  const handleSelect = (currency) => {
+    setActiveCurrency(currency);
+  };
 
   const handleClick = (amount) => {
     setAmt(amount);
     setSelectedButton(amount);
   };
-  const navigate = useNavigate();
   const Deposit = async () => {
     try {
       const response = await axios.post(
@@ -23,7 +34,7 @@ const Payment = () => {
           amount: Number(amt) * 100,
           userid: sessionStorage.getItem("userId"),
           callbackUrl: "https://certifieddump.com/payment-verification",
-          currency: "USD",
+          currency: currency,
           customerFirstName: sessionStorage.getItem("userFirstname"),
           customerLastName: sessionStorage.getItem("userLastname"),
           customerPhoneNumber: sessionStorage.getItem("userNo"),
@@ -89,7 +100,9 @@ const Payment = () => {
             <button
               className="d-sec-btn"
               onClick={() => {
-                if (amt) {
+                if (currency === null) {
+                  setOpen(true);
+                } else if (amt) {
                   Deposit();
                 } else toast.error("Please enter an amount to pay");
               }}
@@ -101,6 +114,43 @@ const Payment = () => {
             You will be redirected to the payment page of the chosen service
           </p>
         </div>
+        <>
+          {open ? (
+            <ModalLayout>
+              <h3 style={{ color: "black" }}>
+                Please select a currency option for transactions
+              </h3>
+              <h5 style={{ color: "red" }}>
+                Kindly note that this decision cannot be reversed!
+              </h5>
+              <div className="submit-cancel-Btn">
+                <button
+                  className={`curr ${activeCurrency === "USD" ? "active" : ""}`}
+                  onClick={() => {
+                    handleSelect("USD");
+                    sessionStorage.setItem("currency", "USD");
+                  }}
+                >
+                  USD
+                </button>
+                <button
+                  className={`curr ${activeCurrency === "NGN" ? "active" : ""}`}
+                  onClick={() => {
+                    handleSelect("NGN");
+                    sessionStorage.setItem("currency", "NGN");
+                  }}
+                >
+                  Naira
+                </button>
+              </div>
+              <button style={{ margin: "1rem 0 0" }} onClick={setOpen(false)}>
+                I will do that later
+              </button>
+            </ModalLayout>
+          ) : (
+            ""
+          )}
+        </>
       </div>
     </Layout>
   );

@@ -13,7 +13,7 @@ import PublicLayout from "../../component/PublicLayout";
 import Back from "../../component/Back";
 
 function Preview() {
-  const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
+  const authToken = sessionStorage.getItem("token");
   const navigate = useNavigate();
   const { providerName, examName, bookId } = useParams();
   const [book, setBook] = useState(null);
@@ -61,6 +61,22 @@ function Preview() {
       // console.log(error);
       toast.error(error.response.data.msg);
     }
+  };
+
+  const getUserBalance = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.certifieddump.com/api-wallet/userbalance?userid=${userid}`,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+        }
+      );
+      // setBalance(response.data.result[0].balance);
+      sessionStorage.setItem("balance", response.data.result[0].balance);
+      // console.log(response);
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -219,6 +235,7 @@ function Preview() {
                       onClick={() => {
                         BuyBook(book.id, Number(book.price), book.title);
                         setTimeout(() => {
+                          getUserBalance();
                           setHide(false);
                         }, 3000);
                       }}

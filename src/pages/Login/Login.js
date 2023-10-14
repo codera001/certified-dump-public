@@ -51,8 +51,10 @@ function Login() {
         formData
       );
       // console.log(response.data);
+      // console.log(response.data.user.currency);
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.setItem("userId", response.data.user.id);
+      sessionStorage.setItem("currency", response.data.user.currency);
       sessionStorage.setItem("username", response.data.user.username);
       sessionStorage.setItem("userFirstname", response.data.user.firstname);
       sessionStorage.setItem("userLastname", response.data.user.lastname);
