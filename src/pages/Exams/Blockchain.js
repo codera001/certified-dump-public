@@ -12,24 +12,21 @@ function Blockchain() {
   const [books, setBooks] = useState(null);
   const [search, setSearch] = useState("");
   const { providerName, examName } = useParams();
+  const currency = sessionStorage.getItem("currency");
   const checkProvider = (name) => name.providerid == providerName;
   const GetBooks = async () => {
     try {
       const response = await axios.get(
         "https://api.certifieddump.com/api-admin/getBooks"
       );
-      // console.log(response);
-      // console.log(response.data.books);
-      //get all exams by the name of provider here
       setBooks(response.data.books);
-    } catch (error) {
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
     GetBooks();
   }, []);
+
   return (
     <PublicLayout>
       <div className="navigate container mb-4">
@@ -65,7 +62,7 @@ function Blockchain() {
                     providerName={`/provider/${providerName}/${examName}/${item.id}`}
                     i={i}
                     text="Preview Book"
-                    price={`$${item.price}`}
+                    price={`${currency === "NGN" ? "NGN" : "$"}${item.price}`}
                   />
                 ))}
             </div>

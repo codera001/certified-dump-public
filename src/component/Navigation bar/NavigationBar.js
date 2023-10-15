@@ -15,8 +15,9 @@ import { navlist } from "./Navlists";
 function NavigationBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showLogo, setShowLogo] = useState(false);
-  const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
+  const authToken = sessionStorage.getItem("token");
   const user = sessionStorage.getItem("username");
+  const currency = sessionStorage.getItem("currency");
 
   useEffect(() => {
     function handleScroll() {
@@ -83,7 +84,8 @@ function NavigationBar() {
                       margin: "0 0 0 4px",
                     }}
                   >
-                    ${sessionStorage.getItem("balance")}
+                    {currency === "NGN" ? "NGN" : "$"}
+                    {sessionStorage.getItem("balance")}
                   </span>
                 </p>
               </>

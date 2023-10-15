@@ -20,17 +20,14 @@ function Alibaba() {
         "https://api.certifieddump.com/api-admin/getExams"
       );
       setExams(response.data.exams);
-      // console.log(response);
-      // console.log(response.data.exams);
-      //get all exams by the name of provider here
     } catch (error) {
-      // console.log(error);
     }
   };
 
   useEffect(() => {
     GetExams();
   }, []);
+  
   return (
     <PublicLayout>
       <div className="navigate container mb-4">
