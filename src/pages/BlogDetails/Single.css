@@ -5,3 +5,7 @@
 .blog-body {
   line-height: 1.63;
 }
+
+.blog-text-container textarea{
+  padding: 5px 10px;
+}
