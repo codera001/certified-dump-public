@@ -62,7 +62,7 @@ const CurrencyUpdate = () => {
       {open && (
         <ModalLayout>
           <h3 style={{ color: "black" }}>
-            Please select a currency option for transactions
+           Welcome Please select a currency option for transactions
           </h3>
           <h5 style={{ color: "red" }}>
             Kindly note that this decision cannot be reversed!
