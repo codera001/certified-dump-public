@@ -10,7 +10,7 @@ const Payment = () => {
   const [selectedButton, setSelectedButton] = useState(null);
   const [amt, setAmt] = useState("");
   const currency = sessionStorage.getItem("currency");
-  const [showPop, setShowPop] = useState(false);
+  // const [showPop, setShowPop] = useState(false);
   const handleClick = (amount) => {
     setAmt(amount);
     setSelectedButton(amount);
@@ -90,9 +90,10 @@ const Payment = () => {
             <button
               className="d-sec-btn"
               onClick={() => {
-                if (currency === "null") {
-                  setShowPop(!showPop);
-                } else if (amt) {
+                // if (currency === "null") {
+                //   setShowPop(!showPop);
+                // } else
+                  if (amt) {
                   Deposit();
                 } else toast.error("Please enter an amount to pay");
               }}
@@ -104,8 +105,8 @@ const Payment = () => {
             You will be redirected to the payment page of the chosen service
           </p>
         </div>
-        {showPop ? <CurrencyUpdate /> : ""}
-        <CurrencyUpdate />
+        {/* {showPop ? <CurrencyUpdate /> : ""}
+        <CurrencyUpdate /> */}
       </div>
     </Layout>
   );

@@ -17,12 +17,28 @@ const CurrencyUpdate = () => {
     setActiveCurrency(currency);
   };
 
+  const GetProfile = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.certifieddump.com/api/profile`,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+        }
+      );
+      // console.log(response.data[0]);
+      sessionStorage.setItem("currency", response.data[0].currency);
+    } catch (error) {}
+  };
+
   const updateCurrency = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
         `https://api.certifieddump.com/api/edituser`,
         {
+          userid: sessionStorage.getItem("userId"),
           currency: currency,
         },
         {
@@ -32,8 +48,9 @@ const CurrencyUpdate = () => {
         }
       );
       toast.success(response.data.msg);
+      GetProfile();
+      setOpen(false);
     } catch (error) {
-      // console.log(error);
       toast.error(
         "Can't update your currency option right now. Please try again later."
       );
@@ -71,9 +88,9 @@ const CurrencyUpdate = () => {
             </button>
             {activeCurrency && <button onClick={updateCurrency}>Submit</button>}
           </div>
-          <button style={{ margin: "1rem 0 0" }} onClick={() => setOpen(!open)}>
+          {/* <button style={{ margin: "1rem 0 0" }} onClick={() => setOpen(!open)}>
             I will do that later
-          </button>
+          </button> */}
         </ModalLayout>
       )}
     </>

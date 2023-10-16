@@ -75,7 +75,6 @@ function NavigationBar() {
                     color: "white",
                     display: "flex",
                     alignItems: "center",
-                    margin: "0 4.5rem 0 0",
                   }}
                 >
                   Balance:
@@ -90,7 +89,12 @@ function NavigationBar() {
                 </p>
               </>
             )}
-            <div className="icon">
+            <div
+              className="icon"
+              style={{
+                margin: "0 0 0 4.5rem",
+              }}
+            >
               <a href="/" target="_blank">
                 <RiFacebookFill color="white" />
               </a>
