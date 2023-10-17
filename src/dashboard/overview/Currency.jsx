@@ -40,6 +40,13 @@ const CurrencyUpdate = () => {
         {
           userid: sessionStorage.getItem("userId"),
           currency: currency,
+          firstname: sessionStorage.getItem("userFirstname"),
+          lastname: sessionStorage.getItem("userLastname"),
+          phone_no: sessionStorage.getItem("userPhone"),
+          country: sessionStorage.getItem("country"),
+          dob: sessionStorage.getItem("dob"),
+          gender: sessionStorage.getItem("gender"),
+          image_path: sessionStorage.getItem("userImg"),
         },
         {
           headers: {
@@ -62,7 +69,7 @@ const CurrencyUpdate = () => {
       {open && (
         <ModalLayout>
           <h3 style={{ color: "black" }}>
-           Welcome Please select a currency option for transactions
+            Welcome Please select a currency option for transactions
           </h3>
           <h5 style={{ color: "red" }}>
             Kindly note that this decision cannot be reversed!
@@ -81,7 +88,7 @@ const CurrencyUpdate = () => {
               className={`curr ${activeCurrency === "NGN" ? "active" : ""}`}
               onClick={() => {
                 handleSelect("NGN");
-                setCurrency("USD");
+                setCurrency("NGN");
               }}
             >
               Naira

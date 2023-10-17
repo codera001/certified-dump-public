@@ -99,6 +99,7 @@ const Profile = () => {
           phone_no: `${userCode}${phoneNumber}`,
           dob: birthday,
           gender: gender,
+          currency: sessionStorage.getItem("currency"),
           image: response ? response.data.path : displayImg,
         },
         {
@@ -113,7 +114,7 @@ const Profile = () => {
       toast.success("Profile update is successful!" || response.data.msg);
     } catch (error) {
       // console.log(error);
-      // toast.error(error.response.data.msg);
+      toast.error("Can't edit now. Please try again later");
     }
   };
 
