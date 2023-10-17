@@ -40,7 +40,6 @@ function Preview() {
     }
   };
 
-  
   const getUserBalance = async () => {
     try {
       const response = await axios.get(
@@ -56,7 +55,7 @@ function Preview() {
       // console.log(response);
     } catch (error) {}
   };
-  
+
   const BuyBook = async (bookId, price, title) => {
     try {
       const response = await axios.post(
@@ -99,10 +98,8 @@ function Preview() {
           <div className="preview-header container-fluid">
             <div className="container">
               <h1>
-                <strong>
-                  {book.exam || ""}:
-                </strong>
-                 {book.title}
+                <strong>{book.exam || ""}:</strong>
+                {book.title}
               </h1>
             </div>
           </div>
@@ -226,6 +223,16 @@ function Preview() {
                     <div className="p-book-deet">
                       <h5>Abstract</h5>
                       <p>{book.description}</p>
+                      <p>
+                        {currency === "NGN" ? (
+                          <>
+                            <s style={{ textDecorationStyle: "double" }}>N</s>
+                            {Number(rate) * Number(book.price)}
+                          </>
+                        ) : (
+                          <>${book.price}</>
+                        )}
+                      </p>
                     </div>
                   </div>
                   <div className="submit-cancel-Btn">
