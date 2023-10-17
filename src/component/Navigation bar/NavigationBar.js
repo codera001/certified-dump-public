@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { BsInstagram } from "react-icons/bs";
 import { navlist } from "./Navlists";
+import axios from "axios";
 
 function NavigationBar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,7 +20,23 @@ function NavigationBar() {
   const user = sessionStorage.getItem("username");
   const currency = sessionStorage.getItem("currency");
 
+  const GetRate = async () => {
+    try {
+      const res = await axios.get(
+        "https://api.certifieddump.com/api-wallet/currency/9",
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+      // console.log(res);
+      sessionStorage.setItem("fx",res.data[0].rate);
+    } catch (error) {}
+  };
+
   useEffect(() => {
+    GetRate();
     function handleScroll() {
       if (window.scrollY > 200) {
         setIsScrolled(true);

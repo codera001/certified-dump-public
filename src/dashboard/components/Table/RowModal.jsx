@@ -2,6 +2,7 @@ import React from "react";
 
 const RowModal = ({ each, closeModal, modalRef }) => {
   const status = each.status.toLowerCase();
+  const currency = sessionStorage.getItem("currency");
 
   return (
     <td onClick={closeModal} className="d-table-modal">
@@ -9,7 +10,10 @@ const RowModal = ({ each, closeModal, modalRef }) => {
         <span>Transaction ID: {each.trx_id}</span>
         <span>Date: {new Date(each.date).toDateString()}</span>
         <span>Type: {each.type}</span>
-        <span>Amount: {each.amount}</span>
+        <span>
+          Amount: {currency === "NGN" ? "NGN" : "$"}
+          {each.amount}
+        </span>
         <span>
           Status:{" "}
           {status === "successful" ? (

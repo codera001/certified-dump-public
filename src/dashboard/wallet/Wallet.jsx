@@ -14,6 +14,7 @@ const Wallet = () => {
   let userid = sessionStorage.getItem("userId");
   const token = sessionStorage.getItem("token");
   const balance = sessionStorage.getItem("balance");
+  const currency = sessionStorage.getItem("currency");
   const [loading, setLoading] = useState(true);
 
   const titles = ["S/N", "Id", "Amount", "Date & Time", "Status", "Type"];
@@ -32,6 +33,8 @@ const Wallet = () => {
       setSpent(response.data.result[0].total_amount);
     } catch (error) {
       // console.log(error);
+    } finally {
+      setLoading(!loading);
     }
   };
 
@@ -54,13 +57,14 @@ const Wallet = () => {
     } catch (error) {
       setError(error.response.data.msg);
       // console.log(error.response);
+    } finally {
+      setLoading(!loading);
     }
   };
 
   useEffect(() => {
     moneySpent();
     fetchUserTransactions();
-    setLoading(!loading);
   }, []);
 
   return (
@@ -70,18 +74,29 @@ const Wallet = () => {
           <p>Total Spent</p>
           {loading ? (
             <div className="d-gif-div">
-              <img loading="lazy" src={loader} alt="loading-gif" className="d-gif" />
+              <img
+                loading="lazy"
+                src={loader}
+                alt="loading-gif"
+                className="d-gif"
+              />
             </div>
           ) : spent ? (
-            <strong>${spent}</strong>
+            <strong>
+              {currency === "NGN" ? "NGN" : "$"}
+              {spent}
+            </strong>
           ) : (
-            <strong>$0.00</strong>
+            <strong>{currency === "NGN" ? "NGN" : "$"}0.00</strong>
           )}
           <p>Total amount spent on Exam Purchase</p>
         </div>
         <div className="d-bal">
           <p>Wallet Balance</p>
-          <strong>${Number(balance).toFixed(2)}</strong>
+          <strong>
+            {currency === "NGN" ? "NGN" : "$"}
+            {Number(balance).toFixed(2)}
+          </strong>
           <p>Total available balance for Purchase</p>
         </div>
       </div>
@@ -91,7 +106,12 @@ const Wallet = () => {
         </div>
         {loading ? (
           <div className="d-gif-div">
-            <img loading="lazy" src={loader} alt="loading-gif" className="d-gif" />
+            <img
+              loading="lazy"
+              src={loader}
+              alt="loading-gif"
+              className="d-gif"
+            />
           </div>
         ) : error ? (
           <div className="error">You have no transaction history</div>

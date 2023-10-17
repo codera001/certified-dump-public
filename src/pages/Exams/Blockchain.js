@@ -13,6 +13,7 @@ function Blockchain() {
   const [search, setSearch] = useState("");
   const { providerName, examName } = useParams();
   const currency = sessionStorage.getItem("currency");
+  const rate = sessionStorage.getItem("fx");
   const checkProvider = (name) => name.providerid == providerName;
   const GetBooks = async () => {
     try {
@@ -41,7 +42,7 @@ function Blockchain() {
             fontSize: "2.5rem",
           }}
         >
-          {providerName} {examName} Books
+          {examName} Books
         </h3>
         {books ? (
           <>
@@ -62,7 +63,11 @@ function Blockchain() {
                     providerName={`/provider/${providerName}/${examName}/${item.id}`}
                     i={i}
                     text="Preview Book"
-                    price={`${currency === "NGN" ? "NGN" : "$"}${item.price}`}
+                    price={`${
+                      currency === "NGN"
+                        ? `NGN${Number(rate) * Number(item.price)}`
+                        : `$${item.price}`
+                    }`}
                   />
                 ))}
             </div>
