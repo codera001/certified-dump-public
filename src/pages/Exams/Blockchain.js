@@ -14,13 +14,14 @@ function Blockchain() {
   const { providerName, examName } = useParams();
   const currency = sessionStorage.getItem("currency");
   const rate = sessionStorage.getItem("fx");
-  const checkProvider = (name) => name.providerid == providerName;
+  const checkExam = (name) => name.exam.toLowerCase() == examName.toLowerCase();
   const GetBooks = async () => {
     try {
       const response = await axios.get(
         "https://api.certifieddump.com/api-admin/getBooks"
       );
       setBooks(response.data.books);
+      // console.log(response.data.books);
     } catch (error) {}
   };
 
@@ -48,7 +49,7 @@ function Blockchain() {
           <>
             <div className="exam-card-section mt-4">
               {books
-                .filter(checkProvider)
+                .filter(checkExam)
                 .filter((book) => {
                   if (search == "") return book;
                   else if (book.title.toLowerCase().includes(search)) {
@@ -71,7 +72,7 @@ function Blockchain() {
                   />
                 ))}
             </div>
-            {books.filter(checkProvider).length === 0 ? (
+            {books.filter(checkExam).length === 0 ? (
               <div style={{ textAlign: "center" }}>No book found</div>
             ) : (
               ""

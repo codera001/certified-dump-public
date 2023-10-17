@@ -29,12 +29,14 @@ const Nav = () => {
       // setBalance(response.data.result[0].balance);
       sessionStorage.setItem("balance", response.data.result[0].balance);
       // console.log(response);
-    } catch (error) {}
+    } catch (error) {
+    } finally {
+      setLoading(!loading);
+    }
   };
 
   useEffect(() => {
     getUserBalance();
-    setLoading(!loading);
   }, []);
 
   return (
@@ -68,7 +70,11 @@ const Nav = () => {
                 </div>
               ) : (
                 <p className="d-value">
-                  {currency === "NGN" ? "NGN" : "$"}
+                  {currency === "NGN" ? (
+                    <s style={{ textDecorationStyle: "double" }}>N</s>
+                  ) : (
+                    "$"
+                  )}
                   {Number(balance).toFixed(2)}
                 </p>
               )}

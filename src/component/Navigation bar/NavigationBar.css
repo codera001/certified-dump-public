@@ -23,6 +23,7 @@
 
 .first-nav .item-list {
   display: flex;
+  align-items: center;
 }
 
 .first-nav .user-auth {

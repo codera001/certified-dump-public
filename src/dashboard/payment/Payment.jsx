@@ -4,13 +4,11 @@ import Layout from "../components/Layout/Layout";
 import card from "../images/card.jpg";
 import axios from "axios";
 import toast from "react-hot-toast";
-import CurrencyUpdate from "../overview/Currency";
 
 const Payment = () => {
   const [selectedButton, setSelectedButton] = useState(null);
   const [amt, setAmt] = useState("");
   const currency = sessionStorage.getItem("currency");
-  // const [showPop, setShowPop] = useState(false);
   const handleClick = (amount) => {
     setAmt(amount);
     setSelectedButton(amount);
@@ -37,7 +35,6 @@ const Payment = () => {
         }
       );
       // console.log(response);
-      // navigate(response.data.authorizationUrl);
       sessionStorage.setItem("paymentRef", response.data.reference);
       window.location.href = response.data.authorizationUrl;
     } catch (error) {
@@ -87,26 +84,35 @@ const Payment = () => {
             />
           </div>
           <div className="d-payment-btn">
-            <button
-              className="d-sec-btn"
-              onClick={() => {
-                // if (currency === "null") {
-                //   setShowPop(!showPop);
-                // } else
+            {currency === "NGN" && (
+              <button
+                className="d-sec-btn"
+                onClick={() => {
                   if (amt) {
-                  Deposit();
-                } else toast.error("Please enter an amount to pay");
-              }}
-            >
-              Pay
-            </button>
+                    Deposit();
+                  } else toast.error("Please enter an amount to pay");
+                }}
+              >
+                Pay
+              </button>
+            )}
+            {currency === "USD" && (
+              <button
+                className="d-sec-btn"
+                onClick={() => {
+                  if (amt) {
+                    Deposit();
+                  } else toast.error("Please enter an amount to pay");
+                }}
+              >
+                Pay with USD
+              </button>
+            )}
           </div>
           <p>
             You will be redirected to the payment page of the chosen service
           </p>
         </div>
-        {/* {showPop ? <CurrencyUpdate /> : ""}
-        <CurrencyUpdate /> */}
       </div>
     </Layout>
   );

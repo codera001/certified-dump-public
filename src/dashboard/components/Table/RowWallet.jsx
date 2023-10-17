@@ -16,7 +16,11 @@ const RowWallet = ({ each }) => {
       </td>
       <td>
         <p>
-          {currency === "NGN" ? "NGN" : "$"}
+          {currency === "NGN" ? (
+            <s style={{ textDecorationStyle: "double" }}>N</s>
+          ) : (
+            "$"
+          )}
           {each.amount}
         </p>
         {status === "successful" ? (

@@ -1,3 +1,9 @@
+.blog{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .blog-body, .b-comment-section{
   margin-top: 2rem;
 }
@@ -6,6 +12,25 @@
   line-height: 1.63;
 }
 
+
 .blog-text-container textarea{
   padding: 5px 10px;
+  width: 100%;
+}
+
+.blog button {
+  all: unset;
+  text-align: center;
+  padding: 8px 5px;
+  background: var(--black);
+  border-radius: 1rem;
+  color: white;
+  width: 70px;
+  margin: 0 0 0 .5rem;
+  transition: var(--transition-all);
+  cursor: pointer;
+}
+
+.blog button:hover {
+  color: var(--secondary-color);
 }

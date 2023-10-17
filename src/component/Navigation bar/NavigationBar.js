@@ -6,7 +6,6 @@ import { RiFacebookFill, RiMailSendLine } from "react-icons/ri";
 import { TbBrandTwitterFilled } from "react-icons/tb";
 import "./NavigationBar.css";
 import logo from "../../static/logo.png";
-import scrolllogo from "../../static/logow.png";
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { BsInstagram } from "react-icons/bs";
@@ -15,7 +14,6 @@ import axios from "axios";
 
 function NavigationBar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showLogo, setShowLogo] = useState(false);
   const authToken = sessionStorage.getItem("token");
   const user = sessionStorage.getItem("username");
   const currency = sessionStorage.getItem("currency");
@@ -31,7 +29,7 @@ function NavigationBar() {
         }
       );
       // console.log(res);
-      sessionStorage.setItem("fx",res.data[0].rate);
+      sessionStorage.setItem("fx", res.data[0].rate);
     } catch (error) {}
   };
 
@@ -40,7 +38,6 @@ function NavigationBar() {
     function handleScroll() {
       if (window.scrollY > 200) {
         setIsScrolled(true);
-        setShowLogo(true);
       } else {
         setIsScrolled(false);
       }
@@ -92,6 +89,7 @@ function NavigationBar() {
                     color: "white",
                     display: "flex",
                     alignItems: "center",
+                    margin: "0",
                   }}
                 >
                   Balance:
@@ -100,7 +98,11 @@ function NavigationBar() {
                       margin: "0 0 0 4px",
                     }}
                   >
-                    {currency === "NGN" ? "NGN" : "$"}
+                    {currency === "NGN" ? (
+                      <s style={{ textDecorationStyle: "double" }}>N</s>
+                    ) : (
+                      "$"
+                    )}
                     {sessionStorage.getItem("balance")}
                   </span>
                 </p>
@@ -200,7 +202,13 @@ function NavigationBar() {
                     DASHBOARD
                   </NavLink>
                   <NavLink to="/dashboard" className="button n-mobile-btn">
-                    {user}: ${sessionStorage.getItem("balance")}
+                    {user}:{" "}
+                    {currency === "NGN" ? (
+                      <s style={{ textDecorationStyle: "double" }}>N</s>
+                    ) : (
+                      "$"
+                    )}
+                    {sessionStorage.getItem("balance")}
                   </NavLink>
                 </>
               )}

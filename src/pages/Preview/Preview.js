@@ -100,18 +100,10 @@ function Preview() {
             <div className="container">
               <h1>
                 <strong>
-                  {book.exam || ""}
-                  ACA-Cloud1:
+                  {book.exam || ""}:
                 </strong>
-                {book.title}
+                 {book.title}
               </h1>
-              <p style={{ fontWeight: "bolder" }}>{/* {book.author} */}</p>
-              <small style={{ fontWeight: "bolder" }}>
-                {book.page_count || ""}
-                Pages 1, Published online:
-                {book.published_date || ""}
-                September 1, 2023
-              </small>
             </div>
           </div>
 

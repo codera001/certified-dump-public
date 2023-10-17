@@ -66,7 +66,13 @@ const Table = ({ title, data, searchTerm }) => {
             <th>{title[0]}</th>
             <th>{title[1]}</th>
             <th>
-              {title[2]} ({currency === "NGN" ? "NGN" : "$"})
+              {title[2]} (
+              {currency === "NGN" ? (
+                <s style={{ textDecorationStyle: "double" }}>N</s>
+              ) : (
+                "$"
+              )}
+              )
             </th>
             <th>{title[3]}</th>
             <th>{title[5]}</th>

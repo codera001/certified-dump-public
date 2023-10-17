@@ -11,7 +11,12 @@ const RowModal = ({ each, closeModal, modalRef }) => {
         <span>Date: {new Date(each.date).toDateString()}</span>
         <span>Type: {each.type}</span>
         <span>
-          Amount: {currency === "NGN" ? "NGN" : "$"}
+          Amount:{" "}
+          {currency === "NGN" ? (
+            <s style={{ textDecorationStyle: "double" }}>N</s>
+          ) : (
+            "$"
+          )}
           {each.amount}
         </span>
         <span>

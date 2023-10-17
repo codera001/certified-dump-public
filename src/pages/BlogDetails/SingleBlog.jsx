@@ -10,7 +10,6 @@ import {
   AiOutlineComment,
 } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
-import image from "../../static/image.png";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -137,7 +136,7 @@ const SingleBlog = () => {
                   <div className="blog-text-container">
                     <textarea
                       value={userComment}
-                      rows={1}
+                      rows={2}
                       cols={40}
                       onChange={(e) => {
                         setUserComment(e.currentTarget.value);
@@ -153,7 +152,7 @@ const SingleBlog = () => {
                   </button>
                 </div>
               )}
-              <ol>
+              <ol style={{ marginTop: "1.5rem" }}>
                 {comments.length !== 0 &&
                   comments
                     .sort(function (a, b) {
@@ -162,7 +161,9 @@ const SingleBlog = () => {
                     .map((comment, index) => {
                       return (
                         <li key={index} style={{ marginBottom: ".5rem" }}>
-                          {sessionStorage.getItem("userFirstname")}
+                          <strong style={{ marginRight: ".5rem" }}>
+                            {sessionStorage.getItem("username")}:
+                          </strong>
                           {comment.comment}
                           <small style={{ marginLeft: "4px" }}>
                             {new Date(

@@ -83,18 +83,33 @@ const Wallet = () => {
             </div>
           ) : spent ? (
             <strong>
-              {currency === "NGN" ? "NGN" : "$"}
+              {currency === "NGN" ? (
+                <s style={{ textDecorationStyle: "double" }}>N</s>
+              ) : (
+                "$"
+              )}
               {spent}
             </strong>
           ) : (
-            <strong>{currency === "NGN" ? "NGN" : "$"}0.00</strong>
+            <strong>
+              {currency === "NGN" ? (
+                <s style={{ textDecorationStyle: "double" }}>N</s>
+              ) : (
+                "$"
+              )}
+              0.00
+            </strong>
           )}
           <p>Total amount spent on Exam Purchase</p>
         </div>
         <div className="d-bal">
           <p>Wallet Balance</p>
           <strong>
-            {currency === "NGN" ? "NGN" : "$"}
+            {currency === "NGN" ? (
+              <s style={{ textDecorationStyle: "double" }}>N</s>
+            ) : (
+              "$"
+            )}
             {Number(balance).toFixed(2)}
           </strong>
           <p>Total available balance for Purchase</p>

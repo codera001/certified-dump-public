@@ -12,7 +12,7 @@ function Alibaba() {
   const [exams, setExams] = useState(null);
   const [search, setSearch] = useState("");
   const { providerName } = useParams();
-  const checkProvider = (name) => name.providerid == providerName;
+  const checkProvider = (name) => name.providerid.toLowerCase() == providerName.toLowerCase();
 
   const GetExams = async () => {
     try {
@@ -20,6 +20,7 @@ function Alibaba() {
         "https://api.certifieddump.com/api-admin/getExams"
       );
       setExams(response.data.exams);
+      // console.log(response.data.exams);
     } catch (error) {
     }
   };
