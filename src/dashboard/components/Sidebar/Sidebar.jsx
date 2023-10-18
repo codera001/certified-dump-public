@@ -5,6 +5,7 @@ import { sideMenu } from "./SideMenu";
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import { AiOutlineDoubleLeft } from "react-icons/ai";
 import { useState } from "react";
+import { googleLogout } from "@react-oauth/google";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
@@ -15,13 +16,8 @@ const Sidebar = () => {
 
   const signOut = async () => {
     sessionStorage.clear();
+    googleLogout();
     navigate("/login");
-  };
-
-  const BookPreview = () => {
-    if (localStorage.getItem("bookRoute")) {
-      navigate("bookRoute");
-    } else navigate("/providers");
   };
 
   return (

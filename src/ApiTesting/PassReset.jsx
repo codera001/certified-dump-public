@@ -32,11 +32,11 @@ const PassReset = () => {
         `https://api.certifieddump.com/api/forgot-password`,
         userEmail
       );
-      console.log("Email verification Successful:", response);
-      console.log(userEmail);
+      // console.log("Email verification Successful:", response);
+      // console.log(userEmail);
       setHidden(!hidden);
     } catch (error) {
-      console.log("verification error:", error);
+      // console.log("verification error:", error);
     }
   };
 
@@ -49,7 +49,7 @@ const PassReset = () => {
           password
         );
       } catch (error) {
-        console.log("passsword error:", error);
+        // console.log("passsword error:", error);
       }
     }
     toast.error("passwords don't match");

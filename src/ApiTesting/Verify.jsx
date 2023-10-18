@@ -22,11 +22,11 @@ const Verify = () => {
       const response = await axios.post(
         `https://api.certifieddump.com/api/verify-email/${pin}`
       );
-      console.log("Email verification Successful:", response.data.msg);
+      // console.log("Email verification Successful:", response.data.msg);
       toastr.success(response.data.msg);
       navigate("/login");
     } catch (error) {
-      console.log("verification error:", error.response.data.msg);
+      // console.log("verification error:", error.response.data.msg);
     }
   };
 
@@ -36,9 +36,9 @@ const Verify = () => {
       const response = await axios.post(
         "https://api.certifieddump.com/api/resend-verification-email", input
       );
-      console.log("Verification Code sent:", response.data)
+      // console.log("Verification Code sent:", response.data)
     } catch (error) {
-      console.log("verification error:", error);
+      // console.log("verification error:", error);
     }
   };
 

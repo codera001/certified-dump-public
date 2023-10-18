@@ -8,26 +8,62 @@ import axios from "axios";
 import loader from "../../static/loader.gif";
 import cisco from "../../static/cisco.png";
 import { Link, useNavigate } from "react-router-dom";
+import ScrollToTop from "../../component/ScrollToTop";
 
 function Main() {
   const navigate = useNavigate();
   const [providers, setProviders] = useState(null);
+  const [exams, setExams] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredExams, setFilteredExams] = useState([]);
+  const [images, setImages] = useState([]);
+  const [curImg, setCurImg] = useState(0);
+  const GetImages = async () => {
+    // Fetch images from your endpoint
+    try {
+      const res = await axios.get(
+        "https://api.certifieddump.com/api-admin/getImageHeader"
+      );
+      setImages(res.data.ImageHeader.map(item => item.image_url));
+    } catch (error) {}
+  };
+
+  const GetExams = async () => {
+    try {
+      const response = await axios.get(
+        "https://api.certifieddump.com/api-admin/getExams"
+      );
+      setExams(response.data.exams);
+      //  console.log(response.data.exams);
+    } catch (error) {}
+  };
+
   const GetProviders = async () => {
     try {
       const response = await axios.get(
         "https://api.certifieddump.com/api-admin/getProviders"
       );
-      // console.log(response);
-      // console.log(response.data.providers.slice(0, 10));
       setProviders(response.data.providers);
-    } catch (error) {
-      // console.log(error);
-    }
+      // console.log(response.data.providers);
+    } catch (error) {}
   };
 
-  useEffect(() => {
-    GetProviders();
-  }, []);
+  const handleSearch = () => {
+    const examMatch = exams.filter((exam) => {
+      if (searchTerm === "") {
+        return false;
+      } else {
+        return exam.title.toLowerCase().includes(searchTerm);
+      }
+    });
+    setFilteredExams(examMatch);
+  };
+
+  const handleSelect = (exam) => {
+    if (exam) {
+      navigate(`/provider/${exam.providerid}`);
+    }
+  };
 
   const providerChange = (e) => {
     const selectedProvider = e.target.value;
@@ -36,10 +72,29 @@ function Main() {
     }
   };
 
+  useEffect(() => {
+    GetImages();
+    GetProviders();
+    GetExams();
+  }, []);
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurImg((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [images]);
+
   return (
-    <>
+    <div style={{ textAlign: "center" }}>
       <NavigationBar />
-      <section className="section-one-main">
+      <section
+        className="section-one-main"
+        style={{
+          backgroundImage: `url(${images[curImg]})`,
+        }}
+      >
         <div className="text my-auto">
           <h1
             style={{
@@ -102,11 +157,10 @@ function Main() {
               {providers.slice(0, 10).map((item, i) => (
                 <Provider
                   key={i}
-                  image={cisco}
                   providerName={`/provider/${item.name}`}
                   i={i}
                   title={item.name}
-                  // image={item.url}
+                  image={item.url}
                   text="View More"
                 />
               ))}
@@ -171,17 +225,44 @@ function Main() {
                 ))}
             </select>
             <p className="mb-0">OR</p>
-            <input
-              className="py-2 keyword"
-              type="text"
-              placeholder="Exam Name or Code"
-            />
-            <button className="mx-md-3 button py-1">Search Exams</button>
+            <div className="filter-drop">
+              <input
+                className="py-2 keyword"
+                type="text"
+                placeholder="Exam Name or Code"
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value.toLowerCase());
+                  if (e.target.value === "") {
+                    setFilteredExams([]);
+                  } else {
+                    handleSearch();
+                  }
+                }}
+              />
+              {filteredExams && (
+                <div className="p-dropdown">
+                  {filteredExams.map((exam, index) => (
+                    <div
+                      key={index}
+                      className="p-dropdown-option"
+                      onClick={() => handleSelect(exam)}
+                    >
+                      {exam.title}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+            <button className="mx-md-3 button py-1" onClick={handleSearch}>
+              Search Exams
+            </button>
           </div>
         </div>
       </section>
+      <ScrollToTop />
       <Footer />
-    </>
+    </div>
   );
 }
 

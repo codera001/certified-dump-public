@@ -76,6 +76,28 @@
   margin: 0 0 .5rem;
 }
 
+.pagination {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination button{
+  background-color: var(--primary-color);
+}
+
+.pagination button,
+.pagination span {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid var(--green-500);
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+}
+
 .side-post {
   border-left: 1px solid rgba(0, 0, 0, 0.396);
   width: 100%;
@@ -92,6 +114,7 @@
 }
 
 .recents {
+  margin: 15px 0 0;
   border-bottom: 1px solid #eaecee;
 }
 

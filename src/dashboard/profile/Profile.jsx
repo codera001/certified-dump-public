@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Layout from "../components/Layout/Layout";
 import ChangePassword from "./change_password/ChangePassword";
 import "./Profile.css";
 import { BsGenderMale, BsGenderFemale } from "react-icons/bs";
 import { useState } from "react";
-import { BiUserCircle } from "react-icons/bi";
+import { BiEdit, BiUserCircle } from "react-icons/bi";
 import Countries from "./Countries";
 import Phone from "./Phone";
 import axios from "axios";
@@ -16,18 +16,18 @@ const Profile = () => {
   const fname = sessionStorage.getItem("userFirstname");
   const lname = sessionStorage.getItem("userLastname");
   const email = sessionStorage.getItem("userEmail");
-  const origin = sessionStorage.getItem("country");
-  const userDob = sessionStorage.getItem("dob");
-  const userGender = sessionStorage.getItem("gender");
-  const userPhone = sessionStorage.getItem("userPhone");
   let balance = sessionStorage.getItem("balance");
+  const [origin, setOrigin] = useState(sessionStorage.getItem("country"));
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [gender, setGender] = useState("");
   const [birthday, setBirthday] = useState("");
+  const [gender, setGender] = useState(sessionStorage.getItem("gender"));
+  const [profileImage, setProfileImage] = useState();
+  const [displayImg, setDisplayImg] = useState(null);
   const [changePass, setChangePass] = useState(false);
   const [del, setDel] = useState(false);
-  const [profileImage, setProfileImage] = useState(null);
   const fileInputRef = useRef(null);
+  const formData = new FormData();
+  const userCode = sessionStorage.getItem("userCode");
 
   const ShowChangePass = () => {
     setChangePass(true);
@@ -38,19 +38,69 @@ const Profile = () => {
     setDel(false);
   };
 
+  const handleEditClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleImageChange = (e) => {
+    const image = e.target.files[0];
+    if (image && image.type.startsWith("image/")) {
+      setProfileImage(image);
+      setDisplayImg(URL.createObjectURL(image));
+    } else {
+      toast.error("Please select a valid image file.");
+    }
+  };
+
+  const GetProfile = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.certifieddump.com/api/profile`,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+        }
+      );
+      // console.log(response.data[0]);
+      setOrigin(response.data[0].country);
+      setBirthday(response.data[0].dob);
+      setGender(response.data[0].gender);
+      setDisplayImg(response.data[0].image_path);
+      setPhoneNumber(response.data[0].phone_no);
+      sessionStorage.setItem("userNo", response.data[0].phone_no);
+    } catch (error) {}
+  };
+
   const updateData = async () => {
     try {
-      const response = await axios.post(
+      let response;
+      if (profileImage) {
+        formData.append("file", profileImage);
+        response = await axios.post(
+          "https://api.certifieddump.com/upload",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            },
+          }
+        );
+      }
+      // console.log(response);
+      await axios.post(
         "https://api.certifieddump.com/api/edituser",
         {
           firstname: sessionStorage.getItem("userFirstname"),
           lastname: sessionStorage.getItem("userLastname"),
-          phone_no: `${localStorage.getItem("userCode")}${phoneNumber}`,
-          dob: birthday,
-          country: localStorage.getItem("userCountry"),
           userid: sessionStorage.getItem("userId"),
+          country: localStorage.getItem("userCountry"),
+          phone_no: `${userCode}${phoneNumber}`,
+          dob: birthday,
           gender: gender,
-          image: profileImage,
+          currency: sessionStorage.getItem("currency"),
+          image: response ? response.data.path : displayImg,
         },
         {
           headers: {
@@ -58,29 +108,19 @@ const Profile = () => {
           },
         }
       );
+
+      GetProfile();
       // console.log(response);
-      toast.success("Profile update is successful!");
+      toast.success("Profile update is successful!" || response.data.msg);
     } catch (error) {
       // console.log(error);
+      toast.error("Can't edit now. Please try again later");
     }
   };
 
-  const handleImageChange = (e) => {
-    const image = e.target.files[0];
-    if (image && image.type.startsWith("image/")) {
-      setProfileImage(image);
-    } else {
-      toast.error("Please select a valid image file.");
-    }
-  };
-
-  const handleEditClick = () => {
-    fileInputRef.current.click();
-  };
-
-    const handleEditCancel = () => {
-      setProfileImage(null);
-    };
+  useEffect(() => {
+    GetProfile();
+  }, []);
 
   return (
     <Layout>
@@ -93,14 +133,31 @@ const Profile = () => {
           </p>
         </div>
         <div className="d-profile-pic">
-          {profileImage ? (
+          {displayImg ? (
             <div className="d-profile-image">
-              <img src={URL.createObjectURL(profileImage)} alt="Profile" />
-              <button onClick={handleEditCancel}>Cancel</button>
+              <BiEdit
+                onClick={handleEditClick}
+                style={{
+                  color: "black",
+                  fontSize: "2rem",
+                  position: "absolute",
+                  right: "5px",
+                }}
+              />
+              <img src={displayImg} alt="Profile" />
             </div>
           ) : (
-            <div className="d-profile-image" onClick={handleEditClick}>
+            <div className="d-profile-image pic">
               <BiUserCircle />
+              <BiEdit
+                onClick={handleEditClick}
+                style={{
+                  color: "var(--light-text-color)",
+                  fontSize: "2rem",
+                  position: "absolute",
+                  right: "5px",
+                }}
+              />
             </div>
           )}
           <input
@@ -139,16 +196,18 @@ const Profile = () => {
             <div className="d-input-box d-phone-box">
               <Phone />
               <input
-                type="number"
-                value={phoneNumber || userPhone || ""}
-                onChange={(e) => setPhoneNumber(e.target.value)}
+                type="text"
+                value={phoneNumber}
+                onChange={(e) => {
+                  setPhoneNumber(e.target.value);
+                }}
                 required
               />
             </div>
             <div className="d-input-box">
               <input
                 type="date"
-                value={birthday ? birthday : userDob}
+                value={birthday ? birthday : sessionStorage.getItem("dob")}
                 onChange={(e) => setBirthday(e.target.value)}
               />
             </div>
@@ -159,7 +218,7 @@ const Profile = () => {
                 e.preventDefault();
                 setGender("Male");
               }}
-              className={userGender == "Male" ? "male-gender" : ""}
+              className={gender == "Male" ? "male-gender" : ""}
             >
               <BsGenderMale />
               <p>Male</p>
@@ -169,7 +228,7 @@ const Profile = () => {
                 e.preventDefault();
                 setGender("Female");
               }}
-              className={userGender == "Female" ? "female-gender" : ""}
+              className={gender == "Female" ? "female-gender" : ""}
             >
               <BsGenderFemale />
               <p>Female</p>

@@ -1,16 +1,28 @@
-import React from 'react'
+import React from "react";
 
 const RowWallet = ({ each }) => {
   const status = each.status.toLowerCase();
-  
+  const currency = sessionStorage.getItem("currency");
+
   return (
     <>
       <td>
         <p>{each.type}</p>
-        <em>{new Date(each.date).toDateString()}</em>
+        <em>
+          {new Date(each.date).toLocaleDateString() +
+            " " +
+            new Date(each.date).toLocaleTimeString()}
+        </em>
       </td>
       <td>
-        <p>{each.amount}</p>
+        <p>
+          {currency === "NGN" ? (
+            <s style={{ textDecorationStyle: "double" }}>N</s>
+          ) : (
+            "$"
+          )}
+          {each.amount}
+        </p>
         {status === "successful" ? (
           <em className="d-mobile-success">Successful</em>
         ) : status === "pending" ? (
@@ -21,6 +33,6 @@ const RowWallet = ({ each }) => {
       </td>
     </>
   );
-}
+};
 
-export default RowWallet
+export default RowWallet;

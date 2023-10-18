@@ -23,6 +23,7 @@
 
 .first-nav .item-list {
   display: flex;
+  align-items: center;
 }
 
 .first-nav .user-auth {
@@ -124,7 +125,7 @@
 .p-navbar-scroll {
   position: sticky;
   z-index: 10;
-  top: 0;
+  top: -1px;
   width: 100%;
   transition: all 0.5s ease-in-out;
 }

@@ -30,10 +30,10 @@ const Apisign = () => {
         "https://api.certifieddump.com/api/signup",
         formData
       );
-      console.log("Signup Successful:", response.data);
+      // console.log("Signup Successful:", response.data);
       navigate("/confirm-email")
     } catch (error) {
-      console.log("signup error:", error.response.data.msg);
+      // console.log("signup error:", error.response.data.msg);
     }
   };
 

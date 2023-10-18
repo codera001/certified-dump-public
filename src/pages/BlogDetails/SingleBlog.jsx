@@ -10,10 +10,8 @@ import {
   AiOutlineComment,
 } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
-import image from "../../static/image.png";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 const SingleBlog = () => {
@@ -22,7 +20,7 @@ const SingleBlog = () => {
   const [loading, setLoading] = useState(true);
   const [comments, setComment] = useState([]);
   const [totalComments, setTotalComments] = useState("");
-  const[ authToken, setAuthToken ]= useState(sessionStorage.getItem("token"));
+  const authToken = sessionStorage.getItem("token");
   const [userComment, setUserComment] = useState("");
   const userId = sessionStorage.getItem("userId");
 
@@ -67,7 +65,6 @@ const SingleBlog = () => {
       GetComments();
       setUserComment("");
       toast.success("comment posted");
-      // console.log(response.data.msg);
     } catch (error) {}
   };
 
@@ -103,10 +100,13 @@ const SingleBlog = () => {
                 </div>
               </div>
               <div className="blog-image">
-                <img loading="lazy" width={216} src={image} />
+                <img loading="lazy" width={216} src={blog.image} />
               </div>
               <div className="blog-text">
-                <p className="blog-body">{blog.content}</p>
+                <div
+                  className="blog-body"
+                  dangerouslySetInnerHTML={{ __html: blog.content }}
+                />
                 <div className="blog-social-icons">
                   <div className="blog-social-icon">
                     <BsInstagram />
@@ -131,48 +131,51 @@ const SingleBlog = () => {
                 </p>
               )}
 
-              {authToken && <p>Online</p>}
-              <div className="blog">
-                <div className="blog-text-container">
-                  <textarea
-                    value={userComment}
-                    rows={1}
-                    cols={40}
-                    onChange={(e) => {
-                      setUserComment(e.currentTarget.value);
+              {authToken && (
+                <div className="blog">
+                  <div className="blog-text-container">
+                    <textarea
+                      value={userComment}
+                      rows={2}
+                      cols={40}
+                      onChange={(e) => {
+                        setUserComment(e.currentTarget.value);
+                      }}
+                    />
+                  </div>
+                  <button
+                    onClick={() => {
+                      if (userComment.trim() !== "") SendComment();
                     }}
-                  />
+                  >
+                    Send
+                  </button>
                 </div>
-                <button
-                  onClick={() => {
-                    if (userComment.trim() !== "") SendComment();
-                  }}
-                >
-                  Send
-                </button>
-              </div>
-
-              {comments.length !== 0 &&
-                comments
-                  .sort(function (a, b) {
-                    return b.id - a.id;
-                  })
-                  .map((comment, index) => {
-                    return (
-                      <ul key={index} className="list-disc px-3 text-lg">
-                        <li>
-                          {comment.comment}{" "}
-                          {new Date(
-                            comment.date_commented
-                          ).toLocaleDateString()}
-                          {comment.userid}
+              )}
+              <ol style={{ marginTop: "1.5rem" }}>
+                {comments.length !== 0 &&
+                  comments
+                    .sort(function (a, b) {
+                      return b.id - a.id;
+                    })
+                    .map((comment, index) => {
+                      return (
+                        <li key={index} style={{ marginBottom: ".5rem" }}>
+                          <strong style={{ marginRight: ".5rem" }}>
+                            {sessionStorage.getItem("username")}:
+                          </strong>
+                          {comment.comment}
+                          <small style={{ marginLeft: "4px" }}>
+                            {new Date(
+                              comment.date_commented
+                            ).toLocaleDateString()}
+                          </small>
                         </li>
-                      </ul>
-                    );
-                  })}
+                      );
+                    })}
+              </ol>
             </div>
           </div>
-
           <aside className="side-post">
             <div className="side-post-wrap">
               <h6 className="side-post-head mb-4"> LATEST POSTS</h6>

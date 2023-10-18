@@ -6,23 +6,38 @@ import { RiFacebookFill, RiMailSendLine } from "react-icons/ri";
 import { TbBrandTwitterFilled } from "react-icons/tb";
 import "./NavigationBar.css";
 import logo from "../../static/logo.png";
-import scrolllogo from "../../static/logow.png";
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { BsInstagram } from "react-icons/bs";
 import { navlist } from "./Navlists";
+import axios from "axios";
 
 function NavigationBar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showLogo, setShowLogo] = useState(false);
-  const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
+  const authToken = sessionStorage.getItem("token");
   const user = sessionStorage.getItem("username");
+  const currency = sessionStorage.getItem("currency");
+
+  const GetRate = async () => {
+    try {
+      const res = await axios.get(
+        "https://api.certifieddump.com/api-wallet/currency/9",
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+      // console.log(res);
+      sessionStorage.setItem("fx", res.data[0].rate);
+    } catch (error) {}
+  };
 
   useEffect(() => {
+    GetRate();
     function handleScroll() {
       if (window.scrollY > 200) {
         setIsScrolled(true);
-        setShowLogo(true);
       } else {
         setIsScrolled(false);
       }
@@ -74,21 +89,31 @@ function NavigationBar() {
                     color: "white",
                     display: "flex",
                     alignItems: "center",
-                    margin: "0 .5rem 0 0",
+                    margin: "0",
                   }}
                 >
-                  Balance:{" "}
+                  Balance:
                   <span
                     style={{
                       margin: "0 0 0 4px",
                     }}
                   >
+                    {currency === "NGN" ? (
+                      <s style={{ textDecorationStyle: "double" }}>N</s>
+                    ) : (
+                      "$"
+                    )}
                     {sessionStorage.getItem("balance")}
                   </span>
                 </p>
               </>
             )}
-            <div className="icon">
+            <div
+              className="icon"
+              style={{
+                margin: "0 0 0 4.5rem",
+              }}
+            >
               <a href="/" target="_blank">
                 <RiFacebookFill color="white" />
               </a>
@@ -103,7 +128,7 @@ function NavigationBar() {
         </div>
       </div>
 
-      {/* secon-nav */}
+      {/* second-nav */}
       <div className="container d-flex justify-content-between align-items-center nav-logo">
         <div className="p-nav-logo">
           <img loading="lazy" alt="logo" src={logo} />
@@ -135,6 +160,7 @@ function NavigationBar() {
         </div>
       </div>
 
+      {/*Third nav  */}
       <Navbar
         collapseOnSelect
         expand="lg"
@@ -172,8 +198,17 @@ function NavigationBar() {
               )}
               {authToken && (
                 <>
+                  <NavLink to="/dashboard" className="nav-links">
+                    DASHBOARD
+                  </NavLink>
                   <NavLink to="/dashboard" className="button n-mobile-btn">
-                    {user}
+                    {user}:{" "}
+                    {currency === "NGN" ? (
+                      <s style={{ textDecorationStyle: "double" }}>N</s>
+                    ) : (
+                      "$"
+                    )}
+                    {sessionStorage.getItem("balance")}
                   </NavLink>
                 </>
               )}

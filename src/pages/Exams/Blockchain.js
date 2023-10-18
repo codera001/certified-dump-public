@@ -10,30 +10,30 @@ import Back from "../../component/Back";
 
 function Blockchain() {
   const [books, setBooks] = useState(null);
+  const [search, setSearch] = useState("");
   const { providerName, examName } = useParams();
-  const checkProvider = (name) => name.providerid == providerName;
+  const currency = sessionStorage.getItem("currency");
+  const rate = sessionStorage.getItem("fx");
+  const checkExam = (name) => name.exam.toLowerCase() == examName.toLowerCase();
   const GetBooks = async () => {
     try {
       const response = await axios.get(
         "https://api.certifieddump.com/api-admin/getBooks"
       );
-      // console.log(response);
-      // console.log(response.data.books);
-      //get all exams by the name of provider here
       setBooks(response.data.books);
-    } catch (error) {
-      // console.log(error);
-    }
+      // console.log(response.data.books);
+    } catch (error) {}
   };
 
   useEffect(() => {
     GetBooks();
   }, []);
+
   return (
     <PublicLayout>
       <div className="navigate container mb-4">
         <Back path={`/provider/${providerName}`} />
-        <SearchBar text="Book Name or Code" />
+        <SearchBar setSearch={setSearch} text="Book Name or Code" />
       </div>
       <div className="p-exams py-2">
         <h3
@@ -43,24 +43,36 @@ function Blockchain() {
             fontSize: "2.5rem",
           }}
         >
-          {providerName} {examName} Books
+          {examName} Books
         </h3>
         {books ? (
           <>
             <div className="exam-card-section mt-4">
-              {books.filter(checkProvider).map((item, i) => (
-                <Provider
-                  key={i}
-                  image={item.image}
-                  title={item.title}
-                  providerName={`/provider/${providerName}/${examName}/${item.id}`}
-                  i={i}
-                  text="Preview Book"
-                  price={`$${item.price}`}
-                />
-              ))}
+              {books
+                .filter(checkExam)
+                .filter((book) => {
+                  if (search == "") return book;
+                  else if (book.title.toLowerCase().includes(search)) {
+                    return book;
+                  } else return null;
+                })
+                .map((item, i) => (
+                  <Provider
+                    key={i}
+                    image={item.image}
+                    title={item.title}
+                    providerName={`/provider/${providerName}/${examName}/${item.id}`}
+                    i={i}
+                    text="Preview Book"
+                    price={`${
+                      currency === "NGN"
+                        ? `NGN${Number(rate) * Number(item.price)}`
+                        : `$${item.price}`
+                    }`}
+                  />
+                ))}
             </div>
-            {books.filter(checkProvider).length === 0 ? (
+            {books.filter(checkExam).length === 0 ? (
               <div style={{ textAlign: "center" }}>No book found</div>
             ) : (
               ""
@@ -76,6 +88,13 @@ function Blockchain() {
             />
           </div>
         )}
+
+        {search !== "" &&
+          books.filter((book) => {
+            return book.title.toLowerCase().includes(search);
+          }).length === 0 && (
+            <div className="d-overview-no-books">No Book Found</div>
+          )}
       </div>
     </PublicLayout>
   );

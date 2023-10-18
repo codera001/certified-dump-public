@@ -40,7 +40,7 @@ const Support = () => {
       // console.log(response);
       setTickets(response.data.result);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -65,7 +65,7 @@ const Support = () => {
       GetTickets();
     } catch (error) {
       // toast.error(error.response.data.msg);
-      console.log(error);
+      // console.log(error);
     }
   };
 

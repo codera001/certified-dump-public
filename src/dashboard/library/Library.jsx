@@ -31,7 +31,7 @@ const Library = () => {
       // console.log(response);
     } catch (error) {
       //  setError(error.response.data.msg);
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -66,6 +66,7 @@ const Library = () => {
                   <Card
                     key={index}
                     image={book.image}
+                    file={book.file}
                     title={book.title}
                     cost={book.cost}
                     date={book.date}

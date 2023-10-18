@@ -8,16 +8,14 @@ import { MdOutlinePayment } from "react-icons/md";
 import { Outlet, Link } from "react-router-dom";
 import axios from "axios";
 import loader from "../../../static/loader.gif";
-import { Button } from "../Button/Button";
+import { googleLogout } from "@react-oauth/google";
 
 const Nav = () => {
   const email = sessionStorage.getItem("userEmail");
-  // const [balance, setBalance] = useState("");
-  const balance = sessionStorage.getItem("balance")
-  const [error, setError] = useState("");
+  const balance = sessionStorage.getItem("balance");
   const [loading, setLoading] = useState(true);
   let userid = sessionStorage.getItem("userId");
-
+  const currency = sessionStorage.getItem("currency");
   const getUserBalance = async () => {
     try {
       const response = await axios.get(
@@ -32,15 +30,13 @@ const Nav = () => {
       sessionStorage.setItem("balance", response.data.result[0].balance);
       // console.log(response);
     } catch (error) {
-      setError(error.response.data.msg);
-      // setError(error.response.data.msg);
-      // console.log(error);
+    } finally {
+      setLoading(!loading);
     }
   };
 
   useEffect(() => {
     getUserBalance();
-    setLoading(!loading);
   }, []);
 
   return (
@@ -65,10 +61,22 @@ const Nav = () => {
               <p className="d-bal">Balance:</p>
               {loading ? (
                 <div className="d-gif-div">
-                  <img loading="lazy" src={loader} alt="loading-gif" className="d-gif" />
+                  <img
+                    loading="lazy"
+                    src={loader}
+                    alt="loading-gif"
+                    className="d-gif"
+                  />
                 </div>
               ) : (
-                <p className="d-value">${Number(balance).toFixed(2)}</p>
+                <p className="d-value">
+                  {currency === "NGN" ? (
+                    <s style={{ textDecorationStyle: "double" }}>N</s>
+                  ) : (
+                    "$"
+                  )}
+                  {Number(balance).toFixed(2)}
+                </p>
               )}
             </div>
             <Link to="/payment">
@@ -88,7 +96,13 @@ const Nav = () => {
                   <BiUserCheck />
                   <span>Profile</span>
                 </Link>
-                <Link to="/login" onClick={() => sessionStorage.clear()}>
+                <Link
+                  to="/login"
+                  onClick={() => {
+                    sessionStorage.clear();
+                    googleLogout();
+                  }}
+                >
                   <BiLogOutCircle /> <span>Logout</span>
                 </Link>
               </div>

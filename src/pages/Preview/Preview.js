@@ -13,11 +13,13 @@ import PublicLayout from "../../component/PublicLayout";
 import Back from "../../component/Back";
 
 function Preview() {
-  const [authToken, setAuthToken] = useState(sessionStorage.getItem("token"));
+  const authToken = sessionStorage.getItem("token");
   const navigate = useNavigate();
   const { providerName, examName, bookId } = useParams();
   const [book, setBook] = useState(null);
   const [show, setHide] = useState(false);
+  const currency = sessionStorage.getItem("currency");
+  const rate = sessionStorage.getItem("fx");
 
   let modalRef = useRef();
   const closeModal = (e) => {
@@ -34,8 +36,24 @@ function Preview() {
       // console.log(response.data.book);
       setBook(response.data.book);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
+  };
+
+  const getUserBalance = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.certifieddump.com/api-wallet/userbalance?userid=${userid}`,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+        }
+      );
+      // setBalance(response.data.result[0].balance);
+      sessionStorage.setItem("balance", response.data.result[0].balance);
+      // console.log(response);
+    } catch (error) {}
   };
 
   const BuyBook = async (bookId, price, title) => {
@@ -60,6 +78,9 @@ function Preview() {
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.msg);
+      if (error.response.data.msg == "Insufficient balance") {
+        navigate("/payment");
+      }
     }
   };
 
@@ -80,19 +101,9 @@ function Preview() {
           <div className="preview-header container-fluid">
             <div className="container">
               <h1>
-                <strong>
-                  {book.exam || ""}
-                  ACA-Cloud1:
-                </strong>
+                <strong>{book.exam || ""}:</strong>
                 {book.title}
               </h1>
-              <p style={{ fontWeight: "bolder" }}>{/* {book.author} */}</p>
-              <small style={{ fontWeight: "bolder" }}>
-                {book.page_count || ""}
-                Pages 1, Published online:
-                {book.published_date || ""}
-                September 1, 2023
-              </small>
             </div>
           </div>
 
@@ -159,8 +170,11 @@ function Preview() {
                 </p>
                 <div className="d-flex justify-content-between align-items-center">
                   <h6 style={{ fontSize: "14px" }}>
-                    USD
-                    {book.price}
+                    {`${
+                      currency === "NGN"
+                        ? `NGN${Number(rate) * Number(book.price)}`
+                        : `$${book.price}`
+                    }`}
                   </h6>
                   <button
                     onClick={() => {
@@ -212,13 +226,32 @@ function Preview() {
                     <div className="p-book-deet">
                       <h5>Abstract</h5>
                       <p>{book.description}</p>
+                      <p>
+                        {currency === "NGN" ? (
+                          <>
+                            <s style={{ textDecorationStyle: "double" }}>N</s>
+                            {Number(rate) * Number(book.price)}
+                          </>
+                        ) : (
+                          <>${book.price}</>
+                        )}
+                      </p>
                     </div>
                   </div>
                   <div className="submit-cancel-Btn">
                     <button
                       onClick={() => {
-                        BuyBook(book.id, Number(book.price), book.title);
+                        BuyBook(
+                          book.id,
+                          `${
+                            currency === "NGN"
+                              ? `${Number(rate) * Number(book.price)}`
+                              : `${Number(book.price)}`
+                          }`,
+                          book.title
+                        );
                         setTimeout(() => {
+                          getUserBalance();
                           setHide(false);
                         }, 3000);
                       }}

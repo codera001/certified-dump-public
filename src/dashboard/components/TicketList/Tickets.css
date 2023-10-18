@@ -28,7 +28,7 @@
 .d-sub-btn {
   all: unset;
   cursor: pointer;
-  background-color: var(--secondary-color);
+  background-color: var(--black);
   transition: all 0.5s ease-in-out;
   color: var(--white);
   border-radius: 10px;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Provider = ({title, providerName, image, i, text, price }) => {
+const Provider = ({ title, providerName, image, i, text, price }) => {
   return (
     <div key={i} className="card-body">
       <div className="card-image">

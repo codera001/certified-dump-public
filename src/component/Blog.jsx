@@ -1,12 +1,11 @@
 import React from "react";
-import { BsArrowRight, BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { BsArrowRight, BsFacebook, BsLinkedin } from "react-icons/bs";
 import {
   AiFillTwitterCircle,
   AiOutlineClockCircle,
   AiOutlineComment,
 } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
-import image from "../static/image.png";
 import { Link } from "react-router-dom";
 
 const BlogComponent = ({ blog, i, description }) => {
@@ -14,7 +13,7 @@ const BlogComponent = ({ blog, i, description }) => {
   return (
     <div key={i} className="blog-image-text mb-4 pb-3">
       <div className="blog-image">
-        <img loading="lazy" width={216} src={image} />
+        <img loading="lazy" width={216} src={blog.image} />
       </div>
       <div className="blog-text">
         <h6 style={{ fontWeight: "bolder", fontSize: "1.5rem" }}>
@@ -27,14 +26,17 @@ const BlogComponent = ({ blog, i, description }) => {
           </div>
           <div className="span-user-text">
             <AiOutlineClockCircle />
-            <span>{blog.date_created}</span>
+            <span>{new Date(blog.date_created).toLocaleDateString()}</span>
           </div>
-          <div className="span-user-text">
+          {/* <div className="span-user-text">
             <AiOutlineComment />
             <span>3 Comments</span>
-          </div>
+          </div> */}
         </div>
-        <p className="blog-description">{blog.content}</p>
+          <div
+            className="blog-description"
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          />
         <div className="blog-social-icons">
           <a
             href={`https://www.linkedin.com/shareArticle?url=${url}/${blog.id}`}

@@ -1,17 +1,60 @@
 import React from "react";
 import "./contact.css";
 import PublicLayout from "../../component/PublicLayout";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Contact = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const SendMessage = async ({ name, email, description }) => {
+    try {
+      const response = await axios.post(
+        "https://api.certifieddump.com/api/contactUs",
+        {
+          name: name,
+          email: email,
+          description: description,
+        }
+      );
+      // console.log(response);
+      reset();
+      toast.success("Message Sent" || response.data.msg);
+    } catch (error) {
+      // toast.error(error.response.data.msg);
+      // console.log(error);
+    }
+  };
+
   return (
     <PublicLayout>
       <div className="contact-address">
-        <form action="">
+        <form onSubmit={handleSubmit(SendMessage)}>
           <h1>Contact Details</h1>
-          <input type="text" placeholder="Your Name" />
-          <input type="text" placeholder="Your Email" />
-          <input type="text" placeholder="Subject" />
-          <textarea name="" id="" cols="29" rows="10"></textarea>
+          <input
+            type="text"
+            placeholder="Your Name"
+            {...register("name", { required: true })}
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            {...register("email", { required: true })}
+          />
+          {/* <input type="text" placeholder="Subject" /> */}
+          <textarea
+            type="text"
+            {...register("description", { required: true })}
+            placeholder="Type your message"
+            cols="29"
+            rows="10"
+          ></textarea>
           <button>Submit</button>
         </form>
       </div>

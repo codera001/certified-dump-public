@@ -8,7 +8,10 @@ const DesktopRow = ({ each, i }) => {
       <td>{i + 1}</td>
       <td>{each.trx_id}</td>
       <td>{each.amount}</td>
-      <td>{new Date(each.date).toDateString()}</td>
+      <td>{new Date(each.date).toLocaleDateString() +
+          " " +
+          new Date(each.date).toLocaleTimeString()}
+      </td>
       <td>{each.type}</td>
       {status === "successful" ? (
         <td className="d-status-success">Successful</td>

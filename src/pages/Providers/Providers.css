@@ -1,11 +1,10 @@
-.section-providers{
-  padding: 0 .5rem;
+.section-providers {
+  padding: 0 0.5rem;
 }
 
 .section-providers .back {
   color: var(--black);
 }
-
 
 .section-providers .back:hover {
   color: var(--tertiary-color);
@@ -20,6 +19,14 @@
 .section-providers .search-container input {
   padding: 1rem 3rem;
   width: 350px;
+}
+
+.search-container input {
+  text-transform: lowercase;
+}
+
+.search-container input::placeholder {
+  text-transform: capitalize;
 }
 
 .section-providers .search-container input::placeholder {
@@ -65,6 +72,7 @@
 .section-providers .card-body img {
   width: 100%;
   aspect-ratio: 1.2;
+  object-fit: contain;
 }
 
 .section-providers .card-footer {
@@ -109,9 +117,9 @@
   }
 }
 
-@media screen and (min-width: 1400px){
-  .section-providers{
-max-width: 90%;
-margin: 0 auto;
+@media screen and (min-width: 1400px) {
+  .section-providers {
+    max-width: 90%;
+    margin: 0 auto;
   }
 }

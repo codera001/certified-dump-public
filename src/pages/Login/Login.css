@@ -1,11 +1,8 @@
-.section {
-  background-color: var(--white);
-}
-
 .login .login-form-wrap {
   color: black;
   width: 50%;
   margin: 4rem auto;
+  padding: 0 0 1.5rem;
   align-items: center;
   text-align: center;
   -webkit-box-sizing: border-box;

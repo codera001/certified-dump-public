@@ -10,6 +10,7 @@ import cisco from "../../static/cisco.png";
 
 function Providers() {
   const [allProviders, setAllProviders] = useState(null);
+  const [search, setSearch] = useState("");
   const GetProviders = async () => {
     try {
       const response = await axios.get(
@@ -30,35 +31,55 @@ function Providers() {
   return (
     <PublicLayout>
       <section className="section-providers">
-        <div className="d-flex justify-content-between">
+        <div className="navigate container mb-4">
           <Back path="/" />
-          <SearchBar text="Provider Name" />
+          <SearchBar setSearch={setSearch} text="Provider Name" />
         </div>
         <h5
           className="my-3 providers-title"
-          style={{ fontWeight: "bolder", color: "black", textAlign: "center", fontSize: "2.5rem", margin: "1rem 0" }}
+          style={{
+            fontWeight: "bolder",
+            color: "black",
+            textAlign: "center",
+            fontSize: "2.5rem",
+            margin: "1rem 0",
+          }}
         >
           All Providers
         </h5>
         <div className="p-providers py-2 mb-5 mt-4">
           {allProviders ? (
             <div className="card-section">
-              {allProviders.map((item, i) => (
-                <Provider
-                  key={i}
-                  image={cisco}
-                  providerName={`/provider/${item.name}`}
-                  i={i}
-                  title={item.name}
-                  text="View More"
-                />
-              ))}
+              {allProviders
+                .filter((provider) => {
+                  if (search == "") return provider;
+                  else if (provider.name.toLowerCase().includes(search)) {
+                    return provider;
+                  } else return null;
+                })
+                .map((item, i) => (
+                  <Provider
+                    key={i}
+                    image={item.url}
+                    providerName={`/provider/${item.name}`}
+                    i={i}
+                    title={item.name}
+                    text="View More"
+                  />
+                ))}
             </div>
           ) : (
             <div className="d-gif-div">
               <img src={loader} alt="loading-gif" className="d-gif" />
             </div>
           )}
+
+          {search !== "" &&
+            allProviders.filter((provider) => {
+              return provider.name.toLowerCase().includes(search);
+            }).length === 0 && (
+              <div className="d-overview-no-books">No Provider Found</div>
+            )}
         </div>
       </section>
     </PublicLayout>

@@ -6,6 +6,7 @@ import SearchBar from "../components/SearchBar.jsx/SearchBar";
 import loader from "../../static/loader.gif";
 import axios from "axios";
 import Announcement from "../components/Card/Announcement";
+import CurrencyUpdate from "./Currency";
 import ModalLayout from "../../component/ModalLayout";
 
 const Overview = () => {
@@ -15,7 +16,7 @@ const Overview = () => {
   const token = sessionStorage.getItem("token");
   const [loading, setLoading] = useState(true);
   let userid = sessionStorage.getItem("userId");
-  const [show, setHide] = useState(false);
+  let modalRef = useRef();
   const [modalIndex, setModalIndex] = useState(-1);
   const openModal = (index) => {
     setModalIndex(index);
@@ -24,20 +25,6 @@ const Overview = () => {
   const closeModal = () => {
     setModalIndex(-1);
   };
-
-  let modalRef = useRef();
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        closeModal();
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   const GetBoughtBooks = async () => {
     try {
@@ -58,8 +45,10 @@ const Overview = () => {
       );
       // console.log(response);
     } catch (error) {
-      //  setError(error.response.data.msg);
+      setError(error.response.data.msg);
       // console.log(error);
+    } finally {
+      setLoading(!loading);
     }
   };
 
@@ -83,13 +72,27 @@ const Overview = () => {
     } catch (error) {
       //  setError(error.response.data.msg);
       // console.log(error);
+    } finally {
+      setLoading(!loading);
     }
   };
 
   useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        closeModal();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
     GetBoughtBooks();
     GetAdminMessages();
-    setLoading(!loading);
   }, []);
 
   return (
@@ -128,6 +131,7 @@ const Overview = () => {
                       key={index}
                       image={book.image}
                       title={book.title}
+                      file={book.file}
                       provider={book.providerid}
                     />
                   ))}
@@ -143,6 +147,8 @@ const Overview = () => {
               <div className="d-overview-no-books">No Books Found</div>
             )}
         </div>
+
+        {/* Admin */}
         <h2>Admin Message</h2>
         <div className="d-overview-wrapper">
           {/* <h3>Admin Message Title</h3> */}
@@ -188,11 +194,6 @@ const Overview = () => {
                             <p>{message.body}</p>
                           </div>
                         </div>
-                        {/* <div className="submit-cancel-Btn">
-                          <button onClick={() => {
-                            closeModal()
-                          console.log("please close");}}>OK</button>
-                        </div> */}
                       </div>
                     </div>
                   )}
@@ -201,6 +202,9 @@ const Overview = () => {
             </div>
           )}
         </div>
+
+        {/* Currency pop up */}
+        {/* <CurrencyUpdate /> */}
       </div>
     </Layout>
   );

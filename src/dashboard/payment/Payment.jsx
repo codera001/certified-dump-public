@@ -3,22 +3,21 @@ import "./Payment.css";
 import Layout from "../components/Layout/Layout";
 import card from "../images/card.jpg";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Payment = () => {
   const [selectedButton, setSelectedButton] = useState(null);
   const [amt, setAmt] = useState("");
-
+  const [mode, setMode] = useState(null);
+  const currency = sessionStorage.getItem("currency");
+  const handleSelect = (modetype) => {
+    setMode(modetype);
+  };
   const handleClick = (amount) => {
     setAmt(amount);
     setSelectedButton(amount);
   };
 
-  // console.log(amt);
-  const navigate = useNavigate();
-
-  // customerPhoneNumber: sessionStorage.getItem("userPhone"),
   const Deposit = async () => {
     try {
       const response = await axios.post(
@@ -26,13 +25,11 @@ const Payment = () => {
         {
           amount: Number(amt) * 100,
           userid: sessionStorage.getItem("userId"),
-          // callbackUrl: "http://localhost:3000/payment-verification",
           callbackUrl: "https://certifieddump.com/payment-verification",
-          // currency: "NGN",
-          currency: "USD",
+          currency: currency,
           customerFirstName: sessionStorage.getItem("userFirstname"),
           customerLastName: sessionStorage.getItem("userLastname"),
-          customerPhoneNumber: "2348032132100",
+          customerPhoneNumber: sessionStorage.getItem("userPhone"),
           email: sessionStorage.getItem("userEmail"),
         },
         {
@@ -41,8 +38,7 @@ const Payment = () => {
           },
         }
       );
-      console.log(response);
-      // navigate(response.data.authorizationUrl);
+      // console.log(response);
       sessionStorage.setItem("paymentRef", response.data.reference);
       window.location.href = response.data.authorizationUrl;
     } catch (error) {
@@ -57,7 +53,14 @@ const Payment = () => {
         <div className="d-payment-body">
           <h4>1. Choose a payment method</h4>
           <div className="d-payment-modes">
-            <div className="payment-mode">
+            <div
+              className={`payment-mode ${
+                mode === "Card" ? "payment-active" : ""
+              }`}
+              onClick={() => {
+                handleSelect("Card");
+              }}
+            >
               <img loading="lazy" src={card} alt="card payment method" />
             </div>
           </div>
@@ -92,16 +95,29 @@ const Payment = () => {
             />
           </div>
           <div className="d-payment-btn">
-            <button
-              className="d-sec-btn"
-              onClick={() => {
-                if (amt) {
-                  Deposit();
-                } else toast.error("Please enter an amount to pay");
-              }}
-            >
-              Pay
-            </button>
+            {currency === "NGN" ? (
+              <button
+                className="d-sec-btn"
+                onClick={() => {
+                  if (amt) {
+                    Deposit();
+                  } else toast.error("Please enter an amount to pay");
+                }}
+              >
+                Pay
+              </button>
+            ) : (
+              <button
+                className="d-sec-btn"
+                onClick={() => {
+                  if (amt) {
+                    Deposit();
+                  } else toast.error("Please enter an amount to pay");
+                }}
+              >
+                Pay
+              </button>
+            )}
           </div>
           <p>
             You will be redirected to the payment page of the chosen service

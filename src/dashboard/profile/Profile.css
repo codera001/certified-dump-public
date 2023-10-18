@@ -27,8 +27,18 @@
 }
 
 .d-profile-image {
-  width: 15%;
-  height: 50%;
+  width: 50%;
+  position: relative;
+}
+
+.d-profile-image img {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.d-profile-image svg {
+  font-size: 8rem;
   color: var(--secondary-color);
   cursor: pointer;
 }
@@ -212,6 +222,14 @@
   .d-profile-heading p {
     padding: 0 70px;
   }
+
+  .d-profile-image {
+  max-width: 20%;
+}
+
+.d-profile-pic .pic {
+  max-width: 11%;
+}
 
   .d-profile-info {
     flex-direction: row;

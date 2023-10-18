@@ -25,13 +25,13 @@ const Apilog = () => {
         formData
       );
       sessionStorage.setItem("token", response.data.token);
-      console.log("login Successful:", response.data);
+      // console.log("login Successful:", response.data);
       navigate("/dashboard");
     } catch (error) {
       if (error.response.data.msg == "Unverified Email ") {
         navigate("/confirm-email");
       }
-      console.log("login error:", error.response.data.msg);
+      // console.log("login error:", error.response.data.msg);
     }
   };
 

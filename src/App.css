@@ -34,10 +34,6 @@
   font-family: "Roboto Condensed", sans-serif;
 }
 
-.App {
-  text-align: center;
-}
-
 a {
   text-decoration: none;
 }
@@ -47,7 +43,3 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-/* input[type="number"] {
-  -moz-appearance: textfield;
-} */

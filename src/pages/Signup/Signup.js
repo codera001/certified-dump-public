@@ -45,7 +45,7 @@ function Signup() {
   };
 
   const handleSubmit = async () => {
-    console.log(formData);
+    // console.log(formData);
     // e.preventDefault();
     try {
       const response = await axios.post(
@@ -62,9 +62,6 @@ function Signup() {
       // console.log(error);
     }
   };
-
-  // 808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com
-  // 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
 
   return (
     <>
@@ -191,7 +188,7 @@ function Signup() {
                     fontSize: "12px",
                   }}
                 >
-                  Already have an account yet?
+                  Already have an account?
                   <Link
                     to="/login"
                     style={{ color: "var(--green-600", fontWeight: "light" }}
@@ -207,12 +204,10 @@ function Signup() {
                     fontSize: "12px",
                   }}
                 >
-                  Or log in with your social network
+                  Or sign up with google
                 </p>
-                {/* <GoogleOAuthProvider clientId="808631123105-qt399aga53mske5kmea2k0t83doctuge.apps.googleusercontent.com">
                 <Google />
-              </GoogleOAuthProvider> */}
-                <div className="social-images d-flex">
+                {/* <div className="social-images d-flex">
                   <div className="social-images-wrap">
                     <BsFacebook
                       className="me-1"
@@ -231,7 +226,7 @@ function Signup() {
                       style={{ fontSize: "22px" }}
                     ></AiFillGithub>
                   </div>
-                </div>
+                </div> */}
               </Form>
             </div>
           </div>
