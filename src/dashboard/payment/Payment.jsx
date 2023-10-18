@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 const Payment = () => {
   const [selectedButton, setSelectedButton] = useState(null);
   const [amt, setAmt] = useState("");
-  const [mode, setMode] = useState(null)
+  const [mode, setMode] = useState(null);
   const currency = sessionStorage.getItem("currency");
   const handleSelect = (modetype) => {
     setMode(modetype);
@@ -95,7 +95,7 @@ const Payment = () => {
             />
           </div>
           <div className="d-payment-btn">
-            {currency === "NGN" && (
+            {currency === "NGN" ? (
               <button
                 className="d-sec-btn"
                 onClick={() => {
@@ -106,8 +106,7 @@ const Payment = () => {
               >
                 Pay
               </button>
-            )}
-            {currency === "USD" && (
+            ) : (
               <button
                 className="d-sec-btn"
                 onClick={() => {
@@ -116,7 +115,7 @@ const Payment = () => {
                   } else toast.error("Please enter an amount to pay");
                 }}
               >
-                Pay with USD
+                Pay
               </button>
             )}
           </div>
