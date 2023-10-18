@@ -95,9 +95,6 @@ const CurrencyUpdate = () => {
             </button>
             {activeCurrency && <button onClick={updateCurrency}>Submit</button>}
           </div>
-          {/* <button style={{ margin: "1rem 0 0" }} onClick={() => setOpen(!open)}>
-            I will do that later
-          </button> */}
         </ModalLayout>
       )}
     </>

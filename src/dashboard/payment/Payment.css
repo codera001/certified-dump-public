@@ -35,8 +35,8 @@
   aspect-ratio: 1.7;
 }
 
-.d-payment-modes .payment-mode:active {
-  border: 1px solid var(--primary-color);
+.d-payment-modes .payment-active {
+  border: 2px solid var(--black);
 }
 
 .d-payment .d-amounts {

@@ -8,7 +8,11 @@ import toast from "react-hot-toast";
 const Payment = () => {
   const [selectedButton, setSelectedButton] = useState(null);
   const [amt, setAmt] = useState("");
+  const [mode, setMode] = useState(null)
   const currency = sessionStorage.getItem("currency");
+  const handleSelect = (modetype) => {
+    setMode(modetype);
+  };
   const handleClick = (amount) => {
     setAmt(amount);
     setSelectedButton(amount);
@@ -49,7 +53,14 @@ const Payment = () => {
         <div className="d-payment-body">
           <h4>1. Choose a payment method</h4>
           <div className="d-payment-modes">
-            <div className="payment-mode">
+            <div
+              className={`payment-mode ${
+                mode === "Card" ? "payment-active" : ""
+              }`}
+              onClick={() => {
+                handleSelect("Card");
+              }}
+            >
               <img loading="lazy" src={card} alt="card payment method" />
             </div>
           </div>

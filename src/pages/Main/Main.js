@@ -157,7 +157,6 @@ function Main() {
               {providers.slice(0, 10).map((item, i) => (
                 <Provider
                   key={i}
-                  // image={cisco}
                   providerName={`/provider/${item.name}`}
                   i={i}
                   title={item.name}

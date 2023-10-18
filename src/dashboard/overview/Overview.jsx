@@ -204,7 +204,7 @@ const Overview = () => {
         </div>
 
         {/* Currency pop up */}
-        <CurrencyUpdate />
+        {/* <CurrencyUpdate /> */}
       </div>
     </Layout>
   );
