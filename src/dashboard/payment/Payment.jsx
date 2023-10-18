@@ -26,7 +26,7 @@ const Payment = () => {
           amount: Number(amt) * 100,
           userid: sessionStorage.getItem("userId"),
           callbackUrl: "https://certifieddump.com/payment-verification",
-          currency: currency,
+          currency: "USD",
           customerFirstName: sessionStorage.getItem("userFirstname"),
           customerLastName: sessionStorage.getItem("userLastname"),
           customerPhoneNumber: sessionStorage.getItem("userPhone"),
