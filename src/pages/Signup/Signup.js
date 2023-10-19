@@ -3,25 +3,19 @@ import "./Signup.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import {
-  AiFillGithub,
-  AiFillTwitterCircle,
-  AiOutlineEye,
-  AiOutlineEyeInvisible,
-} from "react-icons/ai";
-import { BsFacebook } from "react-icons/bs";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import Google from "../../ApiTesting/GoogleLogin";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import ReCAPTCHA from "react-google-recaptcha";
 import PublicLayout from "../../component/PublicLayout";
+import loader from "../../static/loader.gif";
 
 function Signup() {
   const [isVerified, setIsVerified] = useState(false);
   const [viewPassword, setViewPassword] = useState(false);
   const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
   function onChange() {
     setIsVerified(!isVerified);
   }
@@ -46,7 +40,7 @@ function Signup() {
 
   const handleSubmit = async () => {
     // console.log(formData);
-    // e.preventDefault();
+    setLoading(!loading);
     try {
       const response = await axios.post(
         "https://api.certifieddump.com/api/signup",
@@ -60,6 +54,8 @@ function Signup() {
       // console.log("signup error:", error.response.data.msg);
       toast.error(error.response.data.msg);
       // console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -147,7 +143,6 @@ function Signup() {
                     )}
                   </span>
                 </Form.Group>
-
                 <Form.Group className="mb-3 form-group-s">
                   <Form.Control
                     className="form-control-s"
@@ -177,7 +172,11 @@ function Signup() {
                 )}
 
                 <Button type="submit" className="form-button-s">
-                  SIGN UP
+                  {loading ? (
+                    <img loading="lazy" src={loader} alt="loading gif" />
+                  ) : (
+                    <>SIGN UP</>
+                  )}
                 </Button>
 
                 <p
@@ -207,26 +206,6 @@ function Signup() {
                   Or sign up with google
                 </p>
                 <Google />
-                {/* <div className="social-images d-flex">
-                  <div className="social-images-wrap">
-                    <BsFacebook
-                      className="me-1"
-                      style={{ fontSize: "21px", color: "blue" }}
-                    ></BsFacebook>
-                    <AiFillTwitterCircle
-                      className="me-1"
-                      style={{ fontSize: "23px", color: "skyblue" }}
-                    ></AiFillTwitterCircle>
-                    <FcGoogle
-                      className="me-1"
-                      style={{ fontSize: "22px" }}
-                    ></FcGoogle>
-                    <AiFillGithub
-                      className="me-1"
-                      style={{ fontSize: "22px" }}
-                    ></AiFillGithub>
-                  </div>
-                </div> */}
               </Form>
             </div>
           </div>

@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./Verify.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AiFillMessage } from "react-icons/ai";
 import toast from "react-hot-toast";
 import PublicLayout from "../../component/PublicLayout";
+import loader from "../../static/loader.gif";
 
 function VerifyEmail() {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [pin, setPin] = useState("");
   const [hidden, setHidden] = useState(false);
@@ -16,6 +18,7 @@ function VerifyEmail() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(!loading);
     try {
       const response = await axios.post(
         `https://api.certifieddump.com/api/verify-email/${pin}`
@@ -25,13 +28,15 @@ function VerifyEmail() {
       navigate("/success");
       localStorage.removeItem("unverifiedMail");
     } catch (error) {
-     toast.error("verification error:", error.response.data.msg);
+      toast.error(`verification error: ${error.response.data.msg}`);
+    } finally {
+      setLoading(false);
     }
   };
 
-
   const getVerificationCode = async (e) => {
     e.preventDefault();
+    setLoading(!loading);
     try {
       const response = await axios.post(
         "https://api.certifieddump.com/api/resend-verification-email",
@@ -42,14 +47,16 @@ function VerifyEmail() {
       // console.log("Verification Code sent:", response.data);
       toast.success("Verification code has been sent to your mail");
     } catch (error) {
-      // console.log("verification error:", error);
-      // toast.success("Your account is already verified, please login");
+      toast.error(error.response.data.msg);
+    } finally {
+      setLoading(false);
     }
   };
 
   setTimeout(() => {
     setHidden(!hidden);
-  }, 25000);
+  }, 30000);
+
   return (
     <PublicLayout>
       <div className="verifyemail">
@@ -69,21 +76,42 @@ function VerifyEmail() {
                   required
                 />
               </div>
-              <button type="submit">Verify Your Email Address</button>
+              <button type="submit">
+                {loading ? (
+                  <img
+                    className="loading-logo"
+                    loading="lazy"
+                    src={loader}
+                    alt="loading gif"
+                  />
+                ) : (
+                  <>Verify Your Email Address</>
+                )}
+              </button>
             </form>
             {hidden ? (
               <button type="submit" onClick={getVerificationCode}>
-                Resend verification code
+                {loading ? (
+                  <img
+                    className="loading-logo"
+                    loading="lazy"
+                    src={loader}
+                    alt="loading gif"
+                  />
+                ) : (
+                  <>Resend Verification Code</>
+                )}
               </button>
             ) : (
               ""
             )}
           </div>
           <div className="help-text mt-5 d-flex justify-content-around mx-auto px-2 py-3">
-            <AiFillMessage style={{ fontSize: "50px" }} className="" />
-            <div className="">
+            <AiFillMessage style={{ fontSize: "50px" }} />
+            <div>
               <h4>HAVE A QUESTION?</h4>
-              <a
+              <Link
+                to="/contact"
                 style={{
                   fontSize: "14px",
                   color: "var(--tertiary-color)",
@@ -91,7 +119,7 @@ function VerifyEmail() {
                 }}
               >
                 Reach out to our team
-              </a>
+              </Link>
             </div>
           </div>
         </div>

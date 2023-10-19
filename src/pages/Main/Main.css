@@ -49,10 +49,12 @@
 
 .section-one-main .text h1 {
   font-size: 4rem;
+  font-weight: bolder;
 }
 
 .section-one-main .p-text {
   width: 70%;
+  font-size: 1.375rem;
 }
 
 .section-one-main .button {
@@ -272,8 +274,7 @@ hr.section-three-main-line {
 @media screen and (max-width: 500px) {
   .section-one-main .p-text {
     width: 90% !important;
-    /* text-align: justify; */
-    font-size: 1rem !important;
+    font-size: 0.97rem !important;
   }
 
   .section-one-main .text {
@@ -290,6 +291,10 @@ hr.section-three-main-line {
   .section-one-main .text {
     width: 90%;
   }
+
+   .section-one-main .break {
+    display: none;
+   }
 
   .section-two-main h5 {
     font-size: 2rem;

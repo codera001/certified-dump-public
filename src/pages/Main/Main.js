@@ -6,7 +6,6 @@ import Footer from "../../component/Footer/Footer";
 import Provider from "../../component/Provider";
 import axios from "axios";
 import loader from "../../static/loader.gif";
-import cisco from "../../static/cisco.png";
 import { Link, useNavigate } from "react-router-dom";
 import ScrollToTop from "../../component/ScrollToTop";
 
@@ -24,7 +23,7 @@ function Main() {
       const res = await axios.get(
         "https://api.certifieddump.com/api-admin/getImageHeader"
       );
-      setImages(res.data.ImageHeader.map(item => item.image_url));
+      setImages(res.data.ImageHeader.map((item) => item.image_url));
     } catch (error) {}
   };
 
@@ -61,7 +60,7 @@ function Main() {
 
   const handleSelect = (exam) => {
     if (exam) {
-      navigate(`/provider/${exam.providerid}`);
+      navigate(`/provider/${exam.providerid}/${exam.title}`);
     }
   };
 
@@ -77,7 +76,6 @@ function Main() {
     GetProviders();
     GetExams();
   }, []);
-
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -96,26 +94,17 @@ function Main() {
         }}
       >
         <div className="text my-auto">
-          <h1
-            style={{
-              fontWeight: "bolder",
-              marginBottom: "2rem",
-              padding: "0 0.5rem",
-            }}
-          >
-            WELCOME TO CERTIFIED DUMP
+          <h1>
+            WELCOME TO <br className="break" /> CERTIFIED DUMP
           </h1>
-          <p
-            className="text-align-center mx-auto p-text"
-            style={{ fontSize: "22px" }}
-          >
+          <p className="text-align-center mx-auto p-text">
             You'll discover that none of the suppliers of real exam materials
             are genuinely free when you search for them. We made the decision to
             withhold all of that dreck and just provide you with the most
-            recent, accurate, and confirmed genuine exam questions & answers.{" "}
+            recent, accurate, and confirmed genuine exam questions & answers.
           </p>
           <p style={{ fontSize: "16px", marginBottom: "2rem" }}>
-            You are assured to pass your exam-for free
+            You are assured to pass your exams for free.
           </p>
 
           <div className=" container  justify-content-around  text-align-center">

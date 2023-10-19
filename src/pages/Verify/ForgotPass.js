@@ -4,8 +4,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import PublicLayout from "../../component/PublicLayout";
+import loader from "../../static/loader.gif";
 
 function ForgotPass() {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     email: "",
@@ -21,6 +23,7 @@ function ForgotPass() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(!loading);
     try {
       const response = await axios.post(
         `https://api.certifieddump.com/api/forgot-password`,
@@ -33,6 +36,8 @@ function ForgotPass() {
     } catch (error) {
       // console.log("verification error:", error);
       toast.error("Username or email is incorrect");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -57,7 +62,16 @@ function ForgotPass() {
                 />
               </div>
               <button className="py-2" type="submit">
-                Get Reset link
+                {loading ? (
+                  <img
+                    className="loading-logo"
+                    loading="lazy"
+                    src={loader}
+                    alt="loading gif"
+                  />
+                ) : (
+                  <>Get Reset Link</>
+                )}
               </button>
             </form>
           </div>

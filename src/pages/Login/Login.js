@@ -2,30 +2,24 @@ import React, { useState } from "react";
 import "./Login.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { FcGoogle } from "react-icons/fc";
-import {
-  AiFillGithub,
-  AiFillTwitterCircle,
-  AiOutlineEye,
-  AiOutlineEyeInvisible,
-} from "react-icons/ai";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-
-import { BsFacebook } from "react-icons/bs";
 import Google from "../../ApiTesting/GoogleLogin";
 import ReCAPTCHA from "react-google-recaptcha";
 import PublicLayout from "../../component/PublicLayout";
+import loader from "../../static/loader.gif";
 
 function Login() {
   const [isVerified, setIsVerified] = useState(false);
   const [viewPassword, setViewPassword] = useState(false);
   const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
   function onChange() {
     setIsVerified(!isVerified);
   }
+
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -40,11 +34,8 @@ function Login() {
     });
   };
 
-  let date = new Date();
-  let currentTime = date.getTime();
-  // console.log(currentTime);
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = async () => {
+    setLoading(!loading);
     try {
       const response = await axios.post(
         "https://api.certifieddump.com/api/login",
@@ -75,6 +66,8 @@ function Login() {
       if (error.response.data.msg == "Unverified Email ") {
         navigate("/verify-email");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -143,7 +136,11 @@ function Login() {
             )}
 
             <Button type="submit" className="form-button-s">
-              SIGN IN
+              {loading ? (
+                <img loading="lazy" src={loader} alt="loading gif" />
+              ) : (
+                <>SIGN IN</>
+              )}
             </Button>
             <Link
               to="/forgot-password"
