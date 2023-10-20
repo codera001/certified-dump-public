@@ -43,6 +43,7 @@ function Login() {
       );
       // console.log(response.data);
       // console.log(response.data.user.currency);
+      // sessionStorage.setItem("currency", "NGN");
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.setItem("userId", response.data.user.id);
       sessionStorage.setItem("currency", response.data.user.currency);

@@ -5,11 +5,13 @@ import card from "../images/card.jpg";
 import axios from "axios";
 import toast from "react-hot-toast";
 import CurrencyUpdate from "../overview/Currency";
+import loader from "../../static/loader.gif";
 
 const Payment = () => {
   const [selectedButton, setSelectedButton] = useState(null);
   const [amt, setAmt] = useState("");
   const [mode, setMode] = useState(null);
+  const [loading, setLoading] = useState(false);
   const currency = sessionStorage.getItem("currency");
   const [showPop, setShowPop] = useState(false);
 
@@ -22,6 +24,7 @@ const Payment = () => {
   };
 
   const Deposit = async () => {
+    setLoading(!loading);
     try {
       const response = await axios.post(
         "https://api.certifieddump.com/api-wallet/payment",
@@ -46,6 +49,8 @@ const Payment = () => {
       window.location.href = response.data.authorizationUrl;
     } catch (error) {
       // console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -141,7 +146,16 @@ const Payment = () => {
                   } else toast.error("Please enter an amount to pay");
                 }}
               >
-                Pay
+                {loading ? (
+                  <img
+                    loading="lazy"
+                    src={loader}
+                    alt="loading gif"
+                    className="loading-logo"
+                  />
+                ) : (
+                  <>Pay</>
+                )}
               </button>
             ) : (
               <button
@@ -154,7 +168,16 @@ const Payment = () => {
                   } else toast.error("Please enter an amount to pay");
                 }}
               >
-                Pay
+                {loading ? (
+                  <img
+                    loading="lazy"
+                    src={loader}
+                    alt="loading gif"
+                    className="loading-logo"
+                  />
+                ) : (
+                  <>Pay</>
+                )}
               </button>
             )}
           </div>

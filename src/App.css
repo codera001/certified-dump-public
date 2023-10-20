@@ -45,6 +45,6 @@ input::-webkit-inner-spin-button {
 }
 
 .loading-logo {
-    width: 30px;
+    width: 30px !important;
     margin: 0 auto;
 }
