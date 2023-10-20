@@ -12,11 +12,15 @@
 .d-card-img {
   position: relative;
   width: 90%;
-  aspect-ratio: 1;
   overflow: hidden;
   border-radius: 5px;
   margin: 0 auto;
   border: 1px solid var(--primary-color);
+}
+
+.d-card-img img {
+  aspect-ratio: 1;
+  object-fit: contain;
 }
 
 .d-admin-card {
