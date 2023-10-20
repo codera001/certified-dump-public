@@ -76,7 +76,7 @@ function Preview() {
       // console.log(response);
       toast.success(response.data.msg);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.response.data.msg);
       if (error.response.data.msg == "Insufficient balance") {
         navigate("/payment");

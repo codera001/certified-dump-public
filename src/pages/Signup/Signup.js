@@ -28,6 +28,7 @@ function Signup() {
     phone_no: "",
     password: "",
     password_repeat: "",
+    currency: "",
   });
 
   const handleChange = (e) => {
@@ -116,6 +117,7 @@ function Signup() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Enter your email"
+                    required
                   />
                 </Form.Group>
                 <Form.Group
@@ -154,6 +156,20 @@ function Signup() {
                     required
                   />
                 </Form.Group>
+                <Form.Group className="mb-3 form-group-s">
+                  <Form.Select
+                    name="currency"
+                    value={formData.currency}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">
+                      Choose preferred currency for transactions
+                    </option>
+                    <option value="NGN">Naira</option>
+                    <option value="USD">USD</option>
+                  </Form.Select>
+                </Form.Group>
                 <div className="login-capcha">
                   <ReCAPTCHA
                     sitekey="6LeublgoAAAAAJcgjbrXDIOqr3839Npd0g-sE8Pd"
@@ -180,7 +196,6 @@ function Signup() {
                 </Button>
 
                 <p
-                  className=""
                   style={{
                     fontWeight: "bolder",
                     color: "black",

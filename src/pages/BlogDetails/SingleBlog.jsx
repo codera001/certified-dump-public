@@ -3,7 +3,7 @@ import PublicLayout from "../../component/PublicLayout";
 import "./Single.css";
 import "../Blog/Blog.css";
 import LatestBlogs from "../../component/Latests";
-import { BsFacebook, BsInstagram } from "react-icons/bs";
+import { BsFacebook, BsLinkedin } from "react-icons/bs";
 import {
   AiFillTwitterCircle,
   AiOutlineClockCircle,
@@ -23,6 +23,7 @@ const SingleBlog = () => {
   const authToken = sessionStorage.getItem("token");
   const [userComment, setUserComment] = useState("");
   const userId = sessionStorage.getItem("userId");
+  const url = window.location.href;
 
   const GetBlog = async () => {
     try {
@@ -108,15 +109,32 @@ const SingleBlog = () => {
                   dangerouslySetInnerHTML={{ __html: blog.content }}
                 />
                 <div className="blog-social-icons">
-                  <div className="blog-social-icon">
-                    <BsInstagram />
-                  </div>
-                  <div className="blog-social-icon">
+                  <a
+                    href={`https://www.linkedin.com/shareArticle?url=${url}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="blog-social-icon"
+                  >
+                    <BsLinkedin />
+                  </a>
+                  <a
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="blog-social-icon"
+                  >
                     <BsFacebook />
-                  </div>
-                  <div className="blog-social-icon">
+                  </a>
+                  <a
+                    href={`https://twitter.com/intent/tweet?url=${url}&text=${encodeURI(
+                      "Look at this blog post"
+                    )}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="blog-social-icon"
+                  >
                     <AiFillTwitterCircle />
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>

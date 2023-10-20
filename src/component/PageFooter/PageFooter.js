@@ -24,7 +24,7 @@ function PageFooter() {
         <div className="pa-footer d-md-flex justify-content-between container bg-none">
           <div className="text">
             <h6 style={{ fontWeight: "bolder" }}>CONNECT WITH US</h6>
-            <div className="">
+            <div>
               <div className="icon-text">
                 <a href="/" target="_blank" rel="noreferrer">
                   <BiLogoFacebook className="icon me-2" />
@@ -52,7 +52,7 @@ function PageFooter() {
             </div>
           </div>
           <div className="icons ">
-            <h6 className="" style={{ fontWeight: "bolder" }}>
+            <h6 style={{ fontWeight: "bolder" }}>
               SITEMAP
             </h6>
             <p className="line" />

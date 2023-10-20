@@ -57,8 +57,8 @@ const VerifyPayment = () => {
             </Link>
           </div>
           <div className="help-text mt-5 d-flex justify-content-around mx-auto px-2 py-3">
-            <AiFillMessage style={{ fontSize: "50px" }} className="" />
-            <div className="">
+            <AiFillMessage style={{ fontSize: "50px" }} />
+            <div>
               <h4>HAVE A QUESTION?</h4>
               <a
                 style={{

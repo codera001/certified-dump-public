@@ -149,7 +149,6 @@ function Login() {
               forgot password?
             </Link>
             <p
-              className=""
               style={{
                 fontWeight: "bolder",
                 color: "black",

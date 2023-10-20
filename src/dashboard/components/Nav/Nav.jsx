@@ -44,7 +44,7 @@ const Nav = () => {
       <nav className="d-user-nav">
         <div className="d-user-nav-items">
           <div className="d-nav-logo">
-            <img loading="lazy" src={logo} alt="logo" className="" />
+            <img loading="lazy" src={logo} alt="logo" />
           </div>
           <div className="d-nav-cta">
             <div className="d-windows-img">
