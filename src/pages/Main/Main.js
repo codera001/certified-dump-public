@@ -18,7 +18,6 @@ function Main() {
   const [images, setImages] = useState([]);
   const [curImg, setCurImg] = useState(0);
   const GetImages = async () => {
-    // Fetch images from your endpoint
     try {
       const res = await axios.get(
         "https://api.certifieddump.com/api-admin/getImageHeader"
@@ -72,17 +71,17 @@ function Main() {
   };
 
   useEffect(() => {
-    GetImages();
-    GetProviders();
-    GetExams();
-  }, []);
-
-  useEffect(() => {
     const interval = setInterval(() => {
       setCurImg((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000);
     return () => clearInterval(interval);
   }, [images]);
+
+  useEffect(() => {
+    GetImages();
+    GetProviders();
+    GetExams();
+  }, []);
 
   return (
     <div style={{ textAlign: "center" }}>
