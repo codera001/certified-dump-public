@@ -3,7 +3,6 @@
   background-image: -o-linear-gradient(var(--brown), white, var(--brown));
   background-image: -moz-linear-gradient(var(--brown), white, var(--brown));
   background-image: -webkit-linear-gradient(var(--brown), white, var(--brown));
-  /* background-image: -ms-linear-gradient( var(--brown) , white , var(--brown) ); */
 }
 
 .preview-keyword,

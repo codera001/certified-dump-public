@@ -17,7 +17,24 @@ function NavigationBar() {
   const authToken = sessionStorage.getItem("token");
   const user = sessionStorage.getItem("username");
   const currency = sessionStorage.getItem("currency");
+  let userid = sessionStorage.getItem("userId");
 
+  const getUserBalance = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.certifieddump.com/api-wallet/userbalance?userid=${userid}`,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+        }
+      );
+      // setBalance(response.data.result[0].balance);
+      sessionStorage.setItem("balance", response.data.result[0].balance);
+      // console.log(response);
+    } catch (error) {}
+  };
+  
   const GetRate = async () => {
     try {
       const res = await axios.get(
@@ -34,6 +51,9 @@ function NavigationBar() {
   };
 
   useEffect(() => {
+    if (authToken) {
+      getUserBalance();
+    }
     GetRate();
     function handleScroll() {
       if (window.scrollY > 200) {
