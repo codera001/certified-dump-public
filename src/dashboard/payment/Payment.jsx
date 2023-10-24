@@ -4,8 +4,9 @@ import Layout from "../components/Layout/Layout";
 import card from "../images/card.jpg";
 import axios from "axios";
 import toast from "react-hot-toast";
-import CurrencyUpdate from "../overview/Currency";
 import loader from "../../static/loader.gif";
+import { useNavigate } from "react-router-dom";
+import CurrencyUpdate from "../overview/Currency";
 
 const Payment = () => {
   const [selectedButton, setSelectedButton] = useState(null);
@@ -14,7 +15,7 @@ const Payment = () => {
   const [loading, setLoading] = useState(false);
   const currency = sessionStorage.getItem("currency");
   const [showPop, setShowPop] = useState(false);
-
+  const navigate = useNavigate();
   const handleSelect = (modetype) => {
     setMode(modetype);
   };
@@ -48,7 +49,18 @@ const Payment = () => {
       sessionStorage.setItem("paymentRef", response.data.reference);
       window.location.href = response.data.authorizationUrl;
     } catch (error) {
-      toast.error("Can't make USD payments now. Please try again later!");
+      console.log(error);
+      if (
+        error.response.data.error ==
+        "Missing required fields: customerPhoneNumber"
+      ) {
+        toast.error(
+          "Please update your phone number in order to make transactions"
+        );
+        navigate("/profile");
+      } else {
+        toast.error("Can't make USD payments now. Please try again later!");
+      }
     } finally {
       setLoading(false);
     }
@@ -139,7 +151,8 @@ const Payment = () => {
               <button
                 className="d-sec-btn"
                 onClick={() => {
-                  if (currency === "null") {
+                  if (currency !== "NGN" && currency !== "USD") {
+                    console.log(currency);
                     setShowPop(!showPop);
                   } else if (amt) {
                     Deposit();
@@ -161,7 +174,7 @@ const Payment = () => {
               <button
                 className="d-sec-btn"
                 onClick={() => {
-                  if (currency === "null") {
+                  if (currency !== "NGN" && currency !== "USD") {
                     setShowPop(!showPop);
                   } else if (amt) {
                     Deposit();
@@ -186,7 +199,6 @@ const Payment = () => {
           </p>
         </div>
         {showPop ? <CurrencyUpdate /> : ""}
-        <CurrencyUpdate />
       </div>
     </Layout>
   );

@@ -10,6 +10,7 @@ import Phone from "./Phone";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Delete from "./change_password/Delete";
+import loader from "../../static/loader.gif";
 
 const Profile = () => {
   const uname = sessionStorage.getItem("username");
@@ -28,8 +29,10 @@ const Profile = () => {
   const fileInputRef = useRef(null);
   const formData = new FormData();
   const userCode = sessionStorage.getItem("userCode");
+  const [loading, setLoading] = useState(false);
 
-  const ShowChangePass = () => {
+  const ShowChangePass = (e) => {
+    e.preventDefault();
     setChangePass(true);
   };
 
@@ -68,11 +71,12 @@ const Profile = () => {
       setGender(response.data[0].gender);
       setDisplayImg(response.data[0].image_path);
       setPhoneNumber(response.data[0].phone_no);
-      sessionStorage.setItem("userNo", response.data[0].phone_no);
+      sessionStorage.setItem("userPhone", response.data[0].phone_no);
     } catch (error) {}
   };
 
   const updateData = async () => {
+    setLoading(!loading);
     try {
       let response;
       if (profileImage) {
@@ -115,6 +119,8 @@ const Profile = () => {
     } catch (error) {
       // console.log(error);
       toast.error("Can't edit now. Please try again later");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -133,7 +139,7 @@ const Profile = () => {
           </p>
         </div>
         <div className="d-profile-pic">
-          {displayImg ? (
+          {displayImg !== "null" && displayImg !== "undefined" ? (
             <div className="d-profile-image">
               <BiEdit
                 onClick={handleEditClick}
@@ -254,7 +260,16 @@ const Profile = () => {
                   updateData();
                 }}
               >
-                Save
+                {loading ? (
+                  <img
+                    loading="lazy"
+                    src={loader}
+                    alt="loading gif"
+                    className="loading-logo"
+                  />
+                ) : (
+                  <>Save</>
+                )}
               </button>
               <button className="d-cancel-button">Cancel</button>
             </div>

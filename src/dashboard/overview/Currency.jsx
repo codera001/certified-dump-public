@@ -10,7 +10,7 @@ const CurrencyUpdate = () => {
   let curr = sessionStorage.getItem("currency");
 
   useEffect(() => {
-    if (curr === "null") setOpen(!open);
+    if (curr !== "NGN" && curr !== "USD") setOpen(!open);
   }, []);
 
   const handleSelect = (currency) => {

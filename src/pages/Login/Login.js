@@ -41,7 +41,7 @@ function Login() {
         "https://api.certifieddump.com/api/login",
         formData
       );
-      // console.log(response.data);
+      console.log(response.data);
       // console.log(response.data.user.currency);
       // sessionStorage.setItem("currency", "NGN");
       sessionStorage.setItem("token", response.data.token);

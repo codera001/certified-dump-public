@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ChangePassword.css";
 import ModalLayout from "../../../component/ModalLayout";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import loader from "../../../static/loader.gif";
 
 const ChangePassword = (props) => {
+  const [loading, setLoading] = useState(false);
   const { HideChangePass } = props;
-  // const [newPass, setNewPass] = useState("");
   const navigate = useNavigate();
   const {
     register,
@@ -21,6 +22,7 @@ const ChangePassword = (props) => {
     newpassword,
     confirm_newpassword,
   }) => {
+    setLoading(!loading);
     if (newpassword !== confirm_newpassword) {
       toast.error("New passwords do not match");
       return;
@@ -48,8 +50,13 @@ const ChangePassword = (props) => {
       );
       navigate("/login");
     } catch (error) {
-      toast.error(error.response.data.msg);
+      toast.error(
+        "Can't update password now, please try again later." ||
+          error.response.data.msg
+      );
       // console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -95,7 +102,18 @@ const ChangePassword = (props) => {
           </div>
         </div>
         <div className="submit-cancel-Btn">
-          <button type="submit">Submit</button>
+          <button>
+            {loading ? (
+              <img
+                loading="lazy"
+                src={loader}
+                alt="loading gif"
+                className="loading-logo"
+              />
+            ) : (
+              <>Submit</>
+            )}
+          </button>
           <button onClick={HideChangePass}>Cancel</button>
         </div>
       </form>
