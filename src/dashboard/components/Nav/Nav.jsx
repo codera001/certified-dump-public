@@ -91,7 +91,9 @@ const Nav = () => {
             <PiCaretDownLight className="d-drop-icon-2" />
             <div className="d-dropdown-inner">
               <div>
-                <p>{email}</p>
+                <p>
+                  {email.length > 21 ? `${email.substring(0, 21)}...` : email}
+                </p>
                 <Link to="/profile">
                   <BiUserCheck />
                   <span>Profile</span>
