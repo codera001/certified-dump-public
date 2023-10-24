@@ -9,6 +9,7 @@ import loader from "../../static/loader.gif";
 
 function VerifyEmail() {
   const [loading, setLoading] = useState(false);
+  const [loading2, setLoading2] = useState(false);
   const navigate = useNavigate();
   const [pin, setPin] = useState("");
   const [hidden, setHidden] = useState(false);
@@ -36,9 +37,9 @@ function VerifyEmail() {
 
   const getVerificationCode = async (e) => {
     e.preventDefault();
-    setLoading(!loading);
+    setLoading2(!loading2);
     try {
-      const response = await axios.post(
+      await axios.post(
         "https://api.certifieddump.com/api/resend-verification-email",
         {
           email: localStorage.getItem("unverifiedMail"),
@@ -49,7 +50,7 @@ function VerifyEmail() {
     } catch (error) {
       toast.error(error.response.data.msg);
     } finally {
-      setLoading(false);
+      setLoading2(false);
     }
   };
 
@@ -91,7 +92,7 @@ function VerifyEmail() {
             </form>
             {hidden ? (
               <button type="submit" onClick={getVerificationCode}>
-                {loading ? (
+                {loading2 ? (
                   <img
                     className="loading-logo"
                     loading="lazy"
