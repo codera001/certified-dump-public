@@ -17,8 +17,6 @@ import Preview from "./pages/Preview/Preview";
 import Blockchain from "./pages/Exams/Blockchain";
 import Support from "./dashboard/support/Support";
 import Chat from "./dashboard/chats/Chat";
-import Verify from "./ApiTesting/Verify";
-import PassReset from "./ApiTesting/PassReset";
 import ProtectedRoute from "./dashboard/ProtectedRoutes";
 import Payment from "./dashboard/payment/Payment";
 import VerifyForgotPass from "./pages/Verify/VerifyForgotPass";
@@ -55,8 +53,6 @@ function App() {
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:blogId" element={<SingleBlog />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="confirm-email" element={<Verify />} />
-          <Route path="reset-password" element={<PassReset />} />
           <Route path="success2" element={<SuccessPass />} />
           <Route element={<ProtectedRoute />}>
             <Route path="dashboard" element={<Overview />} />
