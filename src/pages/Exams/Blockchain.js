@@ -25,6 +25,12 @@ function Blockchain() {
     } catch (error) {}
   };
 
+    function formatBal(bal) {
+      const parts = bal.toString().split(".");
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return parts.join(".");
+    }
+
   useEffect(() => {
     GetBooks();
   }, []);
@@ -66,8 +72,8 @@ function Blockchain() {
                     text="Preview Book"
                     price={`${
                       currency === "NGN"
-                        ? `NGN${Number(rate) * Number(item.price)}`
-                        : `$${item.price}`
+                        ? `NGN${formatBal(Number(rate) * Number(item.price))}`
+                        : `$${formatBal(item.price)}`
                     }`}
                   />
                 ))}

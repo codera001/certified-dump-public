@@ -1,6 +1,6 @@
 import React from "react";
 
-const RowWallet = ({ each }) => {
+const RowWallet = ({ each, formatBal }) => {
   const status = each.status.toLowerCase();
   const currency = sessionStorage.getItem("currency");
 
@@ -21,7 +21,7 @@ const RowWallet = ({ each }) => {
           ) : (
             "$"
           )}
-          {each.amount}
+          {formatBal(each.amount)}
         </p>
         {status === "successful" ? (
           <em className="d-mobile-success">Successful</em>

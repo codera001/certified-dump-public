@@ -6,7 +6,7 @@ import DesktopRow from "./DesktopRow";
 
 const ItemsPerPage = 7;
 
-const Table = ({ title, data, searchTerm }) => {
+const Table = ({ title, data, searchTerm, formatBal }) => {
   const [modalIndex, setModalIndex] = useState(-1);
   const [currentPage, setCurrentPage] = useState(1);
   const currency = sessionStorage.getItem("currency");
@@ -81,7 +81,7 @@ const Table = ({ title, data, searchTerm }) => {
         </thead>
         <tbody>
           {visibleItems.map((each, i) => (
-            <DesktopRow key={i} i={i} each={each} />
+            <DesktopRow key={i} i={i} each={each} formatBal={formatBal} />
           ))}
 
           {visibleItems.map((each, i) => (
@@ -92,10 +92,11 @@ const Table = ({ title, data, searchTerm }) => {
                 openModal(i);
               }}
             >
-              <RowWallet each={each} />
+              <RowWallet each={each} formatBal={formatBal} />
               {modalIndex === i && (
                 <RowModal
                   each={each}
+                  formatBal={formatBal}
                   closeModal={closeModal}
                   modalRef={modalRef}
                 />

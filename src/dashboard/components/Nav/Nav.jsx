@@ -13,10 +13,18 @@ import { googleLogout } from "@react-oauth/google";
 const Nav = () => {
   const email = sessionStorage.getItem("userEmail");
   const balance = sessionStorage.getItem("balance");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   let userid = sessionStorage.getItem("userId");
   const currency = sessionStorage.getItem("currency");
+
+  function formatBal(bal) {
+    const parts = bal.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  }
+  
   const getUserBalance = async () => {
+    setLoading(!loading);
     try {
       const response = await axios.get(
         `https://api.certifieddump.com/api-wallet/userbalance?userid=${userid}`,
@@ -31,7 +39,7 @@ const Nav = () => {
       // console.log(response);
     } catch (error) {
     } finally {
-      setLoading(!loading);
+      setLoading(false);
     }
   };
 
@@ -75,7 +83,7 @@ const Nav = () => {
                   ) : (
                     "$"
                   )}
-                  {Number(balance).toFixed(2)}
+                  {formatBal(Number(balance).toFixed(2))}
                 </p>
               )}
             </div>

@@ -15,11 +15,18 @@ const Wallet = () => {
   const token = sessionStorage.getItem("token");
   const balance = sessionStorage.getItem("balance");
   const currency = sessionStorage.getItem("currency");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const titles = ["S/N", "Id", "Amount", "Date & Time", "Status", "Type"];
 
+  function formatBal(bal) {
+    const parts = bal.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  }
+
   const moneySpent = async () => {
+    setLoading(!loading);
     try {
       const response = await axios.get(
         `https://api.certifieddump.com/api-wallet/userTotalSpentbalance?userid=${userid}`,
@@ -34,11 +41,12 @@ const Wallet = () => {
     } catch (error) {
       // console.log(error);
     } finally {
-      setLoading(!loading);
+      setLoading(false);
     }
   };
 
   const fetchUserTransactions = async () => {
+    setLoading(!loading);
     try {
       const response = await axios.get(
         `https://api.certifieddump.com/api-wallet/usertransaction?userid=${userid}`,
@@ -58,7 +66,7 @@ const Wallet = () => {
       setError(error.response.data.msg);
       // console.log(error.response);
     } finally {
-      setLoading(!loading);
+      setLoading(false);
     }
   };
 
@@ -88,7 +96,7 @@ const Wallet = () => {
               ) : (
                 "$"
               )}
-              {spent}
+              {formatBal(spent)}
             </strong>
           ) : (
             <strong>
@@ -110,7 +118,7 @@ const Wallet = () => {
             ) : (
               "$"
             )}
-            {Number(balance).toFixed(2)}
+            {formatBal(Number(balance).toFixed(2))}
           </strong>
           <p>Total available balance for Purchase</p>
         </div>
@@ -136,7 +144,7 @@ const Wallet = () => {
               title="Search Transactions"
               setSearchTerm={setSearchTerm}
             />
-            <Table title={titles} data={transactions} searchTerm={searchTerm} />
+            <Table title={titles} data={transactions} searchTerm={searchTerm} formatBal={formatBal} />
             {searchTerm !== "" &&
               transactions.filter((all) => {
                 return (

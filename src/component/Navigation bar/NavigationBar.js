@@ -19,6 +19,12 @@ function NavigationBar() {
   const currency = sessionStorage.getItem("currency");
   let userid = sessionStorage.getItem("userId");
 
+  function formatBal(bal) {
+    const parts = bal.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  }
+
   const getUserBalance = async () => {
     try {
       const response = await axios.get(
@@ -34,7 +40,7 @@ function NavigationBar() {
       // console.log(response);
     } catch (error) {}
   };
-  
+
   const GetRate = async () => {
     try {
       const res = await axios.get(
@@ -123,7 +129,7 @@ function NavigationBar() {
                     ) : (
                       "$"
                     )}
-                    {sessionStorage.getItem("balance")}
+                    {formatBal(sessionStorage.getItem("balance"))}
                   </span>
                 </p>
               </>
@@ -228,7 +234,7 @@ function NavigationBar() {
                     ) : (
                       "$"
                     )}
-                    {sessionStorage.getItem("balance")}
+                    {formatBal(sessionStorage.getItem("balance"))}
                   </NavLink>
                 </>
               )}

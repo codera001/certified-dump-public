@@ -84,6 +84,12 @@ function Preview() {
     }
   };
 
+  function formatBal(bal) {
+    const parts = bal.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  }
+
   useEffect(() => {
     GetBook();
   }, []);
@@ -230,10 +236,10 @@ function Preview() {
                         {currency === "NGN" ? (
                           <>
                             <s style={{ textDecorationStyle: "double" }}>N</s>
-                            {Number(rate) * Number(book.price)}
+                            {formatBal(Number(rate) * Number(book.price))}
                           </>
                         ) : (
-                          <>${book.price}</>
+                          <>${formatBal(book.price)}</>
                         )}
                       </p>
                     </div>
@@ -245,8 +251,8 @@ function Preview() {
                           book.id,
                           `${
                             currency === "NGN"
-                              ? `${Number(rate) * Number(book.price)}`
-                              : `${Number(book.price)}`
+                              ? `${formatBal(Number(rate) * Number(book.price))}`
+                              : `${formatBal(Number(book.price))}`
                           }`,
                           book.title
                         );

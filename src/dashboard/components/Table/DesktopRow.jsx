@@ -1,13 +1,13 @@
 import React from "react";
 
-const DesktopRow = ({ each, i }) => {
+const DesktopRow = ({ each, i, formatBal }) => {
   const status = each.status.toLowerCase();
 
   return (
     <tr key={i} className="d-desktop-row">
       <td>{i + 1}</td>
       <td>{each.trx_id}</td>
-      <td>{each.amount}</td>
+      <td>{formatBal(each.amount)}</td>
       <td>{new Date(each.date).toLocaleDateString() +
           " " +
           new Date(each.date).toLocaleTimeString()}

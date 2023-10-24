@@ -1,6 +1,6 @@
 import React from "react";
 
-const RowModal = ({ each, closeModal, modalRef }) => {
+const RowModal = ({ each, closeModal, modalRef, formatBal }) => {
   const status = each.status.toLowerCase();
   const currency = sessionStorage.getItem("currency");
 
@@ -17,7 +17,7 @@ const RowModal = ({ each, closeModal, modalRef }) => {
           ) : (
             "$"
           )}
-          {each.amount}
+          {formatBal(each.amount)}
         </span>
         <span>
           Status:{" "}
