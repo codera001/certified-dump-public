@@ -48,7 +48,7 @@ const Payment = () => {
       sessionStorage.setItem("paymentRef", response.data.reference);
       window.location.href = response.data.authorizationUrl;
     } catch (error) {
-      // console.log(error);
+      toast.error("Can't make USD payments now. Please try again later!");
     } finally {
       setLoading(false);
     }
