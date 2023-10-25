@@ -31,30 +31,23 @@ const Delete = (props) => {
 
   return (
     <ModalLayout>
-      {loading ? (
-        <div className="d-gif-div">
-          <h3 style={{ color: "red" }}>Deleting...</h3>
-          <img
-            src={loader}
-            alt="loading-gif"
-            className="d-gif"
-          />
+      <>
+        <h3 style={{ color: "red" }}>
+          Are you sure you want to delete your account?
+        </h3>
+        <div className="submit-cancel-Btn">
+          <button style={{ color: "red" }} onClick={updateUser}>
+            {loading ? (
+              <img src={loader} alt="loading-gif" className="d-gif" />
+            ) : (
+              <>Yes</>
+            )}
+          </button>
+          <button onClick={HideChangePass} style={{ fontWeight: "bold" }}>
+            No
+          </button>
         </div>
-      ) : (
-        <>
-          <h3 style={{ color: "red" }}>
-            Are you sure you want to delete your account?
-          </h3>
-          <div className="submit-cancel-Btn">
-            <button style={{ color: "red" }} onClick={updateUser}>
-              Yes
-            </button>
-            <button onClick={HideChangePass} style={{ fontWeight: "bold" }}>
-              No
-            </button>
-          </div>
-        </>
-      )}
+      </>
     </ModalLayout>
   );
 };
