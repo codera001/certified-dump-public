@@ -51,8 +51,9 @@ const ChangePassword = (props) => {
       navigate("/login");
     } catch (error) {
       toast.error(
-        "Can't update password now, please try again later." ||
-          error.response.data.msg
+        typeof error.response.data.msg !== "object"
+          ? error.response.data.msg
+          : "Can't update password now, please try again later."
       );
       // console.log(error);
     } finally {

@@ -20,7 +20,7 @@ function Preview() {
   const [show, setHide] = useState(false);
   const currency = sessionStorage.getItem("currency");
   const rate = sessionStorage.getItem("fx");
-
+  const [loading, setLoading] = useState(false);
   let modalRef = useRef();
   const closeModal = (e) => {
     if (!modalRef.current.contains(e.target)) {
@@ -57,6 +57,7 @@ function Preview() {
   };
 
   const BuyBook = async (bookId, price, title) => {
+    setLoading(!loading);
     try {
       const response = await axios.post(
         "https://api.certifieddump.com/api-wallet/buyBook",
@@ -81,6 +82,8 @@ function Preview() {
       if (error.response.data.msg == "Insufficient balance") {
         navigate("/payment");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -178,8 +181,8 @@ function Preview() {
                   <h6 style={{ fontSize: "14px" }}>
                     {`${
                       currency === "NGN"
-                        ? `NGN${Number(rate) * Number(book.price)}`
-                        : `$${book.price}`
+                        ? `NGN${formatBal(Number(rate) * Number(book.price))}`
+                        : `$${formatBal(book.price)}`
                     }`}
                   </h6>
                   <button
@@ -251,7 +254,9 @@ function Preview() {
                           book.id,
                           `${
                             currency === "NGN"
-                              ? `${formatBal(Number(rate) * Number(book.price))}`
+                              ? `${formatBal(
+                                  Number(rate) * Number(book.price)
+                                )}`
                               : `${formatBal(Number(book.price))}`
                           }`,
                           book.title
@@ -262,7 +267,16 @@ function Preview() {
                         }, 3000);
                       }}
                     >
-                      YES
+                      {loading ? (
+                        <img
+                          loading="lazy"
+                          src={loader}
+                          alt="loading gif"
+                          className="loading-logo"
+                        />
+                      ) : (
+                        <>Yes</>
+                      )}
                     </button>
                     <button onClick={() => setHide(false)}>NO</button>
                   </div>

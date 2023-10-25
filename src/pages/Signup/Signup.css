@@ -92,9 +92,6 @@
 small {
   font-size: 10px;
 }
-form input {
-  border-radius: none;
-}
 
 @media screen and (max-width: 767px) {
   .signup .signup-form-wrap {

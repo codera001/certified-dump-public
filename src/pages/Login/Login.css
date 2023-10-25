@@ -114,9 +114,6 @@
 small {
   font-size: 10px;
 }
-form input {
-  border-radius: none;
-}
 
 @media screen and (max-width: 767px) {
   .login .login-form-wrap {

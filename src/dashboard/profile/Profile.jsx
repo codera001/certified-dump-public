@@ -74,7 +74,7 @@ const Profile = () => {
       sessionStorage.setItem("userPhone", response.data[0].phone_no);
     } catch (error) {}
   };
-
+  
   const updateData = async () => {
     setLoading(!loading);
     try {
@@ -139,7 +139,9 @@ const Profile = () => {
           </p>
         </div>
         <div className="d-profile-pic">
-          {displayImg !== "null" && displayImg !== "undefined" ? (
+          {displayImg !== "null" &&
+          displayImg !== "undefined" &&
+          typeof displayImg !== "object" ? (
             <div className="d-profile-image">
               <BiEdit
                 onClick={handleEditClick}
@@ -199,11 +201,12 @@ const Profile = () => {
           </div>
           <div className="d-profile-info d-profile-info-xtra">
             <Countries origin={origin} />
-            <div className="d-input-box d-phone-box">
+            <div className="d-input-box d-phone-box input-place">
               <Phone />
               <input
                 type="text"
                 value={phoneNumber}
+                placeholder="do not add country code here"
                 onChange={(e) => {
                   setPhoneNumber(e.target.value);
                 }}

@@ -91,6 +91,10 @@
   border: 0 !important;
 }
 
+.input-place input::placeholder{
+  font-size: small;
+}
+
 .d-input-box {
   position: relative;
   width: 100%;
