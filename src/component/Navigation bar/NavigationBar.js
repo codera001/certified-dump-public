@@ -20,9 +20,11 @@ function NavigationBar() {
   let userid = sessionStorage.getItem("userId");
 
   function formatBal(bal) {
-    const parts = bal.toString().split(".");
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return parts.join(".");
+    if (bal !== null) {
+      const parts = bal.toString().split(".");
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return parts.join(".");
+    } else return bal;
   }
 
   const getUserBalance = async () => {
