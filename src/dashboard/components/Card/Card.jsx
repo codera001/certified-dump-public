@@ -29,7 +29,6 @@ const Card = ({ image, title, file, provider, cost, date }) => {
       link.click();
       document.body.removeChild(link);
     } catch (error) {
-      console.log(error);
       setError(error);
     } finally {
       setLoading(false);

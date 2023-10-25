@@ -15,10 +15,7 @@ const VerifyPayment = () => {
       const response = await axios.get(
         `https://api.certifieddump.com/api/getSupportChat?senderId=${ref}`
       );
-      // console.log(response);
-    } catch (error) {
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

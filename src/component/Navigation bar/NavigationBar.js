@@ -35,9 +35,7 @@ function NavigationBar() {
           },
         }
       );
-      // setBalance(response.data.result[0].balance);
       sessionStorage.setItem("balance", response.data.result[0].balance);
-      // console.log(response);
     } catch (error) {}
   };
 
@@ -51,7 +49,6 @@ function NavigationBar() {
           },
         }
       );
-      // console.log(res);
       sessionStorage.setItem("fx", res.data[0].rate);
     } catch (error) {}
   };

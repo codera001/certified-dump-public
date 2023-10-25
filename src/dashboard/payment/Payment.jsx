@@ -45,11 +45,9 @@ const Payment = () => {
           },
         }
       );
-      // console.log(response);
       sessionStorage.setItem("paymentRef", response.data.reference);
       window.location.href = response.data.authorizationUrl;
     } catch (error) {
-      console.log(error);
       if (
         error.response.data.error ==
         "Missing required fields: customerPhoneNumber"
@@ -152,7 +150,6 @@ const Payment = () => {
                 className="d-sec-btn"
                 onClick={() => {
                   if (currency !== "NGN" && currency !== "USD") {
-                    console.log(currency);
                     setShowPop(!showPop);
                   } else if (amt) {
                     Deposit();

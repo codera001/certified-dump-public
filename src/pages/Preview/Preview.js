@@ -33,11 +33,8 @@ function Preview() {
       const response = await axios.get(
         `https://api.certifieddump.com/api-admin/getBook/${bookId}`
       );
-      // console.log(response.data.book);
       setBook(response.data.book);
-    } catch (error) {
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 
   const getUserBalance = async () => {
@@ -50,9 +47,7 @@ function Preview() {
           },
         }
       );
-      // setBalance(response.data.result[0].balance);
       sessionStorage.setItem("balance", response.data.result[0].balance);
-      // console.log(response);
     } catch (error) {}
   };
 
@@ -74,10 +69,8 @@ function Preview() {
           },
         }
       );
-      // console.log(response);
       toast.success(response.data.msg);
     } catch (error) {
-      // console.log(error);
       toast.error(error.response.data.msg);
       if (error.response.data.msg == "Insufficient balance") {
         navigate("/payment");

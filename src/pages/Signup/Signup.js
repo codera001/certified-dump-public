@@ -40,21 +40,17 @@ function Signup() {
   };
 
   const handleSubmit = async () => {
-    // console.log(formData);
     setLoading(!loading);
     try {
       const response = await axios.post(
         "https://api.certifieddump.com/api/signup",
         formData
       );
-      // console.log("Signup Successful:", response.data);
       toast.success(response.data.msg);
       localStorage.setItem("unverifiedMail", formData.email);
       navigate("/verify-email");
     } catch (error) {
-      // console.log("signup error:", error.response.data.msg);
       toast.error(error.response.data.msg);
-      // console.log(error);
     } finally {
       setLoading(false);
     }

@@ -31,7 +31,6 @@ const Table = ({ title, data, searchTerm, formatBal }) => {
         all.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
         all.status.toLowerCase().includes(searchTerm.toLowerCase())
       ) {
-        // console.log(all);
         return all;
       } else return null;
     });

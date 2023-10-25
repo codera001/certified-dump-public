@@ -43,7 +43,6 @@ const ChangePassword = (props) => {
           },
         }
       );
-      // console.log(response);
       toast.success(
         response.data.msg ||
           "Password update is successful. Please login again!"
@@ -55,7 +54,6 @@ const ChangePassword = (props) => {
           ? error.response.data.msg
           : "Can't update password now, please try again later."
       );
-      // console.log(error);
     } finally {
       setLoading(false);
     }

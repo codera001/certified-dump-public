@@ -18,7 +18,6 @@ const Google = () => {
           firstname: data.given_name,
         }
       );
-      // console.log(response);
       toast.success(response.data.msg);
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.setItem("userId", response.data.user.id);
@@ -38,19 +37,15 @@ const Google = () => {
       } else navigate("/dashboard");
     } catch (error) {
       navigate("/login");
-      // console.log(error);
     }
   };
   return (
     <GoogleLogin
       onSuccess={(credentialResponse) => {
         const googleData = jwt_decode(credentialResponse.credential);
-        // console.log(googleData)
         postData(googleData);
-        // toast.success("You are logged in successfully");
       }}
       onError={() => {
-        // console.log("Login Failed");
         toast.error("Login Failed");
       }}
     />

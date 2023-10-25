@@ -22,7 +22,7 @@ const Nav = () => {
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
   }
-  
+
   const getUserBalance = async () => {
     setLoading(!loading);
     try {
@@ -34,9 +34,7 @@ const Nav = () => {
           },
         }
       );
-      // setBalance(response.data.result[0].balance);
       sessionStorage.setItem("balance", response.data.result[0].balance);
-      // console.log(response);
     } catch (error) {
     } finally {
       setLoading(false);

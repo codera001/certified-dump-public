@@ -29,12 +29,9 @@ function ForgotPass() {
         `https://api.certifieddump.com/api/forgot-password`,
         userData
       );
-      // console.log("Email verification Successful:", response);
-      // console.log(userData);
       navigate("/verify-account");
       toast.success(response.data.msg);
     } catch (error) {
-      // console.log("verification error:", error);
       toast.error("Username or email is incorrect");
     } finally {
       setLoading(false);

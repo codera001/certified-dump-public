@@ -28,11 +28,7 @@ const Library = () => {
           return b.id - a.id;
         })
       );
-      // console.log(response);
-    } catch (error) {
-      //  setError(error.response.data.msg);
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -45,7 +41,12 @@ const Library = () => {
       <div className="d-lib-books">
         {loading ? (
           <div className="d-gif-div">
-            <img loading="lazy" src={loader} alt="loading-gif" className="d-gif" />
+            <img
+              loading="lazy"
+              src={loader}
+              alt="loading-gif"
+              className="d-gif"
+            />
           </div>
         ) : boughtBooks.length === 0 ? (
           <div className="d-lib-no-books">You have no Exams yet</div>

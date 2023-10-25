@@ -30,10 +30,8 @@ const SingleBlog = () => {
       const res = await axios.post(
         `https://api.certifieddump.com/api-blog/getSingleBlogPost?post_id=${blogId}`
       );
-      // console.log(res.data);
       setBlog(res.data.post[0]);
     } catch (error) {
-      // console.log(error);
     }
   };
 
@@ -42,11 +40,9 @@ const SingleBlog = () => {
       const res = await axios.post(
         `https://api.certifieddump.com/api-blog/getSingleBlogPost?post_id=${blogId}`
       );
-      // console.log(res.data);
       setComment(res.data.comments);
       setTotalComments(res.data.total_comments);
     } catch (error) {
-      // console.log(error);
     }
   };
 

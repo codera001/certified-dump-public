@@ -16,12 +16,8 @@ function Providers() {
       const response = await axios.get(
         "https://api.certifieddump.com/api-admin/getProviders"
       );
-      // console.log(response);
-      // console.log(response.data.providers.slice(0, 5));
       setAllProviders(response.data.providers);
-    } catch (error) {
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

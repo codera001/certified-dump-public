@@ -32,7 +32,6 @@ function Main() {
         "https://api.certifieddump.com/api-admin/getExams"
       );
       setExams(response.data.exams);
-      //  console.log(response.data.exams);
     } catch (error) {}
   };
 
@@ -42,7 +41,6 @@ function Main() {
         "https://api.certifieddump.com/api-admin/getProviders"
       );
       setProviders(response.data.providers);
-      // console.log(response.data.providers);
     } catch (error) {}
   };
 

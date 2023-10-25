@@ -8,7 +8,6 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import loader from "../../static/loader.gif";
 
-
 const Support = () => {
   const [tickets, setTickets] = useState(null);
   const userId = sessionStorage.getItem("userId");
@@ -37,11 +36,8 @@ const Support = () => {
           },
         }
       );
-      // console.log(response);
       setTickets(response.data.result);
-    } catch (error) {
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 
   const CreateTicket = async ({ subject, message }) => {
@@ -59,14 +55,10 @@ const Support = () => {
           },
         }
       );
-      // console.log(response);
       toast.success(response.data.msg);
       setModal(!modal);
       GetTickets();
-    } catch (error) {
-      // toast.error(error.response.data.msg);
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -83,7 +75,12 @@ const Support = () => {
         </div>
         {loading ? (
           <div className="d-gif-div">
-            <img loading="lazy" src={loader} alt="loading-gif" className="d-gif" />
+            <img
+              loading="lazy"
+              src={loader}
+              alt="loading-gif"
+              className="d-gif"
+            />
           </div>
         ) : (
           <>

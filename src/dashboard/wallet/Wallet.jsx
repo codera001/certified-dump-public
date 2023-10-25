@@ -36,10 +36,8 @@ const Wallet = () => {
           },
         }
       );
-      // console.log(response)
       setSpent(response.data.result[0].total_amount);
     } catch (error) {
-      // console.log(error);
     } finally {
       setLoading(false);
     }
@@ -61,10 +59,8 @@ const Wallet = () => {
           return new Date(b.date) - new Date(a.date);
         })
       );
-      // console.log(response.data.result);
     } catch (error) {
       setError(error.response.data.msg);
-      // console.log(error.response);
     } finally {
       setLoading(false);
     }
@@ -144,7 +140,12 @@ const Wallet = () => {
               title="Search Transactions"
               setSearchTerm={setSearchTerm}
             />
-            <Table title={titles} data={transactions} searchTerm={searchTerm} formatBal={formatBal} />
+            <Table
+              title={titles}
+              data={transactions}
+              searchTerm={searchTerm}
+              formatBal={formatBal}
+            />
             {searchTerm !== "" &&
               transactions.filter((all) => {
                 return (

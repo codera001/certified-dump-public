@@ -3,7 +3,7 @@ import ModalLayout from "../../../component/ModalLayout";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import loader from "../../../static/loader.gif"
+import loader from "../../../static/loader.gif";
 
 const Delete = (props) => {
   const { HideChangePass } = props;
@@ -23,13 +23,10 @@ const Delete = (props) => {
         }
       );
       setLoading(!loading);
-      // console.log(response);
       sessionStorage.clear();
       toast.success(response.data.msg || "Your account no longer exist");
       navigate("/signup");
-    } catch (error) {
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 
   return (
@@ -38,7 +35,6 @@ const Delete = (props) => {
         <div className="d-gif-div">
           <h3 style={{ color: "red" }}>Deleting...</h3>
           <img
-            // loading="lazy"
             src={loader}
             alt="loading-gif"
             className="d-gif"

@@ -8,7 +8,6 @@ const LatestBlogs = () => {
       const res = await axios.post(
         "https://api.certifieddump.com/api-blog/getAllBlogPosts"
       );
-      // console.log(res.data.post);
       setLatests(
         res.data.post
           .sort(function (a, b) {
@@ -16,9 +15,7 @@ const LatestBlogs = () => {
           })
           .slice(0, 4)
       );
-    } catch (error) {
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

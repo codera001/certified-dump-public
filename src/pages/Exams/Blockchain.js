@@ -21,7 +21,6 @@ function Blockchain() {
         "https://api.certifieddump.com/api-admin/getBooks"
       );
       setBooks(response.data.books);
-      // console.log(response.data.books);
     } catch (error) {}
   };
 

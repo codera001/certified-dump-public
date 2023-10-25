@@ -23,13 +23,9 @@ const Contact = () => {
           description: description,
         }
       );
-      // console.log(response);
       reset();
       toast.success("Message Sent" || response.data.msg);
-    } catch (error) {
-      // toast.error(error.response.data.msg);
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 
   return (

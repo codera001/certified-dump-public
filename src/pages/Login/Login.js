@@ -41,9 +41,6 @@ function Login() {
         "https://api.certifieddump.com/api/login",
         formData
       );
-      // console.log(response.data);
-      // console.log(response.data.user.currency);
-      // sessionStorage.setItem("currency", "NGN");
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.setItem("userId", response.data.user.id);
       sessionStorage.setItem("currency", response.data.user.currency);
@@ -63,7 +60,6 @@ function Login() {
       } else navigate("/dashboard");
     } catch (error) {
       toast.error(error.response.data.msg);
-      // console.log(error);
       if (error.response.data.msg == "Unverified Email ") {
         navigate("/verify-email");
       }

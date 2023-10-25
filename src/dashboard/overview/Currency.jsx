@@ -27,7 +27,6 @@ const CurrencyUpdate = () => {
           },
         }
       );
-      // console.log(response.data[0]);
       sessionStorage.setItem("currency", response.data[0].currency);
     } catch (error) {}
   };

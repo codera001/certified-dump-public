@@ -24,11 +24,8 @@ const Chat = () => {
           },
         }
       );
-      // console.log(response.data.result);
       setMessages(response.data.result);
-    } catch (error) {
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 
   const SendMessage = async () => {
@@ -49,7 +46,6 @@ const Chat = () => {
       );
       GetTicketMessages();
       setTextMessage("");
-      // console.log(response);
     } catch (error) {}
   };
 
@@ -64,9 +60,7 @@ const Chat = () => {
         {/* <!-- Right --> */}
         <div className="d-chatbox-inner">
           {/* <!-- Header --> */}
-          <h3>
-            Subject for {ticketSubject}
-          </h3>
+          <h3>Subject for {ticketSubject}</h3>
           {/* <!-- Messages --> */}
           <div className="d-messages">
             {messages.map((message, i) => (

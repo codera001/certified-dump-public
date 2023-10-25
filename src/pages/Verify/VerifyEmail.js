@@ -24,7 +24,6 @@ function VerifyEmail() {
       const response = await axios.post(
         `https://api.certifieddump.com/api/verify-email/${pin}`
       );
-      // console.log("Email verification Successful:", response.data.msg);
       toast.success(response.data.msg);
       navigate("/success");
       localStorage.removeItem("unverifiedMail");
@@ -45,7 +44,6 @@ function VerifyEmail() {
           email: localStorage.getItem("unverifiedMail"),
         }
       );
-      // console.log("Verification Code sent:", response.data);
       toast.success("Verification code has been sent to your mail");
     } catch (error) {
       toast.error(error.response.data.msg);
